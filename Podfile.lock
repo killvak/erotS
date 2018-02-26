@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (4.6.0)
+  - AlamofireImage (3.3.0):
+    - Alamofire (~> 4.5)
+  - FSPagerView (0.7.1)
+  - IQKeyboardManagerSwift (5.0.7)
+  - NVActivityIndicatorView (4.1.1):
+    - NVActivityIndicatorView/Presenter (= 4.1.1)
+  - NVActivityIndicatorView/Presenter (4.1.1)
+  - SwiftyJSON (4.0.0)
+  - SwiftyStarRatingView (1.0.4)
+  - UITextView+Placeholder (1.2.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - AlamofireImage (~> 3.3)
+  - FSPagerView
+  - IQKeyboardManagerSwift
+  - NVActivityIndicatorView
+  - SwiftyJSON
+  - SwiftyStarRatingView
+  - UITextView+Placeholder (~> 1.2)
+
+SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  FSPagerView: 958aba39684e1573755ddcfcc29f7eebb8413cee
+  IQKeyboardManagerSwift: 30fb3a61de1af53a95e02b80fb54ed0a19d5ede5
+  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  SwiftyStarRatingView: a2b0057700e0adeb8e7442c55d99cb53b531d2f4
+  UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
+
+PODFILE CHECKSUM: a7b59909fa8ac84a89c8172bdb9d142563eeb567
+
+COCOAPODS: 1.3.1
