@@ -7,7 +7,13 @@
 //
 
 import UIKit
-
+extension UIViewController {
+    
+    @objc func backNavBtnHandler() {
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+}
 extension UIView {
 
     func addCorneredBorder(color:UIColor,radius:CGFloat)

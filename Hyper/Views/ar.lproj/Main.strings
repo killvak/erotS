@@ -1,0 +1,78 @@
+
+/* Class = "UILabel"; text = "10% off"; ObjectID = "12q-5B-b0j"; */
+"12q-5B-b0j.text" = "10% off";
+
+/* Class = "UIButton"; normalTitle = "Add to cart"; ObjectID = "6v1-fN-WDL"; */
+"6v1-fN-WDL.normalTitle" = "Add to cart";
+
+/* Class = "UITabBarItem"; title = "Cart"; ObjectID = "8t3-HI-433"; */
+"8t3-HI-433.title" = "Cart";
+
+/* Class = "UILabel"; text = "Similar Items"; ObjectID = "ALn-Ls-Jnz"; */
+"ALn-Ls-Jnz.text" = "Similar Items";
+
+/* Class = "UIButton"; normalTitle = "more"; ObjectID = "CNt-sU-yCP"; */
+"CNt-sU-yCP.normalTitle" = "more";
+
+/* Class = "UILabel"; text = "New Arrival"; ObjectID = "DOW-H8-0aC"; */
+"DOW-H8-0aC.text" = "New Arrival";
+
+/* Class = "UILabel"; text = "10.000 EGP"; ObjectID = "DWY-w2-6fQ"; */
+"DWY-w2-6fQ.text" = "10.000 EGP";
+
+/* Class = "UILabel"; text = "Toshiba« is the tToshiba« is the best Toshiba« is the best4"; ObjectID = "F0v-4B-Gx4"; */
+"F0v-4B-Gx4.text" = "Toshiba« is the tToshiba« is the best Toshiba« is the best4";
+
+/* Class = "UIButton"; normalTitle = "Description"; ObjectID = "FVW-8t-Lda"; */
+"FVW-8t-Lda.normalTitle" = "Description";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "Hig-AK-enc"; */
+"Hig-AK-enc.title" = "Profile";
+
+/* Class = "UILabel"; text = "Category List"; ObjectID = "K29-Dj-eCZ"; */
+"K29-Dj-eCZ.text" = "Category List";
+
+/* Class = "UIButton"; normalTitle = "More"; ObjectID = "Pcp-dW-QQa"; */
+"Pcp-dW-QQa.normalTitle" = "More";
+
+/* Class = "UILabel"; text = "Hyper Techno"; ObjectID = "Slh-Ab-9Nc"; */
+"Slh-Ab-9Nc.text" = "Hyper Techno";
+
+/* Class = "UIButton"; normalTitle = "Add to cart"; ObjectID = "TY2-ld-pJs"; */
+"TY2-ld-pJs.normalTitle" = "Add to cart";
+
+/* Class = "UIButton"; normalTitle = "Specification"; ObjectID = "TYZ-c6-9Ub"; */
+"TYZ-c6-9Ub.normalTitle" = "Specification";
+
+/* Class = "UILabel"; text = "10,000 EGP"; ObjectID = "d3V-Pm-J3A"; */
+"d3V-Pm-J3A.text" = "10,000 EGP";
+
+/* Class = "UITabBarItem"; title = "Favorite"; ObjectID = "f5f-my-YqX"; */
+"f5f-my-YqX.title" = "Favorite";
+
+/* Class = "UILabel"; text = "Hot Product"; ObjectID = "iYo-Dw-Mms"; */
+"iYo-Dw-Mms.text" = "Hot Product";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "lbZ-he-yqn"; */
+"lbZ-he-yqn.title" = "Home";
+
+/* Class = "UILabel"; text = "Colors"; ObjectID = "pyi-je-yxE"; */
+"pyi-je-yxE.text" = "Colors";
+
+/* Class = "UILabel"; text = "Brands"; ObjectID = "sV9-3C-CT6"; */
+"sV9-3C-CT6.text" = "Brands";
+
+/* Class = "UIButton"; normalTitle = "More"; ObjectID = "t1Z-E7-WH8"; */
+"t1Z-E7-WH8.normalTitle" = "More";
+
+/* Class = "UITabBarItem"; title = "Search"; ObjectID = "tww-4m-RjV"; */
+"tww-4m-RjV.title" = "Search";
+
+/* Class = "UIButton"; normalTitle = "Reviews"; ObjectID = "us2-vV-9gK"; */
+"us2-vV-9gK.normalTitle" = "Reviews";
+
+/* Class = "UILabel"; text = "items"; ObjectID = "wYt-lq-LcV"; */
+"wYt-lq-LcV.text" = "items";
+
+/* Class = "UILabel"; text = "Category List"; ObjectID = "weg-ve-7W1"; */
+"weg-ve-7W1.text" = "Category List";
