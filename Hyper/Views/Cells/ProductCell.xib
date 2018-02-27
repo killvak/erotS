@@ -165,6 +165,9 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="170" height="247"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="favBtn" destination="gKm-Wd-jKG" id="HqY-x8-SyY"/>
                 <outlet property="moreBtn" destination="D4H-DU-QCH" id="ivR-nD-Jup"/>
@@ -178,7 +181,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ic_fav_active_items" width="61" height="56"/>
+        <image name="ic_fav_active_items" width="69" height="64"/>
         <image name="ic_more" width="65" height="18"/>
         <image name="pic_items" width="325" height="435"/>
     </resources>

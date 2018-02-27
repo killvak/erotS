@@ -38,11 +38,11 @@ class HomePage: UIViewController {
  
     @objc func changeLang() {
         
-   
-        let vc = ProductsListVC()
-        
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+   self.performSegue(withIdentifier: "go", sender: self)
+//        let vc = ProductsListVC()
+//
+//
+//        self.navigationController?.pushViewController(vc, animated: true)
         
         
     }
@@ -97,16 +97,18 @@ extension HomePage : UICollectionViewDelegateFlowLayout ,UICollectionViewDelegat
             return CGSize(width: width, height: height)
         }
  
-        let randomNumCGFloat = CGFloat.random(min: 0.25, max: 0.42)
+        let randomNumCGFloat = CGFloat.random(min: 0.29, max: 0.42)
         var width : CGFloat!
 
-          width =   collectionView.frame.width * randomNumCGFloat //indexPath.row   % 3 == 0 ? collectionView.frame.width * 0.42 : collectionView.frame.width *  0.35
-        if indexPath.row % 2 == 0 && indexPath.row % 4 == 0 {
+            width =   collectionView.frame.width * randomNumCGFloat //indexPath.row   % 3 == 0 ? collectionView.frame.width * 0.42 : collectionView.frame.width *  0.35
+        if indexPath.row  == 0  {
             width = collectionView.frame.width * 0.42
-        }else      if indexPath.row % 3 == 0 && indexPath.row % 1 == 0 {
-width = collectionView.frame.width * 0.35
-            
+        }else      if indexPath.row  == 1 {
+            width = collectionView.frame.width * 0.35
+        }else      if indexPath.row  == 2 {
+            width = collectionView.frame.width * 0.30
         }
+        
         let height = width
         return CGSize(width: width, height: height!)
     }
