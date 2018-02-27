@@ -41,6 +41,10 @@
 		84678B5820444F570051AE03 /* GE_SS_Two_Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84678B5120444F570051AE03 /* GE_SS_Two_Medium.otf */; };
 		84678B5D20445C650051AE03 /* ProductsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84678B5B20445C650051AE03 /* ProductsListVC.swift */; };
 		84678B5E20445C650051AE03 /* ProductsListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84678B5C20445C650051AE03 /* ProductsListVC.xib */; };
+		F3C8F2AF2044D93E00AC0CE5 /* RandomFloatNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8F2AE2044D93E00AC0CE5 /* RandomFloatNumber.swift */; };
+		F3D14E652044C021008162B1 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D14E642044C020008162B1 /* MaterialView.swift */; };
+		F3D14E672044CD52008162B1 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D14E662044CD52008162B1 /* CategoryCell.swift */; };
+		F3D14E692044CD7C008162B1 /* BrandsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D14E682044CD7C008162B1 /* BrandsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +86,10 @@
 		84678B5B20445C650051AE03 /* ProductsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListVC.swift; sourceTree = "<group>"; };
 		84678B5C20445C650051AE03 /* ProductsListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsListVC.xib; sourceTree = "<group>"; };
 		88E7E6E014D8C7E11D800CC1 /* Pods_Hyper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hyper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3C8F2AE2044D93E00AC0CE5 /* RandomFloatNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFloatNumber.swift; sourceTree = "<group>"; };
+		F3D14E642044C020008162B1 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		F3D14E662044CD52008162B1 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		F3D14E682044CD7C008162B1 /* BrandsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,12 +127,15 @@
 			isa = PBXGroup;
 			children = (
 				842E09062043FD7E0047505B /* appDelegate */,
+				F3C8F2AE2044D93E00AC0CE5 /* RandomFloatNumber.swift */,
 				842E08F62043FC590047505B /* HomePage.swift */,
 				842E092F204400170047505B /* ProductCell.swift */,
 				842E0930204400170047505B /* ProductCell.xib */,
 				84678B5B20445C650051AE03 /* ProductsListVC.swift */,
 				84678B5C20445C650051AE03 /* ProductsListVC.xib */,
 				842E08F82043FC590047505B /* Main.storyboard */,
+				F3D14E662044CD52008162B1 /* CategoryCell.swift */,
+				F3D14E682044CD7C008162B1 /* BrandsCell.swift */,
 				842E09192043FE4E0047505B /* Loclization */,
 				842E091A2043FF280047505B /* DesignableX */,
 				842E08FB2043FC590047505B /* Assets.xcassets */,
@@ -157,6 +168,7 @@
 		842E091A2043FF280047505B /* DesignableX */ = {
 			isa = PBXGroup;
 			children = (
+				F3D14E642044C020008162B1 /* MaterialView.swift */,
 				842E091B2043FF280047505B /* UIViewXRadialGradient.swift */,
 				842E091C2043FF280047505B /* UITextFieldX.swift */,
 				842E091D2043FF280047505B /* UIButtonX.swift */,
@@ -380,10 +392,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3D14E672044CD52008162B1 /* CategoryCell.swift in Sources */,
 				84678B4820444F190051AE03 /* UIView+Extensions.swift in Sources */,
 				842E09292043FF280047505B /* UIViewAnchorPoint.swift in Sources */,
 				842E09282043FF280047505B /* UILabelX.swift in Sources */,
 				842E08F72043FC590047505B /* HomePage.swift in Sources */,
+				F3D14E692044CD7C008162B1 /* BrandsCell.swift in Sources */,
 				842E08F52043FC590047505B /* AppDelegate.swift in Sources */,
 				84678B5D20445C650051AE03 /* ProductsListVC.swift in Sources */,
 				842E09252043FF280047505B /* UIViewXRadialGradient.swift in Sources */,
@@ -395,9 +409,11 @@
 				842E092C2043FF280047505B /* UIViewX.swift in Sources */,
 				842E09152043FE440047505B /* L012Localizer.swift in Sources */,
 				842E09272043FF280047505B /* UIButtonX.swift in Sources */,
+				F3D14E652044C021008162B1 /* MaterialView.swift in Sources */,
 				842E09162043FE440047505B /* MirroringViewController.swift in Sources */,
 				842E092E2043FF280047505B /* UISliderX.swift in Sources */,
 				842E092B2043FF280047505B /* UIImageViewX.swift in Sources */,
+				F3C8F2AF2044D93E00AC0CE5 /* RandomFloatNumber.swift in Sources */,
 				842E0931204400170047505B /* ProductCell.swift in Sources */,
 				842E09082043FD970047505B /* ReloadApp.swift in Sources */,
 				842E09182043FE440047505B /* L102Language.swift in Sources */,
@@ -474,7 +490,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -525,7 +541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -541,6 +557,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YKSLKY2D83;
 				INFOPLIST_FILE = Hyper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hyper.Hyper.killva;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -557,6 +574,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YKSLKY2D83;
 				INFOPLIST_FILE = Hyper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hyper.Hyper.killva;
 				PRODUCT_NAME = "$(TARGET_NAME)";
