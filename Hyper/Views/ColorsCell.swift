@@ -11,4 +11,11 @@ import UIKit
 class ColorsCell: UICollectionViewCell {
     
     @IBOutlet weak var colorView: UIViewX!
+    @IBOutlet weak var selectedView: UIVisualEffectView!
+    
+    func isSelectedView(_ isIT : Bool ) {
+        
+        selectedView.alpha = isIT ? 1 : 0 
+        
+    }
 }

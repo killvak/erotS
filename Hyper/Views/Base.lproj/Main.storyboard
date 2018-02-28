@@ -521,7 +521,36 @@
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKU-M0-6So" customClass="UIViewX" customModule="Hyper" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                                                <subviews>
+                                                                    <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IcO-B4-4cx">
+                                                                        <rect key="frame" x="0.0" y="-0.5" width="40" height="40"/>
+                                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="diw-vm-pIb">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                            <subviews>
+                                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="ic_mark" translatesAutoresizingMaskIntoConstraints="NO" id="KLl-5Y-PpU">
+                                                                                    <rect key="frame" x="10" y="12.5" width="20" height="15"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" secondItem="KLl-5Y-PpU" secondAttribute="height" multiplier="37:28" id="Tfp-kN-GHI"/>
+                                                                                        <constraint firstAttribute="height" constant="15" id="ZrC-BC-gLH"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstItem="KLl-5Y-PpU" firstAttribute="centerX" secondItem="diw-vm-pIb" secondAttribute="centerX" id="XYE-pD-zWv"/>
+                                                                                <constraint firstItem="KLl-5Y-PpU" firstAttribute="centerY" secondItem="diw-vm-pIb" secondAttribute="centerY" id="tl6-4q-alq"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                        <blurEffect style="dark"/>
+                                                                    </visualEffectView>
+                                                                </subviews>
                                                                 <color key="backgroundColor" red="0.84313725490000002" green="0.031372549020000001" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="IcO-B4-4cx" firstAttribute="height" secondItem="vKU-M0-6So" secondAttribute="height" id="2zY-nA-lNP"/>
+                                                                    <constraint firstItem="IcO-B4-4cx" firstAttribute="centerX" secondItem="vKU-M0-6So" secondAttribute="centerX" id="Zrt-Js-bY8"/>
+                                                                    <constraint firstItem="IcO-B4-4cx" firstAttribute="centerY" secondItem="vKU-M0-6So" secondAttribute="centerY" id="s6b-W6-7Y1"/>
+                                                                    <constraint firstItem="IcO-B4-4cx" firstAttribute="width" secondItem="vKU-M0-6So" secondAttribute="width" id="vrn-u2-5jI"/>
+                                                                </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="20"/>
@@ -538,6 +567,7 @@
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="colorView" destination="vKU-M0-6So" id="Hoq-FT-zBU"/>
+                                                        <outlet property="selectedView" destination="IcO-B4-4cx" id="EWO-Hm-k0S"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -958,6 +988,7 @@
         <image name="ic_fav_active_items" width="69" height="64"/>
         <image name="ic_fav_unactive_" width="22" height="20"/>
         <image name="ic_home_active_" width="21" height="20"/>
+        <image name="ic_mark" width="37" height="28"/>
         <image name="ic_profile_unactive_" width="20" height="19"/>
         <image name="ic_rate_active" width="41" height="40"/>
         <image name="ic_rate_half_active" width="41" height="40"/>

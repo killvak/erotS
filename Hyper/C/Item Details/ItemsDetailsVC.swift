@@ -51,7 +51,7 @@ class ItemsDetailsVC: UIViewController {
         underLineBtnSelection?.isActive = true
         
         // Do any additional setup after loading the view.
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self , action: #selector(changeLang)))
+//        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self , action: #selector(changeLang)))
         cellType = CellTypeEnum.Specefications
         //        tableView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellWithReuseIdentifier: "ReviewCell")
         tableView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
@@ -157,6 +157,32 @@ extension ItemsDetailsVC : UICollectionViewDataSource , UICollectionViewDelegate
     }
     
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard collectionView == colorsCollectionView else {
+            
+            return
+        }
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? ColorsCell {
+            cell.isSelectedView(true)
+        } else {
+            // Error indexPath is not on screen: this should never happen.
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard collectionView == colorsCollectionView else {
+            
+            return
+        }
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? ColorsCell {
+            cell.isSelectedView(false)
+        } else {
+            // Error indexPath is not on screen: this should never happen.
+        }
+    }
 }
 
 extension ItemsDetailsVC : UITableViewDelegate , UITableViewDataSource {
