@@ -13,6 +13,7 @@ class HomePage: UIViewController {
     //MARK: Vars
     var brandCellID = "brandCellID"
     var categoryCellID = "categoryCellID"
+    let reqest = Get_Requests()
     //MARK: OutLets
     @IBOutlet weak var brandsCollectionView: UICollectionView!
     
@@ -27,6 +28,27 @@ class HomePage: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self , action: #selector(changeLang)))
+            
+//        reqest.item_Details(item_ID: 1, completion: { (jData) in
+//
+//
+//        }) { (err ) in
+//
+//
+//        }
+//        reqest.homeDetails_Request(completion: { (jData) in
+//
+//
+//        }) { (err ) in
+//
+//
+//        }
+        reqest.brand_By_ID_Request(brandID: 1, page: 1, completion: { (jData ) in
+            
+            
+        }) { (err ) in
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
