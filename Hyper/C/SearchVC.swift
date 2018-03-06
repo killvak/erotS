@@ -16,7 +16,7 @@ class SearchVC: UIViewController {
     let data = ["TV & Home Theater","Radio","Air Cond","Fan","Washing Machine"]
     override func viewDidLoad() {
         super.viewDidLoad()
-//        searchTxt.delegate = self 
+//        searchTxt.delegate = self
         // Do any additional setup after loading the view.
         self.view.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(swipeIt)))
     }

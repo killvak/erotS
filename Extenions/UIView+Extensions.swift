@@ -14,8 +14,17 @@ extension UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
-}
+    // Put this piece of code anywhere you like
+         func hideKeyboardWhenTappedAround() {
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+            tap.cancelsTouchesInView = false
+            view.addGestureRecognizer(tap)
+        }
+        
+    @objc func dismissKeyboard() {
+            view.endEditing(true)
+        }
+ }
 extension UIView {
 
     func addCorneredBorder(color:UIColor,radius:CGFloat)
