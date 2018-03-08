@@ -16,9 +16,9 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterMainCell" customModule="Hyper" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FilterPriceTableCell" rowHeight="162" id="KGk-i7-Jjw" customClass="FilterPriceTableCell" customModule="Hyper" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FilterMainCell" rowHeight="162" id="KGk-i7-Jjw" customClass="FilterMainCell" customModule="Hyper" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -29,7 +29,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfd-6v-ADN">
-                                <rect key="frame" x="8" y="13.5" width="99" height="20"/>
+                                <rect key="frame" x="8" y="14" width="98" height="19.5"/>
                                 <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="18"/>
                                 <color key="textColor" red="0.36074161529999998" green="0.36080884930000001" blue="0.3607373834" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -53,49 +53,9 @@
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRO-Xl-dsO">
                         <rect key="frame" x="0.0" y="46" width="320" height="0.0"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9Q-9a-4n4" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
-                                <rect key="frame" x="20" y="-65" width="280" height="65"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" red="0.79599106311798096" green="0.79612869024276733" blue="0.79598242044448853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="7ok-ht-Rpb"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="minLabelColor">
-                                        <color key="value" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="maxLabelColor">
-                                        <color key="value" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorBetweenHandles">
-                                        <color key="value" red="0.3294117647" green="0.74117647060000003" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="handleColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableStep" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="minValue">
-                                        <real key="value" value="50"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="handleDiameter">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedHandleDiameterMultiplier">
-                                        <real key="value" value="1.3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" id="66e-XM-eBE"/>
-                            <constraint firstAttribute="trailing" secondItem="a9Q-9a-4n4" secondAttribute="trailing" constant="20" id="YdU-RX-j5O"/>
-                            <constraint firstItem="a9Q-9a-4n4" firstAttribute="leading" secondItem="iRO-Xl-dsO" secondAttribute="leading" constant="20" id="hXU-3A-q9m"/>
-                            <constraint firstAttribute="bottom" secondItem="a9Q-9a-4n4" secondAttribute="bottom" id="qNJ-ad-ZIO"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -114,8 +74,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dropDownimg" destination="N0K-vz-l02" id="62u-Bv-rVa"/>
+                <outlet property="expandableViewContainer" destination="iRO-Xl-dsO" id="OWX-C2-5WZ"/>
                 <outlet property="filterTitle" destination="dfd-6v-ADN" id="WIY-PR-G7j"/>
-                <outlet property="sliderV" destination="a9Q-9a-4n4" id="iCX-j4-M6G"/>
                 <outlet property="tableViewHeightCons" destination="66e-XM-eBE" id="nPJ-Lz-ZPc"/>
             </connections>
             <point key="canvasLocation" x="25" y="111"/>

@@ -41,8 +41,7 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 46
-        tableView.register(UINib(nibName: "FilterImpedeTableCell", bundle: nil), forCellReuseIdentifier: "FilterImpedeTableCell")
-         tableView.register(UINib(nibName: "FilterPriceTableCell", bundle: nil), forCellReuseIdentifier: "FilterPriceTableCell")
+        tableView.register(UINib(nibName: "FilterMainCell", bundle: nil), forCellReuseIdentifier: "FilterMainCell")
 
     }
     @IBAction func dismissHandler(_ sender: UIButton) {
@@ -57,15 +56,11 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard indexPath.row % 2 == 0 else {
-
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FilterPriceTableCell", for: indexPath) as! FilterPriceTableCell
-            
+ 
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FilterMainCell", for: indexPath) as! FilterMainCell
+            cell.setupContainerView(viewType: indexPath.row)
             return cell
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FilterImpedeTableCell", for: indexPath) as! FilterImpedeTableCell
         
-        return cell
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -76,9 +71,8 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
 extension FilterCustomeView {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 1
-        guard indexPath.row % 2 == 0 else {
-        
-            guard let cell = tableView.cellForRow(at: indexPath) as? FilterPriceTableCell else { return }
+ 
+            guard let cell = tableView.cellForRow(at: indexPath) as? FilterMainCell else { return }
           
             cell.selecteds()
             // 4
@@ -88,16 +82,6 @@ extension FilterCustomeView {
             // 5
             tableView.scrollToRow(at: indexPath, at: .top, animated: true)
             
-            return
-        }
-        guard let cell = tableView.cellForRow(at: indexPath) as? FilterImpedeTableCell else { return }
- 
-        cell.selecteds()
-        // 4
-        tableView.beginUpdates()
-        tableView.endUpdates()
-        
-        // 5
-        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+     
     }
 }

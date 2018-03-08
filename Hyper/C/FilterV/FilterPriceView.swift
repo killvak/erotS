@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import RangeSeekSlider
 
 class FilterPriceView: UIView {
     
- 
+    @IBOutlet weak var sliderV: RangeSeekSlider!
+
  
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,6 +32,10 @@ class FilterPriceView: UIView {
         let view = Bundle.main.loadNibNamed("FilterPriceView", owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         addSubview(view)
+        
+        self.sliderV.minDistance = sliderV.maxValue * 0.16
+        sliderV.numberFormatter.positiveSuffix =  L0S.Currency.stringValue()
+
     }
     
 }
