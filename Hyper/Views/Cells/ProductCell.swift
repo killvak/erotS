@@ -22,6 +22,25 @@ class ProductCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        price2Lbl.alpha = 0
+        price1Lbl.textColor = Constant.BloodyRed
+    }
+    
+    
+    func configCell(data:Product_Data) {
+        offerLbl.text = data.new_code
+        productImg.setupApiImage(imagePath:  data.main_image)
+        titleLbl.text = data.name
+        
+        if data.on_sale {
+            price1Lbl.strikeIt(text: data.wholesale_price)
+            price2Lbl.alpha = 1
+            price2Lbl.text = data.reduction_price
+            offerLbl.text = "\(data.reduction_percent)%"
+        }
+        
+        
     }
 
 }
+

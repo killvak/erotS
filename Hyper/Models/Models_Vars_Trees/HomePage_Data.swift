@@ -40,7 +40,7 @@ class Brands_Data {
         return  L102Language.currentAppleLanguage() != "ar" ?   _name :  _name_ar
     }
     var image : String {
-        return   _image
+        return  Constant.images_Url +   _image
     }
     var  id : Int {return _id}
     
@@ -85,7 +85,7 @@ class Categories_Data {
         return  L102Language.currentAppleLanguage() != "ar" ?   _name :  _name_ar
     }
     var image : String {
-        return   _image
+        return  Constant.images_Url +   _image
     }
     var  id : Int {return _id}
     var  id_Parent : Int {return _id_parent}

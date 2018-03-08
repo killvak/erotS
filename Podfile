@@ -16,6 +16,8 @@ target 'Hyper' do
     pod 'AlamofireImage', '~> 3.3'
 pod 'UITextView+Placeholder', '~> 1.2'
 
+pod "CDAlertView"
+pod 'RangeSeekSlider'
 
 
 

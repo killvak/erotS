@@ -13,7 +13,8 @@ import UIKit
 class ProductsListVC: UIViewController {
 
     //MARK: Vars
-    let cellID = "ProductCell"
+   private let cellID = "ProductCell"
+    var data : [Product_Data] = []
     //MARK: OutLets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTxt: UITextField!
@@ -61,18 +62,25 @@ class ProductsListVC: UIViewController {
 extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ProductCell
+        cell.configCell(data: data[indexPath.row])
         cell.backgroundColor = .clear 
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(indexPath.row)")
+        
+        let data = self.data[indexPath.row]
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "ItemsDetailsVC") as! ItemsDetailsVC
+        vc.data = data
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
@@ -83,7 +91,7 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
     }
 
     
-    
+  
     
     
 }

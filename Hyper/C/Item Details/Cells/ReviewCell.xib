@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" rowHeight="115" id="KGk-i7-Jjw" customClass="ReviewCell" customModule="Hyper" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" id="KGk-i7-Jjw" customClass="ReviewCell" customModule="Hyper" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="286" height="115"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -28,19 +27,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qPJ-L9-Ixr">
-                        <rect key="frame" x="79.333333333333329" y="30" width="196.66666666666669" height="45"/>
+                        <rect key="frame" x="79.333333333333329" y="30" width="196.66666666666669" height="18"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toshiba« is the tToshiba« is the best Toshiba« is the best4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="7OK-gS-mU3">
-                                <rect key="frame" x="0.0" y="0.0" width="154.33333333333334" height="45"/>
+                                <rect key="frame" x="0.0" y="0.0" width="140.33333333333334" height="18"/>
                                 <fontDescription key="fontDescription" name=".SFUIText" family=".SF UI Text" pointSize="15"/>
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAl-I1-c8x" customClass="SwiftyStarRatingView" customModule="SwiftyStarRatingView">
-                                <rect key="frame" x="174.33333333333331" y="0.0" width="22.333333333333343" height="45"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="160.33333333333331" y="0.0" width="36.333333333333343" height="18"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="Xzk-l7-9HH"/>
+                                    <constraint firstAttribute="width" constant="85" id="Xzk-l7-9HH"/>
                                     <constraint firstAttribute="width" secondItem="BAl-I1-c8x" secondAttribute="height" multiplier="20:3" id="x4e-sh-oQa"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -67,10 +66,11 @@
                         <rect key="frame" x="13" y="28.666666666666668" width="57" height="57.333333333333329"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="zSW-2M-mPu" secondAttribute="height" multiplier="1:1" id="2u8-L5-a8z"/>
+                            <constraint firstAttribute="width" constant="57" id="Bna-Zx-cPk"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toshiba« is the tToshiba« is the best Toshiba« is the best4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euq-zc-a1c">
-                        <rect key="frame" x="79.333333333333329" y="80.333333333333329" width="170.66666666666669" height="14.333333333333329"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hgjugfj ftuvrturvtyurgjtyrvtyrvjtrbjtjtjrbjtrbjtrbtrbjtrbtrbturrdesesxbkkdbjyfjbffdvyjvtytniu" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euq-zc-a1c">
+                        <rect key="frame" x="79" y="53.333333333333343" width="182" height="41.666666666666657"/>
                         <fontDescription key="fontDescription" name=".SFUIText" family=".SF UI Text" pointSize="12"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -85,21 +85,22 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="qPJ-L9-Ixr" firstAttribute="leading" secondItem="zSW-2M-mPu" secondAttribute="trailing" constant="9.3300000000000001" id="4xP-Hv-1qe"/>
                     <constraint firstAttribute="trailing" secondItem="HLg-43-Tqp" secondAttribute="trailing" constant="10" id="6Sf-h2-hcM"/>
-                    <constraint firstItem="HLg-43-Tqp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="euq-zc-a1c" secondAttribute="bottom" constant="5" id="A7U-Xc-ket"/>
+                    <constraint firstItem="HLg-43-Tqp" firstAttribute="top" secondItem="euq-zc-a1c" secondAttribute="bottom" constant="5" id="A7U-Xc-ket"/>
                     <constraint firstItem="euq-zc-a1c" firstAttribute="leading" secondItem="7OK-gS-mU3" secondAttribute="leading" id="JwE-Iy-D1l"/>
                     <constraint firstItem="zSW-2M-mPu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="LiF-vA-MkE"/>
                     <constraint firstItem="qPJ-L9-Ixr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="OH1-5u-gfg"/>
-                    <constraint firstItem="zSW-2M-mPu" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.5" id="OyO-fB-Npk"/>
                     <constraint firstItem="zSW-2M-mPu" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RB4-Fr-wlV"/>
                     <constraint firstItem="euq-zc-a1c" firstAttribute="top" secondItem="7OK-gS-mU3" secondAttribute="bottom" constant="5.3333333333333286" id="baY-iO-W6a"/>
                     <constraint firstAttribute="bottom" secondItem="HLg-43-Tqp" secondAttribute="bottom" constant="4" id="coz-Cf-g1M"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="euq-zc-a1c" secondAttribute="trailing" constant="20" id="nc0-AK-EiI"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="euq-zc-a1c" secondAttribute="trailing" constant="9" id="nc0-AK-EiI"/>
                     <constraint firstAttribute="trailing" secondItem="qPJ-L9-Ixr" secondAttribute="trailing" constant="10" id="tck-ni-QNM"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="profileImg" destination="zSW-2M-mPu" id="7ot-QF-24i"/>

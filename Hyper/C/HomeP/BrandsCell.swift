@@ -10,4 +10,13 @@ import UIKit
 
 class BrandsCell: UICollectionViewCell {
     
+    @IBOutlet weak var produuctImgV: UIImageView!
+    
+    func configCell(data : Brands_Data) {
+        
+        produuctImgV.setupApiImage(imagePath: data.image)
+        
+    }
+    
+    
 }

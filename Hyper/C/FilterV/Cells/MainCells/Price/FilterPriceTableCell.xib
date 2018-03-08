@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GE_SS_Two_Medium.otf">
+            <string>GESSTwoMedium-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FilterPriceTableCell" rowHeight="162" id="KGk-i7-Jjw" customClass="FilterPriceTableCell" customModule="Hyper" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="161.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHl-a9-RPm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfd-6v-ADN">
+                                <rect key="frame" x="8" y="13.5" width="99" height="20"/>
+                                <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="18"/>
+                                <color key="textColor" red="0.36074161529999998" green="0.36080884930000001" blue="0.3607373834" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="ic_arrow_dowen_" translatesAutoresizingMaskIntoConstraints="NO" id="N0K-vz-l02">
+                                <rect key="frame" x="291.5" y="18.5" width="18.5" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="dvu-GK-jTS"/>
+                                    <constraint firstAttribute="width" secondItem="N0K-vz-l02" secondAttribute="height" multiplier="13:7" id="hxs-vJ-8gd"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dfd-6v-ADN" firstAttribute="centerY" secondItem="bHl-a9-RPm" secondAttribute="centerY" id="Gow-tq-ods"/>
+                            <constraint firstAttribute="height" constant="46" id="Z8A-s8-hcL"/>
+                            <constraint firstItem="N0K-vz-l02" firstAttribute="centerY" secondItem="bHl-a9-RPm" secondAttribute="centerY" id="pnY-9R-UjR"/>
+                            <constraint firstAttribute="trailing" secondItem="N0K-vz-l02" secondAttribute="trailing" constant="10" id="t3J-UA-YeR"/>
+                            <constraint firstItem="dfd-6v-ADN" firstAttribute="leading" secondItem="bHl-a9-RPm" secondAttribute="leading" constant="8" id="y2o-1c-Dwq"/>
+                        </constraints>
+                    </view>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRO-Xl-dsO">
+                        <rect key="frame" x="0.0" y="46" width="320" height="0.0"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9Q-9a-4n4" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
+                                <rect key="frame" x="20" y="-65" width="280" height="65"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.79599106311798096" green="0.79612869024276733" blue="0.79598242044448853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="7ok-ht-Rpb"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="minLabelColor">
+                                        <color key="value" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="maxLabelColor">
+                                        <color key="value" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorBetweenHandles">
+                                        <color key="value" red="0.3294117647" green="0.74117647060000003" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="handleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableStep" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="handleDiameter">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedHandleDiameterMultiplier">
+                                        <real key="value" value="1.3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" id="66e-XM-eBE"/>
+                            <constraint firstAttribute="trailing" secondItem="a9Q-9a-4n4" secondAttribute="trailing" constant="20" id="YdU-RX-j5O"/>
+                            <constraint firstItem="a9Q-9a-4n4" firstAttribute="leading" secondItem="iRO-Xl-dsO" secondAttribute="leading" constant="20" id="hXU-3A-q9m"/>
+                            <constraint firstAttribute="bottom" secondItem="a9Q-9a-4n4" secondAttribute="bottom" id="qNJ-ad-ZIO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="bHl-a9-RPm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="M5V-0a-eHM"/>
+                    <constraint firstAttribute="trailing" secondItem="iRO-Xl-dsO" secondAttribute="trailing" id="QVn-eb-Rx7"/>
+                    <constraint firstItem="iRO-Xl-dsO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aVB-kg-c7P"/>
+                    <constraint firstAttribute="trailing" secondItem="bHl-a9-RPm" secondAttribute="trailing" id="e2Q-j2-JAG"/>
+                    <constraint firstItem="bHl-a9-RPm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="liw-yn-1vE"/>
+                    <constraint firstItem="iRO-Xl-dsO" firstAttribute="top" secondItem="bHl-a9-RPm" secondAttribute="bottom" id="tew-88-YP4"/>
+                    <constraint firstAttribute="bottom" secondItem="iRO-Xl-dsO" secondAttribute="bottom" priority="250" id="xrJ-df-CBI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dropDownimg" destination="N0K-vz-l02" id="62u-Bv-rVa"/>
+                <outlet property="filterTitle" destination="dfd-6v-ADN" id="WIY-PR-G7j"/>
+                <outlet property="sliderV" destination="a9Q-9a-4n4" id="iCX-j4-M6G"/>
+                <outlet property="tableViewHeightCons" destination="66e-XM-eBE" id="nPJ-Lz-ZPc"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="111"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_arrow_dowen_" width="13" height="7"/>
+    </resources>
+</document>

@@ -17,35 +17,20 @@ public typealias ConnectionFailed = (_ error:Error?) -> Void
 
 class Connection: NSObject {
     
-    private  let main_url = "http://hyper-testing.herokuapp.com/api/"
-
+     
  
     enum URLS_Post_Enum {
         case POST_Registeration
         
         func stringValue() -> String {
-            let url = "http://hyper-testing.herokuapp.com/api/"
-            switch self {
+             switch self {
             case .POST_Registeration:
-                return url  + "use/coupon"
+                return Constant.main_url  + "use/coupon"
             }
         }
     }
     
-    func get_itemDetails(product_ID : Int) -> String {
-        return main_url + "General/get_item_details_by_id?ProductId=\(product_ID)"
-    }
-    
-    func get_HomePage() -> String {
-        return main_url +  "General/home_page"
-    }
-    
-    func get_Brands_By_ID(brandID : Int,page:Int) -> String {
-        return main_url + "Brand/get_brand_items_by_id?BrandId=\(brandID)&Page=\(page)"
-    }
-    func get_topItems_By_Brand(brandID : Int,page:Int) -> String {
-        return main_url + "Brand/get_brand_items_by_id?BrandId=\(brandID)&Page=\(page)"
-    }
+   
 //    enum URLS_Get_Enum {
 //        case Item_Details
 //

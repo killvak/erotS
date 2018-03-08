@@ -17,7 +17,7 @@ class ItemsDetailsVC: UIViewController {
     //MARK: Vars
     
     private   var cellType : CellTypeEnum!
-    @IBOutlet weak var backBtn: UIButton!
+    var data : Product_Data!
     
     //MARK: OutLets
     @IBOutlet weak var tableView: UITableView!
@@ -38,7 +38,10 @@ class ItemsDetailsVC: UIViewController {
     @IBOutlet weak var moreReviewsBTnHeight: NSLayoutConstraint!
     @IBOutlet weak var similarItemsCollectionView: UICollectionView!
     @IBOutlet weak var underLineSelectionView: UIView!
-    
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var noColorsAvailabelLbl: UILabel!
+    @IBOutlet weak var headerView: UIView!
+
     //
     
     
@@ -51,18 +54,50 @@ class ItemsDetailsVC: UIViewController {
         underLineBtnSelection?.isActive = true
         
         // Do any additional setup after loading the view.
-//        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self , action: #selector(changeLang)))
+        //        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self , action: #selector(changeLang)))
         cellType = CellTypeEnum.Specefications
         //        tableView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellWithReuseIdentifier: "ReviewCell")
         tableView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
         backBtn.addTarget(self, action: #selector(backNavBtnHandler), for: .touchUpInside)
-
+        
         similarItemsCollectionView.register(UINib(nibName: "SimilarItemsCell", bundle: nil), forCellWithReuseIdentifier: "SimilarItemsCell")
-
+        setupView()
     }
-    
-    
-    
+ 
+    func setupView() {
+        
+        productImg.setupApiImage(imagePath: data.main_image)
+        
+        dealsLbl.text = data.new_code
+        pTitle.text = data.name
+        
+        if data.on_sale {
+            prPrice1Lbl.strikeIt(text: data.wholesale_price)
+            prPrice2Lbl.alpha = 1
+            prPrice2Lbl.text = data.reduction_price
+            dealsLbl.text = "\(data.reduction_percent)%"
+            prPrice1Lbl.textColor = Constant.FontColorGray
+        }else {
+            prPrice2Lbl.alpha = 0
+            prPrice1Lbl.textColor = Constant.BloodyRed
+        }
+        
+       
+        
+        
+        if data.colors.count == 0 {
+//            let filteredConstraints = colorsCollectionView.constraints.filter { $0.identifier == "Height" }
+//            if let heightConstraint = filteredConstraints.first {
+//                // DO YOUR LOGIC HERE
+//                heightConstraint.constant = 20
+//                 self.view.layoutIfNeeded()
+//            }
+            self.noColorsAvailabelLbl.text = L0A.No_Colors_Available.stringValue()
+            self.noColorsAvailabelLbl.alpha = 1
+            
+        }
+        
+    }
     
     
     @objc func changeLang() {
@@ -89,10 +124,10 @@ class ItemsDetailsVC: UIViewController {
         
         self.underLineBtnSelection?.isActive = false
         UIView.animate(withDuration: 0.3) {
-
-        self.underLineBtnSelection = self.underLineSelectionView.centerXAnchor.constraint(equalTo:sender.centerXAnchor, constant: 0    )
-        self.underLineBtnSelection?.isActive = true
-        
+            
+            self.underLineBtnSelection = self.underLineSelectionView.centerXAnchor.constraint(equalTo:sender.centerXAnchor, constant: 0    )
+            self.underLineBtnSelection?.isActive = true
+            
             self.view.layoutIfNeeded()
         }
         self.tableView.reloadData()
@@ -133,23 +168,23 @@ extension ItemsDetailsVC : UICollectionViewDataSource , UICollectionViewDelegate
             
             return 10
         }
-        return colors.count
+        return data.colors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard collectionView == colorsCollectionView else {
-             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SimilarItemsCell", for: indexPath) as! SimilarItemsCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SimilarItemsCell", for: indexPath) as! SimilarItemsCell
             return cell
-         }
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorsCell", for: indexPath) as! ColorsCell
-        cell.colorView.backgroundColor = colors[indexPath.row]
+        cell.configCell(data: data.colors[indexPath.row])
         return cell
-     }
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard collectionView == colorsCollectionView else {
-
+            
             return CGSize(width: collectionView.frame.height * 0.96, height:  collectionView.frame.height * 0.96)
         }
         
@@ -198,7 +233,8 @@ extension ItemsDetailsVC : UITableViewDelegate , UITableViewDataSource {
         guard cellType == CellTypeEnum.Reviews else {
             
             let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-            cell.textLabel?.text =  CellTypeEnum.Description  == cellType ? "Description" : "Specefication"
+            cell.textLabel?.text =  CellTypeEnum.Description  == cellType ? data.description : data.highlights
+            cell.backgroundColor = .clear
             cell.selectionStyle = .none
             return cell
         }
@@ -206,6 +242,19 @@ extension ItemsDetailsVC : UITableViewDelegate , UITableViewDataSource {
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+ 
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIView.animate(withDuration: 0.3, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1.05,1.05,1)
+        },completion: { finished in
+            UIView.animate(withDuration: 0.1, animations: {
+                cell.layer.transform = CATransform3DMakeScale(1,1,1)
+            })
+        })
     }
     
     

@@ -18,4 +18,14 @@ class ColorsCell: UICollectionViewCell {
         selectedView.alpha = isIT ? 1 : 0 
         
     }
+    
+    
+    func configCell(data : Colors_Data) {
+        
+        colorView.backgroundColor = UIColor(hex: "0\(data.color_ID)")
+        
+    }
+    
+    
+    
 }

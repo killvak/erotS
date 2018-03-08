@@ -10,9 +10,15 @@ import UIKit
 
 class NavigationBarView: UIView {
     
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var navTitleLbl: UILabel!
     
-    @IBOutlet weak var containerVIew: UIView!
-    override init(frame: CGRect) {
+    var titleS = "" {
+        didSet {
+            self.navTitleLbl?.text = titleS
+        }
+    }
+     override init(frame: CGRect) {
         super.init(frame: frame)
         commonUnit()
     }
@@ -23,13 +29,13 @@ class NavigationBarView: UIView {
     }
     
     
+   
+    
     private func commonUnit() {
         
-        Bundle.main.loadNibNamed("NavigationBarView", owner: self, options: nil)
-        addSubview(containerVIew)
-        containerVIew.frame = self.bounds
-        containerVIew.autoresizingMask = [.flexibleWidth , .flexibleHeight]
-        
+    let view = Bundle.main.loadNibNamed("NavigationBarView", owner: self, options: nil)?.first as! UIView
+        view.frame = self.bounds
+        addSubview(view)
     }
     
 }

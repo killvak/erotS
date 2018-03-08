@@ -12,8 +12,23 @@ import SwiftyJSON
 
 class Get_Requests : Connection {
     
+    private let main_url = Constant.main_url
     
-    func item_Details(item_ID : Int ,completion:@escaping ( ItemDetails_Data ) -> (),failure failed: @escaping (String?)->() ){
+    private func get_itemDetails(product_ID : Int) -> String {
+        return main_url + "General/get_item_details_by_id?ProductId=\(product_ID)"
+    }
+    
+   private func get_HomePage() -> String {
+        return main_url +  "General/home_page"
+    }
+    
+   private func get_Brands_By_ID(brandID : Int,page:Int) -> String {
+        return main_url + "Brand/get_brand_items_by_id?BrandId=\(brandID)&Page=\(page)"
+    }
+   private func get_topItems_By_Brand(brandID : Int,page:Int) -> String {
+        return main_url + "Brand/get_brand_items_by_id?BrandId=\(brandID)&Page=\(page)"
+    }
+   private func item_Details(item_ID : Int ,completion:@escaping ( ItemDetails_Data ) -> (),failure failed: @escaping (String?)->() ){
         
         print(self.get_itemDetails(product_ID: item_ID))
         Connection.performGet(urlString: self.get_itemDetails(product_ID: item_ID), success: { (jData) in
@@ -25,7 +40,10 @@ class Get_Requests : Connection {
             itemD.productsData =  Product_Data(productD)
 //            var relatedData : [Product_Data] = []
             for x in relatedPrs {
-                itemD.relatedProducts.append(Product_Data(x))
+                let data = Product_Data(x)
+                if data.active {
+                itemD.relatedProducts.append(data)
+                }
             }
             print("itemD.relatedProducts  \(itemD.relatedProducts.count) itemD.productsData \(itemD.productsData?.description)")
             
@@ -44,7 +62,7 @@ class Get_Requests : Connection {
     
     
     func homeDetails_Request( completion:@escaping ( HomePage_Data ) -> (),failure failed: @escaping (String?)->() ){
-        
+        print(get_HomePage())
          Connection.performGet(urlString: self.get_HomePage(), success: { (jData) in
             
             let itemD  = HomePage_Data()

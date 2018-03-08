@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 
 @available(iOS 10.0, *)
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var tabBar: UITabBarController?
+    private let activityData = ActivityData()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -51,3 +53,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
 }
 
+extension AppDelegate  {
+    
+    func isLoading() {
+        
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+    }
+    
+    func killLoading() {
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+    }
+    
+}

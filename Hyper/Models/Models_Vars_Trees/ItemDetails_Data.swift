@@ -72,13 +72,13 @@ class Product_Data {
         return _colors
     }
     var active  : Bool {
-        return  _active == 1 ?  false :   true
+        return  _active == 1
     }
     var  on_sale  : Bool {
-        return  _on_sale == 1 ?  false :   true
+        return  _on_sale == 1
     }
     var  out_of_stock  : Bool {
-        return  _out_of_stock == 1 ?  false :   true
+        return  _out_of_stock == 1
     }
     var boxContent : String {
         return  L102Language.currentAppleLanguage() != "ar" ?   _box_content:  _box_content_ar
@@ -98,7 +98,9 @@ class Product_Data {
     var main_category : String {
         return  L102Language.currentAppleLanguage() != "ar" ?   _main_category :  _main_category_ar
     }
-    var main_image : String {return _main_image}
+    var main_image : String {
+        return  Constant.images_Url +   _main_image
+         }
     var main_material : String {
         return  L102Language.currentAppleLanguage() != "ar" ?   _main_material :  _main_material_ar
     }
@@ -202,7 +204,7 @@ class Colors_Data {
     var id : Int { return _id }
     var id_product : Int { return _id_product}
     var active  : Bool {
-        return  _active == 1 ?  false :   true
+        return  _active == 1  
     }
     
     var code : String {
