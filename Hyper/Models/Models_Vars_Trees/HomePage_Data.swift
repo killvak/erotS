@@ -16,6 +16,11 @@ class HomePage_Data {
     var categoriesData : [Categories_Data] = []
     var promotionsData :[Promotions_Data] = []
 }
+class Categories_Specefications_Data {
+    
+    var productsData : [Product_Data] = []
+    var categoriesData : [Categories_Data] = []
+ }
 
 class Brands_Data {
     

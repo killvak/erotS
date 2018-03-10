@@ -16,13 +16,12 @@ class BrandsVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupNav("Brands")
     }
 
  
     
-    @IBAction func dissHandler(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
+  
     
     /*
     // MARK: - Navigation

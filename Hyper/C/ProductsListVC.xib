@@ -23,6 +23,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductsListVC" customModule="Hyper" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="1rb-MZ-7f7" id="HOe-2x-6MG"/>
+                <outlet property="filterContainerViewHeight" destination="swl-d4-0X2" id="0PZ-wx-irr"/>
                 <outlet property="searchTxt" destination="fuH-ty-jMZ" id="FTq-rV-Gib"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -107,17 +108,17 @@
                         <constraint firstAttribute="bottom" secondItem="Zrp-vL-vO8" secondAttribute="bottom" id="k95-ez-MdT"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="48k-pX-bNS">
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="48k-pX-bNS">
                     <rect key="frame" x="0.0" y="88" width="375" height="64"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27,000 itemes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ida-hH-jmL">
-                            <rect key="frame" x="8" y="11" width="88.5" height="16.5"/>
+                            <rect key="frame" x="8" y="11" width="73.5" height="15"/>
                             <fontDescription key="fontDescription" name="GESSTwoLight-Light" family="GE SS Two" pointSize="14"/>
                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Category &gt; Sub Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxT-ov-bx7">
-                            <rect key="frame" x="8" y="35.5" width="194.5" height="16.5"/>
+                            <rect key="frame" x="8" y="34" width="188.5" height="15"/>
                             <fontDescription key="fontDescription" name="GESSTwoLight-Light" family="GE SS Two" pointSize="14"/>
                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>

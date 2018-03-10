@@ -12,17 +12,27 @@ class SelectedBrandVC: UIViewController {
     
     //MARK: Vars
     let cellID = "ProductCell"
-    let data = ["TV & Home Theater","Radio","Air Cond","Fan","Washing Machine"]
+    var  mainData = Categories_Specefications_Data(){
+        didSet {
+            self.cat_Data = mainData.categoriesData
+            self.top_products = mainData.productsData
+        }
+    }
+    let request = Get_Requests()
 
+    var  cat_Data = [Categories_Data]()
+    var top_products = [Product_Data]()
     //MARK: OutLets
 
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupNav(title ?? "")
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
 
         // Do any additional setup after loading the view.
@@ -56,14 +66,14 @@ extension SelectedBrandVC : UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return cat_Data.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: .default, reuseIdentifier: "CELL")
-        cell.textLabel?.text = data[indexPath.row]
+        cell.textLabel?.text = cat_Data[indexPath.row].name
         cell.textLabel?.textColor = Constant.FontColorGray
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
@@ -73,9 +83,23 @@ extension SelectedBrandVC : UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let vc = ProductsListVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        ad.isLoading()
+        request.category_By_Id(catID: cat_Data[indexPath.row].id, page: 1, completion: { (rData) in
+            
+            DispatchQueue.main.async {
+                let vc = ProductsListVC()
+                vc.data = rData.productsData
+                vc.title = self.cat_Data[indexPath.row].name
+                self.navigationController?.pushViewController(vc, animated: true)
+                ad.killLoading()
+            }
+        }, failure: { (err ) in
+            print(err )
+            DispatchQueue.main.async {
+                self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
+                ad.killLoading()
+            }
+        })
         
     }
     
@@ -85,17 +109,23 @@ extension SelectedBrandVC : UITableViewDelegate, UITableViewDataSource {
 extension SelectedBrandVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return top_products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ProductCell
+        cell.configCell(data: top_products[indexPath.row])
+        cell.backgroundColor = .clear
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.row)")
+        
+        self.getItemDetails(id: top_products[indexPath.row].id)
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize

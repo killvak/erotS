@@ -10,14 +10,17 @@ import UIKit
 
 
 
-class ProductsListVC: UIViewController {
+class ProductsListVC: FilterViewController {
 
     //MARK: Vars
    private let cellID = "ProductCell"
     var data : [Product_Data] = []
+    var lastContentOffset: CGFloat = 0
+
     //MARK: OutLets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTxt: UITextField!
+    @IBOutlet weak var filterContainerViewHeight: NSLayoutConstraint!
     
     //
     
@@ -31,10 +34,10 @@ class ProductsListVC: UIViewController {
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
     }
     
-
+    
     @IBAction func filterhandler(_ sender: UIButton) {
         
-        
+        self.openFilterView()
     }
     
     
@@ -76,11 +79,8 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let data = self.data[indexPath.row]
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "ItemsDetailsVC") as! ItemsDetailsVC
-        vc.data = data
-        self.navigationController?.pushViewController(vc, animated: true)
         
+        self.getItemDetails(id: data.id)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
@@ -89,9 +89,37 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
         let height = width * 1.4529411765
         return CGSize(width: width, height: height)
     }
+ 
+ 
+}
 
+
+extension ProductsListVC {
     
-  
+    // this delegate is called when the scrollView (i.e your UITableView) will start scrolling
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        self.lastContentOffset = scrollView.contentOffset.y
+    }
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+ 
+        let x : IndexPath = IndexPath(row: 0, section: 0)
+        guard !collectionView.indexPathsForVisibleItems.contains(x)  else { return }
     
+    if targetContentOffset.pointee.y < scrollView.contentOffset.y {
+    // it's going up
+    UIView.animate(withDuration: 0.4, animations: {
+    self.filterContainerViewHeight.constant = 64
+    self.view.layoutIfNeeded()
+    })
+    } else {
+    // it's going down
+    UIView.animate(withDuration: 0.4, animations: {
+    self.filterContainerViewHeight.constant = 0
+    self.view.layoutIfNeeded()
+    })
+    }
+    
+    }
+    // while scrolling this delegate is being called so you may now check which direction your scrollView is being scrolled to
     
 }

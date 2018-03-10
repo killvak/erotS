@@ -9,7 +9,7 @@
 import UIKit
 
 protocol  FilterProtocol : class  {
-    func dismissView()
+    func dismissFilterView()
     func applyFilterHandler()
 }
 
@@ -45,7 +45,7 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
 
     }
     @IBAction func dismissHandler(_ sender: UIButton) {
-        self.delegate?.dismissView()
+        self.delegate?.dismissFilterView()
     }
     
     @IBAction func applyFilterHandler(_ sender: UIButton) {
@@ -73,7 +73,6 @@ extension FilterCustomeView {
         // 1
  
             guard let cell = tableView.cellForRow(at: indexPath) as? FilterMainCell else { return }
-          
             cell.selecteds()
             // 4
             tableView.beginUpdates()

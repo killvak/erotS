@@ -10,6 +10,8 @@ import UIKit
 
 class ProductCell: UICollectionViewCell {
 
+    @IBOutlet weak var offerContView: UIViewX!
+    @IBOutlet weak var newBadge: UIImageView!
     @IBOutlet weak var offerLbl: UILabel!
     @IBOutlet weak var productImg: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
@@ -24,6 +26,7 @@ class ProductCell: UICollectionViewCell {
         // Initialization code
         price2Lbl.alpha = 0
         price1Lbl.textColor = Constant.BloodyRed
+        offerContView.alpha = 0
     }
     
     
@@ -31,13 +34,16 @@ class ProductCell: UICollectionViewCell {
         offerLbl.text = data.new_code
         productImg.setupApiImage(imagePath:  data.main_image)
         titleLbl.text = data.name
-        
+            
         if data.on_sale {
             price1Lbl.strikeIt(text: data.wholesale_price)
             price2Lbl.alpha = 1
             price2Lbl.text = data.reduction_price
             offerLbl.text = "\(data.reduction_percent)%"
+            offerContView.alpha = 1
+            
         }
+    
         
         
     }

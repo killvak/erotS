@@ -25,10 +25,14 @@ class Get_Requests : Connection {
    private func get_Brands_By_ID(brandID : Int,page:Int) -> String {
         return main_url + "Brand/get_brand_items_by_id?BrandId=\(brandID)&Page=\(page)"
     }
+    private func get_Cats_By_ID(catID : Int,page:Int) -> String {
+        //http://hyper-testing.herokuapp.com/api/Category/get_top_items_by_main_category_id?Page=1&MainCategoryID=1
+         return main_url + "Category/get_top_items_by_main_category_id?Page=\(page)&MainCategoryID=\(catID)"
+    }
    private func get_topItems_By_Brand(brandID : Int,page:Int) -> String {
         return main_url + "Brand/get_brand_items_by_id?BrandId=\(brandID)&Page=\(page)"
     }
-   private func item_Details(item_ID : Int ,completion:@escaping ( ItemDetails_Data ) -> (),failure failed: @escaping (String?)->() ){
+     func item_Details(item_ID : Int ,completion:@escaping ( ItemDetails_Data ) -> (),failure failed: @escaping (String?)->() ){
         
         print(self.get_itemDetails(product_ID: item_ID))
         Connection.performGet(urlString: self.get_itemDetails(product_ID: item_ID), success: { (jData) in
@@ -105,7 +109,34 @@ class Get_Requests : Connection {
             
             failed(err?.localizedDescription)
         }
+      }
+    
+    
+    func category_By_Id(catID: Int, page: Int, completion:@escaping ( Categories_Specefications_Data ) -> (),failure failed: @escaping (String?)->() ){
         
-        
+        Connection.performGet(urlString: self.get_Cats_By_ID(catID: catID, page: page), success: { (jData) in
+            
+            let catData = Categories_Specefications_Data()
+            let relatedPrs = jData["product"].arrayValue
+            var brandsProducts : [Product_Data] = []
+            for x in relatedPrs {
+                brandsProducts.append(Product_Data(x))
+            }
+            
+            let sub_cat = jData["sub_cat"].arrayValue
+            var catsProducts : [Categories_Data] = []
+            for x in sub_cat {
+                catsProducts.append(Categories_Data(x))
+            }
+            print("brandsProducts  \(brandsProducts.count) brandsProducts \(brandsProducts.description)")
+            catData.productsData = brandsProducts
+            catData.categoriesData = catsProducts
+            completion(catData)
+            
+        }) { (err) in
+            
+            
+            failed(err?.localizedDescription)
+        }
     }
 }

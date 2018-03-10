@@ -5,7 +5,6 @@
 //  Created by admin on 2/26/18.
 //  Copyright © 2018 admin. All rights reserved.
 //
-
 import UIKit
 
 class HomePage: UIViewController {
@@ -13,7 +12,7 @@ class HomePage: UIViewController {
     //MARK: Vars
     var brandCellID = "brandCellID"
     var categoryCellID = "categoryCellID"
-    let reqest = Get_Requests()
+    let request = Get_Requests()
     
     var brands : [Brands_Data] = []
     var categories : [Categories_Data] = []
@@ -49,7 +48,7 @@ updateData()
    @objc func updateData() {
         ad.isLoading()
         print("Refersh")
-    reqest.homeDetails_Request(completion: { [weak self ] (jData) in
+    request.homeDetails_Request(completion: { [weak self ] (jData) in
         self?.brands = jData.brandsData
         self?.categories = jData.categoriesData
         
@@ -130,8 +129,23 @@ extension HomePage : UICollectionViewDelegateFlowLayout ,UICollectionViewDelegat
         
         guard collectionView == brandsCollectionView else {
             
-            
- 
+            ad.isLoading()
+            request.category_By_Id(catID: categories[indexPath.row].id, page: 1, completion: { (rData) in
+                
+                DispatchQueue.main.async {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "SelectedBrandVC") as! SelectedBrandVC
+                    vc.mainData = rData
+                    vc.title = self.categories[indexPath.row].name
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    ad.killLoading()
+                }
+            }, failure: { (err ) in
+                print(err )
+                DispatchQueue.main.async {
+                    self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
+                    ad.killLoading()
+                }
+            })
             
             return
         }
@@ -139,7 +153,7 @@ extension HomePage : UICollectionViewDelegateFlowLayout ,UICollectionViewDelegat
         
          let data = brands[indexPath.row]
         ad.isLoading()
-        reqest.brand_By_ID_Request(brandID: data.id, page: 1, completion: { [unowned self ](rData) in
+        request.brand_By_ID_Request(brandID: data.id, page: 1, completion: { [unowned self ](rData) in
             guard rData.count >= 1 else {
                 DispatchQueue.main.async {
                  self.view.showSimpleAlert(L0A.Sorry.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .warning)
@@ -220,4 +234,5 @@ extension HomePage : UICollectionViewDelegateFlowLayout ,UICollectionViewDelegat
         }
     }
 }
+
 

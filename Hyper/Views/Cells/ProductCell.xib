@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -131,16 +131,24 @@
                                     <constraint firstAttribute="height" constant="18.5" id="XDm-cK-MwU"/>
                                 </constraints>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="002-new.png" translatesAutoresizingMaskIntoConstraints="NO" id="Iws-Pn-emp">
+                                <rect key="frame" x="124.5" y="5" width="25.5" height="25.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Iws-Pn-emp" secondAttribute="height" multiplier="1:1" id="tII-B0-g3m"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Pqz-4y-0UN" firstAttribute="leading" secondItem="453-FP-9Gk" secondAttribute="leading" id="2nj-Ne-7gf"/>
                             <constraint firstItem="HGe-gM-VXY" firstAttribute="top" secondItem="453-FP-9Gk" secondAttribute="top" constant="8" id="7iz-NF-QLF"/>
+                            <constraint firstAttribute="trailing" secondItem="Iws-Pn-emp" secondAttribute="trailing" constant="8" id="8jQ-To-RfE"/>
                             <constraint firstItem="bBu-7c-k7m" firstAttribute="leading" secondItem="453-FP-9Gk" secondAttribute="leading" constant="8" id="9JV-fa-Jvn"/>
                             <constraint firstAttribute="trailing" secondItem="fez-wD-b3f" secondAttribute="trailing" constant="10" id="EUF-66-L16"/>
                             <constraint firstAttribute="trailing" secondItem="bBu-7c-k7m" secondAttribute="trailing" constant="8" id="FvK-y3-4c6"/>
                             <constraint firstItem="fKu-dx-Pg7" firstAttribute="top" secondItem="pk1-gC-0hQ" secondAttribute="bottom" constant="4.5" id="KRx-ni-FsJ"/>
                             <constraint firstItem="fKu-dx-Pg7" firstAttribute="leading" secondItem="453-FP-9Gk" secondAttribute="leading" constant="8" id="SDw-vw-BMQ"/>
+                            <constraint firstItem="fKu-dx-Pg7" firstAttribute="top" secondItem="Iws-Pn-emp" secondAttribute="bottom" constant="1" id="c0t-2Y-VsD"/>
                             <constraint firstItem="Pqz-4y-0UN" firstAttribute="top" secondItem="fez-wD-b3f" secondAttribute="bottom" constant="7" id="coj-qv-eQC"/>
                             <constraint firstItem="fez-wD-b3f" firstAttribute="leading" secondItem="453-FP-9Gk" secondAttribute="leading" constant="10" id="dFg-gb-Bdg"/>
                             <constraint firstAttribute="trailing" secondItem="fKu-dx-Pg7" secondAttribute="trailing" constant="8" id="eRJ-rb-lgi"/>
@@ -150,6 +158,7 @@
                             <constraint firstItem="HGe-gM-VXY" firstAttribute="leading" secondItem="453-FP-9Gk" secondAttribute="leading" constant="8" id="ls5-kX-RG2"/>
                             <constraint firstItem="fez-wD-b3f" firstAttribute="top" secondItem="bBu-7c-k7m" secondAttribute="bottom" constant="7" id="nDA-ay-avg"/>
                             <constraint firstAttribute="bottom" secondItem="Pqz-4y-0UN" secondAttribute="bottom" id="tbl-lA-uSN"/>
+                            <constraint firstItem="Iws-Pn-emp" firstAttribute="top" secondItem="453-FP-9Gk" secondAttribute="top" constant="5" id="vBa-yW-mlE"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
@@ -171,6 +180,8 @@
             <connections>
                 <outlet property="favBtn" destination="gKm-Wd-jKG" id="HqY-x8-SyY"/>
                 <outlet property="moreBtn" destination="D4H-DU-QCH" id="ivR-nD-Jup"/>
+                <outlet property="newBadge" destination="Iws-Pn-emp" id="cdG-2c-Luy"/>
+                <outlet property="offerContView" destination="HGe-gM-VXY" id="hfl-hd-dRs"/>
                 <outlet property="offerLbl" destination="pk1-gC-0hQ" id="4b5-pW-jhP"/>
                 <outlet property="price1Lbl" destination="AgU-AN-3uZ" id="AY9-bK-VS9"/>
                 <outlet property="price2Lbl" destination="Qdo-e2-OyV" id="ZWF-To-rG5"/>
@@ -181,7 +192,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ic_fav_active_items" width="69" height="64"/>
+        <image name="002-new.png" width="64" height="64"/>
+        <image name="ic_fav_active_items" width="61" height="56"/>
         <image name="ic_more" width="65" height="18"/>
         <image name="pic_items" width="325" height="435"/>
     </resources>
