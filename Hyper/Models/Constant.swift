@@ -93,7 +93,7 @@ class API {
         let id_product = "id_product"
         let id_image = "id_image"
         let image_url = "image_url"
-        
+        let is_new = "is_new"
         
         
         private override init() {}

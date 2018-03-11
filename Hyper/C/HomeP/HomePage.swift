@@ -200,9 +200,14 @@ extension HomePage : UICollectionViewDelegateFlowLayout ,UICollectionViewDelegat
                                  forItemAt indexPath: IndexPath) {
         
         cell.alpha = 0
-        UIView.animate(withDuration: 0.8) {
-            cell.alpha = 1
-        }
+//        UIView.animate(withDuration: 0.8) {
+//            cell.alpha = 1
+//        }
+        
+        UIView.animate(withDuration: 0.8, delay: 0.09, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [.allowUserInteraction], animations: {
+            cell.alpha = 1 
+        }, completion: nil)
+    
     }
     
       func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
@@ -233,8 +238,8 @@ extension HomePage : FSPagerViewDataSource , FSPagerViewDelegate  {
         pagerView.delegate = self
         pagerView.dataSource  = self
         pagerView.automaticSlidingInterval = 6.5
-        pagerView.transformer = FSPagerViewTransformer(type: .crossFading)
-        pagerView.isInfinite = false
+        pagerView.transformer = FSPagerViewTransformer(type: .cubic)
+        pagerView.isInfinite = true
         
     }
     public func numberOfItems(in pagerView: FSPagerView) -> Int {

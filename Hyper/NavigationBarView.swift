@@ -8,6 +8,7 @@
 
 import UIKit
 
+//https://stackoverflow.com/questions/45782669/swift-4-ios-11-search-bar-scope-wont-appear-as-it-should
 class NavigationBarView: UIView {
     
     @IBOutlet weak var backBtn: UIButton!

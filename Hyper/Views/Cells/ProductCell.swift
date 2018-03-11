@@ -9,7 +9,7 @@
 import UIKit
 
 class ProductCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var offerContView: UIViewX!
     @IBOutlet weak var newBadge: UIImageView!
     @IBOutlet weak var offerLbl: UILabel!
@@ -27,14 +27,14 @@ class ProductCell: UICollectionViewCell {
         price2Lbl.alpha = 0
         price1Lbl.textColor = Constant.BloodyRed
         offerContView.alpha = 0
-
-    }
         
-        func configCell(data:Product_Data) {
+    }
+    
+    func configCell(data:Product_Data) {
         offerLbl.text = data.new_code
         productImg.setupApiImage(imagePath:  data.main_image)
         titleLbl.text = data.name
-            
+        
         if data.on_sale {
             price1Lbl.strikeIt(text: data.wholesale_price)
             price2Lbl.alpha = 1
@@ -43,10 +43,15 @@ class ProductCell: UICollectionViewCell {
             offerContView.alpha = 1
             
         }
-    
+        
+        if data.is_new {
+            newBadge.alpha = 1
+        }else {
+            newBadge.alpha = 0
+        }
         
         
     }
-
+    
 }
 

@@ -10,15 +10,22 @@ import UIKit
 
 class SearchVC: UIViewController {
 
-    @IBOutlet weak var searchTxt: UITextField!
-    @IBOutlet weak var tableView: UITableView!
+     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var data = [Cat_Brand_Data]()
+      var names : [String] = []
+    var searchMainData = [String]()
+    var searchResult = [Cat_Brand_Data]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        searchTxt.delegate = self
         // Do any additional setup after loading the view.
         self.view.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(swipeIt)))
+        getData()
+        searchBar.delegate = self
+
     }
  
     func getData() {
@@ -32,6 +39,10 @@ class SearchVC: UIViewController {
                 
                  self.data = rData
                self.tableView.reloadData()
+                for x in rData {
+                    self.names.append(x.name)
+                }
+                self.searchMainData = self.names
             }
             
         }) { [weak self ](err )  in
@@ -58,6 +69,13 @@ extension SearchVC : UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        if let searchString = searchBar?.text, searchString.count > 0 {
+            
+  
+            return searchResult.count
+            
+        }
         return data.count
     }
     
@@ -65,8 +83,15 @@ extension SearchVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         let cell = UITableViewCell(style: .default, reuseIdentifier: "CELL")
-        cell.backgroundColor = .clear 
+        cell.backgroundColor = .clear
+        if let searchString = searchBar?.text, searchString.count > 0 {
+           
+            cell.textLabel?.text = searchResult[indexPath.row].name
+            
+            
+        } else {
         cell.textLabel?.text = data[indexPath.row].name
+        }
         cell.textLabel?.textColor = Constant.FontColorGray
         cell.selectionStyle = .none
         return cell
@@ -76,6 +101,7 @@ extension SearchVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        self.view.endEditing(true)
         let vc = ProductsListVC()
         self.navigationController?.pushViewController(vc, animated: true)
         
@@ -84,3 +110,72 @@ extension SearchVC : UITableViewDelegate, UITableViewDataSource {
     
     
 }
+
+
+//https://stackoverflow.com/questions/46007260/ios-11-customise-search-bar-in-navigation-bar/46010398
+extension SearchVC :   UISearchBarDelegate {
+
+    
+    override func touchesBegan(_: Set<UITouch>, with: UIEvent?) {
+        searchBar.resignFirstResponder()
+         self.view.endEditing(true)
+    }
+
+
+
+    // MARK: - Searchbar
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        // perform a search by reloading the tableView
+        
+        searchBar.resignFirstResponder()
+        
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        // reset the data source
+        
+        searchBar.text = ""
+        
+        tableView?.reloadData()
+        
+    }
+    
+ 
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        // user began entering text into search bar
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        // keyboard was resigned or user clicked a different textfield
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        searchResult = data.filter({ (text) -> Bool in
+            let tmp : NSString = text.name as NSString
+            //            let tmp: NSString = text as NSString
+            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+            return range.location != NSNotFound
+        })
+        //        filtered = data.filter({ (text) -> Bool in
+        //            let tmp: NSString = text as NSString
+        //            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+        //            return range.location != NSNotFound
+        //        })
+
+        
+        self.tableView.reloadData()
+    }
+    
+}
+
+

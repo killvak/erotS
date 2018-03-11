@@ -60,6 +60,7 @@ class Product_Data {
     private var _id_manufacturer : Int!
     private var _id_supplier : Int!
     private var _main_color : Int!
+    private var _is_new : Int!
     private var _on_sale : Int!
     private var _out_of_stock : Int!
     private var _price : Int!
@@ -76,6 +77,9 @@ class Product_Data {
     }
     var  on_sale  : Bool {
         return  _on_sale == 1
+    }
+    var  is_new  : Bool {
+        return  _is_new == 1
     }
     var  out_of_stock  : Bool {
         return  _out_of_stock == 1
@@ -171,6 +175,7 @@ class Product_Data {
         self._id_supplier = jsonData[Constant.parameters.id_supplier].intValue
         self._main_color = jsonData[Constant.parameters.main_color].intValue
         self._on_sale = jsonData[Constant.parameters.on_sale].intValue
+        self._is_new = jsonData[Constant.parameters.is_new].intValue
         self._out_of_stock = jsonData[Constant.parameters.out_of_stock].intValue
         self._price = jsonData[Constant.parameters.price].intValue
         self._quantity = jsonData[Constant.parameters.quantity].intValue
