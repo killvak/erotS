@@ -27,10 +27,10 @@ class ProductCell: UICollectionViewCell {
         price2Lbl.alpha = 0
         price1Lbl.textColor = Constant.BloodyRed
         offerContView.alpha = 0
+
     }
-    
-    
-    func configCell(data:Product_Data) {
+        
+        func configCell(data:Product_Data) {
         offerLbl.text = data.new_code
         productImg.setupApiImage(imagePath:  data.main_image)
         titleLbl.text = data.name

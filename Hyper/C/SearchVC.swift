@@ -13,7 +13,7 @@ class SearchVC: UIViewController {
     @IBOutlet weak var searchTxt: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    let data = ["TV & Home Theater","Radio","Air Cond","Fan","Washing Machine"]
+    var data = [Cat_Brand_Data]()
     override func viewDidLoad() {
         super.viewDidLoad()
 //        searchTxt.delegate = self
@@ -21,6 +21,26 @@ class SearchVC: UIViewController {
         self.view.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(swipeIt)))
     }
  
+    func getData() {
+        ad.isLoading()
+        let isCat = true
+        Get_Requests().all_Data_about(categories: isCat, brands: !isCat, page: 1, completion: { [unowned self ] (rData) in
+            
+            DispatchQueue.main.async {
+                
+                ad.killLoading()
+                
+                 self.data = rData
+               self.tableView.reloadData()
+            }
+            
+        }) { [weak self ](err )  in
+             DispatchQueue.main.async {
+            ad.killLoading()
+            self?.showApiErrorSms(err: err )
+            }
+        }
+    }
     @objc func swipeIt() {
         
         let vc = BrandsVC()
@@ -46,7 +66,7 @@ extension SearchVC : UITableViewDelegate, UITableViewDataSource {
     
         let cell = UITableViewCell(style: .default, reuseIdentifier: "CELL")
         cell.backgroundColor = .clear 
-        cell.textLabel?.text = data[indexPath.row]
+        cell.textLabel?.text = data[indexPath.row].name
         cell.textLabel?.textColor = Constant.FontColorGray
         cell.selectionStyle = .none
         return cell

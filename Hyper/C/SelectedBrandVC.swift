@@ -20,7 +20,7 @@ class SelectedBrandVC: UIViewController {
     }
     let request = Get_Requests()
 
-    var  cat_Data = [Categories_Data]()
+    var  cat_Data = [Cat_Brand_Data]()
     var top_products = [Product_Data]()
     //MARK: OutLets
 
@@ -32,7 +32,7 @@ class SelectedBrandVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNav(title ?? "")
+        self.setupNav()
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
 
         // Do any additional setup after loading the view.

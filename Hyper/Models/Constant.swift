@@ -91,6 +91,9 @@ class API {
         let image = "image"
         let id_parent = "id_parent"
         let id_product = "id_product"
+        let id_image = "id_image"
+        let image_url = "image_url"
+        
         
         
         private override init() {}

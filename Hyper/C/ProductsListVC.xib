@@ -40,9 +40,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_back" translatesAutoresizingMaskIntoConstraints="NO" id="tRk-8U-SK6">
-                            <rect key="frame" x="19" y="14" width="22" height="36"/>
+                            <rect key="frame" x="10" y="20.5" width="14" height="23"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="22" id="5BW-1U-Ey2"/>
+                                <constraint firstAttribute="width" constant="14" id="5BW-1U-Ey2"/>
                                 <constraint firstAttribute="width" secondItem="tRk-8U-SK6" secondAttribute="height" multiplier="11:18" id="xKR-MA-auU"/>
                             </constraints>
                         </imageView>
@@ -99,8 +99,8 @@
                         <constraint firstItem="nca-vI-5uu" firstAttribute="centerY" secondItem="1oh-dD-6Ur" secondAttribute="centerY" id="Qav-yD-56q"/>
                         <constraint firstItem="Zrp-vL-vO8" firstAttribute="leading" secondItem="6C2-Ud-pJ3" secondAttribute="leading" id="VPP-YG-VnD"/>
                         <constraint firstItem="1oh-dD-6Ur" firstAttribute="leading" secondItem="6C2-Ud-pJ3" secondAttribute="leading" constant="10" id="aTT-rP-q4K"/>
+                        <constraint firstItem="tRk-8U-SK6" firstAttribute="leading" secondItem="1oh-dD-6Ur" secondAttribute="leading" id="axN-FZ-upo"/>
                         <constraint firstItem="1oh-dD-6Ur" firstAttribute="centerY" secondItem="Zrp-vL-vO8" secondAttribute="centerY" id="bVZ-zu-Nie"/>
-                        <constraint firstItem="tRk-8U-SK6" firstAttribute="centerX" secondItem="1oh-dD-6Ur" secondAttribute="centerX" constant="-2.5" id="cFR-Mf-ad2"/>
                         <constraint firstItem="tRk-8U-SK6" firstAttribute="centerY" secondItem="1oh-dD-6Ur" secondAttribute="centerY" id="dGz-Pr-QJj"/>
                         <constraint firstAttribute="height" constant="64" id="f5B-7m-poj"/>
                         <constraint firstAttribute="trailing" secondItem="Zrp-vL-vO8" secondAttribute="trailing" id="gOZ-49-XuJ"/>

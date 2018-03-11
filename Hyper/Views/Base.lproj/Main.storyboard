@@ -62,20 +62,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1tI-t7-Oei">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1131"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Evy-T6-Ahc">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Evy-T6-Ahc" customClass="FSPagerView" customModule="FSPagerView">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
-                                                <subviews>
-                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="adv_pic_" translatesAutoresizingMaskIntoConstraints="NO" id="ATk-GS-H6d">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
-                                                    </imageView>
-                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="ATk-GS-H6d" secondAttribute="trailing" id="AXX-jo-Zb6"/>
                                                     <constraint firstAttribute="width" secondItem="Evy-T6-Ahc" secondAttribute="height" multiplier="63:26" id="G5l-RC-Fz2"/>
-                                                    <constraint firstAttribute="bottom" secondItem="ATk-GS-H6d" secondAttribute="bottom" id="LZZ-4s-LLt"/>
-                                                    <constraint firstItem="ATk-GS-H6d" firstAttribute="top" secondItem="Evy-T6-Ahc" secondAttribute="top" id="Pce-Rd-8jk"/>
-                                                    <constraint firstItem="ATk-GS-H6d" firstAttribute="leading" secondItem="Evy-T6-Ahc" secondAttribute="leading" id="pFk-Q3-rl4"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JsU-b7-wmi">
@@ -100,6 +91,9 @@
                                                         <state key="normal" title="More">
                                                             <color key="titleColor" red="0.84313725490000002" green="0.031372549020000001" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="showMoreHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jbC-2N-zH1"/>
+                                                        </connections>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r44-3y-cJ6">
                                                         <rect key="frame" x="0.0" y="29" width="375" height="198"/>
@@ -177,7 +171,7 @@
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1Z-E7-WH8">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1Z-E7-WH8">
                                                         <rect key="frame" x="312" y="8" width="55" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="55" id="HNV-oh-pWi"/>
@@ -187,6 +181,9 @@
                                                         <state key="normal" title="More">
                                                             <color key="titleColor" red="0.84313725490000002" green="0.031372549020000001" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="showMoreHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xgR-0G-Egi"/>
+                                                        </connections>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Ll-o3-Nct">
                                                         <rect key="frame" x="0.0" y="38" width="375" height="302"/>
@@ -357,6 +354,7 @@
                     <connections>
                         <outlet property="brandsCollectionView" destination="r44-3y-cJ6" id="GPM-Oq-RfR"/>
                         <outlet property="categoryCollectionView" destination="6Ll-o3-Nct" id="DGD-9w-G8p"/>
+                        <outlet property="pagerView" destination="Evy-T6-Ahc" id="Tkg-wR-3dj"/>
                         <outlet property="scrollView" destination="EPh-TM-E58" id="j79-KP-2IZ"/>
                     </connections>
                 </viewController>
@@ -416,14 +414,14 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="V9f-Dl-rmM">
-                                                    <rect key="frame" x="279.5" y="5" width="72.5" height="24"/>
+                                                    <rect key="frame" x="279.5" y="5" width="72.5" height="24.5"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edp-v5-q48">
-                                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24.5"/>
                                                             <state key="normal" image="ic_share"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jV-lw-Yij">
-                                                            <rect key="frame" x="49" y="0.0" width="23.5" height="24"/>
+                                                            <rect key="frame" x="49" y="0.0" width="23.5" height="24.5"/>
                                                             <state key="normal" image="ic_fav_active_items"/>
                                                         </button>
                                                     </subviews>
@@ -432,7 +430,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="pic_items" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-el-UKE">
-                                                    <rect key="frame" x="20" y="39" width="335" height="206"/>
+                                                    <rect key="frame" x="20" y="39.5" width="335" height="205.5"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -977,6 +975,35 @@
             </objects>
             <point key="canvasLocation" x="450" y="1478"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="3cc-1V-n5g">
+            <objects>
+                <viewController id="Tg7-BR-XtQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dAe-Zh-lbs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRQ-EU-zlB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="PhS-Io-5CJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Aoa-Fl-zW0" firstAttribute="trailing" secondItem="kRQ-EU-zlB" secondAttribute="trailing" id="HJu-eg-L0I"/>
+                            <constraint firstItem="kRQ-EU-zlB" firstAttribute="top" secondItem="Aoa-Fl-zW0" secondAttribute="top" id="W6x-ag-ai9"/>
+                            <constraint firstItem="kRQ-EU-zlB" firstAttribute="leading" secondItem="Aoa-Fl-zW0" secondAttribute="leading" id="YhA-Ga-fQr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Aoa-Fl-zW0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jdY-5V-vfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1186" y="1552"/>
+        </scene>
         <!--SearchVC-->
         <scene sceneID="PMj-m8-XmC">
             <objects>
@@ -1424,7 +1451,6 @@
     <resources>
         <image name="adv_hot_" width="375" height="157"/>
         <image name="adv_new_" width="375" height="157"/>
-        <image name="adv_pic_" width="378" height="156"/>
         <image name="bg_catigoury" width="711" height="964"/>
         <image name="btn_add" width="659" height="84"/>
         <image name="ic_back" width="33" height="57"/>

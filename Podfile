@@ -20,7 +20,7 @@ pod "CDAlertView"
 pod 'RangeSeekSlider'
 
 
-
+pod 'XLActionController/Youtube'
 
 
 end

@@ -69,7 +69,7 @@ class ItemsDetailsVC: UIViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 46
-        setupNav(productData.name)
+        setupNav()
     
     }
     

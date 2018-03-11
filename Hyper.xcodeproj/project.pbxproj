@@ -71,6 +71,8 @@
 		846B690420470A250039F037 /* NavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B690320470A250039F037 /* NavigationBarView.xib */; };
 		846B690620470A370039F037 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B690520470A370039F037 /* NavigationBarView.swift */; };
 		84C2ECBF205447440024CE6F /* 002-new.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C2ECBE205447440024CE6F /* 002-new.png */; };
+		84C2ECC3205575270024CE6F /* OrderDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2ECC2205575270024CE6F /* OrderDetailsVC.swift */; };
+		84C2ECC720558F3F0024CE6F /* UIVCGetMethodsCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2ECC620558F3F0024CE6F /* UIVCGetMethodsCall.swift */; };
 		84E6D661204EB52600D5AD3B /* ItemDetails_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6D660204EB52600D5AD3B /* ItemDetails_Data.swift */; };
 		84E6D664204EC65C00D5AD3B /* Get_Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6D663204EC65C00D5AD3B /* Get_Requests.swift */; };
 		84E6D668204ED2B100D5AD3B /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6D667204ED2B100D5AD3B /* Connection.swift */; };
@@ -158,6 +160,8 @@
 		846B690320470A250039F037 /* NavigationBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarView.xib; sourceTree = "<group>"; };
 		846B690520470A370039F037 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		84C2ECBE205447440024CE6F /* 002-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "002-new.png"; sourceTree = "<group>"; };
+		84C2ECC2205575270024CE6F /* OrderDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsVC.swift; sourceTree = "<group>"; };
+		84C2ECC620558F3F0024CE6F /* UIVCGetMethodsCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVCGetMethodsCall.swift; sourceTree = "<group>"; };
 		84E6D660204EB52600D5AD3B /* ItemDetails_Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetails_Data.swift; sourceTree = "<group>"; };
 		84E6D663204EC65C00D5AD3B /* Get_Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Get_Requests.swift; sourceTree = "<group>"; };
 		84E6D667204ED2B100D5AD3B /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 		842563D6204571F700CE0BF7 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				84C2ECC2205575270024CE6F /* OrderDetailsVC.swift */,
 				843160E9205178390067B4E4 /* FilterV */,
 				843160CF2051480F0067B4E4 /* ProfileVC.swift */,
 				F35F6F70204AFB0600F191FF /* FilterVC.swift */,
@@ -431,6 +436,7 @@
 				84E6D663204EC65C00D5AD3B /* Get_Requests.swift */,
 				84E6D66B204EF09D00D5AD3B /* Models_Vars_Trees */,
 				843160FB2051BA250067B4E4 /* FIlter_Model.swift */,
+				84C2ECC620558F3F0024CE6F /* UIVCGetMethodsCall.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -585,6 +591,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStarRatingView/SwiftyStarRatingView.framework",
 				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
+				"${BUILT_PRODUCTS_DIR}/XLActionController/XLActionController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -598,6 +605,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStarRatingView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLActionController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -634,6 +642,7 @@
 				842E09292043FF280047505B /* UIViewAnchorPoint.swift in Sources */,
 				842E09282043FF280047505B /* UILabelX.swift in Sources */,
 				843160E7205172EF0067B4E4 /* CategoryTableCell.swift in Sources */,
+				84C2ECC3205575270024CE6F /* OrderDetailsVC.swift in Sources */,
 				842563C72045700700CE0BF7 /* ReviewCell.swift in Sources */,
 				842E08F72043FC590047505B /* HomePage.swift in Sources */,
 				F3D14E692044CD7C008162B1 /* BrandsCell.swift in Sources */,
@@ -646,6 +655,7 @@
 				F35F6F6F204AE8A100F191FF /* SelectedBrandVC.swift in Sources */,
 				F35F6F71204AFB0600F191FF /* FilterVC.swift in Sources */,
 				84E6D668204ED2B100D5AD3B /* Connection.swift in Sources */,
+				84C2ECC720558F3F0024CE6F /* UIVCGetMethodsCall.swift in Sources */,
 				842563DA20458BBF00CE0BF7 /* Constant.swift in Sources */,
 				842E09262043FF280047505B /* UITextFieldX.swift in Sources */,
 				84E6D66D204EF0B000D5AD3B /* HomePage_Data.swift in Sources */,

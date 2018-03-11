@@ -50,8 +50,8 @@
                                         <constraint firstAttribute="width" constant="45" id="aBG-IS-Bmy"/>
                                     </constraints>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6B-s0-cx2">
-                                    <rect key="frame" x="73.5" y="21.5" width="233.5" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6B-s0-cx2">
+                                    <rect key="frame" x="75" y="21.5" width="225.5" height="20.5"/>
                                     <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="19"/>
                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -64,10 +64,10 @@
                                 <constraint firstItem="Nli-VM-myG" firstAttribute="centerY" secondItem="Osr-D5-1BK" secondAttribute="centerY" id="E2f-ZF-U0L"/>
                                 <constraint firstAttribute="trailing" secondItem="Osr-D5-1BK" secondAttribute="trailing" id="JoL-5S-0kz"/>
                                 <constraint firstItem="Osr-D5-1BK" firstAttribute="leading" secondItem="bjX-uL-b2D" secondAttribute="leading" id="L2L-gw-NHn"/>
+                                <constraint firstItem="T6B-s0-cx2" firstAttribute="centerX" secondItem="bjX-uL-b2D" secondAttribute="centerX" id="Oq0-UE-cw1"/>
                                 <constraint firstItem="T6B-s0-cx2" firstAttribute="centerY" secondItem="Osr-D5-1BK" secondAttribute="centerY" id="Ph2-O5-PTY"/>
                                 <constraint firstItem="vbM-Sj-x0O" firstAttribute="centerX" secondItem="Nli-VM-myG" secondAttribute="centerX" constant="-13.5" id="Ph4-Hn-0Zo"/>
-                                <constraint firstAttribute="trailing" secondItem="T6B-s0-cx2" secondAttribute="trailing" constant="68" id="Qp8-5R-ESq"/>
-                                <constraint firstItem="T6B-s0-cx2" firstAttribute="centerX" secondItem="Osr-D5-1BK" secondAttribute="centerX" constant="2.75" id="dxO-61-etj"/>
+                                <constraint firstItem="T6B-s0-cx2" firstAttribute="leading" secondItem="Nli-VM-myG" secondAttribute="trailing" constant="20" id="ael-Gb-4rb"/>
                                 <constraint firstItem="Osr-D5-1BK" firstAttribute="top" secondItem="bjX-uL-b2D" secondAttribute="top" id="l24-U4-Gcs"/>
                                 <constraint firstItem="Nli-VM-myG" firstAttribute="leading" secondItem="bjX-uL-b2D" secondAttribute="leading" constant="10" id="uzV-Ff-Bjf"/>
                             </constraints>

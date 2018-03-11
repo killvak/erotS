@@ -16,7 +16,7 @@ class CategoryCell: UICollectionViewCell {
     @IBOutlet weak var productImg: UIImageView!
     
     
-    func configCell(data : Categories_Data) {
+    func configCell(data : Cat_Brand_Data) {
         
         title.text = data.name
         print(data.image)

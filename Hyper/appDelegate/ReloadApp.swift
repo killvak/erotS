@@ -14,9 +14,8 @@ extension AppDelegate {
     
     func reload() {
         let storyb : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        tabBar = storyb.instantiateViewController(withIdentifier: "rootNav") as! UITabBarController
-        //        tabBar?.tabBar.items?[2].badgeValue = (ShoppingCart.sharedInstance.itemsArray.count > 0) ? "\(ShoppingCart.sharedInstance.itemsArray.count)" : nil
-        //          }
+        tabBar = storyb.instantiateViewController(withIdentifier: "rootNav") as? UITabBarController
+        tabBar?.tabBar.items?[4].badgeValue = true ? "1" : nil
         tabBar?.selectedIndex = 0
         UIApplication.shared.keyWindow?.rootViewController = tabBar
     }

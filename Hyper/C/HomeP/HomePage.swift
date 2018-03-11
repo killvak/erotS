@@ -6,6 +6,7 @@
 //  Copyright © 2018 admin. All rights reserved.
 //
 import UIKit
+import FSPagerView
 
 class HomePage: UIViewController {
 
@@ -14,8 +15,9 @@ class HomePage: UIViewController {
     var categoryCellID = "categoryCellID"
     let request = Get_Requests()
     
-    var brands : [Brands_Data] = []
-    var categories : [Categories_Data] = []
+    var brands : [Cat_Brand_Data] = []
+    var categories : [Cat_Brand_Data] = []
+    var promotions : [Promotions_Data] = []
     var refreshControl: UIRefreshControl!
 
     //MARK: OutLets
@@ -23,11 +25,14 @@ class HomePage: UIViewController {
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    @IBOutlet weak var pagerView: FSPagerView! {
+        didSet {
+            self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+        }
+    }
     ////
     
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -35,7 +40,8 @@ class HomePage: UIViewController {
 //        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self , action: #selector(changeLang)))
  addPullToRefreshC()
 updateData()
-     
+        
+        setupPagerV()
     }
 
     func addPullToRefreshC() {
@@ -49,12 +55,14 @@ updateData()
         ad.isLoading()
         print("Refersh")
     request.homeDetails_Request(completion: { [weak self ] (jData) in
-        self?.brands = jData.brandsData
-        self?.categories = jData.categoriesData
-        
+      
         DispatchQueue.main.async {
 //            self?.brandsCollectionView.reloadData()
 //            self?.categoryCollectionView.reloadData()
+            self?.brands = jData.brandsData
+            self?.categories = jData.categoriesData
+            self?.promotions = jData.promotionsData
+            self?.pagerView.reloadData()
             self?.brandsCollectionView.animateCells()
             self?.categoryCollectionView.animateCells()
             self?.refreshControl?.endRefreshing()
@@ -85,6 +93,29 @@ updateData()
         
     }
     
+    @IBAction func showMoreHandler(_ sender: UIButton) {
+    
+        let isCat = sender.tag == 1
+        ad.isLoading()
+        request.all_Data_about(categories: isCat, brands: !isCat, page: 1, completion: { [unowned self ] (rData) in
+            
+            DispatchQueue.main.async {
+                
+                 ad.killLoading()
+              
+                    let vc = BrandsVC(nibName: "BrandsVC", bundle: nil)
+                    vc.data = rData
+                    vc.isCat = isCat
+                vc.title = isCat ? L0A.All_Categories.stringValue() : L0A.All_Brands.stringValue()
+                     self.navigationController?.pushViewController(vc, animated: true)
+             }
+          
+        }) { [weak self ](err )  in
+            
+            self?.showApiErrorSms(err: err )
+        }
+        
+    }
     
     func change() {
         
@@ -129,56 +160,14 @@ extension HomePage : UICollectionViewDelegateFlowLayout ,UICollectionViewDelegat
         
         guard collectionView == brandsCollectionView else {
             
-            ad.isLoading()
-            request.category_By_Id(catID: categories[indexPath.row].id, page: 1, completion: { (rData) in
-                
-                DispatchQueue.main.async {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "SelectedBrandVC") as! SelectedBrandVC
-                    vc.mainData = rData
-                    vc.title = self.categories[indexPath.row].name
-                    self.navigationController?.pushViewController(vc, animated: true)
-                    ad.killLoading()
-                }
-            }, failure: { (err ) in
-                print(err )
-                DispatchQueue.main.async {
-                    self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
-                    ad.killLoading()
-                }
-            })
+            navCategoryToProductsList(catID: categories[indexPath.row].id, pageNum: 1, pageTitle: self.categories[indexPath.row].name)
             
             return
         }
-        
-        
-         let data = brands[indexPath.row]
-        ad.isLoading()
-        request.brand_By_ID_Request(brandID: data.id, page: 1, completion: { [unowned self ](rData) in
-            guard rData.count >= 1 else {
-                DispatchQueue.main.async {
-                 self.view.showSimpleAlert(L0A.Sorry.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .warning)
-                ad.killLoading()
-                }
-                    return
-            }
-            DispatchQueue.main.async {
-                let vc = ProductsListVC(nibName: "ProductsListVC", bundle: nil)
-                vc.data = rData
-                self.navigationController?.pushViewController(vc, animated: true)
-                 ad.killLoading()
-            }
-         
-            
-            
-        }) { (err ) in
-            print(err )
-            DispatchQueue.main.async {
-                self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
-                ad.killLoading()
-            }
-        }
-        
-    }
+        navBrandToProductsList(brandID: brands[indexPath.row].id, pageNum: 1, pageTitle:  brands[indexPath.row].name)
+     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
@@ -236,3 +225,52 @@ extension HomePage : UICollectionViewDelegateFlowLayout ,UICollectionViewDelegat
 }
 
 
+
+extension HomePage : FSPagerViewDataSource , FSPagerViewDelegate  {
+    
+    func setupPagerV() {
+        
+        pagerView.delegate = self
+        pagerView.dataSource  = self
+        pagerView.automaticSlidingInterval = 6.5
+        pagerView.transformer = FSPagerViewTransformer(type: .crossFading)
+        pagerView.isInfinite = false
+        
+    }
+    public func numberOfItems(in pagerView: FSPagerView) -> Int {
+        return promotions.count
+    }
+    
+    public func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
+        guard promotions.count >= 1 else {
+            cell.imageView?.image = #imageLiteral(resourceName: "adv_hot_")
+            return  cell
+        }
+        guard let url = URL(string: promotions[index].image ) else {
+            
+            return cell
+            
+        }
+        
+        print("id_image:\(promotions[index].id_image)opening: \(promotions[index].image) ")
+         cell.imageView?.af_setImage(
+            withURL: url ,
+            placeholderImage: UIImage(named: "adv_pic_"),
+            filter: nil,
+            imageTransition: .crossDissolve(0.2)
+        )
+//            cell.textLabel?.text = "hi"
+        return cell
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int)
+    {
+        
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, shouldHighlightItemAt index: Int) -> Bool {
+        return false
+    }
+    
+}

@@ -14,6 +14,15 @@ enum GetAlertsLocalize {
     
     //Hyper
     case No_Colors_Available
+    case Add_To_Cart
+    case Visit_Category
+    case Visit_Brand
+    case Share
+    case Cancel
+    case All_Brands
+    case All_Categories
+    
+    
     
     
     
@@ -39,7 +48,6 @@ enum GetAlertsLocalize {
     case No_Changes_has_Been_Made
     case Youـwillـbeـnotified
     case Done
-    case Cancel
     case Delete
     case RequiredـField
     case Cancel_Order
@@ -126,13 +134,30 @@ enum GetAlertsLocalize {
     case Coupon_is_applied
     case please_check_value_twice_before_payment
     case VehicleID_Is_Required
+    
+    
+    
     func stringValue() -> String {
         switch self {
             //Hyper
         case .No_Colors_Available :
             return  L102Language.currentAppleLanguage() == "ar" ? "لا توجد ألوان متوفرة": "No Colors Available"
-
-            
+        case .Add_To_Cart :
+            return  L102Language.currentAppleLanguage() == "ar" ? "إضافه إلي العربة": "Add to Cart"
+        case .Visit_Brand :
+            return  L102Language.currentAppleLanguage() == "ar" ? "الذهاب إلي الماركات": "Visit Brands"
+        case .Visit_Category :
+            return  L102Language.currentAppleLanguage() == "ar" ? "الذهاب إلي الأقسام": "Vist Category"
+ 
+        case .Cancel:
+            return  L102Language.currentAppleLanguage() == "ar" ? "إلغاء": "Cancel"
+        case .Share:
+            return  L102Language.currentAppleLanguage() == "ar" ? "مشاركة": "Share"
+        case .All_Brands:
+            return  L102Language.currentAppleLanguage() == "ar" ? "الماركات": "Brands"
+        case .All_Categories:
+            return  L102Language.currentAppleLanguage() == "ar" ? "الأقسام": "Categories"
+         
             
             //
         case .please_check_value_twice_before_payment:
@@ -367,9 +392,7 @@ enum GetAlertsLocalize {
         //  🤡 🐳
         case .Searching_for_Runner:
             return  L102Language.currentAppleLanguage() == "ar" ? "جاري البحث عن سائق...": "Searching for Runner..."
-            
-        case .Cancel:
-            return  L102Language.currentAppleLanguage() == "ar" ? "إلغاء": "Cancel"
+
             
         case .Delete:
             return  L102Language.currentAppleLanguage() == "ar" ? "مسح": "Delete"

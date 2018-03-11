@@ -13,25 +13,7 @@ import SwiftyJSON
 class Get_Requests : Connection {
     
     private let main_url = Constant.main_url
-    
-    private func get_itemDetails(product_ID : Int) -> String {
-        return main_url + "General/get_item_details_by_id?ProductId=\(product_ID)"
-    }
-    
-   private func get_HomePage() -> String {
-        return main_url +  "General/home_page"
-    }
-    
-   private func get_Brands_By_ID(brandID : Int,page:Int) -> String {
-        return main_url + "Brand/get_brand_items_by_id?BrandId=\(brandID)&Page=\(page)"
-    }
-    private func get_Cats_By_ID(catID : Int,page:Int) -> String {
-        //http://hyper-testing.herokuapp.com/api/Category/get_top_items_by_main_category_id?Page=1&MainCategoryID=1
-         return main_url + "Category/get_top_items_by_main_category_id?Page=\(page)&MainCategoryID=\(catID)"
-    }
-   private func get_topItems_By_Brand(brandID : Int,page:Int) -> String {
-        return main_url + "Brand/get_brand_items_by_id?BrandId=\(brandID)&Page=\(page)"
-    }
+ 
      func item_Details(item_ID : Int ,completion:@escaping ( ItemDetails_Data ) -> (),failure failed: @escaping (String?)->() ){
         
         print(self.get_itemDetails(product_ID: item_ID))
@@ -49,7 +31,7 @@ class Get_Requests : Connection {
                 itemD.relatedProducts.append(data)
                 }
             }
-            print("itemD.relatedProducts  \(itemD.relatedProducts.count) itemD.productsData \(itemD.productsData?.description)")
+//            print("itemD.relatedProducts  \(itemD.relatedProducts.count) itemD.productsData \(itemD.productsData?.description)")
             
             completion(itemD)
             
@@ -72,12 +54,15 @@ class Get_Requests : Connection {
             let itemD  = HomePage_Data()
             let brands = jData["brands"].arrayValue
             let cats = jData["categories"].arrayValue
-            
+            let promotions = jData["promotions"].arrayValue
              for x in brands {
-                itemD.brandsData.append(Brands_Data(x))
+                itemD.brandsData.append(Cat_Brand_Data(x))
             }
             for x in cats {
-                itemD.categoriesData.append(Categories_Data(x))
+                itemD.categoriesData.append(Cat_Brand_Data(x))
+            }
+            for x in promotions {
+                itemD.promotionsData.append(Promotions_Data(x))
             }
             print("brandsData  \(itemD.brandsData.count) categoriesData \(itemD.categoriesData.count)")
             
@@ -124,12 +109,11 @@ class Get_Requests : Connection {
             }
             
             let sub_cat = jData["sub_cat"].arrayValue
-            var catsProducts : [Categories_Data] = []
+            var catsProducts : [Cat_Brand_Data] = []
             for x in sub_cat {
-                catsProducts.append(Categories_Data(x))
+                catsProducts.append(Cat_Brand_Data(x))
             }
-            print("brandsProducts  \(brandsProducts.count) brandsProducts \(brandsProducts.description)")
-            catData.productsData = brandsProducts
+             catData.productsData = brandsProducts
             catData.categoriesData = catsProducts
             completion(catData)
             
@@ -139,4 +123,57 @@ class Get_Requests : Connection {
             failed(err?.localizedDescription)
         }
     }
+    
+    
+    
+    func all_Data_about(categories: Bool,brands: Bool, page: Int, completion:@escaping ( [Cat_Brand_Data] ) -> (),failure failed: @escaping (String?)->() ){
+        
+        let url = categories ? self.get_All_Categories(page: page) : get_All_Brands(page: page)
+        let jsonKey = categories ? "category": "brand"
+        Connection.performGet(urlString: url, success: { (jData) in
+            
+            var catData = [Cat_Brand_Data]()
+            let relatedPrs = jData[jsonKey].arrayValue
+             for x in relatedPrs {
+                catData.append(Cat_Brand_Data(x))
+            }
+               completion(catData)
+            
+        }) { (err) in
+            
+            
+            failed(err?.localizedDescription)
+        }
+    }
+}
+
+
+
+extension Get_Requests {
+    private func get_itemDetails(product_ID : Int) -> String {
+        return main_url + "General/get_item_details_by_id?ProductId=\(product_ID)"
+    }
+    
+    private func get_HomePage() -> String {
+        return main_url +  "General/home_page"
+    }
+    
+    private func get_Brands_By_ID(brandID : Int,page:Int) -> String {
+        return main_url + "Brand/get_brand_items_by_id?BrandId=\(brandID)&Page=\(page)"
+    }
+    private func get_Cats_By_ID(catID : Int,page:Int) -> String {
+        //http://hyper-testing.herokuapp.com/api/Category/get_top_items_by_main_category_id?Page=1&MainCategoryID=1
+        return main_url + "Category/get_top_items_by_main_category_id?Page=\(page)&MainCategoryID=\(catID)"
+    }
+    private func get_topItems_By_Brand(brandID : Int,page:Int) -> String {
+        return main_url + "Brand/get_brand_items_by_id?BrandId=\(brandID)&Page=\(page)"
+    }
+    private func get_All_Brands(page:Int) -> String {
+        return main_url + "Brand/get_all_brands?Page=\(page)"
+    }
+    private func get_All_Categories(page:Int) -> String {
+        return main_url + "Category/get_main_cats?Page=\(page)"
+    }
+    
+    
 }

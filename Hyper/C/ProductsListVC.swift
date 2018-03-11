@@ -38,6 +38,7 @@ class ProductsListVC: FilterViewController {
     @IBAction func filterhandler(_ sender: UIButton) {
         
         self.openFilterView()
+ 
     }
     
     
@@ -56,7 +57,9 @@ class ProductsListVC: FilterViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @objc func moreBtnHandler() {
+        showMoreMenu()
+    }
 }
 
 
@@ -72,10 +75,14 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ProductCell
         cell.configCell(data: data[indexPath.row])
-        cell.backgroundColor = .clear 
+        cell.backgroundColor = .clear
+        cell.moreBtn.addTarget(self , action: #selector(moreBtnHandler), for: .touchUpInside)
         return cell
     }
-    
+
+
+ 
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let data = self.data[indexPath.row]

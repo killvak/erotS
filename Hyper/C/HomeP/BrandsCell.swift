@@ -12,7 +12,7 @@ class BrandsCell: UICollectionViewCell {
     
     @IBOutlet weak var produuctImgV: UIImageView!
     
-    func configCell(data : Brands_Data) {
+    func configCell(data : Cat_Brand_Data) {
         
         produuctImgV.setupApiImage(imagePath: data.image)
         
