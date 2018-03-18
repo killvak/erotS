@@ -69,7 +69,7 @@ class Connection: NSObject {
     class public func performPost(urlString:String,extraHeaders:[String:String]?,postData:[String:Any],success:@escaping ConnectionSuccess,failure:@escaping ConnectionFailed)
     {
         var headers:[String:String] = ["Authorization":"627562626c6520617069206b6579"]
-
+        headers["Content-Type"]  = "application/json"
         if let dic = extraHeaders {
             for item in dic{
                 headers[item.key] = item.value

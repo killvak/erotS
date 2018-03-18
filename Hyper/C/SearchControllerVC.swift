@@ -8,9 +8,14 @@
 
 import UIKit
 
-protocol SearchControllerProtocol {
+protocol SearchControllerProtocol : class {
     
-    func fetchData()
+    func fetchData(data : [Product_Data])
+}
+  enum SearchDataType : Int {
+    case recent = 0
+    case data = 1
+    case searchData = 2
 }
 class SearchControllerVC: UIViewController , UITextFieldDelegate {
     
@@ -18,10 +23,15 @@ class SearchControllerVC: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var emptyTableViewPHV: UIView!
     
+    weak var delegate : SearchControllerProtocol?
     var data = [CatBrand_Data]()
     var searchResult = [CatBrand_Data]()
-    var search:String=""
 
+    var searchType : SearchDataType = .recent {
+        didSet {
+//                 initTableVPlaceHolder(hideIT: false )
+         }
+    }
     var recentSearchData = [RecentSearchHistory]() {
         didSet {
             guard searchBar.text == "" else {
@@ -87,12 +97,14 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard searchBar.text != ""  else {
-            
+            searchType = .recent
             return recentSearchData.count
         }
         guard searchResult.count < 0 else {
+            searchType = .searchData
             return searchResult.count
         }
+        searchType = .data
         return data.count
     }
     
@@ -118,11 +130,72 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data = self.data[indexPath.row]
-        
-        Constant.recentSearch.append(RecentSearchHistory(name: data.name, id: data.id, type: data.type))
+        var isData : CatBrand_Data!
+        switch searchType {
+        case .recent:
+            let data = recentSearchData[indexPath.row]
+            isData = CatBrand_Data(name:  data.name, id:  data.id, type:  data.type)
+            break
+        case .data:
+            let data = self.data[indexPath.row]
+            isData = data
+            addToRecentSearch(data: data)
+
+           case .searchData:
+            isData = searchResult[indexPath.row]
+            addToRecentSearch(data: searchResult[indexPath.row])
+          }
+         guard isData.type == .Category else {
+             getBrandProducts(data: isData)
+             return
+        }
+        getCatProducts(data: isData)
+    }
+    func getBrandProducts(data : CatBrand_Data) {
+        ad.isLoading()
+        Get_Requests().brand_By_ID_Request(brandID: data.id, page: 1, completion: { (rData ) in
+            DispatchQueue.main.async {
+                 ad.killLoading()
+                self.delegate?.fetchData(data: rData)
+                self.dismiss(animated: true, completion: nil)
+             }
+            
+        }) { (err ) in
+            DispatchQueue.main.async {
+                self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
+                ad.killLoading()
+            }
+        }
+    }
+    func getCatProducts(data : CatBrand_Data) {
+        ad.isLoading()
+        Get_Requests().category_By_Id(catID: data.id, page: 1, completion: { (rData ) in
+            DispatchQueue.main.async {
+                ad.killLoading()
+                self.delegate?.fetchData(data: rData.productsData)
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }) { (err ) in
+            DispatchQueue.main.async {
+                self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
+                ad.killLoading()
+            }
+        }
     }
     
+    func addToRecentSearch(data : CatBrand_Data  ) {
+        var isNewVar = true
+        for x in Constant.recentSearch {
+            if x.name == data.name {
+                isNewVar = false
+                return
+            }
+        }
+        guard isNewVar else { return }
+        Constant.recentSearch.append(RecentSearchHistory(name:  data.name, id:  data.id, type:  data.type))
+     }
+   
     
     
     
@@ -144,8 +217,24 @@ extension SearchControllerVC :   UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         // perform a search by reloading the tableView
-        
         searchBar.resignFirstResponder()
+        ad.isLoading()
+        Get_Requests().postSearch(query: searchBar.text , min_price: nil, max_price: nil, cats: nil, brands: nil, colors: nil, page: 1, completion: { [weak self  ] (rData ) in
+            
+            DispatchQueue.main.async {
+                ad.killLoading()
+//                self?.data =   rData
+                self?.searchResult = rData
+                self?.tableView.reloadData()
+            }
+            
+        }) { (err ) in
+            DispatchQueue.main.async {
+                ad.killLoading()
+                self.showApiErrorSms(err: err )
+            }
+            
+        }
         
         
     }
@@ -188,12 +277,26 @@ extension SearchControllerVC :   UISearchBarDelegate {
         //            return range.location != NSNotFound
         //        })
         if searchResult.count >= 1 {
-            emptyTableViewPHV.alpha = 0
+           initTableVPlaceHolder(hideIT: true )
         }else {
-            emptyTableViewPHV.alpha = 1
+            initTableVPlaceHolder(hideIT: false )
         }
         
         self.tableView.reloadData()
+    }
+    
+    func initTableVPlaceHolder(hideIT : Bool ) {
+        
+        guard searchBar.text != "" else {
+            emptyTableViewPHV.alpha = recentSearchData.count >= 1 ? 0 : 1
+            return
+        }
+        if hideIT , recentSearchData.count >= 1 {
+            
+        }else {
+            emptyTableViewPHV.alpha = hideIT ? 0 : 1
+         }
+        
     }
     
 }

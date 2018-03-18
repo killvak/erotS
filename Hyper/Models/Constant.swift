@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 class Constant {
-    
+    typealias listOFsavedData = (id : Int , name : String , type : CatBrandType)
+
     static let  BloodyRed =  UIColor.init(hex: "D7080A")
     static let  BackGroundGray =  UIColor.init(hex: "EBEBEC")
     static let  FontColorGray =  UIColor.init(hex: "666666")
@@ -28,9 +29,8 @@ class Constant {
     private init() {    }
     
     static  func saveData(data : CatBrand_Data) {
-        typealias listOFsavedData = (id : Int , name : String , type : Int)
         if let saved = UserDefaults.standard.value(forKey: "SearchHistory") as? [listOFsavedData] {
-            let saveData : listOFsavedData = (id : data.id , name : data.name , type : data.type.rawValue)
+            let saveData : listOFsavedData = (id : data.id , name : data.name , type : data.type)
             if saved.count >= 10 {
                 var dataa = saved
                 dataa.removeFirst()
@@ -44,13 +44,15 @@ class Constant {
             }
         }else {
             var dataa = [listOFsavedData]()
-            let saveData : listOFsavedData = (id : data.id , name : data.name , type : data.type.rawValue)
+            let saveData : listOFsavedData = (id : data.id , name : data.name , type : data.type)
             
             dataa.append(saveData)
             UserDefaults.standard.set(dataa, forKey: "SearchHistory")
             
         }
     }
+    
+    
     
     static   func fetchRecentSearchData()-> [CatBrand_Data] {
         if let saved = UserDefaults.standard.value(forKey: "SearchHistory") as? [CatBrand_Data] {

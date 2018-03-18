@@ -144,3 +144,13 @@ extension ProductsListVC {
     // while scrolling this delegate is being called so you may now check which direction your scrollView is being scrolled to
     
 }
+
+extension ProductsListVC : SearchControllerProtocol {
+    
+    
+    func fetchData(data: [Product_Data]) {
+        
+        self.data = data
+        self.collectionView.reloadData()
+    }
+}

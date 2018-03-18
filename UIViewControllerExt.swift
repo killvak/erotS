@@ -113,6 +113,7 @@ extension UIViewController {
     func openSearchVC() {
         let vc = SearchControllerVC()
         vc.modalTransitionStyle = .crossDissolve
+        vc.delegate = self as? SearchControllerProtocol 
         self.present(vc, animated: true, completion: nil    )
     }
 }
