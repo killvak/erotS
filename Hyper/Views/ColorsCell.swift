@@ -21,11 +21,13 @@ class ColorsCell: UICollectionViewCell {
     
     
     func configCell(data : Colors_Data) {
-        
-        colorView.backgroundColor = UIColor(hex: "0\(data.color_ID)")
+        print(data.code)
+        colorView.backgroundColor = UIColor(hex: "0\(data.code)")
         
     }
     
     
     
 }
+
+

@@ -6,64 +6,282 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
-            timestampString = "541625065.539661"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
-            timestampString = "541625065.540619"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
-            timestampString = "541625065.541176"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "collectionView(_:didDeselectItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
-            timestampString = "541625065.5415601"
+            timestampString = "542986178.447929"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
             endingLineNumber = "175"
-            landmarkName = "collectionView(_:didDeselectItemAt:)"
+            landmarkName = "ItemsDetailsVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "variable initialization expression of Hyper.ItemsDetailsVC.colors : Swift.Array&lt;__ObjC.UIColor&gt;"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "542836501.993961"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hyper.ItemsDetailsVC.colors.getter : Swift.Array&lt;__ObjC.UIColor&gt;"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "542836502.0021501"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hyper.ItemsDetailsVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Hyper.ItemsDetailsVC"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "542836502.009433"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "2464">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hyper.ItemsDetailsVC.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Hyper.ItemsDetailsVC&gt;"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "542836502.0169491"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "2420">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
+            timestampString = "542986178.448012"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "ItemsDetailsVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "variable initialization expression of Hyper.ItemsDetailsVC.colors : Swift.Array&lt;__ObjC.UIColor&gt;"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "542836502.03952"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hyper.ItemsDetailsVC.colors.getter : Swift.Array&lt;__ObjC.UIColor&gt;"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "542836502.047038"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hyper.ItemsDetailsVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Hyper.ItemsDetailsVC"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "542836502.0553581"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "2464">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hyper.ItemsDetailsVC.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Hyper.ItemsDetailsVC&gt;"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "542836502.062902"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "2420">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
+            timestampString = "542986178.44807"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "ItemsDetailsVC"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
+            timestampString = "542986178.448126"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "ItemsDetailsVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "variable initialization expression of Hyper.ItemsDetailsVC.colors : Swift.Array&lt;__ObjC.UIColor&gt;"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "542836502.096096"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hyper.ItemsDetailsVC.colors.getter : Swift.Array&lt;__ObjC.UIColor&gt;"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "542836502.1027189"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hyper.ItemsDetailsVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Hyper.ItemsDetailsVC"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "542836502.110184"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "2464">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hyper.ItemsDetailsVC.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Hyper.ItemsDetailsVC&gt;"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "542836502.117672"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "2420">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
+            timestampString = "542986178.4481879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "cellTypeBtnsHandler(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hyper/Views/ColorsCell.swift"
+            timestampString = "542837925.153982"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "configCell(data:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,13 +292,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
-            timestampString = "541625065.54195"
+            timestampString = "542986178.448283"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hyper/Models/Models_Vars_Trees/ItemDetails_Data.swift"
+            timestampString = "542837925.154611"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "code"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

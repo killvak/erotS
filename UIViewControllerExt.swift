@@ -13,6 +13,17 @@ import XLActionController
 extension UIViewController {
     
     
+    func hideKeyboardWhenTapped() {
+        
+        let tap  = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyBoard() {
+        view.endEditing(true)
+    }
+    
     func setupNav() {
         let navV = NavigationBarView()
 //        navV.translatesAutoresizingMaskIntoConstraints = false
@@ -98,6 +109,12 @@ extension UIViewController {
         }
      }
     
+    
+    func openSearchVC() {
+        let vc = SearchControllerVC()
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil    )
+    }
 }
 
 

@@ -10,30 +10,43 @@ import UIKit
 
 
 
-class ProductsListVC: FilterViewController {
+class ProductsListVC: FilterViewController , UITextFieldDelegate {
 
     //MARK: Vars
    private let cellID = "ProductCell"
-    var data : [Product_Data] = []
+    var data : [Product_Data] = [] {
+        didSet {
+            numberOfItemsLbl?.text = "\(data.count) Item"
+        }
+    }
     var lastContentOffset: CGFloat = 0
-
+var pageTitleAddress = ""
     //MARK: OutLets
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var numberOfItemsLbl: UILabel!
     @IBOutlet weak var searchTxt: UITextField!
     @IBOutlet weak var filterContainerViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var productMapAddressLbl: UILabel!
     
     //
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ numberOfItemsLbl?.text = "\(data.count) Item"
         // Do any additional setup after loading the view.
         collectionView.delegate = self
         collectionView.dataSource = self
         
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
+        productMapAddressLbl.text = pageTitleAddress == "" ? title ?? "" : pageTitleAddress
+        searchTxt.delegate = self
     }
     
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        openSearchVC()
+        searchTxt.resignFirstResponder()
+        return false
+    }
     
     @IBAction func filterhandler(_ sender: UIButton) {
         
@@ -77,6 +90,7 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
         cell.configCell(data: data[indexPath.row])
         cell.backgroundColor = .clear
         cell.moreBtn.addTarget(self , action: #selector(moreBtnHandler), for: .touchUpInside)
+        cell.newBadge.alpha = indexPath.row % 2 == 0  ? 1 : 0
         return cell
     }
 
@@ -92,7 +106,7 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        let width = self.view.frame.width * 0.45
+        let width = self.view.frame.width * 0.47
         let height = width * 1.4529411765
         return CGSize(width: width, height: height)
     }

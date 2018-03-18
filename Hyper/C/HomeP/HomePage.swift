@@ -42,6 +42,7 @@ class HomePage: UIViewController {
 updateData()
         
         setupPagerV()
+        updateSearchData()
     }
 
     func addPullToRefreshC() {
@@ -84,7 +85,7 @@ updateData()
     }
      @objc func changeLang() {
         
-   self.performSegue(withIdentifier: "go", sender: self)
+//   self.performSegue(withIdentifier: "go", sender: self)
 //        let vc = ProductsListVC()
 //
 //
@@ -115,6 +116,19 @@ updateData()
             self?.showApiErrorSms(err: err )
         }
         
+    }
+    
+    func updateSearchData() {
+        
+        Get_Requests().all_Data_about(categories: true, brands: false, page: 1, completion: { (_) in
+        }) { (r ) in
+            
+        }
+
+        Get_Requests().all_Data_about(categories: false, brands: true, page: 1, completion: { (_) in
+        }) { (_ ) in
+            print("wtf")
+        }
     }
     
     func change() {

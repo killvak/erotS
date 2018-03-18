@@ -45,6 +45,12 @@ class SelectedBrandVC: UIViewController {
     
 
     @IBAction func moreTopItemsHandler(_ sender: UIButton) {
+        
+        let vc = ProductsListVC()
+        vc.title = title ?? ""
+        vc.data = top_products
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     @IBAction func dissmissHandler(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -89,6 +95,7 @@ extension SelectedBrandVC : UITableViewDelegate, UITableViewDataSource {
             DispatchQueue.main.async {
                 let vc = ProductsListVC()
                 vc.data = rData.productsData
+                vc.pageTitleAddress = self.cat_Data[indexPath.row].name
                 vc.title = self.cat_Data[indexPath.row].name
                 self.navigationController?.pushViewController(vc, animated: true)
                 ad.killLoading()

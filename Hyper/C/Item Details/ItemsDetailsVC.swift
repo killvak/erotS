@@ -20,10 +20,13 @@ class ItemsDetailsVC: UIViewController {
     var data = ItemDetails_Data(){
         didSet {
             productData = data.productsData
+            relatedProducts = data.relatedProducts
+            
         }
     }
     var productData :  Product_Data!
-    
+    var relatedProducts : [Product_Data] = []
+
     //MARK: OutLets
     @IBOutlet weak var offerContView: UIViewX!
     @IBOutlet weak var tableView: UITableView!
@@ -93,6 +96,10 @@ class ItemsDetailsVC: UIViewController {
             prPrice2Lbl.alpha = 0
             prPrice1Lbl.textColor = Constant.BloodyRed
               offerContView.alpha = 0
+            if let price = data.productsData?.price {
+                prPrice1Lbl.text = "\(price) L.E"
+
+            }
         }
         
        
@@ -182,7 +189,7 @@ extension ItemsDetailsVC : UICollectionViewDataSource , UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard collectionView == colorsCollectionView else {
             
-            return 10
+            return relatedProducts.count
         }
         return productData.colors.count
     }
@@ -190,6 +197,7 @@ extension ItemsDetailsVC : UICollectionViewDataSource , UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard collectionView == colorsCollectionView else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SimilarItemsCell", for: indexPath) as! SimilarItemsCell
+            cell.configCell(data: relatedProducts[indexPath.row])
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorsCell", for: indexPath) as! ColorsCell

@@ -16,36 +16,69 @@ class Constant {
     static let  FontColorGray =  UIColor.init(hex: "666666")
     static let  Green =  UIColor.init(hex: "EBEBEC")
     
-     static let shared = Constant()
+    static let shared = Constant()
     
-    static   let parameters = API.Parameters.shared
-    static  let images_Url = "http://arafa.000webhostapp.com/Hyper/uploads/"
-  static let main_url = "http://hyper-testing.herokuapp.com/api/"
+    static var catBrand = [CatBrand_Data]()
+    static var recentSearch = [RecentSearchHistory]()
+    static let parameters = API.Parameters.shared
+    static let images_Url = "http://arafa.000webhostapp.com/Hyper/uploads/"
+    static let main_url = "http://hyper-testing.herokuapp.com/api/"
+    static var gotCatSearch = false
+    static var gotBrandSearch = false
     private init() {    }
     
+    static  func saveData(data : CatBrand_Data) {
+        typealias listOFsavedData = (id : Int , name : String , type : Int)
+        if let saved = UserDefaults.standard.value(forKey: "SearchHistory") as? [listOFsavedData] {
+            let saveData : listOFsavedData = (id : data.id , name : data.name , type : data.type.rawValue)
+            if saved.count >= 10 {
+                var dataa = saved
+                dataa.removeFirst()
+                dataa.append(saveData)
+                UserDefaults.standard.set(dataa , forKey: "SearchHistory")
+                
+            }else {
+                var dataa = saved
+                UserDefaults.standard.set( dataa.append(saveData), forKey: "SearchHistory")
+                
+            }
+        }else {
+            var dataa = [listOFsavedData]()
+            let saveData : listOFsavedData = (id : data.id , name : data.name , type : data.type.rawValue)
+            
+            dataa.append(saveData)
+            UserDefaults.standard.set(dataa, forKey: "SearchHistory")
+            
+        }
+    }
+    
+    static   func fetchRecentSearchData()-> [CatBrand_Data] {
+        if let saved = UserDefaults.standard.value(forKey: "SearchHistory") as? [CatBrand_Data] {
+            return saved }else { return [] }
+    }
     
 }
- 
+
 class API {
     //2604:a880:800:10::5f:9001
     //45.55.134.13
- 
+    
     private static let runner_path  = "runner/"
     private static let user_path  = "user/"
     static let facebookURLScheme = "fb284815255373672"
     
     
     class URLS {
-         }
-        let SINGLE_HEADER = ["Content-Type":"application/json"]
- 
+    }
+    let SINGLE_HEADER = ["Content-Type":"application/json"]
+    
     
     
     class Parameters : NSObject{
         
         static let shared = Parameters()
         let requestHasFailed = "Request has failed,Please check your network connection"
-
+        
         //Global
         let active = "active"
         let box_content = "box_content"

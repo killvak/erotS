@@ -213,7 +213,7 @@ class Colors_Data {
     }
     
     var code : String {
-        _code.removeFirst()
+//        _code.removeFirst()
         print(_code)
         return _code
      }

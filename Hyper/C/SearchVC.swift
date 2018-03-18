@@ -103,6 +103,7 @@ extension SearchVC : UITableViewDelegate, UITableViewDataSource {
         
         self.view.endEditing(true)
         let vc = ProductsListVC()
+        vc.pageTitleAddress = data[indexPath.row].name
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

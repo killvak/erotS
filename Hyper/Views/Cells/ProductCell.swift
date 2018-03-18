@@ -42,13 +42,15 @@ class ProductCell: UICollectionViewCell {
             offerLbl.text = "\(data.reduction_percent)%"
             offerContView.alpha = 1
             
+        }else {
+            price1Lbl.text = "\(data.price) L.E"
         }
         
-        if data.is_new {
-            newBadge.alpha = 1
-        }else {
-            newBadge.alpha = 0
-        }
+//        if data.is_new {
+//            newBadge.alpha = 1
+//        }else {
+//            newBadge.alpha = 1
+//        }
         
         
     }

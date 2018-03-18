@@ -55,10 +55,13 @@ class Get_Requests : Connection {
             let brands = jData["brands"].arrayValue
             let cats = jData["categories"].arrayValue
             let promotions = jData["promotions"].arrayValue
+            
              for x in brands {
-                itemD.brandsData.append(Cat_Brand_Data(x))
-            }
+                let y = Cat_Brand_Data(x)
+                itemD.brandsData.append(y)
+             }
             for x in cats {
+                let y = Cat_Brand_Data(x)
                 itemD.categoriesData.append(Cat_Brand_Data(x))
             }
             for x in promotions {
@@ -124,19 +127,35 @@ class Get_Requests : Connection {
         }
     }
     
-    
-    
+ 
     func all_Data_about(categories: Bool,brands: Bool, page: Int, completion:@escaping ( [Cat_Brand_Data] ) -> (),failure failed: @escaping (String?)->() ){
         
         let url = categories ? self.get_All_Categories(page: page) : get_All_Brands(page: page)
         let jsonKey = categories ? "category": "brand"
+        
         Connection.performGet(urlString: url, success: { (jData) in
-            
+          
             var catData = [Cat_Brand_Data]()
             let relatedPrs = jData[jsonKey].arrayValue
              for x in relatedPrs {
-                catData.append(Cat_Brand_Data(x))
+                let y = Cat_Brand_Data(x)
+                catData.append(y)
+                let typee = categories ?  CatBrandType.Category :  CatBrandType.Brand
+                print(jsonKey)
+                if !Constant.gotCatSearch , categories{
+                Constant.catBrand.append(CatBrand_Data(name: y.name, id: y.id, type: typee))
+                }else if !Constant.gotBrandSearch , !categories {
+                     Constant.catBrand.append(CatBrand_Data(name: y.name, id: y.id, type: typee))
+                }
+                
             }
+         
+            if !Constant.gotCatSearch , categories{
+                Constant.gotCatSearch = true
+            }else if !Constant.gotBrandSearch , !categories {
+                Constant.gotBrandSearch = true
+            }
+            
                completion(catData)
             
         }) { (err) in
