@@ -40,21 +40,21 @@ class FilterTableView: UIView {
   
     
     var selectionData = SelectedCells()
-    var selectedIndex : [IndexPath] = []{
+    var selectedIndex : [Int] = []{
         didSet {
-            print("that;s the current filter \(FilterMainCell?.filterParameters)")
+            print("that;s the current filter \( FilterViewController.filterParameters)")
 
             let indexType = listType == FilterTypes.brands ? filterParameters.brands.rawValue : filterParameters.cats.rawValue
             if  listType == FilterTypes.brands {
            
-                FilterMainCell?.brandParm[indexType] = selectedIndex
+                 FilterViewController.filterParameters[indexType] = selectedIndex
 
             }else {
-              FilterMainCell?.catParm[indexType] = selectedIndex
+               FilterViewController.filterParameters[indexType] = selectedIndex
 
             }   
 
-            print("that;s the current filter \(FilterMainCell?.filterParameters)")
+            print("that;s the current filter \( FilterViewController.filterParameters)")
         }
     }
      private func commonUnit() {
@@ -83,7 +83,7 @@ extension FilterTableView : UITableViewDataSource , UITableViewDelegate {
         print("\(indexPath.row) isSelected : \(cell.isSelectedCell)")
         cell.selectionImg.image = nil
         cell.configCell(data: data[indexPath.row])
-        if let index = selectedIndex.index(of: indexPath)    {
+        if let index = selectedIndex.index(of: indexPath.item)    {
             cell.selectionImg.image = #imageLiteral(resourceName: "check_box_active_")
 
         } else {
@@ -104,9 +104,15 @@ extension FilterTableView : UITableViewDataSource , UITableViewDelegate {
          cell.selectionImg.image = #imageLiteral(resourceName: "check_box_active_")
         cell.isSelectedCell = true
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-        selectedIndex.append(indexPath)
+//        selectedIndex.append(indexPath.item)
         print("\(tableView.indexPathsForSelectedRows)")
 
+        if  selectedIndex.contains(indexPath.row) {
+            selectedIndex =  selectedIndex.filter { $0 != indexPath.row }
+        }else {
+            selectedIndex.append(indexPath.row)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -117,6 +123,12 @@ extension FilterTableView : UITableViewDataSource , UITableViewDelegate {
         print("After \(tableView.indexPathsForSelectedRows)")
         cell.selectionImg.image = #imageLiteral(resourceName: "check_box_unactive_")
         cell.isSelectedCell = false
+        
+        if  selectedIndex.contains(indexPath.row) {
+             selectedIndex =  selectedIndex.filter { $0 != indexPath.row }
+        }else {
+             selectedIndex.append(indexPath.row)
+        }
         
     }
 }

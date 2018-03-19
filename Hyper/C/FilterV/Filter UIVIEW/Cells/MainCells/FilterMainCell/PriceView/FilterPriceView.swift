@@ -86,9 +86,9 @@ extension FilterPriceView: RangeSeekSliderDelegate {
         self.minPrice = Int(slider.selectedMinValue)
         self.maxPrice = Int(slider.selectedMaxValue)
         
-        FilterMainCell?.priceParms[filterParameters.min_price.rawValue] = minPrice
-        FilterMainCell?.priceParms[filterParameters.max_price.rawValue] = maxPrice
-        print("that;s the current filter \(FilterMainCell?.filterParameters)")
+         FilterViewController.filterParameters[filterParameters.min_price.rawValue] = minPrice
+         FilterViewController.filterParameters[filterParameters.max_price.rawValue] = maxPrice
+        print("that;s the current filter \( FilterViewController.filterParameters)")
 
      }
 }

@@ -19,31 +19,31 @@ class FilterMainCell: UITableViewCell {
     //MARK : Vars
     var filterData =  [Filter_Listed_Data]()
     weak var filterCustomeV  :FilterCustomeView?
-    var filterParameters : [String:Any] = [:] {
-        didSet {
-            self.filterCustomeV?.filterParameters = filterParameters
-            print("that;s the current filter \(filterParameters)")
-        }
-    }
-    var priceParms : [String:Any] = [:] {
-        didSet {
-            filterParameters.merge(priceParms.lazy.map { ($0.key, $0.value) }) { (current, _) in current }
-
-            print("that;s the current filter \(filterParameters)")
-        }
-    }
-    var brandParm : [String:Any] = [:] {
-        didSet {
-            filterParameters.merge(brandParm.lazy.map { ($0.key, $0.value) }) { (current, _) in current }
-            print("that;s the current filter \(filterParameters)")
-        }
-    }
-    var catParm : [String:Any] = [:] {
-        didSet {
-            filterParameters.merge(catParm.lazy.map { ($0.key, $0.value) }) { (current, _) in current }
-            print("that;s the current filter \(filterParameters)")
-        }
-    }
+//    var filterParameters : [String:Any] = [:] {
+//        didSet {
+//            self.filterCustomeV?.filterParameters = filterParameters
+//            print("that;s the current filter \(filterParameters)")
+//        }
+//    }
+//    var priceParms : [String:Any] = [:] {
+//        didSet {
+//            filterParameters.merge(priceParms.lazy.map { ($0.key, $0.value) }) { (current, _) in current }
+//
+//            print("that;s the current filter \(filterParameters)")
+//        }
+//    }
+//    var brandParm : [String:Any] = [:] {
+//        didSet {
+//            filterParameters.merge(brandParm.lazy.map { ($0.key, $0.value) }) { (current, _) in current }
+//            print("that;s the current filter \(filterParameters)")
+//        }
+//    }
+//    var catParm : [String:Any] = [:] {
+//        didSet {
+//            filterParameters.merge(catParm.lazy.map { ($0.key, $0.value) }) { (current, _) in current }
+//            print("that;s the current filter \(filterParameters)")
+//        }
+//    }
     
     var listType : FilterTypes = .brands
     var mainData = Filter_Data()

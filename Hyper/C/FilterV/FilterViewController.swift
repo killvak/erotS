@@ -30,7 +30,7 @@ class FilterViewController: UIViewController {
    
     
     //MARK : Vars
-    var filterParameters : [String:Any] = [:]
+   static  var filterParameters : [String:Any] = [:]
     var filterData = Filter_Data()
 
     
@@ -62,8 +62,8 @@ class FilterViewController: UIViewController {
 
 
 extension FilterViewController : FilterProtocol  {
-    func applyFilterHandler(parm: [String : Any]) {
-        print(parm)
+    func applyFilterHandler() {
+        
            dismissFilterView()
     }
     

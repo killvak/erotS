@@ -10,7 +10,7 @@ import UIKit
 
 protocol  FilterProtocol : class  {
     func dismissFilterView()
-    func applyFilterHandler(parm : [String:Any])
+    func applyFilterHandler()
 }
 
 class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
@@ -21,7 +21,7 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
     //MARK : Vars
     weak var delegate : FilterProtocol?
     var filterData = Filter_Data()
-    var filterParameters : [String:Any] = [:]
+      var filterParameters : [String:Any] = [:]
 
      override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,7 +53,8 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
     }
     
     @IBAction func applyFilterHandler(_ sender: UIButton) {
-        self.delegate?.applyFilterHandler(parm: filterParameters)
+//        self.delegate?.applyFilterHandler(parm: FilterCustomeView.filterParameters)
+        self.delegate?.applyFilterHandler()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filterData.listOf.count

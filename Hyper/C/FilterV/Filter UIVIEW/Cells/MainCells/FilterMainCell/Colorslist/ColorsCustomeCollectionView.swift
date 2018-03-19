@@ -25,8 +25,8 @@ class ColorsCustomeCollectionView: UIView {
     weak var FilterMainCell : FilterMainCell?
     var selectedIndexs = [Int]() {
         didSet {
-            FilterMainCell?.filterParameters[filterParameters.colors.rawValue] = selectedIndex
-            print("that;s the current filter \(FilterMainCell?.filterParameters)")
+            FilterViewController.filterParameters[filterParameters.colors.rawValue] = selectedIndex
+            print("that;s the current filter \( FilterViewController.filterParameters)")
         }
     }
     
