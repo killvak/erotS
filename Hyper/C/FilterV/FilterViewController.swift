@@ -8,17 +8,35 @@
 
 import UIKit
 
-class FilterViewController: UIViewController {
+enum filterParameters : String {
     
-    let filterView : FilterCustomeView  = {
+    case min_price = "min_price"
+    case max_price = "max_price"
+    case cats = "cats"
+    case brands = "brands"
+    case colors = "colors"
+    
+}
+
+class FilterViewController: UIViewController {
+
+    
+    //MARK: HardCoded OutLets
+   lazy var filterView : FilterCustomeView  = {
         let vc = FilterCustomeView()
+     vc.filterData = filterData
         return vc
     }()
+   
+    
+    //MARK : Vars
+    var filterParameters : [String:Any] = [:]
+    var filterData = Filter_Data()
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        filterView.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -44,10 +62,12 @@ class FilterViewController: UIViewController {
 
 
 extension FilterViewController : FilterProtocol  {
-    func applyFilterHandler() {
-        print("Apply Filter")
-        dismissFilterView()
+    func applyFilterHandler(parm: [String : Any]) {
+        print(parm)
+           dismissFilterView()
     }
+    
+ 
     
     func dismissFilterView(){
         filterView.removeFromSuperview()

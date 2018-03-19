@@ -79,18 +79,31 @@ class Get_Requests : Connection {
       }
     
     
-    func brand_By_ID_Request(brandID: Int, page: Int, completion:@escaping ( [Product_Data] ) -> (),failure failed: @escaping (String?)->() ){
+    func brand_By_ID_Request(brandID: Int, page: Int, completion:@escaping ( ProductFull_Data ) -> (),failure failed: @escaping (String?)->() ){
         
          Connection.performGet(urlString: self.get_Brands_By_ID(brandID: brandID, page: page), success: { (jData) in
             
               let relatedPrs = jData["product"].arrayValue
-            var brandsProducts : [Product_Data] = []
-             for x in relatedPrs {
-                brandsProducts.append(Product_Data(x))
-            }
-            print("brandsProducts  \(brandsProducts.count) brandsProducts \(brandsProducts.description)")
+            let filterBrandData = jData["filter"]["brands"].arrayValue
+            let filterCatData = jData["filter"]["categories"].arrayValue
             
-            completion(brandsProducts)
+            var productFull_Data = ProductFull_Data()
+            var maxMinPrice = [Int]()
+              for x in relatedPrs {
+                 productFull_Data.productList.append(Product_Data(x))
+                maxMinPrice.append(Product_Data(x).price)
+            }
+            productFull_Data.filterData.maxPrice = maxMinPrice.max()
+             productFull_Data.filterData.minPrice = maxMinPrice.min()
+            for x in filterBrandData {
+                productFull_Data.filterData.brands.append(Filter_Listed_Data(x))
+            }
+            for x in filterCatData {
+                productFull_Data.filterData.categories.append(Filter_Listed_Data(x))
+            }
+            
+            
+            completion(productFull_Data)
             
         }) { (err) in
             

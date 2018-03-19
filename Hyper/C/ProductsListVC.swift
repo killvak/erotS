@@ -13,7 +13,9 @@ import UIKit
 class ProductsListVC: FilterViewController , UITextFieldDelegate {
 
     //MARK: Vars
+    
    private let cellID = "ProductCell"
+    var fullData = ProductFull_Data()
     var data : [Product_Data] = [] {
         didSet {
             numberOfItemsLbl?.text = "\(data.count) Item"
@@ -40,6 +42,7 @@ var pageTitleAddress = ""
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
         productMapAddressLbl.text = pageTitleAddress == "" ? title ?? "" : pageTitleAddress
         searchTxt.delegate = self
+        self.filterData = fullData.filterData
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -49,8 +52,11 @@ var pageTitleAddress = ""
     }
     
     @IBAction func filterhandler(_ sender: UIButton) {
-        
+        filterView.delegate = self
+
         self.openFilterView()
+        
+        
  
     }
     
@@ -146,11 +152,12 @@ extension ProductsListVC {
 }
 
 extension ProductsListVC : SearchControllerProtocol {
-    
-    
-    func fetchData(data: [Product_Data]) {
-        
-        self.data = data
+ 
+ 
+    func fetchData(data: ProductFull_Data?, catData: Categories_Specefications_Data?) {
+        guard let data = data else { return }
+        self.fullData = data 
+        self.data = data.productList
         self.collectionView.reloadData()
     }
 }

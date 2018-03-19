@@ -29,6 +29,12 @@ class CategoryTableCell: UITableViewCell {
         // Initialization code
      }
     
+    
+    func configCell(data : Filter_Listed_Data) {
+        
+        self.titleLbl.text  = data.name
+        
+    }
 //    override func setSelected(_ selected: Bool, animated: Bool) {
 //         if selected{
 //            selectionImg.image = #imageLiteral(resourceName: "check_box_active_")

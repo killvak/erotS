@@ -54,6 +54,11 @@
                             <real key="value" value="1.3"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didChangeValue:" destination="-1" eventType="valueChanged" id="q5h-VX-gXz"/>
+                        <action selector="editingDidEnd:" destination="-1" eventType="editingDidEnd" id="4H7-P7-zRU"/>
+                        <action selector="outSideHandler:" destination="-1" eventType="touchUpOutside" id="ft0-Jc-jMV"/>
+                    </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

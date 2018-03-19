@@ -16,7 +16,7 @@ extension UIViewController {
     func navBrandToProductsList(brandID : Int , pageNum : Int, pageTitle: String)  {
         ad.isLoading()
         Get_Requests().brand_By_ID_Request(brandID:brandID, page: pageNum, completion: { [unowned self ](rData) in
-            guard rData.count >= 1 else {
+            guard rData.productList.count >= 1 else {
                 DispatchQueue.main.async {
                     self.view.showSimpleAlert(L0A.Sorry.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .warning)
                     ad.killLoading()
@@ -25,7 +25,8 @@ extension UIViewController {
             }
             DispatchQueue.main.async {
                 let vc = ProductsListVC(nibName: "ProductsListVC", bundle: nil)
-                vc.data = rData
+                vc.data = rData.productList
+                vc.fullData = rData
                 vc.title = pageTitle
                 self.navigationController?.pushViewController(vc, animated: true)
                 ad.killLoading()

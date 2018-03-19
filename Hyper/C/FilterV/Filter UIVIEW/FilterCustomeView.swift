@@ -10,7 +10,7 @@ import UIKit
 
 protocol  FilterProtocol : class  {
     func dismissFilterView()
-    func applyFilterHandler()
+    func applyFilterHandler(parm : [String:Any])
 }
 
 class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
@@ -18,8 +18,12 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
     @IBOutlet weak var emptyViewBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    //MARK : Vars
     weak var delegate : FilterProtocol?
-    override init(frame: CGRect) {
+    var filterData = Filter_Data()
+    var filterParameters : [String:Any] = [:]
+
+     override init(frame: CGRect) {
         super.init(frame: frame)
         commonUnit()
     }
@@ -49,16 +53,18 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
     }
     
     @IBAction func applyFilterHandler(_ sender: UIButton) {
-        self.delegate?.applyFilterHandler()
+        self.delegate?.applyFilterHandler(parm: filterParameters)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return filterData.listOf.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
  
             let cell = tableView.dequeueReusableCell(withIdentifier: "FilterMainCell", for: indexPath) as! FilterMainCell
-            cell.setupContainerView(viewType: indexPath.row)
+//        let data = filterData.listOf[indexPath.row]
+        cell.filterCustomeV = self
+        cell.setupContainerView(viewType: filterData,indexPath.row)
             return cell
         
     }

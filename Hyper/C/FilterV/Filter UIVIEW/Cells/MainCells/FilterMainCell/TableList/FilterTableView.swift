@@ -15,8 +15,16 @@ class  SelectedCells : NSObject {
 }
 class FilterTableView: UIView {
     
+    //MARK: OutLets
     @IBOutlet weak var tableView: UITableView!
 
+    
+    //MARK: Vars
+    weak var FilterMainCell : FilterMainCell?
+    var data = [Filter_Listed_Data]()
+    var listType : FilterTypes?
+//    var selectedIndexs =  [Int]()
+    //
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,7 +40,23 @@ class FilterTableView: UIView {
   
     
     var selectionData = SelectedCells()
-    var selectedIndex : [IndexPath] = []
+    var selectedIndex : [IndexPath] = []{
+        didSet {
+            print("that;s the current filter \(FilterMainCell?.filterParameters)")
+
+            let indexType = listType == FilterTypes.brands ? filterParameters.brands.rawValue : filterParameters.cats.rawValue
+            if  listType == FilterTypes.brands {
+           
+                FilterMainCell?.brandParm[indexType] = selectedIndex
+
+            }else {
+              FilterMainCell?.catParm[indexType] = selectedIndex
+
+            }   
+
+            print("that;s the current filter \(FilterMainCell?.filterParameters)")
+        }
+    }
      private func commonUnit() {
         
         let view = Bundle.main.loadNibNamed("FilterTableView", owner: self, options: nil)?.first as! UIView
@@ -49,7 +73,7 @@ extension FilterTableView : UITableViewDataSource , UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,6 +81,8 @@ extension FilterTableView : UITableViewDataSource , UITableViewDelegate {
         cell.tag = indexPath.row
         cell.delegate = self
         print("\(indexPath.row) isSelected : \(cell.isSelectedCell)")
+        cell.selectionImg.image = nil
+        cell.configCell(data: data[indexPath.row])
         if let index = selectedIndex.index(of: indexPath)    {
             cell.selectionImg.image = #imageLiteral(resourceName: "check_box_active_")
 

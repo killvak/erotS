@@ -21,7 +21,10 @@ enum GetAlertsLocalize {
     case Cancel
     case All_Brands
     case All_Categories
-    
+    case Brands
+    case Categories
+    case Colors
+    case price
     
     
     
@@ -139,7 +142,18 @@ enum GetAlertsLocalize {
     
     func stringValue() -> String {
         switch self {
-            //Hyper
+        //Hyper
+        case .Brands:
+            return  L102Language.currentAppleLanguage() == "ar" ? "الماركات": "Brands"
+            
+        case .Categories:
+            return  L102Language.currentAppleLanguage() == "ar" ? "الأصناف": "Categories"
+            
+        case .Colors:
+            return  L102Language.currentAppleLanguage() == "ar" ? "الألوان": "Colors"
+        case .price:
+            return  L102Language.currentAppleLanguage() == "ar" ? "السعر": "Price"
+            
         case .No_Colors_Available :
             return  L102Language.currentAppleLanguage() == "ar" ? "لا توجد ألوان متوفرة": "No Colors Available"
         case .Add_To_Cart :
@@ -403,6 +417,7 @@ enum GetAlertsLocalize {
         case .Order_has_Been_Submitted:
             return  L102Language.currentAppleLanguage() == "ar" ? "تم إرسال الطلب": "Order has Been Submitted"
             
+ 
         }
     }
 }

@@ -18,6 +18,57 @@ class ItemDetails_Data {
     
 }
 
+class ProductFull_Data {
+    
+    var productList = [Product_Data]()
+    var filterData = Filter_Data()
+}
+
+//filter
+class Filter_Data {
+    
+    var brands = [Filter_Listed_Data]()
+    var categories = [Filter_Listed_Data]()
+  var colors = [Colors_Data]()
+    
+    var maxPrice : Int?
+    var minPrice : Int?
+    
+    var listOf : [FilterTypes] {
+        var countiT = [FilterTypes]()
+        if brands.count >= 1 {
+            countiT.append(.brands)
+        }
+         if categories.count >= 1 {
+            countiT.append(.categories)
+         }
+        if colors.count >= 0 {
+            countiT.append(.colors)
+        }
+        if maxPrice != nil {
+            countiT.append(.price)
+        }
+         return countiT
+    }
+}
+enum FilterTypes : Int {
+    case brands = 0
+    case categories = 1
+    case colors = 2
+    case price = 3
+    func getFilterName() -> String {
+        switch self {
+        case .brands:
+            return L0A.Brands.stringValue()
+        case .categories:
+            return L0A.Categories.stringValue()
+        case .colors:
+            return L0A.Colors.stringValue()
+        case .price :
+            return L0A.price.stringValue()
+        }
+    }
+}
 class Product_Data {
     
     private var _active : Int!
@@ -234,4 +285,30 @@ class Colors_Data {
  
     }
     
+}
+
+
+
+
+
+struct Filter_Listed_Data {
+    private var _name : String!
+    private var _id : Int!
+    private var _name_ar : String!
+    
+    private var _sum : Int!
+    
+    var name : String {return  L102Language.currentAppleLanguage() == "ar" ? _name_ar : _name }
+    var  id : Int {return _id }
+    
+    var  sum : Int { return _sum }
+    
+    
+    init(_ jsonData : JSON) {
+        self._name = jsonData[Constant.parameters.name].stringValue
+        self._id = jsonData[Constant.parameters.id].intValue
+        self._sum = jsonData["sum"].intValue
+        self._name_ar = jsonData[Constant.parameters.name_ar].stringValue
+        
+    }
 }

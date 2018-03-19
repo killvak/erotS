@@ -10,7 +10,7 @@ import UIKit
 
 protocol SearchControllerProtocol : class {
     
-    func fetchData(data : [Product_Data])
+    func fetchData(data : ProductFull_Data?,catData : Categories_Specefications_Data?)
 }
   enum SearchDataType : Int {
     case recent = 0
@@ -156,7 +156,7 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
         Get_Requests().brand_By_ID_Request(brandID: data.id, page: 1, completion: { (rData ) in
             DispatchQueue.main.async {
                  ad.killLoading()
-                self.delegate?.fetchData(data: rData)
+                self.delegate?.fetchData(data: rData, catData: nil)
                 self.dismiss(animated: true, completion: nil)
              }
             
@@ -172,7 +172,7 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
         Get_Requests().category_By_Id(catID: data.id, page: 1, completion: { (rData ) in
             DispatchQueue.main.async {
                 ad.killLoading()
-                self.delegate?.fetchData(data: rData.productsData)
+                self.delegate?.fetchData(data: nil, catData: rData)
                 self.dismiss(animated: true, completion: nil)
             }
             
