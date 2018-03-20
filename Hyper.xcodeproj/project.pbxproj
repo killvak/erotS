@@ -68,6 +68,8 @@
 		84678B5E20445C650051AE03 /* ProductsListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84678B5C20445C650051AE03 /* ProductsListVC.xib */; };
 		846B690420470A250039F037 /* NavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B690320470A250039F037 /* NavigationBarView.xib */; };
 		846B690620470A370039F037 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B690520470A370039F037 /* NavigationBarView.swift */; };
+		846BF65B206105BE00915DEC /* Post_Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BF65A206105BE00915DEC /* Post_Requests.swift */; };
+		846BF65D20614A5700915DEC /* FilterGesture in Resources */ = {isa = PBXBuildFile; fileRef = 846BF65C20614A5700915DEC /* FilterGesture */; };
 		848C0AB5205FF8D500C31929 /* ColorsSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848C0AB3205FF8D500C31929 /* ColorsSelectorCell.swift */; };
 		848C0AB6205FF8D500C31929 /* ColorsSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848C0AB4205FF8D500C31929 /* ColorsSelectorCell.xib */; };
 		848C0AB9205FFA4C00C31929 /* ColorsCustomeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848C0AB8205FFA4C00C31929 /* ColorsCustomeCollectionView.swift */; };
@@ -163,6 +165,8 @@
 		84678B5C20445C650051AE03 /* ProductsListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsListVC.xib; sourceTree = "<group>"; };
 		846B690320470A250039F037 /* NavigationBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarView.xib; sourceTree = "<group>"; };
 		846B690520470A370039F037 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		846BF65A206105BE00915DEC /* Post_Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Requests.swift; sourceTree = "<group>"; };
+		846BF65C20614A5700915DEC /* FilterGesture */ = {isa = PBXFileReference; lastKnownFileType = text; name = FilterGesture; path = DashBoard/FilterGesture; sourceTree = "<group>"; };
 		848C0AB3205FF8D500C31929 /* ColorsSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsSelectorCell.swift; sourceTree = "<group>"; };
 		848C0AB4205FF8D500C31929 /* ColorsSelectorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorsSelectorCell.xib; sourceTree = "<group>"; };
 		848C0AB8205FFA4C00C31929 /* ColorsCustomeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsCustomeCollectionView.swift; sourceTree = "<group>"; };
@@ -413,6 +417,7 @@
 		84678B59204453C30051AE03 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				846BF65C20614A5700915DEC /* FilterGesture */,
 				84314748205024F900AE045D /* MyExtensions.swift */,
 				84C2ECBE205447440024CE6F /* 002-new.png */,
 				845A3D1020540C0000C77EF2 /* UIViewControllerExt.swift */,
@@ -484,6 +489,7 @@
 				F300A32E205C7CC600C430F9 /* CD */,
 				84E6D667204ED2B100D5AD3B /* Connection.swift */,
 				84E6D663204EC65C00D5AD3B /* Get_Requests.swift */,
+				846BF65A206105BE00915DEC /* Post_Requests.swift */,
 				84E6D66B204EF09D00D5AD3B /* Models_Vars_Trees */,
 				843160FB2051BA250067B4E4 /* FIlter_Model.swift */,
 				84C2ECC620558F3F0024CE6F /* UIVCGetMethodsCall.swift */,
@@ -611,6 +617,7 @@
 				842E08FA2043FC590047505B /* Main.storyboard in Resources */,
 				F365BA96205CA43600550A75 /* SearchControllerVC.xib in Resources */,
 				848C0ABB205FFA5700C31929 /* ColorsCustomeCollectionView.xib in Resources */,
+				846BF65D20614A5700915DEC /* FilterGesture in Resources */,
 				84678B5520444F570051AE03 /* GOTHICI.TTF in Resources */,
 				84678B5320444F570051AE03 /* GOTHICB.TTF in Resources */,
 			);
@@ -739,6 +746,7 @@
 				848C0AB9205FFA4C00C31929 /* ColorsCustomeCollectionView.swift in Sources */,
 				F3D14E652044C021008162B1 /* MaterialView.swift in Sources */,
 				842E09162043FE440047505B /* MirroringViewController.swift in Sources */,
+				846BF65B206105BE00915DEC /* Post_Requests.swift in Sources */,
 				842E092E2043FF280047505B /* UISliderX.swift in Sources */,
 				842E092B2043FF280047505B /* UIImageViewX.swift in Sources */,
 				843160D2205148F80067B4E4 /* FilterCustomeView.swift in Sources */,

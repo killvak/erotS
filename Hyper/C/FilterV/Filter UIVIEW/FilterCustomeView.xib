@@ -19,6 +19,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterCustomeView" customModule="Hyper" customModuleProvider="target">
             <connections>
                 <outlet property="emptyViewBtn" destination="y0j-K9-3gr" id="Rbi-fO-dGy"/>
+                <outlet property="filterTableHeaderView" destination="VmS-mb-3B2" id="y9W-Q3-JKO"/>
+                <outlet property="filterView" destination="Xwd-XS-zcS" id="S1u-7J-m30"/>
+                <outlet property="filterViewBottomCons" destination="ELT-yq-meZ" id="DYZ-Ia-vhZ"/>
                 <outlet property="tableView" destination="tsZ-SS-Tcv" id="dQ0-6C-oN2"/>
             </connections>
         </placeholder>

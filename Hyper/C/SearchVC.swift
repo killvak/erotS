@@ -102,10 +102,7 @@ extension SearchVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.view.endEditing(true)
-        let vc = ProductsListVC()
-        vc.pageTitleAddress = data[indexPath.row].name
-        self.navigationController?.pushViewController(vc, animated: true)
-        
+navCategoryToProductsList(catID: data[indexPath.row].id, pageNum: 1, pageTitle: self.data[indexPath.row].name)
     }
     
     
@@ -156,7 +153,9 @@ extension SearchVC :   UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
         // keyboard was resigned or user clicked a different textfield
-        
+        openSearchVC()
+        searchBar.resignFirstResponder()
+     
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -177,6 +176,15 @@ extension SearchVC :   UISearchBarDelegate {
         self.tableView.reloadData()
     }
     
+}
+
+
+extension SearchVC : SearchControllerProtocol {
+    
+    func fetchData(data: ProductFull_Data?, catData: Categories_Specefications_Data?) {
+     
+        searchDidSelectResponse(data: data, catData: catData)
+     }
 }
 
 

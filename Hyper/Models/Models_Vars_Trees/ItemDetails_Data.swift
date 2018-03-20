@@ -42,7 +42,7 @@ class Filter_Data {
          if categories.count >= 1 {
             countiT.append(.categories)
          }
-        if colors.count >= 0 {
+        if colors.count >= 1 {
             countiT.append(.colors)
         }
         if maxPrice != nil {

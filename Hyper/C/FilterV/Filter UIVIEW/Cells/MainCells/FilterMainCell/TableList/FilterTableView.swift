@@ -45,12 +45,16 @@ class FilterTableView: UIView {
             print("that;s the current filter \( FilterViewController.filterParameters)")
 
             let indexType = listType == FilterTypes.brands ? filterParameters.brands.rawValue : filterParameters.cats.rawValue
+            var iDS = [Int]()
+            for i in selectedIndex {
+                iDS.append(data[i].id)
+            }
             if  listType == FilterTypes.brands {
-           
-                 FilterViewController.filterParameters[indexType] = selectedIndex
+               
+                 FilterViewController.filterParameters[indexType] = iDS
 
             }else {
-               FilterViewController.filterParameters[indexType] = selectedIndex
+               FilterViewController.filterParameters[indexType] = iDS
 
             }   
 

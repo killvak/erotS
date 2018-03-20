@@ -30,7 +30,29 @@ class Connection: NSObject {
         }
     }
     
-   
+    func getProductData(jData : JSON) -> ProductFull_Data {
+        
+        
+        let relatedPrs = jData["product"].arrayValue
+        let filterBrandData = jData["filter"]["brands"].arrayValue
+        let filterCatData = jData["filter"]["categories"].arrayValue
+        
+        var productFull_Data = ProductFull_Data()
+        var maxMinPrice = [Int]()
+        for x in relatedPrs {
+            productFull_Data.productList.append(Product_Data(x))
+            maxMinPrice.append(Product_Data(x).price)
+        }
+        productFull_Data.filterData.maxPrice = maxMinPrice.max()
+        productFull_Data.filterData.minPrice = maxMinPrice.min()
+        for x in filterBrandData {
+            productFull_Data.filterData.brands.append(Filter_Listed_Data(x))
+        }
+        for x in filterCatData {
+            productFull_Data.filterData.categories.append(Filter_Listed_Data(x))
+        }
+        return  productFull_Data
+    }
 //    enum URLS_Get_Enum {
 //        case Item_Details
 //

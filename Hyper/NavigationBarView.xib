@@ -34,24 +34,24 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_nevegation_" translatesAutoresizingMaskIntoConstraints="NO" id="Osr-D5-1BK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_back" translatesAutoresizingMaskIntoConstraints="NO" id="vbM-Sj-x0O">
-                                    <rect key="frame" x="12" y="20" width="14" height="23"/>
+                                    <rect key="frame" x="12" y="20.5" width="14" height="23"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="14" id="CUo-Wu-BRd"/>
                                         <constraint firstAttribute="width" secondItem="vbM-Sj-x0O" secondAttribute="height" multiplier="11:18" id="OZJ-lL-X0l"/>
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nli-VM-myG">
-                                    <rect key="frame" x="10" y="9" width="45" height="45"/>
+                                    <rect key="frame" x="10" y="9.5" width="45" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="CZb-VP-t44"/>
                                         <constraint firstAttribute="width" constant="45" id="aBG-IS-Bmy"/>
                                     </constraints>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6B-s0-cx2">
-                                    <rect key="frame" x="75" y="21.5" width="225.5" height="20.5"/>
+                                    <rect key="frame" x="75" y="22" width="225.5" height="20.5"/>
                                     <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="19"/>
                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="vbM-Sj-x0O" firstAttribute="centerY" secondItem="Nli-VM-myG" secondAttribute="centerY" id="6QE-rw-Bjw"/>
-                                <constraint firstAttribute="bottom" secondItem="Osr-D5-1BK" secondAttribute="bottom" id="8ho-vI-evb"/>
+                                <constraint firstAttribute="bottom" secondItem="Osr-D5-1BK" secondAttribute="bottom" constant="-1" id="8ho-vI-evb"/>
                                 <constraint firstItem="Nli-VM-myG" firstAttribute="centerY" secondItem="Osr-D5-1BK" secondAttribute="centerY" id="E2f-ZF-U0L"/>
                                 <constraint firstAttribute="trailing" secondItem="Osr-D5-1BK" secondAttribute="trailing" id="JoL-5S-0kz"/>
                                 <constraint firstItem="Osr-D5-1BK" firstAttribute="leading" secondItem="bjX-uL-b2D" secondAttribute="leading" id="L2L-gw-NHn"/>

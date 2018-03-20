@@ -12,13 +12,28 @@ import UIKit
 
 class ProductsListVC: FilterViewController , UITextFieldDelegate {
 
+    @IBOutlet weak var filterContainerView: UIViewX!
     //MARK: Vars
     
    private let cellID = "ProductCell"
-    var fullData = ProductFull_Data()
-    var data : [Product_Data] = [] {
+    var fullData = ProductFull_Data() {
+        didSet {
+            filterData = fullData.filterData
+            data = fullData.productList
+            self.collectionView?.reloadData()
+            if filterData.listOf.count >= 1 {
+                self.filterContainerView?.alpha = 1
+            }
+            guard data.count > 4  else { return }
+            self.collectionView?.scrollToItem(at: IndexPath.init(item: 0, section: 0), at: .top, animated: true)
+
+        }
+    }
+     var data : [Product_Data] = [] {
         didSet {
             numberOfItemsLbl?.text = "\(data.count) Item"
+           //            [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+
         }
     }
     var lastContentOffset: CGFloat = 0
@@ -38,12 +53,18 @@ var pageTitleAddress = ""
         // Do any additional setup after loading the view.
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        self.delegate = self
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
         productMapAddressLbl.text = pageTitleAddress == "" ? title ?? "" : pageTitleAddress
         searchTxt.delegate = self
-        self.filterData = fullData.filterData
+        if filterData.listOf.count == 0 {
+            self.filterContainerView.alpha = 0
+        }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         openSearchVC()
@@ -151,13 +172,27 @@ extension ProductsListVC {
     
 }
 
+extension ProductsListVC : FilterViewControllerDelegate {
+ 
+    func fetchData(data: ProductFull_Data) {
+        print(data)
+        self.fullData = data
+    }
+}
 extension ProductsListVC : SearchControllerProtocol {
  
  
     func fetchData(data: ProductFull_Data?, catData: Categories_Specefications_Data?) {
-        guard let data = data else { return }
-        self.fullData = data 
-        self.data = data.productList
+        guard let dataaa = data else {
+            guard let dataa = catData else { return }
+            let sb = self.storyboard ?? UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "SelectedBrandVC") as! SelectedBrandVC
+            vc.mainData = dataa
+            vc.title = dataa.cat_name
+            self.navigationController?.pushViewController(vc, animated: true)
+            return }
+        self.fullData = dataaa
+        self.data = dataaa.productList
         self.collectionView.reloadData()
     }
 }

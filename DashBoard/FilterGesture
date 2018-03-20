@@ -1,0 +1,122 @@
+
+//Working 100% Center Y
+@objc func draggingFilterView(_ gestureRecognizer : UIPanGestureRecognizer) {
+
+
+if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
+
+let translation = gestureRecognizer.translation(in: self)
+// note: 'view' is optional and need to be unwrapped
+
+let y = gestureRecognizer.view!.frame.origin.y
+let maxY = UIScreen.main.bounds.height * 0.5
+
+//         guard y >= maxY else {
+//            UIView.animate(withDuration: 0.4, animations: {
+//               self.filterView.center.y = UIScreen.main.bounds.maxY * 2
+//                self.layoutIfNeeded()
+//            }) { (_) in
+//                self.delegate?.dismissFilterView()
+//            }
+//
+//            return
+//
+//        }
+let y2 = gestureRecognizer.view!.frame.origin.y
+
+let shit = self.bounds.height * 0.55
+guard y2 <=  shit  else {
+//            UIView.animate(withDuration: 0.4, animations: {
+//                self.filterView.center.y = UIScreen.main.bounds.maxY * 2
+//                self.layoutIfNeeded()
+//            }) { (_) in
+//            print("gestureRecognizer.view!.center.y \(y ) \n maxY : \(maxY) y2:\(y2) shit: \(shit) ")
+
+//            print("⎲ Removed")
+self.dismissFilterView()
+//            }
+return
+}
+gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x , y: gestureRecognizer.view!.center.y + translation.y)
+
+gestureRecognizer.setTranslation(CGPoint.zero, in: self)
+}
+
+if gestureRecognizer.state == .ended{
+let y2 = gestureRecognizer.view!.frame.origin.y
+
+let shit = self.bounds.height * 0.55
+guard y2 <=  shit  else {
+//            print("⎖⍹✐")
+//            print(" y2:\(y2) shit: \(shit) ")
+self.dismissFilterView()
+return
+}
+let h = self.bounds.height - self.filterView.bounds.height
+let sss = self.bounds.height * 0.54
+let point = CGPoint(x: gestureRecognizer.view!.center.x , y: sss)
+self.filterView.center = point
+//        print("⚠︎  ♾")
+//        print(" sss:\(sss)   ")
+
+
+}
+//    print("------------------------------")
+}
+
+
+
+
+
+
+
+
+
+
+//Drag up to close
+@objc func draggingFilterView(_ gestureRecognizer : UIPanGestureRecognizer) {
+
+
+if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
+
+let translation = gestureRecognizer.translation(in: self)
+// note: 'view' is optional and need to be unwrapped
+print("gestureRecognizer.view!.center.y \(gestureRecognizer.view!.center.y ) \n maxY : \(UIScreen.main.bounds.maxY) \n\(gestureRecognizer.view!.bounds.height) \(gestureRecognizer.view!.frame.height)")
+
+let y = gestureRecognizer.view!.center.y
+let maxY = UIScreen.main.bounds.height * 0.5
+print("animateing out \(y) and the main is \(maxY)")
+guard y >= maxY else {
+UIView.animate(withDuration: 0.4, animations: {
+self.filterView.center.y = UIScreen.main.bounds.maxY * 2
+self.layoutIfNeeded()
+}) { (_) in
+self.delegate?.dismissFilterView()
+}
+
+return
+
+}
+let y2 = gestureRecognizer.view!.frame.origin.y
+
+let shit = self.bounds.height * 0.5
+guard y2 <=  shit  else {
+
+return
+}
+gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x , y: gestureRecognizer.view!.center.y + translation.y)
+
+gestureRecognizer.setTranslation(CGPoint.zero, in: self)
+}
+
+if gestureRecognizer.state == .ended{
+
+print("gestureRecognizer.view!.center.y \(gestureRecognizer.view!.center.y ) \n maxY : \(UIScreen.main.bounds.maxY) ")
+let y = gestureRecognizer.view!.center.y
+let maxY = UIScreen.main.bounds.height * 0.5
+if y < maxY * 0.3 , y > maxY * 0.7 {
+print("Sub")
+}
+}
+
+}

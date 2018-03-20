@@ -52,8 +52,8 @@ class FilterPriceView: UIView {
         addSubview(view)
         self.sliderV.minValue = CGFloat(minPrice)
         self.sliderV.maxValue = CGFloat(maxPrice)
-        self.sliderV.selectedMaxValue = CGFloat(maxPrice) * 0.9
-        self.sliderV.selectedMinValue = CGFloat(maxPrice) * 0.1
+        self.sliderV.selectedMaxValue = CGFloat(maxPrice)
+        self.sliderV.selectedMinValue = CGFloat(minPrice)
         self.sliderV.minDistance = sliderV.maxValue * 0.16
         
         self.minPrice = Int(sliderV.selectedMinValue)
@@ -76,9 +76,9 @@ extension FilterPriceView: RangeSeekSliderDelegate {
     //        }
     //    }
     
-//    func didStartTouches(in slider: RangeSeekSlider) {
-//        print("did start touches")
-//    }
+    func didStartTouches(in slider: RangeSeekSlider) {
+        print("did start touches")
+     }
     
     func didEndTouches(in slider: RangeSeekSlider) {
 //        print("did end touches")
@@ -89,6 +89,6 @@ extension FilterPriceView: RangeSeekSliderDelegate {
          FilterViewController.filterParameters[filterParameters.min_price.rawValue] = minPrice
          FilterViewController.filterParameters[filterParameters.max_price.rawValue] = maxPrice
         print("that;s the current filter \( FilterViewController.filterParameters)")
-
+ 
      }
 }

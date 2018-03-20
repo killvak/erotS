@@ -18,6 +18,7 @@ class HomePage_Data {
 }
 class Categories_Specefications_Data {
     
+    var cat_name = ""
     var productsData : [Product_Data] = []
     var categoriesData : [Cat_Brand_Data] = []
  }

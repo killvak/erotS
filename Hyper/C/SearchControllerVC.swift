@@ -145,11 +145,21 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
             isData = searchResult[indexPath.row]
             addToRecentSearch(data: searchResult[indexPath.row])
           }
-         guard isData.type == .Category else {
-             getBrandProducts(data: isData)
-             return
+        
+        switch isData.type {
+        case .Category:
+             getCatProducts(data: isData)
+//        case .subCat :
+//             getBrandProducts(data: isData)
+//        case .Brand :
+//              getBrandProducts(data: isData)
+//        case .product :
+//             getBrandProducts(data: isData)
+
+         default :    getBrandProducts(data: isData)
         }
-        getCatProducts(data: isData)
+     
+       
     }
     func getBrandProducts(data : CatBrand_Data) {
         ad.isLoading()
@@ -172,6 +182,7 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
         Get_Requests().category_By_Id(catID: data.id, page: 1, completion: { (rData ) in
             DispatchQueue.main.async {
                 ad.killLoading()
+                rData.cat_name = data.name
                 self.delegate?.fetchData(data: nil, catData: rData)
                 self.dismiss(animated: true, completion: nil)
             }
@@ -219,7 +230,7 @@ extension SearchControllerVC :   UISearchBarDelegate {
         // perform a search by reloading the tableView
         searchBar.resignFirstResponder()
         ad.isLoading()
-        Get_Requests().postSearch(query: searchBar.text , min_price: nil, max_price: nil, cats: nil, brands: nil, colors: nil, page: 1, completion: { [weak self  ] (rData ) in
+        Post_Requests().postSearch(query: searchBar.text , min_price: nil, max_price: nil, cats: nil, brands: nil, colors: nil, page: 1, completion: { [weak self  ] (rData ) in
             
             DispatchQueue.main.async {
                 ad.killLoading()
@@ -238,6 +249,8 @@ extension SearchControllerVC :   UISearchBarDelegate {
         
         
     }
+    
+
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         

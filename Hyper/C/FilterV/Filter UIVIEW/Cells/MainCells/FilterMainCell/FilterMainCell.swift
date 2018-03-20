@@ -52,6 +52,7 @@ class FilterMainCell: UITableViewCell {
     //MARK: HardCoded OutLets
     lazy var  priceView : FilterPriceView = {
         let vc = FilterPriceView()
+        vc.clipsToBounds = true
         vc.minPrice = mainData.minPrice ?? 0
         vc.maxPrice = mainData.maxPrice ?? 1000
         vc.FilterMainCell = self
@@ -60,6 +61,7 @@ class FilterMainCell: UITableViewCell {
     }()
     lazy var  tableVView : FilterTableView = {
         let vc = FilterTableView()
+        vc.clipsToBounds = true
         vc.data = filterData
         vc.listType = listType
         vc.FilterMainCell = self
@@ -68,6 +70,7 @@ class FilterMainCell: UITableViewCell {
     }()
     lazy var  colorsCollectionV : ColorsCustomeCollectionView = {
         let vc = ColorsCustomeCollectionView()
+        vc.clipsToBounds = true
         vc.FilterMainCell = self 
           vc.translatesAutoresizingMaskIntoConstraints = false
         return vc

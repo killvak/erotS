@@ -23,9 +23,14 @@ class ColorsCustomeCollectionView: UIView {
     
     //MARK: Vars
     weak var FilterMainCell : FilterMainCell?
+    var data = [Colors_Data]()
     var selectedIndexs = [Int]() {
         didSet {
-            FilterViewController.filterParameters[filterParameters.colors.rawValue] = selectedIndex
+            var iDS = [Int]()
+            for i in selectedIndexs {
+                iDS.append(data[i].id)
+            }
+            FilterViewController.filterParameters[filterParameters.colors.rawValue] = iDS
             print("that;s the current filter \( FilterViewController.filterParameters)")
         }
     }
@@ -66,13 +71,14 @@ class ColorsCustomeCollectionView: UIView {
 extension ColorsCustomeCollectionView : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return data.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorsSelectorCell", for: indexPath) as! ColorsSelectorCell
         cell.selectedView.alpha = 0
+        cell.configCell(data: data[indexPath.row])
         if  selectedIndexs.contains(indexPath.row) {
             cell.isSelectedView(true)
         }else {

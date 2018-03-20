@@ -97,6 +97,10 @@ updateData()
     @IBAction func showMoreHandler(_ sender: UIButton) {
     
         let isCat = sender.tag == 1
+        guard !isCat else {
+            self.tabBarController?.selectedIndex = 1
+            return
+        }
         ad.isLoading()
         request.all_Data_about(categories: isCat, brands: !isCat, page: 1, completion: { [unowned self ] (rData) in
             

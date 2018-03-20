@@ -62,6 +62,27 @@ extension UIViewController {
         }
     }
     
+    func getSearchFilterData(parms : [String:Any] , page : Int,completed : @escaping (ProductFull_Data)->(),failed : @escaping (String?)->()) {
+        ad.isLoading()
+        Post_Requests().postFilter_data(parms: parms, page: page, completion: { (rData ) in
+            
+            DispatchQueue.main.async {
+  
+                completed(rData)
+                ad.killLoading()
+            }
+            
+            
+        }) { (err ) in
+            
+            DispatchQueue.main.async {
+                ad.killLoading()
+                self.showApiErrorSms(err: err)
+                failed(err)
+            }
+        }
+    }
+    
     
     func showMoreMenu() {
         
@@ -100,7 +121,24 @@ extension UIViewController {
         present(actionController, animated: true, completion: nil)
     }
     
-    
+    func searchDidSelectResponse(data: ProductFull_Data?, catData: Categories_Specefications_Data?) {
+        guard let dataa = catData else {
+            guard let rData = data else { return}
+            let vc = ProductsListVC(nibName: "ProductsListVC", bundle: nil)
+            vc.data = rData.productList
+            vc.fullData = rData
+            vc.title = "Item"
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            
+            return
+        }
+        let sb = self.storyboard ?? UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "SelectedBrandVC") as! SelectedBrandVC
+        vc.mainData = dataa
+        vc.title = dataa.cat_name
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     func showApiErrorSms(err : String?) {
          print(err )
         DispatchQueue.main.async {

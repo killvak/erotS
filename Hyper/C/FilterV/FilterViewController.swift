@@ -17,6 +17,9 @@ enum filterParameters : String {
     case colors = "colors"
     
 }
+protocol  FilterViewControllerDelegate : class  {
+    func fetchData(data : ProductFull_Data)
+ }
 
 class FilterViewController: UIViewController {
 
@@ -28,12 +31,11 @@ class FilterViewController: UIViewController {
         return vc
     }()
    
-    
     //MARK : Vars
    static  var filterParameters : [String:Any] = [:]
     var filterData = Filter_Data()
 
-    
+    weak var delegate : FilterViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +66,13 @@ class FilterViewController: UIViewController {
 extension FilterViewController : FilterProtocol  {
     func applyFilterHandler() {
         
+        self.getSearchFilterData(parms: FilterViewController.filterParameters, page: 1, completed: { [unowned self](rData) in
+        
+            self.delegate?.fetchData(data: rData)
+        }) { (err ) in
+            
+            
+        }
            dismissFilterView()
     }
     
