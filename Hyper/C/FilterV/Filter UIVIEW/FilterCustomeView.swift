@@ -13,7 +13,7 @@ protocol  FilterProtocol : class  {
     func applyFilterHandler()
 }
 
-class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
+class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource,UIGestureRecognizerDelegate {
     
     @IBOutlet weak var emptyViewBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -36,8 +36,8 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
         commonUnit()
     }
     
-    
-    
+  
+    var panGest: UIPanGestureRecognizer!
     
     private func commonUnit() {
         self.alpha = 1
@@ -50,9 +50,13 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource {
         tableView.estimatedRowHeight = 46
 //        tableView.register(UINib(nibName: "FilterMainCell", bundle: nil), forCellReuseIdentifier: "FilterMainCell")
 registerCEll()
-        self.filterView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(draggingFilterView(_:))))
+          panGest = UIPanGestureRecognizer(target: self, action: #selector(draggingFilterView(_:)))
+        panGest.delegate = self
+        self.filterView.addGestureRecognizer(panGest)
         
     }
+    
+    
     
     
    @objc func draggingFilterView(_ gestureRecognizer : UIPanGestureRecognizer) {
@@ -95,7 +99,7 @@ registerCEll()
          let x1 = self.filterView.bounds.origin.y
         let x2 =  self.filterView.bounds.maxY
         let x3 = x1 - x2
-        print("🤪self.frame.maxY \(x1)\n 😇self.filterView..frame.maxY \(x2) \n  🤩distance\(x3)")
+//        print("🤪self.frame.maxY \(x1)\n 😇self.filterView..frame.maxY \(x2) \n  🤩distance\(x3)")
          gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x , y: gestureRecognizer.view!.center.y + translation.y)
 
         gestureRecognizer.setTranslation(CGPoint.zero, in: self)
@@ -106,7 +110,7 @@ registerCEll()
         
         let shit = self.bounds.height * 0.55
         guard y2 <=  shit  else {
-            print("⎖⍹✐")
+//            print("⎖⍹✐")
 //            print(" y2:\(y2) shit: \(shit) ")
    self.dismissFilterView()
              return
@@ -167,6 +171,7 @@ registerCEll()
         default:
             break
         }
+        cell.filterCustomeV = self
             return cell
         
     }
@@ -209,6 +214,12 @@ extension FilterCustomeView {
  
             guard let cell = tableView.cellForRow(at: indexPath) as? FilterMainCell else { return }
             cell.selecteds()
+        if self.filterData.listOf[indexPath.row] == .price , cell.dropDownimg.image == #imageLiteral(resourceName: "ic_arrow_up_") {
+            self.panGest.isEnabled = false
+        }else if self.filterData.listOf[indexPath.row] == .price {
+            self.panGest.isEnabled = true
+
+        }
             // 4
             tableView.beginUpdates()
             tableView.endUpdates()

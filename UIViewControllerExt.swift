@@ -35,6 +35,16 @@ extension UIViewController {
 
     }
     
+    func setupNav(withTitle : String) {
+        let navV = NavigationBarView()
+        //        navV.translatesAutoresizingMaskIntoConstraints = false
+        navV.frame = CGRect(x: 0, y: 20, width: UIScreen.main.bounds.width, height: 64)
+        self.view.addSubview(navV)
+        navV.titleS = withTitle
+        navV.backBtn.addTarget(self , action: #selector(dismissPushedView), for: .touchUpInside)
+        
+        
+    }
     @objc func dismissPushedView() {
         
         self.navigationController?.popViewController(animated: true)
@@ -84,7 +94,8 @@ extension UIViewController {
     }
     
     
-    func showMoreMenu() {
+    
+    func showMoreMenu(data : Product_Data) {
         
         let actionController = YoutubeActionController()
         
@@ -108,12 +119,15 @@ extension UIViewController {
         }))
         actionController.addAction(Action(ActionData(title: L0A.Share.stringValue(), image: UIImage(named: "yt-share-icon")!), style: .default, handler: { action in
             
-            let shareText = "Hello, world!"
-            
-            if let image = UIImage(named: "yt-add-to-playlist-icon") {
-                let vc = UIActivityViewController(activityItems: [shareText, image], applicationActivities: [])
-                self.present(vc, animated: true)
+               let shareText = data.name
+            var parm :[Any] = [shareText]
+            if let url = URL(string : data.main_image )
+            {
+                parm.append(url)
             }
+            
+            let vc = UIActivityViewController(activityItems: parm, applicationActivities: [])
+            self.present(vc, animated: true)
             
         }))
         actionController.addAction(Action(ActionData(title: L0A.Cancel.stringValue(), image: UIImage(named: "yt-cancel-icon")!), style: .cancel, handler: nil))
@@ -147,6 +161,17 @@ extension UIViewController {
         }
      }
     
+    
+    func navigatieToItemList(data: ProductFull_Data,pageTitleMap :String ) {
+        
+             let vc = ProductsListVC(nibName: "ProductsListVC", bundle: nil)
+//            vc.data = data.productList
+            vc.fullData = data
+            vc.title = pageTitleMap
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        
+    }
     
     func openSearchVC() {
         let vc = SearchControllerVC()

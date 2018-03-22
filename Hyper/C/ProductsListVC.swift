@@ -97,9 +97,7 @@ var pageTitleAddress = ""
         // Pass the selected object to the new view controller.
     }
     */
-    @objc func moreBtnHandler() {
-        showMoreMenu()
-    }
+
 }
 
 
@@ -116,12 +114,15 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ProductCell
         cell.configCell(data: data[indexPath.row])
         cell.backgroundColor = .clear
-        cell.moreBtn.addTarget(self , action: #selector(moreBtnHandler), for: .touchUpInside)
+        cell.moreBtn.tag = indexPath.row
+        cell.moreBtn.addTarget(self , action: #selector(showBtmMenu(_:)), for: .touchUpInside)
         cell.newBadge.alpha = indexPath.row % 2 == 0  ? 1 : 0
         return cell
     }
 
-
+    @objc func showBtmMenu(_ sender : UIButton) {
+        showMoreMenu(data: data[sender.tag])
+    }
  
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

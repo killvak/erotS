@@ -25,9 +25,9 @@ enum GetAlertsLocalize {
     case Categories
     case Colors
     case price
-    
-    
-    
+    case Item
+    case related_Item
+    case No_reviews_Yet
     
     ///
     case Searching_for_Runner
@@ -143,6 +143,15 @@ enum GetAlertsLocalize {
     func stringValue() -> String {
         switch self {
         //Hyper
+        case .No_reviews_Yet:
+            return  L102Language.currentAppleLanguage() == "ar" ? "لا توجد تعليقات بعد": "No Reviews Yet."
+
+        case .related_Item:
+            return  L102Language.currentAppleLanguage() == "ar" ? "منتجات ذات صله": "Related Items"
+
+        case .Item:
+            return  L102Language.currentAppleLanguage() == "ar" ? "المنتج": "Item"
+
         case .Brands:
             return  L102Language.currentAppleLanguage() == "ar" ? "الماركات": "Brands"
             

@@ -16,7 +16,7 @@ class Get_Requests : Connection {
  
      func item_Details(item_ID : Int ,completion:@escaping ( ItemDetails_Data ) -> (),failure failed: @escaping (String?)->() ){
         
-        print(self.get_itemDetails(product_ID: item_ID))
+// print(self.get_itemDetails(product_ID: item_ID))
         Connection.performGet(urlString: self.get_itemDetails(product_ID: item_ID), success: { (jData) in
             
             let itemD  = ItemDetails_Data()

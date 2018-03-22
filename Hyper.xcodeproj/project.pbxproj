@@ -36,6 +36,8 @@
 		842E092E2043FF280047505B /* UISliderX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E09242043FF280047505B /* UISliderX.swift */; };
 		842E0931204400170047505B /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E092F204400170047505B /* ProductCell.swift */; };
 		842E0932204400170047505B /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842E0930204400170047505B /* ProductCell.xib */; };
+		842F29B92063B946007E527B /* SliderSho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F29B82063B946007E527B /* SliderSho.swift */; };
+		842F2B882063B991007E527B /* AlamofireSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F2B872063B990007E527B /* AlamofireSource.swift */; };
 		84314749205024F900AE045D /* MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84314748205024F900AE045D /* MyExtensions.swift */; };
 		8431474C2050963B00AE045D /* Localization_Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431474A2050963B00AE045D /* Localization_Alerts.swift */; };
 		8431474D2050963B00AE045D /* LoclizationExConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431474B2050963B00AE045D /* LoclizationExConstant.swift */; };
@@ -133,6 +135,8 @@
 		842E09242043FF280047505B /* UISliderX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderX.swift; sourceTree = "<group>"; };
 		842E092F204400170047505B /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		842E0930204400170047505B /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		842F29B82063B946007E527B /* SliderSho.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderSho.swift; sourceTree = "<group>"; };
+		842F2B872063B990007E527B /* AlamofireSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlamofireSource.swift; path = "../../../../../../Downloads/ImageSlideshow-master/ImageSlideshow/Classes/InputSources/AlamofireSource.swift"; sourceTree = "<group>"; };
 		84314748205024F900AE045D /* MyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
 		8431474A2050963B00AE045D /* Localization_Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization_Alerts.swift; sourceTree = "<group>"; };
 		8431474B2050963B00AE045D /* LoclizationExConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoclizationExConstant.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 		842563D6204571F700CE0BF7 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				842F29B82063B946007E527B /* SliderSho.swift */,
 				F365BA93205CA43600550A75 /* SearchControllerVC.swift */,
 				F365BA94205CA43600550A75 /* SearchControllerVC.xib */,
 				84C2ECC2205575270024CE6F /* OrderDetailsVC.swift */,
@@ -484,6 +489,7 @@
 		84E6D662204EB53200D5AD3B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				842F2B872063B990007E527B /* AlamofireSource.swift */,
 				842563D920458BBF00CE0BF7 /* Constant.swift */,
 				84E6D669204ED43F00D5AD3B /* Messages.swift */,
 				F300A32E205C7CC600C430F9 /* CD */,
@@ -653,6 +659,7 @@
 				"${BUILT_PRODUCTS_DIR}/CDAlertView/CDAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/RangeSeekSlider/RangeSeekSlider.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -667,6 +674,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CDAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RangeSeekSlider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -735,6 +743,7 @@
 				842E092A2043FF280047505B /* UIViewControllerX.swift in Sources */,
 				84678B4620444EE90051AE03 /* FontExtension.swift in Sources */,
 				842E092C2043FF280047505B /* UIViewX.swift in Sources */,
+				842F29B92063B946007E527B /* SliderSho.swift in Sources */,
 				846B690620470A370039F037 /* NavigationBarView.swift in Sources */,
 				8431474C2050963B00AE045D /* Localization_Alerts.swift in Sources */,
 				F300A322205C621D00C430F9 /* CoreD.swift in Sources */,
@@ -751,6 +760,7 @@
 				842E092B2043FF280047505B /* UIImageViewX.swift in Sources */,
 				843160D2205148F80067B4E4 /* FilterCustomeView.swift in Sources */,
 				F3C8F2AF2044D93E00AC0CE5 /* RandomFloatNumber.swift in Sources */,
+				842F2B882063B991007E527B /* AlamofireSource.swift in Sources */,
 				843160ED205187440067B4E4 /* FilterMainCell.swift in Sources */,
 				842563CF2045705F00CE0BF7 /* LabelOnlyCell.swift in Sources */,
 				84E6D664204EC65C00D5AD3B /* Get_Requests.swift in Sources */,

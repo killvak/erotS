@@ -55,7 +55,7 @@ class FilterMainCell: UITableViewCell {
         vc.clipsToBounds = true
         vc.minPrice = mainData.minPrice ?? 0
         vc.maxPrice = mainData.maxPrice ?? 1000
-        vc.FilterMainCell = self
+        vc.filterCustomeV = filterCustomeV
         vc.translatesAutoresizingMaskIntoConstraints = false
         return vc 
     }()

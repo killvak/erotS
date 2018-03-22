@@ -8,6 +8,8 @@
 
 import UIKit
 import SwiftyStarRatingView
+import ImageSlideshow
+
 
 fileprivate  enum CellTypeEnum : Int  {
     case Specefications = 0 ,Description = 1 ,Reviews = 2
@@ -49,12 +51,14 @@ class ItemsDetailsVC: UIViewController {
     @IBOutlet weak var underLineSelectionView: UIView!
      @IBOutlet weak var noColorsAvailabelLbl: UILabel!
     @IBOutlet weak var headerView: UIView!
-
+    @IBOutlet weak var slideshow: ImageSlideshow!
+    
     //
     
     var btnSelected = false
     var underLineBtnSelection : NSLayoutConstraint?
-    
+    var alamofireSource : [AlamofireSource] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,11 +76,48 @@ class ItemsDetailsVC: UIViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 46
-        setupNav()
-    
+        setupNav(withTitle: L0A.Item.stringValue())
+        self.shareBtn.addTarget(self, action: #selector(showBtmMenu(_:)), for: .touchUpInside)
+        
+        if productData.reviews.count == 0 {
+            self.moreReviewsBTnHeight.constant = 0
+        }
     }
     
- 
+    
+    @objc func showBtmMenu(_ sender : UIButton) {
+        showMoreMenu(data: productData)
+    }
+    func setupSlideShow() {
+        
+        
+        slideshow.backgroundColor = UIColor.clear 
+        slideshow.slideshowInterval = 5.0
+        slideshow.pageControlPosition = PageControlPosition.insideScrollView
+        slideshow.pageControl.currentPageIndicatorTintColor = Constant.BloodyRed
+        slideshow.pageControl.pageIndicatorTintColor = Constant.BackGroundGray
+        slideshow.contentScaleMode = UIViewContentMode.scaleAspectFit
+        
+        // optional way to show activity indicator during image load (skipping the line will show no activity indicator)
+        slideshow.activityIndicator = DefaultActivityIndicator()
+        slideshow.currentPageChanged = { page in
+            print("current page:", page)
+        }
+        
+        // can be used with other sample sources as `afNetworkingSource`, `alamofireSource` or `sdWebImageSource` or `kingfisherSource`
+         slideshow.setImageInputs(alamofireSource)
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTapSlideShow))
+        slideshow.addGestureRecognizer(recognizer)
+    }
+    
+    @objc func didTapSlideShow() {
+        let fullScreenController = slideshow.presentFullScreenController(from: self)
+        // set the activity indicator for full screen controller (skipping the line will show no activity indicator)
+        fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
+    }
+
+    
     func setupView() {
         
         productImg.setupApiImage(imagePath: productData.main_image)
@@ -102,9 +143,24 @@ class ItemsDetailsVC: UIViewController {
             }
         }
         
-       
-        
-        
+      
+
+        self.alamofireSource = []
+        if let url = URL(string : self.productData.main_image )  {
+            let img = AlamofireSource(url: url, placeholder: #imageLiteral(resourceName: "pic_items"))
+            alamofireSource.append(img)
+            self.productImg.alpha = 0
+        }
+         for x in productData.images {
+            print(x)
+            if let url = URL(string : x.image )  {
+                let img = AlamofireSource(url: url, placeholder: #imageLiteral(resourceName: "pic_items"))
+                alamofireSource.append(img)
+             }
+        }
+
+         self.setupSlideShow()
+
         if productData.colors.count == 0 {
 //            let filteredConstraints = colorsCollectionView.constraints.filter { $0.identifier == "Height" }
 //            if let heightConstraint = filteredConstraints.first {
@@ -159,6 +215,12 @@ class ItemsDetailsVC: UIViewController {
     //MARK: BtnsActions
     
     @IBAction func moreBtnhandler(_ sender: UIButton) {
+        
+        let productData = ProductFull_Data()
+        productData.productList = self.relatedProducts
+        
+        self.navigatieToItemList(data: productData, pageTitleMap: " \(self.productData.manufacturer) > \(L0A.related_Item.stringValue())")
+        
     }
     @IBAction func addToCartHandler(_ sender: UIButton) {
     }
@@ -250,7 +312,14 @@ extension ItemsDetailsVC : UITableViewDelegate , UITableViewDataSource {
         guard cellType == CellTypeEnum.Reviews else {
             return 1
         }
-        return 3
+        if productData.reviews.count <= 3 ,productData.reviews.count  > 0 {
+            return productData.reviews.count
+        }else if productData.reviews.count == 0 {
+            return 1
+        }else {
+            return 3
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -263,10 +332,19 @@ extension ItemsDetailsVC : UITableViewDelegate , UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as! ReviewCell
-        
-        return cell
-        
+        if  productData.reviews.count  == 0 {
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+            cell.textLabel?.text = L0A.No_reviews_Yet.stringValue()
+            cell.backgroundColor = .clear
+            cell.textLabel?.numberOfLines = 0
+            cell.selectionStyle = .none
+            return cell
+         }else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as! ReviewCell
+            
+            return cell
+         
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

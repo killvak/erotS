@@ -22,6 +22,7 @@ class SearchControllerVC: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var emptyTableViewPHV: UIView!
+    @IBOutlet weak var clearViewHeight: NSLayoutConstraint!
     
     weak var delegate : SearchControllerProtocol?
     var data = [CatBrand_Data]()
@@ -41,6 +42,7 @@ class SearchControllerVC: UIViewController , UITextFieldDelegate {
             }
             if recentSearchData.count >= 1 {
                 emptyTableViewPHV.alpha = 0
+                self.clearViewHeight?.constant = 40
             }else {
                 emptyTableViewPHV.alpha = 1
             }
@@ -63,6 +65,7 @@ class SearchControllerVC: UIViewController , UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         searchBar.becomeFirstResponder()
+        self.clearViewHeight.constant =  recentSearchData.count >= 1 ? 40 : 0
     }
     
     
@@ -77,6 +80,11 @@ class SearchControllerVC: UIViewController , UITextFieldDelegate {
         self.dismiss(animated: true, completion: nil    )
     }
     
+    @IBAction func clearListBtnHandler(_ sender: UIButton) {
+        Constant.recentSearch = []
+        self.recentSearchData = []
+        self.clearViewHeight.constant = 0
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
@@ -110,6 +118,7 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+        cell.backgroundColor = .clear 
         guard searchBar.text != "" else {
             cell.imageView?.image = #imageLiteral(resourceName: "ic_bar_search_")
             cell.textLabel?.text = recentSearchData[indexPath.row].name

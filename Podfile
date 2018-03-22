@@ -21,6 +21,7 @@ pod 'RangeSeekSlider'
 
 
 pod 'XLActionController/Youtube'
+pod 'ImageSlideshow', '~> 1.5'
 
 
 end

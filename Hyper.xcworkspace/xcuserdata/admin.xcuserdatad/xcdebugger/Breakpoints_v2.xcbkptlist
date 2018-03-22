@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hyper/C/SearchControllerVC.swift"
-            timestampString = "543257569.703899"
+            timestampString = "543319568.864464"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
             <Locations>
@@ -186,11 +186,11 @@
                   moduleName = "Hyper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Documents/My%20Drive/untitled%20folder%203/erotS/Hyper/C/SearchControllerVC.swift"
-                  timestampString = "543257569.891505"
+                  timestampString = "543425358.32038"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "235"
-                  endingLineNumber = "235"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
                   offsetFromSymbolStart = "28">
                </Location>
                <Location
@@ -201,12 +201,12 @@
                   moduleName = "Hyper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Documents/My%20Drive/untitled%20folder%203/erotS/Hyper/C/SearchControllerVC.swift"
-                  timestampString = "543257569.895421"
+                  timestampString = "543425358.324833"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233"
-                  offsetFromSymbolStart = "16">
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "4">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hyper/C/SearchControllerVC.swift"
-            timestampString = "543257569.703966"
+            timestampString = "543319568.864539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -410,7 +410,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hyper/Models/Get_Requests.swift"
-            timestampString = "543257569.704513"
+            timestampString = "543425358.146677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "155"
@@ -496,38 +496,6 @@
             startingLineNumber = "153"
             endingLineNumber = "153"
             landmarkName = "searchBarTextDidBeginEditing(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hyper/C/FilterV/Filter UIVIEW/Cells/MainCells/FilterMainCell/PriceView/FilterPriceView.swift"
-            timestampString = "543257569.704977"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "didEndTouches(in:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hyper/C/FilterV/Filter UIVIEW/Cells/MainCells/FilterMainCell/PriceView/FilterPriceView.swift"
-            timestampString = "543257569.705035"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "didStartTouches(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

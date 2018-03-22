@@ -18,7 +18,7 @@ class FilterPriceView: UIView {
           }
     }
     //MARK: Vars
-    weak var FilterMainCell : FilterMainCell?
+    weak var filterCustomeV  :FilterCustomeView?
     private var initOnce = false
     var minPrice = 0
     var maxPrice = 0{
@@ -60,10 +60,9 @@ class FilterPriceView: UIView {
         self.maxPrice = Int(sliderV.selectedMaxValue)
         sliderV.numberFormatter.positiveSuffix =  L0S.Currency.stringValue()
  
-        
     }
  
-    
+ 
 }
 
 
@@ -78,6 +77,7 @@ extension FilterPriceView: RangeSeekSliderDelegate {
     
     func didStartTouches(in slider: RangeSeekSlider) {
         print("did start touches")
+//        filterCustomeV?.panGest.isEnabled = false
      }
     
     func didEndTouches(in slider: RangeSeekSlider) {
@@ -89,6 +89,7 @@ extension FilterPriceView: RangeSeekSliderDelegate {
          FilterViewController.filterParameters[filterParameters.min_price.rawValue] = minPrice
          FilterViewController.filterParameters[filterParameters.max_price.rawValue] = maxPrice
         print("that;s the current filter \( FilterViewController.filterParameters)")
+//        filterCustomeV?.panGest.isEnabled = true
  
      }
 }

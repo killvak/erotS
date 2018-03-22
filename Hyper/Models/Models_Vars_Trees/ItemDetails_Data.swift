@@ -45,7 +45,7 @@ class Filter_Data {
         if colors.count >= 1 {
             countiT.append(.colors)
         }
-        if maxPrice != nil {
+        if maxPrice != nil , maxPrice != minPrice {
             countiT.append(.price)
         }
          return countiT
@@ -78,7 +78,8 @@ class Product_Data {
     private var _code : String!
         
     private  var _colors : [Colors_Data] = []
-    
+    private  var _images : [Images_Data] = []
+    private var _reviews : [Reviews_Data] = []
     private var _country : String!
     private var _date_add : String!
     private var _date_upd : String!
@@ -119,9 +120,14 @@ class Product_Data {
     private var _rate : Int!
     private var _reduction_percent : Int!
     
-    
+    var  images : [Images_Data]  {
+        return _images
+    }
     var  colors : [Colors_Data]  {
         return _colors
+    }
+    var  reviews : [Reviews_Data]  {
+        return _reviews
     }
     var active  : Bool {
         return  _active == 1
@@ -143,6 +149,9 @@ class Product_Data {
     var country : String {return _country}
     var date_add : String {return _date_add}
     var date_upd : String {return _date_upd}
+    
+    
+
     var description : String {
         return  L102Language.currentAppleLanguage() != "ar" ?   _description :  _description_ar
     }
@@ -187,6 +196,7 @@ class Product_Data {
     var  reduction_percent : Int {return _reduction_percent}
     
     init(_ jsonData : JSON) {
+
         self._active = jsonData[Constant.parameters.active].intValue
         self._box_content = jsonData[Constant.parameters.box_content].stringValue
         self._box_content_ar = jsonData[Constant.parameters.box_content_ar].stringValue
@@ -231,17 +241,36 @@ class Product_Data {
         self._price = jsonData[Constant.parameters.price].intValue
         self._quantity = jsonData[Constant.parameters.quantity].intValue
         self._rate = jsonData[Constant.parameters.rate].intValue
-        self._reduction_percent = jsonData[Constant.parameters.reduction_percent].intValue
-        
+        self._reduction_percent = jsonData[Constant.parameters.reduction_percent].intValue 
+
         collection(data: jsonData["colors"])
+        getImages(data: jsonData["images"])
+        getReviews(data: jsonData["reviews"])
         
-    }
+     }
     
     private  func collection(data:JSON)
     {
         for ( _ , dic)  in data
         {
             _colors.append(Colors_Data(dic))
+        }
+    }
+    private  func getImages(data:JSON)
+    {
+        print(data)
+        for ( _ , dic)  in data
+        {
+            _images.append(Images_Data(dic))
+        }
+    }
+    
+    private  func getReviews(data:JSON)
+    {
+        print(data)
+        for ( _ , dic)  in data
+        {
+            _reviews.append(Reviews_Data(dic))
         }
     }
 }
@@ -311,4 +340,87 @@ struct Filter_Listed_Data {
         self._name_ar = jsonData[Constant.parameters.name_ar].stringValue
         
     }
+}
+class Reviews_Data {
+    
+     private var _id : Int!
+    private var _id_product : Int!
+    private var _active : Int
+    private var _code : String!
+    private var _name : String!
+    private var _name_ar : String!
+    
+     var id : Int { return _id }
+    var id_product : Int { return _id_product}
+    var active  : Bool {
+        return  _active == 1
+    }
+    
+    var code : String {
+        //        _code.removeFirst()
+        print(_code)
+        return _code
+    }
+    
+    var name : String {
+        return  L102Language.currentAppleLanguage() != "ar" ?   _name :  _name_ar
+    }
+    
+    init(_ jsonData : JSON) {
+        
+        self._id = jsonData[Constant.parameters.id].intValue
+        self._id_product = jsonData[Constant.parameters.id].intValue
+        self._active = jsonData["color"][Constant.parameters.active].intValue
+        self._code = jsonData["color"][Constant.parameters.code].string
+         self._name = jsonData[Constant.parameters.name].stringValue
+        self._name_ar = jsonData[Constant.parameters.name_ar].stringValue
+        
+    }
+    
+}
+
+class Images_Data {
+    
+    private var _date_add : String!
+    private var _date_upd : String!
+    private var _id : Int!
+    private var ـid_image : Int!
+    
+    private var _image : String!
+    private var _id_product : Int!
+     private var _quantity : Int!
+    private var _active : Int!
+
+    var active  : Bool {
+        return  _active == 1
+   }
+    
+    var date_add : String {return _date_add }
+    var date_upd : String {return _date_upd }
+    var  id : Int {return _id }
+    var  id_image : Int {return ـid_image }
+    
+    
+    var image : String {
+        return  Constant.images_Url +   _image
+    }
+    var   id_product : Int {return _id_product }
+    
+    var   quantity : Int {return _quantity }
+    
+    init(_ jsonData : JSON) {
+        self._active = jsonData[Constant.parameters.active].intValue
+
+        self._date_add = jsonData[Constant.parameters.date_add].stringValue
+        self._date_upd = jsonData[Constant.parameters.date_upd].stringValue
+        self._id = jsonData[Constant.parameters.id].intValue
+        self.ـid_image = jsonData[Constant.parameters.id_image].intValue
+        self._id_product = jsonData[Constant.parameters.id_product].intValue
+        
+        self._image = jsonData[Constant.parameters.image_url].stringValue
+        
+        
+    }
+    
+    
 }
