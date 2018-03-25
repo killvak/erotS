@@ -18,6 +18,7 @@ pod 'UITextView+Placeholder', '~> 1.2'
 
 pod "CDAlertView"
 pod 'RangeSeekSlider'
+pod "UILoadControl"
 
 
 pod 'XLActionController/Youtube'

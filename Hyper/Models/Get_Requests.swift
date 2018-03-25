@@ -122,6 +122,7 @@ class Get_Requests : Connection {
         
         Connection.performGet(urlString: self.get_Cats_By_ID(catID: catID, page: page), success: { (jData) in
              let catData = Categories_Specefications_Data()
+            catData.cat_id = catID
             let relatedPrs = jData["product"].arrayValue
             var brandsProducts : [Product_Data] = []
             for x in relatedPrs {

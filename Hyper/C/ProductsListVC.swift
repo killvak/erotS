@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UILoadControl
 
 
 
@@ -14,7 +15,10 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
 
     @IBOutlet weak var filterContainerView: UIViewX!
     //MARK: Vars
-    
+    var pageNum = 2
+    var maxPageNum : Int = 20
+    var catID : Int?
+    var brandID : Int?
    private let cellID = "ProductCell"
     var fullData = ProductFull_Data() {
         didSet {
@@ -24,6 +28,7 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
             if filterData.listOf.count >= 1 {
                 self.filterContainerView?.alpha = 1
             }
+            self.brandID = fullData.brandID
             guard data.count > 4  else { return }
             self.collectionView?.scrollToItem(at: IndexPath.init(item: 0, section: 0), at: .top, animated: true)
 
@@ -38,6 +43,7 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     }
     var lastContentOffset: CGFloat = 0
 var pageTitleAddress = ""
+    var canLoadMore = true
     //MARK: OutLets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var numberOfItemsLbl: UILabel!
@@ -60,6 +66,7 @@ var pageTitleAddress = ""
         if filterData.listOf.count == 0 {
             self.filterContainerView.alpha = 0
         }
+         setupLoadMore()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -197,3 +204,74 @@ extension ProductsListVC : SearchControllerProtocol {
         self.collectionView.reloadData()
     }
 }
+
+extension ProductsListVC {
+ 
+        func resetHomePageData() {
+            self.pageNum = 1
+            getData(_pageNum: 1)
+        }
+        
+        func setupLoadMore() {
+            
+            collectionView.loadControl = UILoadControl(target: self, action: #selector(loadMore(sender:)))
+            collectionView.loadControl?.heightLimit = 100.0 //The default is 80.0
+        }
+        
+        //update loadControl when user scrolls de tableView
+        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            
+            guard self.pageNum < maxPageNum , pageNum != maxPageNum else { return }
+            scrollView.loadControl?.update()
+        }
+        
+        //load more tableView data
+        @objc  func loadMore(sender: AnyObject?) {
+            self.pageNum = self.pageNum + 1
+            getData(_pageNum: self.pageNum)
+        }
+        
+    func getData(_pageNum : Int) {
+        
+        if let catID = self.catID  {
+            getCatProducts(id: catID, pageNum: _pageNum)
+        }else if let brandID = self.brandID {
+            getBrandProducts(id: brandID, pageNum: _pageNum)
+        }else {
+            print("No ID avalaible")
+        }
+    }
+    func getBrandProducts(id : Int, pageNum : Int) {
+        ad.isLoading()
+        Get_Requests().brand_By_ID_Request(brandID:  id, page: pageNum, completion: { (rData ) in
+            DispatchQueue.main.async {
+                ad.killLoading()
+                let newData = rData.productList
+                self.data.append(contentsOf: newData)
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }) { (err ) in
+            DispatchQueue.main.async {
+                self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
+                ad.killLoading()
+            }
+        }
+    }
+    func getCatProducts(id : Int, pageNum : Int) {
+        ad.isLoading()
+        Get_Requests().category_By_Id(catID:  id, page: pageNum, completion: { (rData ) in
+            DispatchQueue.main.async {
+                ad.killLoading()
+
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }) { (err ) in
+            DispatchQueue.main.async {
+                self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
+                ad.killLoading()
+            }
+        }
+    }
+ }

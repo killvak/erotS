@@ -61,7 +61,7 @@ registerCEll()
     
    @objc func draggingFilterView(_ gestureRecognizer : UIPanGestureRecognizer) {
     
-    
+    self.tableView.reloadData()
     if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
 
         let translation = gestureRecognizer.translation(in: self)

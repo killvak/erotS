@@ -24,6 +24,7 @@ extension UIViewController {
                 return
             }
             DispatchQueue.main.async {
+                 rData.brandID = brandID
                 let vc = ProductsListVC(nibName: "ProductsListVC", bundle: nil)
                 vc.data = rData.productList
                 vc.fullData = rData

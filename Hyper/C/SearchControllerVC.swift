@@ -175,6 +175,7 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
         Get_Requests().brand_By_ID_Request(brandID: data.id, page: 1, completion: { (rData ) in
             DispatchQueue.main.async {
                  ad.killLoading()
+                rData.brandID = data.id
                 self.delegate?.fetchData(data: rData, catData: nil)
                 self.dismiss(animated: true, completion: nil)
              }
@@ -192,6 +193,7 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
             DispatchQueue.main.async {
                 ad.killLoading()
                 rData.cat_name = data.name
+                rData.cat_id = data.id
                 self.delegate?.fetchData(data: nil, catData: rData)
                 self.dismiss(animated: true, completion: nil)
             }

@@ -19,6 +19,7 @@ class FilterMainCell: UITableViewCell {
     //MARK : Vars
     var filterData =  [Filter_Listed_Data]()
     weak var filterCustomeV  :FilterCustomeView?
+    var colorsData =  [Colors_Data]()
 //    var filterParameters : [String:Any] = [:] {
 //        didSet {
 //            self.filterCustomeV?.filterParameters = filterParameters
@@ -57,6 +58,7 @@ class FilterMainCell: UITableViewCell {
         vc.maxPrice = mainData.maxPrice ?? 1000
         vc.filterCustomeV = filterCustomeV
         vc.translatesAutoresizingMaskIntoConstraints = false
+        self.priceViewDelegate = vc
         return vc 
     }()
     lazy var  tableVView : FilterTableView = {
@@ -66,15 +68,30 @@ class FilterMainCell: UITableViewCell {
         vc.listType = listType
         vc.FilterMainCell = self
         vc.translatesAutoresizingMaskIntoConstraints = false
+        self.tableVViewDelegate = vc
         return vc
     }()
     lazy var  colorsCollectionV : ColorsCustomeCollectionView = {
         let vc = ColorsCustomeCollectionView()
         vc.clipsToBounds = true
-        vc.FilterMainCell = self 
+        vc.FilterMainCell = self
+        vc.data = colorsData
           vc.translatesAutoresizingMaskIntoConstraints = false
+        self.colorsCollectionVDelegate = vc
         return vc
     }()
+    
+     var  priceViewDelegate : FilterPriceView?
+    var  tableVViewDelegate : FilterTableView?
+      var  colorsCollectionVDelegate : ColorsCustomeCollectionView?
+
+    func resetAll() {
+        self.priceViewDelegate?.minPrice =  mainData.minPrice ?? 0
+        self.priceViewDelegate?.maxPrice =  mainData.maxPrice ?? 1000
+        tableVViewDelegate?.data = filterData
+        tableVViewDelegate?.listType = listType
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -108,7 +125,7 @@ class FilterMainCell: UITableViewCell {
              setupContainerViewType(view: tableVView,height:cacHeight)
             
         case 2 :
-            
+            self.colorsData =  viewType.colors
             setupContainerViewType(view: colorsCollectionV,height:60)
         case 3 : setupContainerViewType(view: priceView,height:80)
         default : break

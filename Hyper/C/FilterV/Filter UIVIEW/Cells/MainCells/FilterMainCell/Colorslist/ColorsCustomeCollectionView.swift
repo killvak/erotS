@@ -23,7 +23,14 @@ class ColorsCustomeCollectionView: UIView {
     
     //MARK: Vars
     weak var FilterMainCell : FilterMainCell?
-    var data = [Colors_Data]()
+    var selectionData = SelectedCells()
+    var selectedIndex : [IndexPath] = []
+    var data = [Colors_Data]() {
+        didSet {
+             commonUnit()
+        }
+    }
+    
     var selectedIndexs = [Int]() {
         didSet {
             var iDS = [Int]()
@@ -39,19 +46,18 @@ class ColorsCustomeCollectionView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonUnit()
+//        commonUnit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonUnit()
+//        commonUnit()
     }
     
     
     
     
-    var selectionData = SelectedCells()
-    var selectedIndex : [IndexPath] = []
+
     
     private func commonUnit() {
         

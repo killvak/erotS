@@ -112,6 +112,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RangeSeekSlider/RangeSeekSlider.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyStarRatingView/SwiftyStarRatingView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/UILoadControl/UILoadControl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XLActionController/XLActionController.framework"
 fi
@@ -126,6 +127,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RangeSeekSlider/RangeSeekSlider.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyStarRatingView/SwiftyStarRatingView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/UILoadControl/UILoadControl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XLActionController/XLActionController.framework"
 fi

@@ -14,6 +14,7 @@ PODS:
   - RangeSeekSlider (1.7.0)
   - SwiftyJSON (4.0.0)
   - SwiftyStarRatingView (1.0.4)
+  - UILoadControl (2.1.0)
   - UITextView+Placeholder (1.2.0)
   - XLActionController/Core (4.0.0)
   - XLActionController/Youtube (4.0.0):
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - RangeSeekSlider
   - SwiftyJSON
   - SwiftyStarRatingView
+  - UILoadControl
   - UITextView+Placeholder (~> 1.2)
   - XLActionController/Youtube
 
@@ -44,9 +46,10 @@ SPEC CHECKSUMS:
   RangeSeekSlider: 0386c5a9aa5ebcb2fa5238e8a627280cf46c7c0a
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   SwiftyStarRatingView: a2b0057700e0adeb8e7442c55d99cb53b531d2f4
+  UILoadControl: e742ddbe4c67ba1f13b00b7d462d4141307d021f
   UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
   XLActionController: 7e88fece1799e61357cb00b1cc67104d66ec4d2c
 
-PODFILE CHECKSUM: 993a3e7ca8f557ce122a20a85a18bfc6fae1e87f
+PODFILE CHECKSUM: 1e40fc99681679f12b6d6b9557771a464d63aba1
 
 COCOAPODS: 1.3.1

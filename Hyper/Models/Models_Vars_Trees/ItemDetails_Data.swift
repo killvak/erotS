@@ -12,6 +12,7 @@ import SwiftyJSON
 
 class ItemDetails_Data {
     
+    var brandID : Int?
     var productsData :  Product_Data?
     
     var relatedProducts : [Product_Data] = []
@@ -19,7 +20,7 @@ class ItemDetails_Data {
 }
 
 class ProductFull_Data {
-    
+    var brandID : Int?
     var productList = [Product_Data]()
     var filterData = Filter_Data()
 }
