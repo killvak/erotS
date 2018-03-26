@@ -26,6 +26,14 @@ class FilterTableView: UIView {
 //    var selectedIndexs =  [Int]()
     //
     
+    func resetData(data : [Filter_Listed_Data],type : FilterTypes) {
+        
+        self.data = data
+        self.listType = type
+        self.tableView.reloadData()
+        
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonUnit()

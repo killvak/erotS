@@ -27,7 +27,7 @@ extension UIViewController {
     func setupNav() {
         let navV = NavigationBarView()
 //        navV.translatesAutoresizingMaskIntoConstraints = false
-        navV.frame = CGRect(x: 0, y: 20, width: UIScreen.main.bounds.width, height: 64)
+        navV.frame = CGRect(x: 0, y: 20, width: UIScreen.main.bounds.width, height: 48)
         self.view.addSubview(navV)
         navV.titleS = title ?? ""
         navV.backBtn.addTarget(self , action: #selector(dismissPushedView), for: .touchUpInside)

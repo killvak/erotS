@@ -29,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEX-ZJ-4yV">
-                    <rect key="frame" x="0.0" y="84" width="375" height="38"/>
+                    <rect key="frame" x="0.0" y="68" width="375" height="38"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Brands" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D21-0s-262">
                             <rect key="frame" x="20" y="9" width="77" height="21"/>
@@ -59,7 +59,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Lf-Ph-ujf">
-                    <rect key="frame" x="0.0" y="122" width="375" height="545"/>
+                    <rect key="frame" x="0.0" y="106" width="375" height="561"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="d0r-jF-Ojx"/>
@@ -71,7 +71,7 @@
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8Lf-Ph-ujf" secondAttribute="bottom" id="63k-Cw-whe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8Lf-Ph-ujf" secondAttribute="trailing" id="XTB-0c-u0g"/>
-                <constraint firstItem="AEX-ZJ-4yV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="aFZ-DY-vZ6"/>
+                <constraint firstItem="AEX-ZJ-4yV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="48" id="aFZ-DY-vZ6"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AEX-ZJ-4yV" secondAttribute="trailing" id="b5C-2F-Shq"/>
                 <constraint firstItem="AEX-ZJ-4yV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ikr-9l-yTf"/>
                 <constraint firstItem="8Lf-Ph-ujf" firstAttribute="top" secondItem="AEX-ZJ-4yV" secondAttribute="bottom" id="m5U-pX-lVE"/>

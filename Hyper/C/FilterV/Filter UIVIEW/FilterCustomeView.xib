@@ -18,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterCustomeView" customModule="Hyper" customModuleProvider="target">
             <connections>
+                <outlet property="clearAllBtn" destination="Ska-xt-AU5" id="pMF-AK-mjg"/>
                 <outlet property="emptyViewBtn" destination="y0j-K9-3gr" id="Rbi-fO-dGy"/>
                 <outlet property="filterTableHeaderView" destination="VmS-mb-3B2" id="y9W-Q3-JKO"/>
                 <outlet property="filterView" destination="Xwd-XS-zcS" id="S1u-7J-m30"/>
@@ -89,9 +90,23 @@
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tsZ-SS-Tcv">
-                            <rect key="frame" x="0.0" y="50" width="375" height="483.5"/>
+                            <rect key="frame" x="0.0" y="50" width="375" height="442.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ska-xt-AU5">
+                            <rect key="frame" x="0.0" y="492.5" width="375" height="39"/>
+                            <color key="backgroundColor" red="0.84313725490000002" green="0.031372549020000001" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="ran-g4-JkQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="17"/>
+                            <state key="normal" title="Clear All">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="clearAllDataHandler:" destination="-1" eventType="touchUpInside" id="ZQq-4f-UrE"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -99,13 +114,17 @@
                         <constraint firstAttribute="trailing" secondItem="tsZ-SS-Tcv" secondAttribute="trailing" id="5ce-lU-P0l"/>
                         <constraint firstAttribute="trailing" secondItem="VmS-mb-3B2" secondAttribute="trailing" id="5fd-Bo-K4R"/>
                         <constraint firstAttribute="trailing" secondItem="eEt-Ee-JwF" secondAttribute="trailing" id="65p-M7-LqL"/>
-                        <constraint firstAttribute="bottom" secondItem="tsZ-SS-Tcv" secondAttribute="bottom" id="7KV-Du-yTg"/>
+                        <constraint firstAttribute="bottom" secondItem="Ska-xt-AU5" secondAttribute="bottom" constant="2" id="DTY-Vl-Kid"/>
                         <constraint firstItem="tsZ-SS-Tcv" firstAttribute="top" secondItem="VmS-mb-3B2" secondAttribute="bottom" id="ELT-yq-meZ"/>
+                        <constraint firstItem="Ska-xt-AU5" firstAttribute="leading" secondItem="Xwd-XS-zcS" secondAttribute="leading" id="Ekx-TV-gK1"/>
                         <constraint firstItem="VmS-mb-3B2" firstAttribute="leading" secondItem="Xwd-XS-zcS" secondAttribute="leading" id="Hc6-UX-IFR"/>
+                        <constraint firstItem="Ska-xt-AU5" firstAttribute="centerX" secondItem="Xwd-XS-zcS" secondAttribute="centerX" id="R7v-kb-1Vz"/>
                         <constraint firstItem="eEt-Ee-JwF" firstAttribute="leading" secondItem="Xwd-XS-zcS" secondAttribute="leading" id="dBj-qf-kH4"/>
+                        <constraint firstAttribute="trailing" secondItem="Ska-xt-AU5" secondAttribute="trailing" id="eVJ-m0-WFZ"/>
                         <constraint firstItem="tsZ-SS-Tcv" firstAttribute="leading" secondItem="Xwd-XS-zcS" secondAttribute="leading" id="j7l-V7-Mpc"/>
                         <constraint firstItem="VmS-mb-3B2" firstAttribute="top" secondItem="Xwd-XS-zcS" secondAttribute="top" id="mLA-2Q-jej"/>
                         <constraint firstItem="tsZ-SS-Tcv" firstAttribute="top" secondItem="eEt-Ee-JwF" secondAttribute="bottom" id="vOJ-ai-2v5"/>
+                        <constraint firstItem="Ska-xt-AU5" firstAttribute="top" secondItem="tsZ-SS-Tcv" secondAttribute="bottom" id="xrD-9R-qaR"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0j-K9-3gr">

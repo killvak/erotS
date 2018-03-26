@@ -30,6 +30,14 @@ class FilterPriceView: UIView {
             commonUnit()
         }
     }
+    
+    func resetAll(max:Int,min : Int) {
+        
+        self.minPrice = min
+        self.maxPrice = max
+        commonUnit()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         //        commonUnit()

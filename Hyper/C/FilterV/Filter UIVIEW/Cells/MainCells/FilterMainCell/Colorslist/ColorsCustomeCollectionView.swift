@@ -31,6 +31,11 @@ class ColorsCustomeCollectionView: UIView {
         }
     }
     
+    func resetData() {
+        self.selectedIndex = []
+        self.collectionView.reloadData()
+    }
+    
     var selectedIndexs = [Int]() {
         didSet {
             var iDS = [Int]()

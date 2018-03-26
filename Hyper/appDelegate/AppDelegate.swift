@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let tabBarController = self.window!.rootViewController as? UITabBarController {
             tabBarController.selectedIndex = 0
         }
+//                UIApplication.shared.statusBarView?.backgroundColor =  Constant.BackGroundGray
          return true
     }
     
@@ -61,6 +62,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
 }
 
+extension UIApplication {
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
+    }
+}
 extension AppDelegate  {
     
     func isLoading() {

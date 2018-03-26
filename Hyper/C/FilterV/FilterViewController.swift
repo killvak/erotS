@@ -44,7 +44,7 @@ class FilterViewController: UIViewController {
     }
 
     @objc func openFilterView() {
-        print("WOOOOW"  )
+//        print("WOOOOW"  )
         filterView.frame = self.view.frame
         self.view.addSubview(filterView)
     }
@@ -65,8 +65,11 @@ class FilterViewController: UIViewController {
 
 extension FilterViewController : FilterProtocol  {
     func applyFilterHandler() {
-        
-        self.getSearchFilterData(parms: FilterViewController.filterParameters, page: 1, completed: { [unowned self](rData) in
+        print( FilterViewController.filterParameters)
+        guard  FilterViewController.filterParameters.count >= 1 else {
+            dismissFilterView()
+            return }
+           self.getSearchFilterData(parms: FilterViewController.filterParameters, page: 1, completed: { [unowned self](rData) in
         
             self.delegate?.fetchData(data: rData)
         }) { (err ) in

@@ -17,6 +17,7 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource,UI
     
     @IBOutlet weak var emptyViewBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var clearAllBtn: UIButton!
     
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var filterTableHeaderView: UIView!
@@ -25,6 +26,7 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource,UI
     weak var delegate : FilterProtocol?
      var filterData = Filter_Data()
       var filterParameters : [String:Any] = [:]
+
 
      override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,12 +59,21 @@ registerCEll()
     }
     
     
-    
+    func resetAll() {
+        for (i,_) in filterData.listOf.enumerated() {
+            let index = IndexPath(row: i , section: 0)
+        guard let cell = tableView.cellForRow(at: index) as? FilterMainCell else { return }
+        
+            cell.resetAll()
+        }
+        FilterViewController.filterParameters = [:]
+        self.tableView.reloadData()
+        
+    }
     
    @objc func draggingFilterView(_ gestureRecognizer : UIPanGestureRecognizer) {
-    
-    self.tableView.reloadData()
-    if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
+   
+     if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
 
         let translation = gestureRecognizer.translation(in: self)
         // note: 'view' is optional and need to be unwrapped
@@ -126,7 +137,10 @@ registerCEll()
     }
 //    print("------------------------------")
     }
-    
+    @IBAction func clearAllDataHandler(_ sender: UIButton) {
+        
+        resetAll()
+    }
     
     @IBAction func dismissHandler(_ sender: UIButton) {
        
@@ -206,12 +220,13 @@ registerCEll()
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil 
     }
+ 
 }
 
 extension FilterCustomeView {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 1
- 
+  
             guard let cell = tableView.cellForRow(at: indexPath) as? FilterMainCell else { return }
             cell.selecteds()
         if self.filterData.listOf[indexPath.row] == .price , cell.dropDownimg.image == #imageLiteral(resourceName: "ic_arrow_up_") {

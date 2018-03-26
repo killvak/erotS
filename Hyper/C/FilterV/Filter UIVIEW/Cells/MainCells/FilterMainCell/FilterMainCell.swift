@@ -86,10 +86,14 @@ class FilterMainCell: UITableViewCell {
       var  colorsCollectionVDelegate : ColorsCustomeCollectionView?
 
     func resetAll() {
-        self.priceViewDelegate?.minPrice =  mainData.minPrice ?? 0
-        self.priceViewDelegate?.maxPrice =  mainData.maxPrice ?? 1000
-        tableVViewDelegate?.data = filterData
-        tableVViewDelegate?.listType = listType
+        let min  =  mainData.minPrice ?? 0
+        let max  =  mainData.maxPrice ?? 1000
+        self.priceViewDelegate?.resetAll(max: max, min: min)
+        tableVViewDelegate?.selectedIndex = []
+          tableVViewDelegate?.resetData(data: filterData, type: listType)
+        colorsCollectionVDelegate?.resetData()
+
+ 
     }
     
     override func awakeFromNib() {
@@ -153,7 +157,7 @@ class FilterMainCell: UITableViewCell {
     
     
     func selecteds() {
-        
+
         if self.tableViewHeightCons.constant == 0 {
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [.curveEaseIn,.allowUserInteraction], animations: {
                 self.tableViewHeightCons.constant = self.expandableViewHeight

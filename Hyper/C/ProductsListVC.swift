@@ -12,14 +12,20 @@ import UILoadControl
 
 
 class ProductsListVC: FilterViewController , UITextFieldDelegate {
-
+    
     @IBOutlet weak var filterContainerView: UIViewX!
     //MARK: Vars
-    var pageNum = 2
+    var pageNum = 2 {
+        didSet {
+            if pageNum == 1 {
+                canLoadMore = true
+            }
+        }
+    }
     var maxPageNum : Int = 20
     var catID : Int?
     var brandID : Int?
-   private let cellID = "ProductCell"
+    private let cellID = "ProductCell"
     var fullData = ProductFull_Data() {
         didSet {
             filterData = fullData.filterData
@@ -31,18 +37,18 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
             self.brandID = fullData.brandID
             guard data.count > 4  else { return }
             self.collectionView?.scrollToItem(at: IndexPath.init(item: 0, section: 0), at: .top, animated: true)
-
+            
         }
     }
-     var data : [Product_Data] = [] {
+    var data : [Product_Data] = [] {
         didSet {
             numberOfItemsLbl?.text = "\(data.count) Item"
-           //            [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
-
+            //            [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+            
         }
     }
     var lastContentOffset: CGFloat = 0
-var pageTitleAddress = ""
+    var pageTitleAddress = ""
     var canLoadMore = true
     //MARK: OutLets
     @IBOutlet weak var collectionView: UICollectionView!
@@ -55,7 +61,7 @@ var pageTitleAddress = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
- numberOfItemsLbl?.text = "\(data.count) Item"
+        numberOfItemsLbl?.text = "\(data.count) Item"
         // Do any additional setup after loading the view.
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -66,12 +72,14 @@ var pageTitleAddress = ""
         if filterData.listOf.count == 0 {
             self.filterContainerView.alpha = 0
         }
-         setupLoadMore()
+        setupLoadMore()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-     }
+    }
+    
+    
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         openSearchVC()
@@ -81,30 +89,34 @@ var pageTitleAddress = ""
     
     @IBAction func filterhandler(_ sender: UIButton) {
         filterView.delegate = self
-
+        
         self.openFilterView()
         
         
- 
+        
     }
     
     
     @IBAction func backBtnHandler(_ sender: UIButton) {
         
-   self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
+        
+        if          FilterViewController.filterParameters.count >= 1 {
+            FilterViewController.filterParameters = [:]
+        }
     }
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 
@@ -126,12 +138,12 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
         cell.newBadge.alpha = indexPath.row % 2 == 0  ? 1 : 0
         return cell
     }
-
+    
     @objc func showBtmMenu(_ sender : UIButton) {
         showMoreMenu(data: data[sender.tag])
     }
- 
-
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let data = self.data[indexPath.row]
@@ -145,8 +157,8 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
         let height = width * 1.4529411765
         return CGSize(width: width, height: height)
     }
- 
- 
+    
+    
 }
 
 
@@ -157,39 +169,33 @@ extension ProductsListVC {
         self.lastContentOffset = scrollView.contentOffset.y
     }
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
- 
+        
         let x : IndexPath = IndexPath(row: 0, section: 0)
         guard !collectionView.indexPathsForVisibleItems.contains(x)  else { return }
-    
-    if targetContentOffset.pointee.y < scrollView.contentOffset.y {
-    // it's going up
-    UIView.animate(withDuration: 0.4, animations: {
-    self.filterContainerViewHeight.constant = 64
-    self.view.layoutIfNeeded()
-    })
-    } else {
-    // it's going down
-    UIView.animate(withDuration: 0.4, animations: {
-    self.filterContainerViewHeight.constant = 0
-    self.view.layoutIfNeeded()
-    })
-    }
-    
+        
+        if targetContentOffset.pointee.y < scrollView.contentOffset.y {
+            // it's going up
+            UIView.animate(withDuration: 0.4, animations: {
+                self.filterContainerViewHeight.constant = 64
+                self.view.layoutIfNeeded()
+            })
+        } else {
+            // it's going down
+            UIView.animate(withDuration: 0.4, animations: {
+                self.filterContainerViewHeight.constant = 0
+                self.view.layoutIfNeeded()
+            })
+        }
+        
     }
     // while scrolling this delegate is being called so you may now check which direction your scrollView is being scrolled to
     
 }
 
-extension ProductsListVC : FilterViewControllerDelegate {
- 
-    func fetchData(data: ProductFull_Data) {
-        print(data)
-        self.fullData = data
-    }
-}
+
 extension ProductsListVC : SearchControllerProtocol {
- 
- 
+    
+    
     func fetchData(data: ProductFull_Data?, catData: Categories_Specefications_Data?) {
         guard let dataaa = data else {
             guard let dataa = catData else { return }
@@ -206,72 +212,124 @@ extension ProductsListVC : SearchControllerProtocol {
 }
 
 extension ProductsListVC {
- 
-        func resetHomePageData() {
-            self.pageNum = 1
-            getData(_pageNum: 1)
-        }
+    
+    func resetHomePageData() {
+        self.pageNum = 1
+        getData(_pageNum: 1)
+    }
+    
+    func setupLoadMore() {
         
-        func setupLoadMore() {
-            
-            collectionView.loadControl = UILoadControl(target: self, action: #selector(loadMore(sender:)))
-            collectionView.loadControl?.heightLimit = 100.0 //The default is 80.0
-        }
+        collectionView.loadControl = UILoadControl(target: self, action: #selector(loadMore(sender:)))
+        collectionView.loadControl?.heightLimit = 100.0 //The default is 80.0
+    }
+    
+    //update loadControl when user scrolls de tableView
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        //update loadControl when user scrolls de tableView
-        func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            
-            guard self.pageNum < maxPageNum , pageNum != maxPageNum else { return }
-            scrollView.loadControl?.update()
-        }
-        
-        //load more tableView data
-        @objc  func loadMore(sender: AnyObject?) {
-            self.pageNum = self.pageNum + 1
-            getData(_pageNum: self.pageNum)
-        }
-        
+        //            guard self.pageNum < maxPageNum , pageNum != maxPageNum else { return }
+        guard  canLoadMore else { return }
+        scrollView.loadControl?.update()
+    }
+    
+    //load more tableView data
+    @objc  func loadMore(sender: AnyObject?) {
+        self.pageNum = self.pageNum + 1
+        getData(_pageNum: self.pageNum)
+    }
+    
     func getData(_pageNum : Int) {
-        
-        if let catID = self.catID  {
+        if FilterViewController.filterParameters.count >= 1 {
+            
+            applyFilterHandler(pageNum: _pageNum)
+            return
+        }
+        else if let catID = self.catID  {
             getCatProducts(id: catID, pageNum: _pageNum)
-        }else if let brandID = self.brandID {
+            return
+        }
+        else if let brandID = self.brandID {
             getBrandProducts(id: brandID, pageNum: _pageNum)
-        }else {
+            return 
+        }
+        else {
             print("No ID avalaible")
         }
     }
+  
+    
+  
     func getBrandProducts(id : Int, pageNum : Int) {
         ad.isLoading()
-        Get_Requests().brand_By_ID_Request(brandID:  id, page: pageNum, completion: { (rData ) in
-            DispatchQueue.main.async {
-                ad.killLoading()
-                let newData = rData.productList
-                self.data.append(contentsOf: newData)
-                self.dismiss(animated: true, completion: nil)
-            }
+        Get_Requests().brand_By_ID_Request(brandID:  id, page: pageNum, completion: {[unowned self ] (rData ) in
             
-        }) { (err ) in
-            DispatchQueue.main.async {
-                self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
-                ad.killLoading()
-            }
+            self.setupData(data: rData)
+         }) { (err ) in
+            self.loadMoreFailed()
         }
     }
     func getCatProducts(id : Int, pageNum : Int) {
         ad.isLoading()
-        Get_Requests().category_By_Id(catID:  id, page: pageNum, completion: { (rData ) in
-            DispatchQueue.main.async {
-                ad.killLoading()
-
-                self.dismiss(animated: true, completion: nil)
-            }
-            
-        }) { (err ) in
-            DispatchQueue.main.async {
-                self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
-                ad.killLoading()
-            }
+        Get_Requests().category_By_Id(catID:  id, page: pageNum, completion: { [unowned self ] (rData ) in
+          
+            self.setupData(data: rData)
+         }) { (err ) in
+            self.loadMoreFailed()
         }
     }
- }
+    
+
+    
+    
+    func applyFilterHandler(pageNum : Int ) {
+        print( FilterViewController.filterParameters)
+       
+        ad.isLoading()
+        
+        self.getSearchFilterData(parms: FilterViewController.filterParameters, page: pageNum, completed: { [unowned self](rData) in
+           
+            self.setupData(data: rData)
+         }) { (err ) in
+          self.loadMoreFailed()
+        }
+     }
+    
+    
+    func setupData<T>(data : T) {
+        var pData : [Product_Data] = []
+        if let data = data as? ProductFull_Data {
+            pData = data.productList
+        }else  if let data = data as? Categories_Specefications_Data {
+            pData = data.productsData
+        }
+        if pData.count == 0 {
+            self.canLoadMore = false
+        }else {
+            self.canLoadMore = true
+        }
+        DispatchQueue.main.async {
+            ad.killLoading()
+ 
+            self.data.append(contentsOf: pData)
+            self.collectionView.loadControl?.endLoading() //Update UILoadControl frame to the new UIScrollView bottom.
+            self.collectionView.reloadData()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func loadMoreFailed() {
+        DispatchQueue.main.async {
+            self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
+            ad.killLoading()
+                 self.pageNum = self.pageNum - 1
+        }
+    }
+    
+}
+extension ProductsListVC : FilterViewControllerDelegate {
+    
+    func fetchData(data: ProductFull_Data) {
+        print(data)
+        self.fullData = data
+    }
+}
