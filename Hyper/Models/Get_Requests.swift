@@ -85,6 +85,7 @@ class Get_Requests : Connection {
             
             
             let productFull_Data =  self.getProductData(jData: jData)
+            productFull_Data._count = jData["count"].int
             completion(productFull_Data)
             
         }) { (err) in
@@ -117,7 +118,23 @@ class Get_Requests : Connection {
         }
     }
     
+  
     
+    func getItem_By_SubCat(id: Int, page: Int, completion:@escaping ( ProductFull_Data ) -> (),failure failed: @escaping (String?)->() ){
+        
+        Connection.performGet(urlString: self.get_SubCat_By_ID(subCatID: id, page: page), success: { (jData) in
+            
+            
+            let productFull_Data =  self.getProductData(jData: jData)
+            productFull_Data._count = jData["count"].int
+            completion(productFull_Data)
+            
+        }) { (err) in
+            
+            
+            failed(err?.localizedDescription)
+        }
+    }
     func category_By_Id(catID: Int, page: Int, completion:@escaping ( Categories_Specefications_Data ) -> (),failure failed: @escaping (String?)->() ){
         
         Connection.performGet(urlString: self.get_Cats_By_ID(catID: catID, page: page), success: { (jData) in
@@ -201,6 +218,10 @@ extension Get_Requests {
     private func get_Cats_By_ID(catID : Int,page:Int) -> String {
         //http://hyper-testing.herokuapp.com/api/Category/get_top_items_by_main_category_id?Page=1&MainCategoryID=1
         return main_url + "Category/get_top_items_by_main_category_id?Page=\(page)&MainCategoryID=\(catID)"
+    }
+    private func get_SubCat_By_ID(subCatID : Int,page:Int) -> String {
+        //http://hyper-testing.herokuapp.com/api/Category/get_top_items_by_main_category_id?Page=1&MainCategoryID=1
+        return main_url + "Category/get_sub_cat_items_by_id?SubCatID=\(subCatID)&Page=\(page)"
     }
     private func get_topItems_By_Brand(brandID : Int,page:Int) -> String {
         return main_url + "Brand/get_brand_items_by_id?BrandId=\(brandID)&Page=\(page)"

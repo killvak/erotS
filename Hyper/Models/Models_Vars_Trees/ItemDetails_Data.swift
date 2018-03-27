@@ -21,6 +21,7 @@ class ItemDetails_Data {
 
 class ProductFull_Data {
     var brandID : Int?
+      var _count : Int?
     var productList = [Product_Data]()
     var filterData = Filter_Data()
 }

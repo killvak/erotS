@@ -90,11 +90,20 @@ extension SelectedBrandVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ad.isLoading()
-        request.category_By_Id(catID: cat_Data[indexPath.row].id, page: 1, completion: { (rData) in
+        let id = cat_Data[indexPath.row].id
+        request.getItem_By_SubCat(id: id, page: 1, completion: { (rData ) in
+            
             
             DispatchQueue.main.async {
+                guard rData.productList.count >= 1 else {
+                    self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .warning)
+                    ad.killLoading()
+                    return
+                }
                 let vc = ProductsListVC()
-                vc.data = rData.productsData
+                vc.data = rData.productList
+                vc.fullData = rData
+                vc.subCatID = id
                 vc.pageTitleAddress = self.cat_Data[indexPath.row].name
                 vc.title = self.cat_Data[indexPath.row].name
                 self.navigationController?.pushViewController(vc, animated: true)

@@ -25,6 +25,7 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     var maxPageNum : Int = 20
     var catID : Int?
     var brandID : Int?
+    var subCatID : Int?
     private let cellID = "ProductCell"
     var fullData = ProductFull_Data() {
         didSet {
@@ -35,6 +36,7 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
                 self.filterContainerView?.alpha = 1
             }
             self.brandID = fullData.brandID
+ 
             guard data.count > 4  else { return }
             self.collectionView?.scrollToItem(at: IndexPath.init(item: 0, section: 0), at: .top, animated: true)
             
@@ -42,7 +44,6 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     }
     var data : [Product_Data] = [] {
         didSet {
-            numberOfItemsLbl?.text = "\(data.count) Item"
             //            [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
             
         }
@@ -61,7 +62,11 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        numberOfItemsLbl?.text = "\(data.count) Item"
+        if let countt = fullData._count {
+            numberOfItemsLbl.text = "\(countt) Item"
+        }else {
+            numberOfItemsLbl?.text = "\(data.count) Item"
+        }
         // Do any additional setup after loading the view.
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -251,14 +256,28 @@ extension ProductsListVC {
         else if let brandID = self.brandID {
             getBrandProducts(id: brandID, pageNum: _pageNum)
             return 
+        }else if let subCatID = self.subCatID {
+            getSubCatByID(id: subCatID, pageNum: _pageNum)
         }
         else {
             print("No ID avalaible")
+            self.canLoadMore = false
+            self.collectionView.loadControl?.endLoading() //Update UILoadControl frame to the new UIScrollView bottom.
         }
     }
   
     
-  
+    func getSubCatByID(id : Int, pageNum : Int) {
+        
+        Get_Requests().getItem_By_SubCat(id: id, page: pageNum, completion: {[unowned self ] (rData ) in
+             print(rData.productList.count)
+            self.setupData(data: rData)
+        }) { (err ) in
+            self.loadMoreFailed()
+        }
+    }
+    
+    
     func getBrandProducts(id : Int, pageNum : Int) {
         ad.isLoading()
         Get_Requests().brand_By_ID_Request(brandID:  id, page: pageNum, completion: {[unowned self ] (rData ) in
@@ -308,12 +327,12 @@ extension ProductsListVC {
             self.canLoadMore = true
         }
         DispatchQueue.main.async {
-            ad.killLoading()
  
             self.data.append(contentsOf: pData)
             self.collectionView.loadControl?.endLoading() //Update UILoadControl frame to the new UIScrollView bottom.
             self.collectionView.reloadData()
-            self.dismiss(animated: true, completion: nil)
+//            self.dismiss(animated: true, completion: nil)
+            ad.killLoading()
         }
     }
     
@@ -321,6 +340,7 @@ extension ProductsListVC {
         DispatchQueue.main.async {
             self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
             ad.killLoading()
+            self.collectionView.loadControl?.endLoading() //Update UILoadControl frame to the new UIScrollView bottom.
                  self.pageNum = self.pageNum - 1
         }
     }

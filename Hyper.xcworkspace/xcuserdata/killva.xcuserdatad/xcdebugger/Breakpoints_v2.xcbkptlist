@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
-            timestampString = "542986178.447929"
+            timestampString = "543873873.539976"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
             endingLineNumber = "175"
-            landmarkName = "ItemsDetailsVC"
-            landmarkType = "3">
+            landmarkName = "setupView()"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -88,13 +88,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
-            timestampString = "542986178.448012"
+            timestampString = "543873873.5414259"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "174"
             endingLineNumber = "174"
-            landmarkName = "ItemsDetailsVC"
-            landmarkType = "3">
+            landmarkName = "setupView()"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -166,13 +166,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
-            timestampString = "542986178.44807"
+            timestampString = "543873873.542205"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "187"
             endingLineNumber = "187"
-            landmarkName = "ItemsDetailsVC"
-            landmarkType = "21">
+            landmarkName = "changeLang()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -182,13 +182,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
-            timestampString = "542986178.448126"
+            timestampString = "543873873.5430861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "182"
             endingLineNumber = "182"
-            landmarkName = "ItemsDetailsVC"
-            landmarkType = "3">
+            landmarkName = "changeLang()"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -260,12 +260,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
-            timestampString = "542986178.4481879"
+            timestampString = "543873873.543803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "169"
             endingLineNumber = "169"
-            landmarkName = "cellTypeBtnsHandler(_:)"
+            landmarkName = "setupView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -292,13 +292,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hyper/C/Item Details/ItemsDetailsVC.swift"
-            timestampString = "542986178.448283"
+            timestampString = "543873873.544558"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "204"
             endingLineNumber = "204"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkName = "animateBtnSelection(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hyper.ItemsDetailsVC.animateBtnSelection(__ObjC.UIButton) -&gt; ()"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "543882714.2962101"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "436">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Hyper.ItemsDetailsVC.animateBtnSelection(__ObjC.UIButton) -&gt; ()"
+                  moduleName = "Hyper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/Item%20Details/ItemsDetailsVC.swift"
+                  timestampString = "543882714.304343"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -308,11 +340,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hyper/Models/Models_Vars_Trees/ItemDetails_Data.swift"
-            timestampString = "542837925.154611"
+            timestampString = "543882714.058897"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "init(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -363,38 +395,6 @@
             endingLineNumber = "111"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Hyper.FilterTableView.tableView(__ObjC.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Hyper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/FilterV/Filter%20UIVIEW/Cells/MainCells/FilterMainCell/TableList/FilterTableView.swift"
-                  timestampString = "543031014.194189"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "111"
-                  endingLineNumber = "111"
-                  offsetFromSymbolStart = "2552">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Int) -&gt; Swift.Bool in Hyper.FilterTableView.tableView(__ObjC.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Hyper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/FilterV/Filter%20UIVIEW/Cells/MainCells/FilterMainCell/TableList/FilterTableView.swift"
-                  timestampString = "543031014.201176"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "111"
-                  endingLineNumber = "111"
-                  offsetFromSymbolStart = "25">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -411,38 +411,6 @@
             endingLineNumber = "128"
             landmarkName = "tableView(_:didDeselectRowAt:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Hyper.FilterTableView.tableView(__ObjC.UITableView, didDeselectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Hyper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/FilterV/Filter%20UIVIEW/Cells/MainCells/FilterMainCell/TableList/FilterTableView.swift"
-                  timestampString = "543031014.234493"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "2321">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Int) -&gt; Swift.Bool in Hyper.FilterTableView.tableView(__ObjC.UITableView, didDeselectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Hyper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/killva/Documents/Hyper/erotS/Hyper/C/FilterV/Filter%20UIVIEW/Cells/MainCells/FilterMainCell/TableList/FilterTableView.swift"
-                  timestampString = "543031014.241414"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "25">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -474,6 +442,54 @@
             startingLineNumber = "110"
             endingLineNumber = "110"
             landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hyper/C/ProductsListVC.swift"
+            timestampString = "543882714.059093"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
+            landmarkName = "loadMoreFailed()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hyper/C/ProductsListVC.swift"
+            timestampString = "543882714.059689"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
+            landmarkName = "setupData(data:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hyper/C/ProductsListVC.swift"
+            timestampString = "543882714.059992"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "getSubCatByID(id:pageNum:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

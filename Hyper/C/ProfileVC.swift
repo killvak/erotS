@@ -41,6 +41,12 @@ class ProfileVC: FilterViewController , UICollectionViewDelegate , UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vc = AddressBookVC(nibName: "AddressBookVC", bundle: nil)
+          self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 
