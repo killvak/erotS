@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '5561E14F08F81957385033E015E17B88'
+               BlueprintIdentifier = 'D6ED685480F756A209FE191CAE763BAF'
                BlueprintName = 'UILoadControl'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'UILoadControl.framework'>

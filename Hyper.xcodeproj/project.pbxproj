@@ -77,6 +77,9 @@
 		848C0AB6205FF8D500C31929 /* ColorsSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848C0AB4205FF8D500C31929 /* ColorsSelectorCell.xib */; };
 		848C0AB9205FFA4C00C31929 /* ColorsCustomeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848C0AB8205FFA4C00C31929 /* ColorsCustomeCollectionView.swift */; };
 		848C0ABB205FFA5700C31929 /* ColorsCustomeCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848C0ABA205FFA5700C31929 /* ColorsCustomeCollectionView.xib */; };
+		849952F9206BEEE500ED0152 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849952F8206BEEE500ED0152 /* LoginVC.swift */; };
+		849952FD206BF13300ED0152 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849952FC206BF13300ED0152 /* LoginVC.xib */; };
+		849952FF206BF4F200ED0152 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849952FE206BF4F200ED0152 /* GoogleService-Info.plist */; };
 		84C2ECBF205447440024CE6F /* 002-new.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C2ECBE205447440024CE6F /* 002-new.png */; };
 		84C2ECC3205575270024CE6F /* OrderDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2ECC2205575270024CE6F /* OrderDetailsVC.swift */; };
 		84C2ECC720558F3F0024CE6F /* UIVCGetMethodsCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2ECC620558F3F0024CE6F /* UIVCGetMethodsCall.swift */; };
@@ -182,6 +185,9 @@
 		848C0AB4205FF8D500C31929 /* ColorsSelectorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorsSelectorCell.xib; sourceTree = "<group>"; };
 		848C0AB8205FFA4C00C31929 /* ColorsCustomeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsCustomeCollectionView.swift; sourceTree = "<group>"; };
 		848C0ABA205FFA5700C31929 /* ColorsCustomeCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorsCustomeCollectionView.xib; sourceTree = "<group>"; };
+		849952F8206BEEE500ED0152 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		849952FC206BF13300ED0152 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		849952FE206BF4F200ED0152 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84C2ECBE205447440024CE6F /* 002-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "002-new.png"; sourceTree = "<group>"; };
 		84C2ECC2205575270024CE6F /* OrderDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsVC.swift; sourceTree = "<group>"; };
 		84C2ECC620558F3F0024CE6F /* UIVCGetMethodsCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVCGetMethodsCall.swift; sourceTree = "<group>"; };
@@ -247,6 +253,7 @@
 		842563D3204571CE00CE0BF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				849952FC206BF13300ED0152 /* LoginVC.xib */,
 				842E08F82043FC590047505B /* Main.storyboard */,
 				F3C8F2B02046158A00AC0CE5 /* ColorsCell.swift */,
 				842563D4204571D500CE0BF7 /* Cells */,
@@ -298,6 +305,7 @@
 				84678B5C20445C650051AE03 /* ProductsListVC.xib */,
 				F35F6F68204AE52800F191FF /* SearchVC.swift */,
 				F35F6F6E204AE8A100F191FF /* SelectedBrandVC.swift */,
+				849952F8206BEEE500ED0152 /* LoginVC.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -439,6 +447,7 @@
 		84678B59204453C30051AE03 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				849952FE206BF4F200ED0152 /* GoogleService-Info.plist */,
 				846BF65C20614A5700915DEC /* FilterGesture */,
 				84314748205024F900AE045D /* MyExtensions.swift */,
 				84C2ECBE205447440024CE6F /* 002-new.png */,
@@ -617,6 +626,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849952FD206BF13300ED0152 /* LoginVC.xib in Resources */,
 				842E08FF2043FC590047505B /* LaunchScreen.storyboard in Resources */,
 				84678B5720444F570051AE03 /* GE_SS_Two_Light.otf in Resources */,
 				F35F6F6D204AE7A200F191FF /* BrandsVC.xib in Resources */,
@@ -631,6 +641,7 @@
 				8456D0182045BA0200CD8C4E /* SimilarItemsCell.xib in Resources */,
 				842E08FC2043FC590047505B /* Assets.xcassets in Resources */,
 				843160F8205196820067B4E4 /* FilterTableView.xib in Resources */,
+				849952FF206BF4F200ED0152 /* GoogleService-Info.plist in Resources */,
 				84678B5820444F570051AE03 /* GE_SS_Two_Medium.otf in Resources */,
 				84678B5220444F570051AE03 /* GOTHICBI.TTF in Resources */,
 				84C2ECBF205447440024CE6F /* 002-new.png in Resources */,
@@ -658,9 +669,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Hyper/Pods-Hyper-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -676,8 +690,15 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hyper/Pods-Hyper-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/CDAlertView/CDAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
@@ -692,8 +713,15 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CDAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
@@ -779,6 +807,7 @@
 				842E09272043FF280047505B /* UIButtonX.swift in Sources */,
 				848C0AB9205FFA4C00C31929 /* ColorsCustomeCollectionView.swift in Sources */,
 				F3D14E652044C021008162B1 /* MaterialView.swift in Sources */,
+				849952F9206BEEE500ED0152 /* LoginVC.swift in Sources */,
 				842E09162043FE440047505B /* MirroringViewController.swift in Sources */,
 				846BF65B206105BE00915DEC /* Post_Requests.swift in Sources */,
 				842E092E2043FF280047505B /* UISliderX.swift in Sources */,
@@ -947,7 +976,7 @@
 				INFOPLIST_FILE = Hyper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hyper.Hyper.k;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeowls.hypertech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -964,7 +993,7 @@
 				INFOPLIST_FILE = Hyper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hyper.Hyper.k;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeowls.hypertech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
