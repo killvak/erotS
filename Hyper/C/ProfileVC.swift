@@ -8,38 +8,39 @@
 
 import UIKit
 
-class ProfileVC: FilterViewController {
+class ProfileVC: FilterViewController , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
 
-    @IBOutlet weak var navV: NavigationBarView!
-   
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    
   
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        collectionView.delegate = self
+        collectionView.dataSource = self
         // Do any additional setup after loading the view.
-        navV.titleS = "Profile View"
-        navV.backBtn.addTarget(self , action: #selector(openFilterView), for: .touchUpInside)
-//        filterView.emptyViewBtn.addTarget(self, action: #selector(dismissFilterView), for: .touchUpInside)
+ 
     }
     
     
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
+        return cell
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width / 5
+        return CGSize(width: width, height: width * 1.5 )
+    }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }
+
 

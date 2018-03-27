@@ -186,7 +186,7 @@
                   moduleName = "Hyper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Documents/My%20Drive/untitled%20folder%203/erotS/Hyper/C/SearchControllerVC.swift"
-                  timestampString = "543764541.770839"
+                  timestampString = "543851083.073716"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "246"
@@ -201,12 +201,12 @@
                   moduleName = "Hyper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Documents/My%20Drive/untitled%20folder%203/erotS/Hyper/C/SearchControllerVC.swift"
-                  timestampString = "543764541.77324"
+                  timestampString = "543851083.076838"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "244"
                   endingLineNumber = "244"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "4">
                </Location>
             </Locations>
          </BreakpointContent>
