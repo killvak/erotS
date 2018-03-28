@@ -106,8 +106,10 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard searchBar.text != ""  else {
             searchType = .recent
+              self.clearViewHeight?.constant = 40
             return recentSearchData.count
         }
+          self.clearViewHeight?.constant = 0
         guard searchResult.count < 0 else {
             searchType = .searchData
             return searchResult.count
@@ -158,10 +160,10 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
         switch isData.type {
         case .Category:
              getCatProducts(data: isData)
-//        case .subCat :
-//             getBrandProducts(data: isData)
-//        case .Brand :
-//              getBrandProducts(data: isData)
+        case .subCat :
+             getSubCatByID(id: isData.id, pageNum: 1)
+        case .Brand :
+              getBrandProducts(data: isData)
 //        case .product :
 //             getBrandProducts(data: isData)
 
@@ -175,6 +177,10 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
         Get_Requests().brand_By_ID_Request(brandID: data.id, page: 1, completion: { (rData ) in
             DispatchQueue.main.async {
                  ad.killLoading()
+                guard rData.productList.count >= 1 else {
+                    self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .notification)
+                    return
+                }
                 rData.brandID = data.id
                 self.delegate?.fetchData(data: rData, catData: nil)
                 self.dismiss(animated: true, completion: nil)
@@ -182,16 +188,42 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
             
         }) { (err ) in
             DispatchQueue.main.async {
-                self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
+                self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .notification)
+                ad.killLoading()
+            }
+        }
+    }
+    func getSubCatByID(id : Int, pageNum : Int) {
+          ad.isLoading()
+        Get_Requests().getItem_By_SubCat(id: id, page: pageNum, completion: {[unowned self ] (rData ) in
+            DispatchQueue.main.async {
+                ad.killLoading()
+//                print(rData)
+                guard rData.productList.count >= 1 else {
+                    self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
+                    return
+                }
+                rData.sub_Cat_ID = id
+                self.delegate?.fetchData(data: rData, catData: nil)
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }) { (err ) in
+            DispatchQueue.main.async {
+                self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .notification)
                 ad.killLoading()
             }
         }
     }
     func getCatProducts(data : CatBrand_Data) {
         ad.isLoading()
-        Get_Requests().category_By_Id(catID: data.id, page: 1, completion: { (rData ) in
+        Get_Requests().category_By_Id(catID: data.id, page: 1, completion: { [unowned self ] (rData ) in
             DispatchQueue.main.async {
                 ad.killLoading()
+                guard rData.productsData.count >= 1 else {
+                    self.view.showSimpleAlert(L0A.Warning.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .error)
+                    return
+                }
                 rData.cat_name = data.name
                 rData.cat_id = data.id
                 self.delegate?.fetchData(data: nil, catData: rData)
@@ -316,8 +348,9 @@ extension SearchControllerVC :   UISearchBarDelegate {
             return
         }
         if hideIT , recentSearchData.count >= 1 {
+             emptyTableViewPHV.alpha =  0
+        }else   {
             
-        }else {
             emptyTableViewPHV.alpha = hideIT ? 0 : 1
          }
         

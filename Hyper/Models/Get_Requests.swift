@@ -162,7 +162,40 @@ class Get_Requests : Connection {
         }
     }
     
+    func search_Sugettions(  completion:@escaping () -> (),failure failed: @escaping (String?)->() ){
+        
+        let url = get_Search_Suggestions()
+        
+        Connection.performGet(urlString: url, success: { (jData) in
+            
+             let brands = jData["brands"].arrayValue
+            let main_cats = jData["main_cats"].arrayValue
+            let sub_cats = jData["sub_cats"].arrayValue
+
+             for x in main_cats {
+                let y = Cat_Brand_Data(x)
+                      Constant.catBrand.append(CatBrand_Data(name: y.name, id: y.id, type: CatBrandType.Category))
+             }
+            for x in sub_cats {
+                let y = Cat_Brand_Data(x)
+                 Constant.catBrand.append(CatBrand_Data(name: y.name, id: y.id, type: CatBrandType.subCat))
+            }
+            for x in brands {
+                let y = Cat_Brand_Data(x)
+                 Constant.catBrand.append(CatBrand_Data(name: y.name, id: y.id, type: CatBrandType.Brand))
+            }
  
+            completion()
+            
+        }) { (err) in
+            
+            
+            failed(err?.localizedDescription)
+        }
+    
+        
+    }
+
     func all_Data_about(categories: Bool,brands: Bool, page: Int, completion:@escaping ( [Cat_Brand_Data] ) -> (),failure failed: @escaping (String?)->() ){
         
         let url = categories ? self.get_All_Categories(page: page) : get_All_Brands(page: page)
@@ -175,21 +208,10 @@ class Get_Requests : Connection {
              for x in relatedPrs {
                 let y = Cat_Brand_Data(x)
                 catData.append(y)
-                let typee = categories ?  CatBrandType.Category :  CatBrandType.Brand
-                print(jsonKey)
-                if !Constant.gotCatSearch , categories{
-                Constant.catBrand.append(CatBrand_Data(name: y.name, id: y.id, type: typee))
-                }else if !Constant.gotBrandSearch , !categories {
-                     Constant.catBrand.append(CatBrand_Data(name: y.name, id: y.id, type: typee))
-                }
-                
+ 
             }
          
-            if !Constant.gotCatSearch , categories{
-                Constant.gotCatSearch = true
-            }else if !Constant.gotBrandSearch , !categories {
-                Constant.gotBrandSearch = true
-            }
+           
             
                completion(catData)
             
@@ -222,6 +244,10 @@ extension Get_Requests {
     private func get_SubCat_By_ID(subCatID : Int,page:Int) -> String {
         //http://hyper-testing.herokuapp.com/api/Category/get_top_items_by_main_category_id?Page=1&MainCategoryID=1
         return main_url + "Category/get_sub_cat_items_by_id?SubCatID=\(subCatID)&Page=\(page)"
+    }
+    private func get_Search_Suggestions()-> String  {
+        
+        return main_url + "General/get_suggestions"
     }
     private func get_topItems_By_Brand(brandID : Int,page:Int) -> String {
         return main_url + "Brand/get_brand_items_by_id?BrandId=\(brandID)&Page=\(page)"

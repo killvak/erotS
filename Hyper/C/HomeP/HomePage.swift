@@ -43,6 +43,17 @@ updateData()
         
         setupPagerV()
         updateSearchData()
+         gertSearchData()
+    }
+    
+    func gertSearchData() {
+        
+        Get_Requests().search_Sugettions(completion: {
+            
+            
+        }) { (err ) in
+            self.showApiErrorSms(err: err )
+        }
     }
 
     func addPullToRefreshC() {
