@@ -9,7 +9,9 @@
 import UIKit
 import NVActivityIndicatorView
 import IQKeyboardManagerSwift
-
+import FBSDKLoginKit
+import Google
+import GoogleSignIn
 
 @available(iOS 10.0, *)
 let ad = UIApplication.shared.delegate as! AppDelegate
@@ -30,10 +32,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let tabBarController = self.window!.rootViewController as? UITabBarController {
             tabBarController.selectedIndex = 0
         }
+        setupSocialLogin(application,launchOptions)
 //                UIApplication.shared.statusBarView?.backgroundColor =  Constant.BackGroundGray
          return true
     }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool
+    {
+        print(url.relativeString)
+          let facebookURLScheme = "fb720813308073066"
+
+        if(url.scheme!.isEqual(facebookURLScheme)) {
+            return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        }
+        return GIDSignIn.sharedInstance().handle(url,
+                                                 sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+    }
+    
+    func setupSocialLogin(_ application: UIApplication, _ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+        GIDSignIn.sharedInstance().clientID = "183803063633-gscvp0e9g2kfjlq5akkc81ujufmjiakb.apps.googleusercontent.com";
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+
+    }
  
     
     func applicationWillResignActive(_ application: UIApplication) {
