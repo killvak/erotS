@@ -321,7 +321,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hyper Techno" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slh-Ab-9Nc">
-                                        <rect key="frame" x="120.5" y="13.5" width="135" height="25"/>
+                                        <rect key="frame" x="120.5" y="13" width="135" height="25"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -764,7 +764,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LT1-wx-8Rd">
-                                            <rect key="frame" x="0.0" y="98.5" width="375" height="200"/>
+                                            <rect key="frame" x="0.0" y="98" width="375" height="200"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="yjo-oZ-B3m"/>
@@ -791,7 +791,7 @@
                                             </connections>
                                         </collectionView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNt-sU-yCP">
-                                            <rect key="frame" x="305" y="62.5" width="55" height="30"/>
+                                            <rect key="frame" x="305" y="62" width="55" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="p2h-rW-eVB"/>
                                                 <constraint firstAttribute="width" constant="55" id="pb5-Aq-V4e"/>
@@ -1508,7 +1508,7 @@
         <image name="btn_add" width="659" height="84"/>
         <image name="ic_back" width="33" height="57"/>
         <image name="ic_cart_unactive_" width="21" height="18"/>
-        <image name="ic_fav_active_items" width="61" height="56"/>
+        <image name="ic_fav_active_items" width="69" height="64"/>
         <image name="ic_fav_unactive_" width="22" height="20"/>
         <image name="ic_home_active_" width="21" height="20"/>
         <image name="ic_mark" width="37" height="28"/>
