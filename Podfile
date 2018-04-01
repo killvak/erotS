@@ -7,7 +7,7 @@ target 'Hyper' do
 
   # Pods for Hyper
 
-    pod 'IQKeyboardManagerSwift'
+ pod 'IQKeyboardManagerSwift'
     pod 'Alamofire', '~> 4.5'
     pod 'SwiftyJSON'
     pod 'SwiftyStarRatingView'
@@ -28,5 +28,7 @@ pod 'ImageSlideshow', '~> 1.5'
     pod 'FBSDKShareKit'
     pod 'Google/SignIn'
 pod 'Firebase/Core'
+pod 'TLFloatLabelTextField'
+ 
 
 end
