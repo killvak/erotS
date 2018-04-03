@@ -8,8 +8,7 @@
 
 import UIKit
 import UILoadControl
-
-
+import CoreData
 
 class ProductsListVC: FilterViewController , UITextFieldDelegate {
     
@@ -51,6 +50,10 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     var lastContentOffset: CGFloat = 0
     var pageTitleAddress = ""
     var canLoadMore = true
+    var favCDItems :  [FavCD] = []
+    var favItemsIDs : [Int] = []
+    var favRequest : NSFetchRequest<FavCD>?
+
     //MARK: OutLets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var numberOfItemsLbl: UILabel!
@@ -82,8 +85,38 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        fetchCdData()
+
     }
     
+    
+    
+    func fetchCdData() {
+    
+ 
+        favRequest  = FavCD.fetchRequest()
+        guard let fData = favRequest else {
+            print("🦊🦊🦊🦊🦊")
+             return
+        }
+        
+        do {
+            
+            let recnt = try CoreDataClass.context.fetch(fData)
+            self.favCDItems = recnt
+             print(recnt.count)
+            for x in recnt {
+                print(x.id)
+                self.favItemsIDs.append( Int(x.id))
+                //                re.append(x)
+            }
+            self.collectionView.reloadData()
+        } catch {
+            
+        }
+    }
+    
+
     
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -141,9 +174,42 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
         cell.moreBtn.tag = indexPath.row
         cell.moreBtn.addTarget(self , action: #selector(showBtmMenu(_:)), for: .touchUpInside)
         cell.newBadge.alpha = indexPath.row % 2 == 0  ? 1 : 0
+        cell.favBtn.setImage(nil, for: .normal)
+        cell.favBtn.tag = indexPath.row
+        cell.favBtn.addTarget(self, action: #selector(addToFav(_:)), for: .touchUpInside)
+        
+        if  self.favItemsIDs.contains(data[indexPath.row].id) {
+            cell.favBtn.setImage(#imageLiteral(resourceName: "ic_fav_active_items"), for: .normal)
+          }else {
+            cell.favBtn.setImage(#imageLiteral(resourceName: "ic_fav_unactive_"), for: .normal)
+          }
         return cell
     }
     
+    @objc func addToFav(_ sender : UIButton) {
+        if let data = CoreDataClass.someEntityExists(id: data[sender.tag].id) {
+
+            if  CoreDataClass.deleteFavItem(searchData: data) {
+                if let index = favItemsIDs.index(of: self.data[sender.tag].id) {
+                    favItemsIDs.remove(at: index)
+                }
+                sender.setImage(#imageLiteral(resourceName: "ic_fav_unactive_"), for: .normal)
+
+            CoreDataClass.saveContext()
+            }else {
+                
+            }
+        }else {
+            
+            let favCD = FavCD(context: CoreDataClass.context)
+            favCD.id = Int16(data[sender.tag].id)
+            self.favItemsIDs.append(data[sender.tag].id)
+             CoreDataClass.saveContext()
+            sender.setImage(#imageLiteral(resourceName: "ic_fav_active_items"), for: .normal)
+
+            }
+//        self.collectionView.reloadData()
+    }
     @objc func showBtmMenu(_ sender : UIButton) {
         showMoreMenu(data: data[sender.tag])
     }

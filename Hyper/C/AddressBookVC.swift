@@ -21,6 +21,7 @@ class AddressBookVC: UIViewController , UITableViewDelegate , UITableViewDataSou
         tableView.dataSource = self
         self.setupNav()
         tableView.register(UINib.init(nibName: "AddressCell", bundle: nil), forCellReuseIdentifier: "AddressCell")
+       
     }
 
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol SearchControllerProtocol : class {
     
@@ -60,6 +61,18 @@ class SearchControllerVC: UIViewController , UITextFieldDelegate {
         recentSearchData = Constant.recentSearch
         
         hideKeyboardWhenTapped()
+        
+//        let fetchRequest : NSFetchRequest<RecentSearch> = RecentSearch.fetchRequest()
+//
+//        do {
+//
+//            let recnt = try CoreDataClass.context.fetch(fetchRequest)
+//            print(recnt)
+//
+//        } catch {
+//
+//        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,10 +164,16 @@ extension SearchControllerVC : UITableViewDelegate , UITableViewDataSource {
             let data = self.data[indexPath.row]
             isData = data
             addToRecentSearch(data: data)
-
+ 
            case .searchData:
             isData = searchResult[indexPath.row]
             addToRecentSearch(data: searchResult[indexPath.row])
+            
+//            let searchCD = RecentSearch(context: CoreDataClass.context)
+//            searchCD.name = isData.name
+//            searchCD.id = Int16(isData.id)
+//            searchCD.type = Int16(isData.type.rawValue)
+//            CoreDataClass.saveContext()
           }
         
         switch isData.type {

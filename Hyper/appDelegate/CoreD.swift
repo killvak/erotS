@@ -51,6 +51,7 @@ class CoreDataClass {
         if context.hasChanges {
             do {
                 try context.save()
+                print("🐙Saved🐙")
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -60,5 +61,70 @@ class CoreDataClass {
         }
     }
     
+    
+    //MARK: Delete RecentSearch
+    
+    static func deleteRecentSerch(searchData : RecentSearch) -> Bool {
+        
+        context.delete(searchData)
+        
+        do {
+            try context.save()
+            return true
+            
+        } catch {
+            return false
+        }
+        
+    }
+    
+    static func deleteFavItem(searchData : FavCD) -> Bool {
+        
+        context.delete(searchData)
+        
+        do {
+            try context.save()
+            return true
+            
+        } catch {
+            return false
+        }
+        
+    }
+    
+    static func someEntityExists(id: Int)  -> FavCD? {
+        var favRequest : NSFetchRequest<FavCD>  = FavCD.fetchRequest()
+ 
+        
+        do {
+            
+            let recnt = try CoreDataClass.context.fetch(favRequest)
+ 
+ 
+            
+            print(recnt.count)
+            for x in recnt {
+                print(x.id)
+                if x.id == id {
+                    return x
+                }
+                //                re.append(x)
+            }
+        } catch {
+            return nil
+        }
+        return nil 
+    }
+    
+    static func cleanRecentSearchData() -> Bool {
+        
+        let delete = NSBatchDeleteRequest(fetchRequest: RecentSearch.fetchRequest())
+        do {
+            try context.execute(delete)
+            return true
+        } catch {
+            return false
+        }
+    }
 }
 
