@@ -28,6 +28,14 @@ enum GetAlertsLocalize {
     case Item
     case related_Item
     case No_reviews_Yet
+    case My_Order
+    case Edit
+    case Address_Book
+    case Rate_US
+    case My_Review
+     case Installment
+    case Sign_out
+    
     
     ///
     case Searching_for_Runner
@@ -182,6 +190,26 @@ enum GetAlertsLocalize {
             return  L102Language.currentAppleLanguage() == "ar" ? "الأقسام": "Categories"
          
             
+        case .My_Order:
+            return  L102Language.currentAppleLanguage() == "ar" ? "طلباتي": "My Orders"
+            
+        case .Edit:
+            return  L102Language.currentAppleLanguage() == "ar" ? "تعديل": "Edit"
+            
+        case .Address_Book:
+            return  L102Language.currentAppleLanguage() == "ar" ? "عنواني": "Address Book"
+            
+        case .Rate_US:
+            return  L102Language.currentAppleLanguage() == "ar" ? "قيمنا": "Rate us"
+            
+        case .My_Review:
+            return  L102Language.currentAppleLanguage() == "ar" ? "تقييماتي": "My Reviews"
+            
+        case .Installment:
+            return  L102Language.currentAppleLanguage() == "ar" ? "طرق الدفع": "Installment"
+            
+        case .Sign_out:
+            return  L102Language.currentAppleLanguage() == "ar" ? "تسجيل خروج": "Sign out"
             //
         case .please_check_value_twice_before_payment:
             return  L102Language.currentAppleLanguage() == "ar" ? "برجاء مراجعة الحساب جيدا قبل الدفع": "please check value twice before payment"
@@ -427,6 +455,7 @@ enum GetAlertsLocalize {
             return  L102Language.currentAppleLanguage() == "ar" ? "تم إرسال الطلب": "Order has Been Submitted"
             
  
+            
         }
     }
 }

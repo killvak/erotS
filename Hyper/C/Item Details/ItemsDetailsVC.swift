@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyStarRatingView
 import ImageSlideshow
-
+import CoreData
 
 fileprivate  enum CellTypeEnum : Int  {
     case Specefications = 0 ,Description = 1 ,Reviews = 2
@@ -28,6 +28,9 @@ class ItemsDetailsVC: UIViewController {
     }
     var productData :  Product_Data!
     var relatedProducts : [Product_Data] = []
+    var favCDItems :  [FavCD] = []
+    var favItemsIDs : [Int] = []
+    var favRequest : NSFetchRequest<FavCD>?
 
     //MARK: OutLets
     @IBOutlet weak var offerContView: UIViewX!
@@ -82,12 +85,72 @@ class ItemsDetailsVC: UIViewController {
         if productData.reviews.count == 0 {
             self.moreReviewsBTnHeight.constant = 0
         }
+        favBtn.setImage(nil, for: .normal)
+         favBtn.addTarget(self, action: #selector(addToFav(_:)), for: .touchUpInside)
+        
+    
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchCdData()
+    }
     
     @objc func showBtmMenu(_ sender : UIButton) {
         showMoreMenu(data: productData)
     }
+    func fetchCdData() {
+        
+        
+        self.favBtn.setImage(#imageLiteral(resourceName: "ic_fav_unactive_"), for: .normal)
+        favRequest  = FavCD.fetchRequest()
+        guard let fData = favRequest else {
+            print("🦊🦊🦊🦊🦊")
+            return
+        }
+        
+        do {
+            
+            let recnt = try CoreDataClass.context.fetch(fData)
+            self.favCDItems = recnt
+            print(recnt.count)
+            for x in recnt {
+                print(x.id)
+                self.favItemsIDs.append( Int(x.id))
+                //                re.append(x)
+                if x.id == productData.id {
+                    self.favBtn.setImage(#imageLiteral(resourceName: "ic_fav_active_items"), for: .normal)
+                }
+            }
+         } catch {
+            
+        }
+    }
+    @objc func addToFav(_ sender : UIButton) {
+        if let data = CoreDataClass.someEntityExists(id: productData.id) {
+            
+            if  CoreDataClass.deleteFavItem(searchData: data) {
+                if let index = favItemsIDs.index(of: productData.id) {
+                    favItemsIDs.remove(at: index)
+                }
+                sender.setImage(#imageLiteral(resourceName: "ic_fav_unactive_"), for: .normal)
+                
+                CoreDataClass.saveContext()
+            }else {
+                
+            }
+        }else {
+            
+            let favCD = FavCD(context: CoreDataClass.context)
+            favCD.id = Int16(productData.id)
+            self.favItemsIDs.append(productData.id)
+            CoreDataClass.saveContext()
+            sender.setImage(#imageLiteral(resourceName: "ic_fav_active_items"), for: .normal)
+            
+        }
+        //        self.collectionView.reloadData()
+    }
+    
     func setupSlideShow() {
         
         

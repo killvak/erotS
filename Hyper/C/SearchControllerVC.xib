@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -27,26 +27,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEg-7o-Hz8">
-                    <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_nevegation_" translatesAutoresizingMaskIntoConstraints="NO" id="DFF-JK-iO1">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_back" translatesAutoresizingMaskIntoConstraints="NO" id="siv-XR-R6k">
-                            <rect key="frame" x="10" y="13.5" width="14" height="23"/>
+                            <rect key="frame" x="10" y="23.5" width="14" height="23"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="14" id="GtH-tL-6Yt"/>
                                 <constraint firstAttribute="width" secondItem="siv-XR-R6k" secondAttribute="height" multiplier="11:18" id="Xq2-aW-eoQ"/>
                             </constraints>
                         </imageView>
                         <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search" backgroundImage="tab_nevegation_" scopeBarBackgroundImage="tab_nevegation_" translatesAutoresizingMaskIntoConstraints="NO" id="eIv-ke-Ru1">
-                            <rect key="frame" x="55" y="4" width="299" height="40"/>
+                            <rect key="frame" x="55" y="20" width="299" height="30"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxS-8i-qS5">
-                            <rect key="frame" x="10" y="2.5" width="45" height="45"/>
+                            <rect key="frame" x="10" y="5.5" width="45" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="7fQ-5n-KYd"/>
                                 <constraint firstAttribute="width" constant="45" id="Zf8-w3-6jI"/>
@@ -64,17 +64,17 @@
                         <constraint firstAttribute="bottom" secondItem="DFF-JK-iO1" secondAttribute="bottom" constant="-2" id="GFB-mb-wto"/>
                         <constraint firstItem="eIv-ke-Ru1" firstAttribute="leading" secondItem="RxS-8i-qS5" secondAttribute="trailing" id="H3T-LE-Mu0"/>
                         <constraint firstItem="siv-XR-R6k" firstAttribute="leading" secondItem="RxS-8i-qS5" secondAttribute="leading" id="HQA-5B-QDx"/>
-                        <constraint firstItem="eIv-ke-Ru1" firstAttribute="top" secondItem="cEg-7o-Hz8" secondAttribute="top" constant="4" id="W2d-CO-mDc"/>
+                        <constraint firstItem="eIv-ke-Ru1" firstAttribute="top" secondItem="cEg-7o-Hz8" secondAttribute="top" constant="20" id="W2d-CO-mDc"/>
                         <constraint firstItem="RxS-8i-qS5" firstAttribute="centerY" secondItem="DFF-JK-iO1" secondAttribute="centerY" id="Znd-Of-qYG"/>
                         <constraint firstItem="DFF-JK-iO1" firstAttribute="leading" secondItem="cEg-7o-Hz8" secondAttribute="leading" id="aOE-NK-3Tx"/>
                         <constraint firstItem="DFF-JK-iO1" firstAttribute="top" secondItem="cEg-7o-Hz8" secondAttribute="top" id="hUZ-Kt-rj4"/>
                         <constraint firstAttribute="bottom" secondItem="eIv-ke-Ru1" secondAttribute="bottom" constant="4" id="ijS-4s-h3X"/>
-                        <constraint firstAttribute="height" constant="48" id="nYV-NR-ROF"/>
-                        <constraint firstItem="siv-XR-R6k" firstAttribute="centerY" secondItem="RxS-8i-qS5" secondAttribute="centerY" id="tSz-qU-754"/>
+                        <constraint firstAttribute="height" constant="54" id="nYV-NR-ROF"/>
+                        <constraint firstItem="siv-XR-R6k" firstAttribute="centerY" secondItem="eIv-ke-Ru1" secondAttribute="centerY" id="pb3-Xs-fde"/>
                     </constraints>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OyZ-qV-ZxX">
-                    <rect key="frame" x="0.0" y="68" width="375" height="40"/>
+                    <rect key="frame" x="0.0" y="54" width="375" height="40"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yxl-Ri-hB3">
                             <rect key="frame" x="297" y="0.0" width="70" height="40"/>
@@ -108,14 +108,14 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="inR-Iv-XEf">
-                    <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                    <rect key="frame" x="0.0" y="94" width="375" height="573"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPv-1D-Bgx">
-                    <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                    <rect key="frame" x="0.0" y="54" width="375" height="613"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="rar-Gk-WXe">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="613"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -135,8 +135,8 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="inR-Iv-XEf" secondAttribute="trailing" id="6QR-du-21M"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OyZ-qV-ZxX" secondAttribute="trailing" id="BcJ-QT-Tp3"/>
                 <constraint firstAttribute="bottom" secondItem="UPv-1D-Bgx" secondAttribute="bottom" id="Cdc-de-jfK"/>
+                <constraint firstItem="cEg-7o-Hz8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HOa-rk-xdb"/>
                 <constraint firstItem="OyZ-qV-ZxX" firstAttribute="top" secondItem="cEg-7o-Hz8" secondAttribute="bottom" id="KZr-Yq-cdv"/>
-                <constraint firstItem="cEg-7o-Hz8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Mzi-SF-A9S"/>
                 <constraint firstItem="inR-Iv-XEf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XdU-Qc-CQK"/>
                 <constraint firstAttribute="trailing" secondItem="cEg-7o-Hz8" secondAttribute="trailing" id="aRP-lf-DSG"/>
                 <constraint firstItem="inR-Iv-XEf" firstAttribute="top" secondItem="OyZ-qV-ZxX" secondAttribute="bottom" id="rEb-0E-0uj"/>

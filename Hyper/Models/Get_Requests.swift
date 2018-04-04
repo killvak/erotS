@@ -221,6 +221,25 @@ class Get_Requests : Connection {
             failed(err?.localizedDescription)
         }
     }
+    
+    func get_Profile_Details(  userID: Int, completion:@escaping ( Profile_Details_M ) -> (),failure failed: @escaping (String?)->() ){
+        
+        let url = get_Profile_Details(userID :userID )
+        
+        
+        Connection.performGet(urlString: url, success: { (jData) in
+            
+             let relatedPrs = jData["user"]
+                 let y = Profile_Details_M(relatedPrs)
+         
+             completion(y)
+            
+        }) { (err) in
+            
+            
+            failed(err?.localizedDescription)
+        }
+    }
 }
 
 
@@ -263,6 +282,9 @@ extension Get_Requests {
         return main_url + "General/search?Page=\(page)"
     }
     
+    private func get_Profile_Details(userID : Int) -> String{
+        return main_url + "User/get_user_profile?UserId=\(userID)"
+    }
     
 }
 

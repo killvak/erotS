@@ -88,6 +88,8 @@
 		84E6D66D204EF0B000D5AD3B /* HomePage_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6D66C204EF0B000D5AD3B /* HomePage_Data.swift */; };
 		F300A322205C621D00C430F9 /* CoreD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300A321205C621D00C430F9 /* CoreD.swift */; };
 		F350F4C42072D102004BAB5D /* Hyper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F350F4C22072D102004BAB5D /* Hyper.xcdatamodeld */; };
+		F35CE30820745E720072A527 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CE30620745E720072A527 /* EditProfileVC.swift */; };
+		F35CE30920745E720072A527 /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35CE30720745E720072A527 /* EditProfileVC.xib */; };
 		F35F6F69204AE52800F191FF /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F68204AE52800F191FF /* SearchVC.swift */; };
 		F35F6F6C204AE7A200F191FF /* BrandsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F6A204AE7A200F191FF /* BrandsVC.swift */; };
 		F35F6F6D204AE7A200F191FF /* BrandsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35F6F6B204AE7A200F191FF /* BrandsVC.xib */; };
@@ -199,6 +201,8 @@
 		88E7E6E014D8C7E11D800CC1 /* Pods_Hyper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hyper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F300A321205C621D00C430F9 /* CoreD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreD.swift; sourceTree = "<group>"; };
 		F350F4C32072D102004BAB5D /* Hyper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hyper.xcdatamodel; sourceTree = "<group>"; };
+		F35CE30620745E720072A527 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		F35CE30720745E720072A527 /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
 		F35F6F68204AE52800F191FF /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		F35F6F6A204AE7A200F191FF /* BrandsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsVC.swift; sourceTree = "<group>"; };
 		F35F6F6B204AE7A200F191FF /* BrandsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandsVC.xib; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 		842563D6204571F700CE0BF7 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				F35CE30620745E720072A527 /* EditProfileVC.swift */,
+				F35CE30720745E720072A527 /* EditProfileVC.xib */,
 				F3812FC4206AC5A900D8AA04 /* AddressBookVC.swift */,
 				F3812FC5206AC5A900D8AA04 /* AddressBookVC.xib */,
 				842F29B82063B946007E527B /* SliderSho.swift */,
@@ -634,6 +640,7 @@
 				F36493FB2072F2F8009AD46B /* SearchVCCoreData in Resources */,
 				84678B5720444F570051AE03 /* GE_SS_Two_Light.otf in Resources */,
 				F35F6F6D204AE7A200F191FF /* BrandsVC.xib in Resources */,
+				F35CE30920745E720072A527 /* EditProfileVC.xib in Resources */,
 				842563D02045705F00CE0BF7 /* LabelOnlyCell.xib in Resources */,
 				842E0932204400170047505B /* ProductCell.xib in Resources */,
 				84678B5420444F570051AE03 /* GOTHIC.TTF in Resources */,
@@ -775,6 +782,7 @@
 				843160E7205172EF0067B4E4 /* CategoryTableCell.swift in Sources */,
 				84C2ECC3205575270024CE6F /* OrderDetailsVC.swift in Sources */,
 				842563C72045700700CE0BF7 /* ReviewCell.swift in Sources */,
+				F35CE30820745E720072A527 /* EditProfileVC.swift in Sources */,
 				842E08F72043FC590047505B /* HomePage.swift in Sources */,
 				F3D14E692044CD7C008162B1 /* BrandsCell.swift in Sources */,
 				845A3D1120540C0000C77EF2 /* UIViewControllerExt.swift in Sources */,

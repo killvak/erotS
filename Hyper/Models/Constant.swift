@@ -11,7 +11,7 @@ import UIKit
 
 class Constant {
     typealias listOFsavedData = (id : Int , name : String , type : CatBrandType)
-
+    
     static let  BloodyRed =  UIColor.init(hex: "D7080A")
     static let  BackGroundGray =  UIColor.init(hex: "EBEBEC")
     static let  FontColorGray =  UIColor.init(hex: "666666")
@@ -130,6 +130,19 @@ class API {
         let image_url = "image_url"
         let is_new = "is_new"
         let reviews = "reviews"
+        
+        let birthday = "birthday"
+        let email =    "email"
+        let fav_lan =  "fav_lan"
+        let fb_token =  "fb_token"
+        let first_name =   "first_name"
+        let gender =    "gender"
+        let google_id =   "google_id"
+        let last_name =   "last_name"
+        let latitude = "latitude"
+        let longitude =  "longitude"
+        
+        
         
         private override init() {}
         

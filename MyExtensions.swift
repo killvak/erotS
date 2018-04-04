@@ -21,6 +21,16 @@ extension UIImageView {
             imageTransition: .crossDissolve(0.2)
         )
     }
+    
+    func setupApiImage(imagePath : String,placeHolderImg: UIImage) {
+        guard let url = URL(string: imagePath ) else { return }
+        self.af_setImage(
+            withURL: url ,
+            placeholderImage: placeHolderImg,
+            filter: nil,
+            imageTransition: .crossDissolve(0.2)
+        )
+    }
 }
 extension UILabel {
     

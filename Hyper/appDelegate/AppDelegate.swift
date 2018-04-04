@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         setupSocialLogin(application,launchOptions)
 //                UIApplication.shared.statusBarView?.backgroundColor =  Constant.BackGroundGray
+        UIApplication.shared.statusBarStyle = .lightContent
          return true
     }
     

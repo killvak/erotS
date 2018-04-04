@@ -83,13 +83,16 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
         setupLoadMore()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        fetchCdData()
+//
+//    }
+//
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetchCdData()
-
     }
-    
-    
     
     func fetchCdData() {
     
@@ -105,6 +108,7 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
             let recnt = try CoreDataClass.context.fetch(fData)
             self.favCDItems = recnt
              print(recnt.count)
+            self.favItemsIDs = [] 
             for x in recnt {
                 print(x.id)
                 self.favItemsIDs.append( Int(x.id))

@@ -10,4 +10,6 @@ import UIKit
 
 class ProfileCell: UICollectionViewCell {
     
+    @IBOutlet weak var iconImageV: UIImageView!
+    @IBOutlet weak var titleLbl: UILabel!
 }
