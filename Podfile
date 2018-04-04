@@ -26,7 +26,8 @@ pod 'ImageSlideshow', '~> 1.5'
     pod 'FBSDKCoreKit'
     pod 'FBSDKLoginKit'
     pod 'FBSDKShareKit'
+ pod 'Firebase/Core'
     pod 'Google/SignIn'
-pod 'Firebase/Core'
+pod 'Google/Analytics'
 
 end

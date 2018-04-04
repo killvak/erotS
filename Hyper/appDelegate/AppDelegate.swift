@@ -10,14 +10,13 @@ import UIKit
 import NVActivityIndicatorView
 import IQKeyboardManagerSwift
 import FBSDKLoginKit
-import Google
-import GoogleSignIn
+ import GoogleSignIn
 
 @available(iOS 10.0, *)
 let ad = UIApplication.shared.delegate as! AppDelegate
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate{
 
     var window: UIWindow?
 
@@ -51,11 +50,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupSocialLogin(_ application: UIApplication, _ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
-        GIDSignIn.sharedInstance().clientID = "183803063633-gscvp0e9g2kfjlq5akkc81ujufmjiakb.apps.googleusercontent.com";
+        GIDSignIn.sharedInstance().clientID = "668286390069-e5qrsuhir5qm2fmn3s6ra0h4jefh7uba.apps.googleusercontent.com";
+        GIDSignIn.sharedInstance().delegate = self
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
     }
  
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print("\(error.localizedDescription)")
+        } else {
+            // Perform any operations on signed in user here.
+            let userId = user.userID                  // For client-side use only!
+            let idToken = user.authentication.idToken // Safe to send to the server
+            let fullName = user.profile.name
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            // ...
+        }
+    }
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

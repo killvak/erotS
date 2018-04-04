@@ -621,6 +621,10 @@ Copyright 2017 Google
 
 Copyright 2016 Google Inc.
 
+## GoogleAnalytics
+
+Copyright 2016 Google
+
 ## GoogleSignIn
 
 Copyright 2018 Google
