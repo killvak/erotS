@@ -46,11 +46,11 @@ class ProductCell: UICollectionViewCell {
             price1Lbl.text = "\(data.price) L.E"
         }
         
-//        if data.is_new {
-//            newBadge.alpha = 1
-//        }else {
-//            newBadge.alpha = 1
-//        }
+        if data.is_new {
+            newBadge.alpha = 1
+        }else {
+            newBadge.alpha = 0
+        }
         
         
     }

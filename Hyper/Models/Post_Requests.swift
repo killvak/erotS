@@ -28,9 +28,7 @@ class  Post_Requests : Connection {
         
         let parameters : Parameters = setupSearchParameters(query: query, min_price: min_price, max_price: max_price, cats: cats, brands: brands , colors: colors)
         let url = self.postSearchUrl(page:page)
-        var headers:[String:String] = ["Authorization":"627562626c6520617069206b6579"]
-        headers["Content-Type"]  = "application/json"
-        Alamofire.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: headers).responseJSON {
+          Alamofire.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: Constant.headers).responseJSON {
             response in
             switch response.result {
             case .success:
@@ -69,9 +67,7 @@ class  Post_Requests : Connection {
         
         
          let url = self.postSearchUrl(page:page)
-        var headers:[String:String] = ["Authorization":"627562626c6520617069206b6579"]
-        headers["Content-Type"]  = "application/json"
-        Alamofire.request(url, method: .post, parameters: parms,encoding: JSONEncoding.default, headers: headers).responseJSON {
+        Alamofire.request(url, method: .post, parameters: parms,encoding: JSONEncoding.default, headers: Constant.headers).responseJSON {
             response in
             switch response.result {
             case .success:
@@ -93,6 +89,64 @@ class  Post_Requests : Connection {
     }
     
     
+    func defaultPostRequest(postType:URLS_Post_Enum ,parms : Parameters ,completion:@escaping ( JSON ) -> (),failure failed: @escaping (String?)->() ) {
+        //http://45.55.134.13/api/v1/places/1/8/20
+        //        print("URL: is getPlacesList URL : \(url) location is  \(ad.currentLocation)")
+        //        print("lat is \(ad.latitude) lon is \(ad.longitude)")
+        
+        
+        
+        Alamofire.request(postType.stringValue(), method: .post, parameters: parms,encoding: JSONEncoding.default, headers: Constant.headers).responseJSON {
+            response in
+            switch response.result {
+            case .success:
+                //                print(response)
+                guard let value = response.value else {
+                    failed(response.error?.localizedDescription)
+                    return
+                }
+                let jData = JSON(value)
+                 completion(jData)
+                
+                break
+            case .failure(let error):
+                failed(response.error?.localizedDescription)
+                print(error)
+            }
+        }
+    }
+    
+    func social_Login(postType:URLS_Post_Enum ,parms : Parameters ,completion:@escaping ( Profile_Details_M ) -> (),failure failed: @escaping (String?)->() ) {
+        //http://45.55.134.13/api/v1/places/1/8/20
+        //        print("URL: is getPlacesList URL : \(url) location is  \(ad.currentLocation)")
+        //        print("lat is \(ad.latitude) lon is \(ad.longitude)")
+         Alamofire.request(postType.stringValue(), method: .post, parameters: parms,encoding: JSONEncoding.default, headers: Constant.headers).responseJSON {
+            response in
+            switch response.result {
+            case .success:
+//                                print(response)
+                guard let value = response.value else {
+                    failed(response.error?.localizedDescription)
+                    return
+                }
+                let jData = JSON(value)
+                let userData = jData["user"]
+                                guard userData.dictionary != nil else {
+                                     failed("\(jData["message_code"].intValue)")
+                                     return
+                                }
+                let y = Profile_Details_M(userData)
+            
+                completion(y)
+
+                
+                break
+            case .failure(let error):
+                failed(response.error?.localizedDescription)
+                print(error)
+            }
+        }
+    }
     
     //    func postSearch(query : String?,min_price : Int? ,max_price : Int?,cats : [Int]?,brands : [Int]?,colors:[Int]?,page : Int,completion:@escaping ( [CatBrand_Data] ) -> (),failure failed: @escaping (String?)->() ){
     //         let parameters : Parameters = setupSearchParameters(query: query, min_price: min_price, max_price: max_price, cats: cats, brands: brands , colors: colors)

@@ -177,8 +177,7 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
         cell.backgroundColor = .clear
         cell.moreBtn.tag = indexPath.row
         cell.moreBtn.addTarget(self , action: #selector(showBtmMenu(_:)), for: .touchUpInside)
-        cell.newBadge.alpha = indexPath.row % 2 == 0  ? 1 : 0
-        cell.favBtn.setImage(nil, for: .normal)
+         cell.favBtn.setImage(nil, for: .normal)
         cell.favBtn.tag = indexPath.row
         cell.favBtn.addTarget(self, action: #selector(addToFav(_:)), for: .touchUpInside)
         

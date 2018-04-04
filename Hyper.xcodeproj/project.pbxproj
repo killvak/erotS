@@ -51,6 +51,7 @@
 		843160F8205196820067B4E4 /* FilterTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843160F7205196820067B4E4 /* FilterTableView.xib */; };
 		843160FA2051968C0067B4E4 /* FilterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843160F92051968C0067B4E4 /* FilterTableView.swift */; };
 		843160FC2051BA250067B4E4 /* FIlter_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843160FB2051BA250067B4E4 /* FIlter_Model.swift */; };
+		8434561320764BC200DF2577 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434561220764BC200DF2577 /* GoogleService-Info.plist */; };
 		8456D0172045BA0200CD8C4E /* SimilarItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456D0152045BA0200CD8C4E /* SimilarItemsCell.swift */; };
 		8456D0182045BA0200CD8C4E /* SimilarItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8456D0162045BA0200CD8C4E /* SimilarItemsCell.xib */; };
 		845A3D1120540C0000C77EF2 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A3D1020540C0000C77EF2 /* UIViewControllerExt.swift */; };
@@ -77,7 +78,6 @@
 		848C0ABB205FFA5700C31929 /* ColorsCustomeCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848C0ABA205FFA5700C31929 /* ColorsCustomeCollectionView.xib */; };
 		849952F9206BEEE500ED0152 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849952F8206BEEE500ED0152 /* LoginVC.swift */; };
 		849952FD206BF13300ED0152 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849952FC206BF13300ED0152 /* LoginVC.xib */; };
-		849952FF206BF4F200ED0152 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849952FE206BF4F200ED0152 /* GoogleService-Info.plist */; };
 		84C2ECBF205447440024CE6F /* 002-new.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C2ECBE205447440024CE6F /* 002-new.png */; };
 		84C2ECC3205575270024CE6F /* OrderDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2ECC2205575270024CE6F /* OrderDetailsVC.swift */; };
 		84C2ECC720558F3F0024CE6F /* UIVCGetMethodsCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2ECC620558F3F0024CE6F /* UIVCGetMethodsCall.swift */; };
@@ -163,6 +163,7 @@
 		843160F7205196820067B4E4 /* FilterTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableView.xib; sourceTree = "<group>"; };
 		843160F92051968C0067B4E4 /* FilterTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableView.swift; sourceTree = "<group>"; };
 		843160FB2051BA250067B4E4 /* FIlter_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIlter_Model.swift; sourceTree = "<group>"; };
+		8434561220764BC200DF2577 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8456D0152045BA0200CD8C4E /* SimilarItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarItemsCell.swift; sourceTree = "<group>"; };
 		8456D0162045BA0200CD8C4E /* SimilarItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimilarItemsCell.xib; sourceTree = "<group>"; };
 		845A3D1020540C0000C77EF2 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
@@ -189,7 +190,6 @@
 		848C0ABA205FFA5700C31929 /* ColorsCustomeCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorsCustomeCollectionView.xib; sourceTree = "<group>"; };
 		849952F8206BEEE500ED0152 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		849952FC206BF13300ED0152 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
-		849952FE206BF4F200ED0152 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84C2ECBE205447440024CE6F /* 002-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "002-new.png"; sourceTree = "<group>"; };
 		84C2ECC2205575270024CE6F /* OrderDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsVC.swift; sourceTree = "<group>"; };
 		84C2ECC620558F3F0024CE6F /* UIVCGetMethodsCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVCGetMethodsCall.swift; sourceTree = "<group>"; };
@@ -259,7 +259,6 @@
 		842563D3204571CE00CE0BF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				849952FC206BF13300ED0152 /* LoginVC.xib */,
 				842E08F82043FC590047505B /* Main.storyboard */,
 				F3C8F2B02046158A00AC0CE5 /* ColorsCell.swift */,
 				842563D4204571D500CE0BF7 /* Cells */,
@@ -314,6 +313,7 @@
 				F35F6F68204AE52800F191FF /* SearchVC.swift */,
 				F35F6F6E204AE8A100F191FF /* SelectedBrandVC.swift */,
 				849952F8206BEEE500ED0152 /* LoginVC.swift */,
+				849952FC206BF13300ED0152 /* LoginVC.xib */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -351,6 +351,7 @@
 				842E08FB2043FC590047505B /* Assets.xcassets */,
 				842E08FD2043FC590047505B /* LaunchScreen.storyboard */,
 				842E09002043FC590047505B /* Info.plist */,
+				8434561220764BC200DF2577 /* GoogleService-Info.plist */,
 			);
 			path = Hyper;
 			sourceTree = "<group>";
@@ -455,7 +456,6 @@
 		84678B59204453C30051AE03 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				849952FE206BF4F200ED0152 /* GoogleService-Info.plist */,
 				846BF65C20614A5700915DEC /* FilterGesture */,
 				84314748205024F900AE045D /* MyExtensions.swift */,
 				84C2ECBE205447440024CE6F /* 002-new.png */,
@@ -643,6 +643,7 @@
 				F35CE30920745E720072A527 /* EditProfileVC.xib in Resources */,
 				842563D02045705F00CE0BF7 /* LabelOnlyCell.xib in Resources */,
 				842E0932204400170047505B /* ProductCell.xib in Resources */,
+				8434561320764BC200DF2577 /* GoogleService-Info.plist in Resources */,
 				84678B5420444F570051AE03 /* GOTHIC.TTF in Resources */,
 				84678B5E20445C650051AE03 /* ProductsListVC.xib in Resources */,
 				846B690420470A250039F037 /* NavigationBarView.xib in Resources */,
@@ -651,7 +652,6 @@
 				848C0AB6205FF8D500C31929 /* ColorsSelectorCell.xib in Resources */,
 				8456D0182045BA0200CD8C4E /* SimilarItemsCell.xib in Resources */,
 				843160F8205196820067B4E4 /* FilterTableView.xib in Resources */,
-				849952FF206BF4F200ED0152 /* GoogleService-Info.plist in Resources */,
 				84678B5820444F570051AE03 /* GE_SS_Two_Medium.otf in Resources */,
 				84678B5220444F570051AE03 /* GOTHICBI.TTF in Resources */,
 				84C2ECBF205447440024CE6F /* 002-new.png in Resources */,
@@ -714,9 +714,9 @@
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/RangeSeekSlider/RangeSeekSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStarRatingView/SwiftyStarRatingView.framework",
-				"${BUILT_PRODUCTS_DIR}/TLFloatLabelTextField/TLFloatLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/UILoadControl/UILoadControl.framework",
 				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 				"${BUILT_PRODUCTS_DIR}/XLActionController/XLActionController.framework",
@@ -738,9 +738,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RangeSeekSlider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStarRatingView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TLFloatLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UILoadControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLActionController.framework",

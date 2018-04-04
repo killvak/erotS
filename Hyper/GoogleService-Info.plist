@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>TRACKING_ID</key>
+	<string>UA-116617443-1</string>
+	<key>CLIENT_ID</key>
+	<string>668286390069-4o000k39njli93je1vo61p5ankeo56c8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.668286390069-4o000k39njli93je1vo61p5ankeo56c8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAi5z4p1uczb71cp5_x3vk8zG-22fN0-QM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>668286390069</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.zeowls.hypertech</string>
+	<key>PROJECT_ID</key>
+	<string>hyper-199509</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hyper-199509.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<true></true>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:668286390069:ios:7433bd0afe619f87</string>
+	<key>DATABASE_URL</key>
+	<string>https://hyper-199509.firebaseio.com</string>
+</dict>
+</plist>

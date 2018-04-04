@@ -12,6 +12,26 @@ import SwiftyJSON
 
 extension UIViewController {
     
+    
+    func navToProductWithData(data : ProductFull_Data, pageTitle: String) {
+        
+        guard data.productList.count >= 1 else {
+            DispatchQueue.main.async {
+                self.view.showSimpleAlert(L0A.Sorry.stringValue(), L0A.NO_Data_to_Preview.stringValue(), .warning)
+                ad.killLoading()
+            }
+            return
+        }
+        DispatchQueue.main.async {
+
+            let vc = ProductsListVC(nibName: "ProductsListVC", bundle: nil)
+            vc.data = data.productList
+            vc.fullData = data
+            vc.title = pageTitle
+            self.navigationController?.pushViewController(vc, animated: true)
+            ad.killLoading()
+        }
+     }
  
     func navBrandToProductsList(brandID : Int , pageNum : Int, pageTitle: String)  {
         ad.isLoading()

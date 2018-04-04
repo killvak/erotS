@@ -27,8 +27,9 @@ pod 'ImageSlideshow', '~> 1.5'
     pod 'FBSDKLoginKit'
     pod 'FBSDKShareKit'
     pod 'Google/SignIn'
-pod 'Firebase/Core'
-pod 'TLFloatLabelTextField'
- 
+    pod "Google/Analytics"
+    pod 'Firebase/Core'
+    pod 'SkyFloatingLabelTextField', '~> 3.0'
+
 
 end

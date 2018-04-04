@@ -12,6 +12,7 @@ import IQKeyboardManagerSwift
 import FBSDKLoginKit
 import Google
 import GoogleSignIn
+import Firebase
 
 @available(iOS 10.0, *)
 let ad = UIApplication.shared.delegate as! AppDelegate
@@ -28,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         L102Localizer.DoTheMagic()
         IQKeyboardManager.sharedManager().enable = true
+        FIRApp.configure()
+        let firPar = self.getUserID() == 0 ? [:] : ["UserID":getUserID()]
+        FIRAnalytics.logEvent(withName: kFIREventAppOpen, parameters: firPar)
 
         if let tabBarController = self.window!.rootViewController as? UITabBarController {
             tabBarController.selectedIndex = 0
@@ -52,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupSocialLogin(_ application: UIApplication, _ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+       
         GIDSignIn.sharedInstance().clientID = "183803063633-gscvp0e9g2kfjlq5akkc81ujufmjiakb.apps.googleusercontent.com";
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 

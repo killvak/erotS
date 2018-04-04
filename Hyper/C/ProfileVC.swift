@@ -16,6 +16,7 @@ class ProfileVC: FilterViewController , UICollectionViewDelegate , UICollectionV
     @IBOutlet weak var nameLbl: UILabel!
     
     @IBOutlet weak var emailLbl: UILabel!
+    @IBOutlet weak var signinBtnContainerView: UIView!
     var imgDict : [(String , UIImage)]!
     
     override func viewDidLoad() {
@@ -24,12 +25,35 @@ class ProfileVC: FilterViewController , UICollectionViewDelegate , UICollectionV
         collectionView.delegate = self
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
-          imgDict  = [(L0A.My_Order.stringValue(),UIImage(named:"ic_my_order_")!),(L0A.Edit.stringValue(),UIImage(named:"ic_edit_")!),(L0A.Address_Book.stringValue(),UIImage(named:"ic_address_book_")!),(L0A.Rate_US.stringValue(),UIImage(named:"ic_rate_us_")!),(L0A.My_Review.stringValue(),UIImage(named:"ic_revewis_")!),(L0A.Share.stringValue(),UIImage(named:"ic_share_")!),(L0A.Installment.stringValue(),UIImage(named:"ic_Installment_")!),(L0A.Sign_out.stringValue(),UIImage(named:"ic_logout_")!)]
+        imgDict  = [(L0A.My_Order.stringValue(),UIImage(named:"ic_my_order_")!),//0
+            (L0A.Edit.stringValue(),UIImage(named:"ic_edit_")!),//1
+            (L0A.Address_Book.stringValue(),UIImage(named:"ic_address_book_")!),//2
+            (L0A.Rate_US.stringValue(),UIImage(named:"ic_rate_us_")!),//3
+            (L0A.My_Review.stringValue(),UIImage(named:"ic_revewis_")!),//4
+            (L0A.Share.stringValue(),UIImage(named:"ic_share_")!),//5
+            (L0A.Installment.stringValue(),UIImage(named:"ic_Installment_")!),//6
+            (L0A.Sign_out.stringValue(),UIImage(named:"ic_logout_")!)]//7
+
         
-        getProfileData() 
+        if !ad.isUserLoggedIn() {
+           
+            let vc = LoginVC()
+            self.present(vc, animated: true, completion: nil)
+            self.signinBtnContainerView.alpha = 1
+            imgDict  = [
+                (L0A.Rate_US.stringValue(),UIImage(named:"ic_rate_us_")!),//3
+                (L0A.Share.stringValue(),UIImage(named:"ic_share_")!),//5
+                  ]//7
+        }else {
+            getProfileData()
+        }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
     
+    }
     @IBAction func changeLanghandler(_ sender: UIButton) {
         var transition: UIViewAnimationOptions = .transitionFlipFromLeft
         if L102Language.currentAppleLanguage() == "en" {
@@ -48,9 +72,19 @@ class ProfileVC: FilterViewController , UICollectionViewDelegate , UICollectionV
             
         }
     }
+    @IBAction func signBtnHandler(_ sender: UIButton? = nil) {
+    
+             let vc = LoginVC()
+            self.present(vc, animated: true, completion: nil)
+    }
+    
     func getProfileData() {
-        
-        Get_Requests().get_Profile_Details(userID: 1, completion: { (rData ) in
+        let id = ad.getUserID()
+        guard  id != 0 else {
+            ad.saveUserLogginData(email: nil, photoUrl: nil , uid:nil, name: nil)
+            ad.reload()
+            return }
+        Get_Requests().get_Profile_Details(userID: id, completion: { (rData ) in
             
             self.emailLbl.text = rData.email
             self.nameLbl.text = rData.first_name + " " + rData.last_name
@@ -87,33 +121,63 @@ class ProfileVC: FilterViewController , UICollectionViewDelegate , UICollectionV
 //
 ////        let vc = AddressBookVC(nibName: "AddressBookVC", bundle: nil)
 //          self.navigationController?.pushViewController(vc, animated: true)
-        switch indexPath.row  {
-        case 0:
+        let dataa = imgDict[indexPath.row].0
+        switch dataa  {
+        case L0A.My_Order.stringValue():
             self.tabBarController?.selectedIndex = 4
-        case 1:
+        case L0A.Edit.stringValue():
             break
             
-        case 2:
+        case L0A.Address_Book.stringValue():
             break
             
-        case 3:
+        case L0A.Rate_US.stringValue():
+            rateApp( completion: { (booll) in
+                print(booll)
+            })
+            
+        case L0A.My_Review.stringValue():
             break
             
-        case 4:
+        case L0A.Share.stringValue():
+            share()
             break
             
-        case 5:
+        case L0A.Installment.stringValue():
             break
             
-        case 6:
-            break
-            
-        case 7:
-            break
+        case L0A.Sign_out.stringValue(): //Logout
+            ad.saveUserLogginData(email: nil, photoUrl: nil, uid: nil, name: nil)
+            ad.reload()
  
         default:
             break 
         }
+    }
+    
+    
+    func share() {
+        let shareText = "Hyper Techno"
+        var parm :[Any] = [shareText]
+//        if let url = URL(string : data.main_image )
+//        {
+//            parm.append(url)
+//        }
+        
+        let vc = UIActivityViewController(activityItems: parm, applicationActivities: [])
+        self.present(vc, animated: true)
+    }
+    func rateApp(  completion: @escaping ((_ success: Bool)->())) {
+        let appId = 1241790691
+        guard let url = URL(string : "itms-apps://itunes.apple.com/app/" + "\(appId)") else {
+            completion(false)
+            return
+        }
+        guard #available(iOS 10, *) else {
+            completion(UIApplication.shared.openURL(url))
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: completion)
     }
 }
 
