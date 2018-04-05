@@ -30,6 +30,8 @@ class HomePage: UIViewController {
             self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
         }
     }
+    @IBOutlet weak var hotProductsImgV: UIImageView!
+    @IBOutlet weak var newArrivalsImgV: UIImageView!
     ////
     
  
@@ -42,8 +44,11 @@ class HomePage: UIViewController {
 updateData()
         
         setupPagerV()
-        updateSearchData()
+//        updateSearchData()
          gertSearchData()
+        self.hotProductsImgV.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hotItemsHandler)))
+        self.newArrivalsImgV.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(newItemsHandler)))
+
     }
     
     func gertSearchData() {
@@ -94,6 +99,25 @@ updateData()
     
         
     }
+    
+    @objc func hotItemsHandler() {
+        ad.isLoading()
+        Get_Requests().get_Hot_Items(page: 1, completion: { (rData ) in
+            
+            self.navToProductWithData(data: rData, pageTitle: L0A.Hot_Products.stringValue())
+        }) { (err ) in
+            self.showApiErrorSms(err: err )
+        }
+    }
+    @objc func newItemsHandler() {
+        ad.isLoading()
+        Get_Requests().get_New_Arrivals(page: 1, completion: { (rData ) in
+            
+            self.navToProductWithData(data: rData, pageTitle: L0A.Hot_Products.stringValue())
+        }) { (err ) in
+            self.showApiErrorSms(err: err )
+        }
+    }
      @objc func changeLang() {
         
 //   self.performSegue(withIdentifier: "go", sender: self)
@@ -132,20 +156,7 @@ updateData()
         }
         
     }
-    
-    func updateSearchData() {
-        
-        Get_Requests().all_Data_about(categories: true, brands: false, page: 1, completion: { (_) in
-        }) { (r ) in
-            
-        }
-
-        Get_Requests().all_Data_about(categories: false, brands: true, page: 1, completion: { (_) in
-        }) { (_ ) in
-            print("wtf")
-        }
-    }
-    
+ 
     func change() {
         
         var transition: UIViewAnimationOptions = .transitionFlipFromLeft
@@ -287,7 +298,7 @@ extension HomePage : FSPagerViewDataSource , FSPagerViewDelegate  {
             
         }
         
-        print("id_image:\(promotions[index].id_image)opening: \(promotions[index].image) ")
+//        print("id_image:\(promotions[index].id_image)opening: \(promotions[index].image) ")
          cell.imageView?.af_setImage(
             withURL: url ,
             placeholderImage: UIImage(named: "adv_pic_"),

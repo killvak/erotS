@@ -145,12 +145,17 @@ enum GetAlertsLocalize {
     case Coupon_is_applied
     case please_check_value_twice_before_payment
     case VehicleID_Is_Required
-    
-    
+    case Hot_Products
+    case New_Arrivals
     
     func stringValue() -> String {
         switch self {
         //Hyper
+        case .Hot_Products:
+            return  L102Language.currentAppleLanguage() == "ar" ? "المنتجات الأكثر شعبيه": "Hot Products"
+        case .New_Arrivals:
+            return  L102Language.currentAppleLanguage() == "ar" ? "المنتجات الجديدة": "New Arrivals"
+
         case .No_reviews_Yet:
             return  L102Language.currentAppleLanguage() == "ar" ? "لا توجد تعليقات بعد": "No Reviews Yet."
 

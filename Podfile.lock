@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (4.6.0)
-  - AlamofireImage (3.3.0):
+  - Alamofire (4.7.1)
+  - AlamofireImage (3.3.1):
     - Alamofire (~> 4.5)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
@@ -8,7 +8,7 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - CDAlertView (0.7.1)
+  - CDAlertView (0.8.0)
   - FBSDKCoreKit (4.31.1):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.31.1):
@@ -27,11 +27,15 @@ PODS:
   - FirebaseInstanceID (1.0.10):
     - FirebaseCore (~> 3.6)
   - FSPagerView (0.7.1)
+  - Google/Analytics (3.1.0):
+    - Google/Core
+    - GoogleAnalytics (~> 3.12)
   - Google/Core (3.1.0):
     - FirebaseAnalytics (~> 3.2)
   - Google/SignIn (3.1.0):
     - Google/Core
     - GoogleSignIn (~> 4.0)
+  - GoogleAnalytics (3.17.0)
   - GoogleSignIn (4.1.2):
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GoogleToolboxForMac/NSString+URLArguments (~> 2.1)
@@ -57,18 +61,18 @@ PODS:
   - ImageSlideshow (1.5.1):
     - ImageSlideshow/Core (= 1.5.1)
   - ImageSlideshow/Core (1.5.1)
-  - IQKeyboardManagerSwift (5.0.7)
+  - IQKeyboardManagerSwift (5.0.8)
   - NVActivityIndicatorView (4.1.1):
     - NVActivityIndicatorView/Presenter (= 4.1.1)
   - NVActivityIndicatorView/Presenter (4.1.1)
   - RangeSeekSlider (1.7.0)
+  - SkyFloatingLabelTextField (3.4.1)
   - SwiftyJSON (4.0.0)
   - SwiftyStarRatingView (1.0.4)
-  - TLFloatLabelTextField (0.1.3)
   - UILoadControl (2.1.0)
   - UITextView+Placeholder (1.2.0)
-  - XLActionController/Core (4.0.0)
-  - XLActionController/Youtube (4.0.0):
+  - XLActionController/Core (4.0.1)
+  - XLActionController/Youtube (4.0.1):
     - XLActionController/Core
 
 DEPENDENCIES:
@@ -80,23 +84,24 @@ DEPENDENCIES:
   - FBSDKShareKit
   - Firebase/Core
   - FSPagerView
+  - Google/Analytics
   - Google/SignIn
   - ImageSlideshow (~> 1.5)
   - IQKeyboardManagerSwift
   - NVActivityIndicatorView
   - RangeSeekSlider
+  - SkyFloatingLabelTextField (~> 3.0)
   - SwiftyJSON
   - SwiftyStarRatingView
-  - TLFloatLabelTextField
   - UILoadControl
   - UITextView+Placeholder (~> 1.2)
   - XLActionController/Youtube
 
 SPEC CHECKSUMS:
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  CDAlertView: 0e5597633e46bcf09c8b3ad67bc23e184f7e4075
+  CDAlertView: 018c5d8acc0b1b207a0c473a11c975b060f53f39
   FBSDKCoreKit: e08ccfcefa7bc1347a07c276dac9bf6c7fe57024
   FBSDKLoginKit: 99797ac39252fef6f72600b886f6ee60b4b29cab
   FBSDKShareKit: e640c41c9fcd61929eeb3d0c21ad335103e7cb62
@@ -106,21 +111,22 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   FSPagerView: 958aba39684e1573755ddcfcc29f7eebb8413cee
   Google: 98da4b1a60ed0beb80a290387a28333406a1eb90
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 390ea358e5a0d0133153806f744662dad933d06b
   ImageSlideshow: ae3de479b8c70dc751142d21573f5a28dbb97d4d
-  IQKeyboardManagerSwift: 30fb3a61de1af53a95e02b80fb54ed0a19d5ede5
+  IQKeyboardManagerSwift: 2e7dc7f98c111458c1ea2b373f893e8cf95e2b97
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   RangeSeekSlider: 0386c5a9aa5ebcb2fa5238e8a627280cf46c7c0a
+  SkyFloatingLabelTextField: 8085f20f57f74a00cfcae58099299faa1a971035
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   SwiftyStarRatingView: a2b0057700e0adeb8e7442c55d99cb53b531d2f4
-  TLFloatLabelTextField: 3e2bb61eeb4d9d23d0704bbded7bb1ccf1ae8c6b
   UILoadControl: e742ddbe4c67ba1f13b00b7d462d4141307d021f
   UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
-  XLActionController: 7e88fece1799e61357cb00b1cc67104d66ec4d2c
+  XLActionController: 007868251c0eed70d649d06c1625259b73b3a600
 
-PODFILE CHECKSUM: acf3af5fba895db6ef4c267fd4e9d70af35a3316
+PODFILE CHECKSUM: f3a69e2638de828bedb50a732b49808f57dfc85e
 
 COCOAPODS: 1.3.1

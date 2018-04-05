@@ -475,7 +475,7 @@ class Profile_Details_M {
     var latitude : String {return _latitude }
     var longitude : String {return _longitude }
 
-    
+    var fullName : String { return "\(_first_name) \(_last_name)"}
     var image : String {
         return  Constant.images_Url +   _image
     }

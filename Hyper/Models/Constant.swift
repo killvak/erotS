@@ -26,7 +26,8 @@ class Constant {
     static let main_url = "http://hyper-testing.herokuapp.com/api/"
     static var gotCatSearch = false
     static var gotBrandSearch = false
-    private init() {    }
+   static var headers:[String:String] = ["Authorization":"627562626c6520617069206b6579","Content-Type" :"application/json" ]
+     private init() {    }
     
     static  func saveData(data : CatBrand_Data) {
         if let saved = UserDefaults.standard.value(forKey: "SearchHistory") as? [listOFsavedData] {

@@ -20,12 +20,18 @@ class Connection: NSObject {
      
  
     enum URLS_Post_Enum {
-        case POST_Registeration
+        case fB_Login
+        case google_Login
+        case email_Login
         
         func stringValue() -> String {
              switch self {
-            case .POST_Registeration:
-                return Constant.main_url  + "use/coupon"
+            case .fB_Login:
+                return Constant.main_url  + "User/facebook_login"
+             case .google_Login:
+                return Constant.main_url  + "User/google_login"
+             case .email_Login:
+                return Constant.main_url  + "User/user_login"
             }
         }
     }

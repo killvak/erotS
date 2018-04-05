@@ -135,6 +135,36 @@ class Get_Requests : Connection {
             failed(err?.localizedDescription)
         }
     }
+    func get_Hot_Items(  page: Int, completion:@escaping ( ProductFull_Data ) -> (),failure failed: @escaping (String?)->() ){
+        
+        Connection.performGet(urlString: self.getHotItems(page: page), success: { (jData) in
+            
+            
+            let productFull_Data =  self.getProductData(jData: jData)
+            productFull_Data._count = jData["count"].int
+            completion(productFull_Data)
+            
+        }) { (err) in
+            
+            
+            failed(err?.localizedDescription)
+        }
+    }
+    func get_New_Arrivals(  page: Int, completion:@escaping ( ProductFull_Data ) -> (),failure failed: @escaping (String?)->() ){
+        
+        Connection.performGet(urlString: self.getNewItems(page: page), success: { (jData) in
+            
+            
+            let productFull_Data =  self.getProductData(jData: jData)
+            productFull_Data._count = jData["count"].int
+            completion(productFull_Data)
+            
+        }) { (err) in
+            
+            
+            failed(err?.localizedDescription)
+        }
+    }
     func category_By_Id(catID: Int, page: Int, completion:@escaping ( Categories_Specefications_Data ) -> (),failure failed: @escaping (String?)->() ){
         
         Connection.performGet(urlString: self.get_Cats_By_ID(catID: catID, page: page), success: { (jData) in
@@ -285,6 +315,11 @@ extension Get_Requests {
     private func get_Profile_Details(userID : Int) -> String{
         return main_url + "User/get_user_profile?UserId=\(userID)"
     }
-    
+    private func getHotItems(page:Int) ->String {
+        return main_url + "General/get_hot_items?Page=\(page)"
+    }
+    private func getNewItems(page:Int) ->String {
+        return main_url + "General/get_new_items?Page=\(page)"
+    }
 }
 
