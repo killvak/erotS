@@ -90,6 +90,8 @@
 		F350F4C42072D102004BAB5D /* Hyper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F350F4C22072D102004BAB5D /* Hyper.xcdatamodeld */; };
 		F35CE30820745E720072A527 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CE30620745E720072A527 /* EditProfileVC.swift */; };
 		F35CE30920745E720072A527 /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35CE30720745E720072A527 /* EditProfileVC.xib */; };
+		F35CE30C20746B190072A527 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CE30A20746B190072A527 /* RegisterVC.swift */; };
+		F35CE30D20746B190072A527 /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35CE30B20746B190072A527 /* RegisterVC.xib */; };
 		F35F6F69204AE52800F191FF /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F68204AE52800F191FF /* SearchVC.swift */; };
 		F35F6F6C204AE7A200F191FF /* BrandsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F6A204AE7A200F191FF /* BrandsVC.swift */; };
 		F35F6F6D204AE7A200F191FF /* BrandsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35F6F6B204AE7A200F191FF /* BrandsVC.xib */; };
@@ -203,6 +205,8 @@
 		F350F4C32072D102004BAB5D /* Hyper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hyper.xcdatamodel; sourceTree = "<group>"; };
 		F35CE30620745E720072A527 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		F35CE30720745E720072A527 /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
+		F35CE30A20746B190072A527 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		F35CE30B20746B190072A527 /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
 		F35F6F68204AE52800F191FF /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		F35F6F6A204AE7A200F191FF /* BrandsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsVC.swift; sourceTree = "<group>"; };
 		F35F6F6B204AE7A200F191FF /* BrandsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandsVC.xib; sourceTree = "<group>"; };
@@ -293,6 +297,8 @@
 		842563D6204571F700CE0BF7 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				F35CE30A20746B190072A527 /* RegisterVC.swift */,
+				F35CE30B20746B190072A527 /* RegisterVC.xib */,
 				F35CE30620745E720072A527 /* EditProfileVC.swift */,
 				F35CE30720745E720072A527 /* EditProfileVC.xib */,
 				F3812FC4206AC5A900D8AA04 /* AddressBookVC.swift */,
@@ -640,6 +646,7 @@
 				F36493FB2072F2F8009AD46B /* SearchVCCoreData in Resources */,
 				84678B5720444F570051AE03 /* GE_SS_Two_Light.otf in Resources */,
 				F35F6F6D204AE7A200F191FF /* BrandsVC.xib in Resources */,
+				F35CE30D20746B190072A527 /* RegisterVC.xib in Resources */,
 				F35CE30920745E720072A527 /* EditProfileVC.xib in Resources */,
 				842563D02045705F00CE0BF7 /* LabelOnlyCell.xib in Resources */,
 				842E0932204400170047505B /* ProductCell.xib in Resources */,
@@ -814,6 +821,7 @@
 				F300A322205C621D00C430F9 /* CoreD.swift in Sources */,
 				8431474D2050963B00AE045D /* LoclizationExConstant.swift in Sources */,
 				843160F4205193FD0067B4E4 /* FilterPriceView.swift in Sources */,
+				F35CE30C20746B190072A527 /* RegisterVC.swift in Sources */,
 				843160D02051480F0067B4E4 /* ProfileVC.swift in Sources */,
 				8471B54F206A7F1F0074120B /* ProfileCell.swift in Sources */,
 				842E09152043FE440047505B /* L012Localizer.swift in Sources */,

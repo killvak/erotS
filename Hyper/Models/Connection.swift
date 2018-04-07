@@ -23,7 +23,8 @@ class Connection: NSObject {
         case fB_Login
         case google_Login
         case email_Login
-        
+        case signup_User
+        case edit_Profile
         func stringValue() -> String {
              switch self {
             case .fB_Login:
@@ -32,6 +33,11 @@ class Connection: NSObject {
                 return Constant.main_url  + "User/google_login"
              case .email_Login:
                 return Constant.main_url  + "User/user_login"
+             case .signup_User:
+                return Constant.main_url  + "User/user_signup"
+             case .edit_Profile:
+                return Constant.main_url  + "User/edit_profile"
+
             }
         }
     }
