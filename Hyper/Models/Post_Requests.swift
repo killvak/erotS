@@ -129,6 +129,7 @@ class  Post_Requests : Connection {
                     failed(response.error?.localizedDescription)
                     return
                 }
+                print(value)
                 let jData = JSON(value)
                 let userData = jData["user"]
                                 guard userData.dictionary != nil else {

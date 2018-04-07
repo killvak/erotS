@@ -419,14 +419,14 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="V9f-Dl-rmM">
-                                                    <rect key="frame" x="279.5" y="5" width="72.5" height="24"/>
+                                                    <rect key="frame" x="279.5" y="5" width="72.5" height="24.5"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edp-v5-q48">
-                                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24.5"/>
                                                             <state key="normal" image="ic_share"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jV-lw-Yij">
-                                                            <rect key="frame" x="49" y="0.0" width="23.5" height="24"/>
+                                                            <rect key="frame" x="49" y="0.0" width="23.5" height="24.5"/>
                                                             <state key="normal" image="ic_fav_active_items"/>
                                                         </button>
                                                     </subviews>
@@ -435,10 +435,10 @@
                                                     </constraints>
                                                 </stackView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="pic_items" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-el-UKE">
-                                                    <rect key="frame" x="20" y="39" width="335" height="206"/>
+                                                    <rect key="frame" x="20" y="39.5" width="335" height="205.5"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgf-nz-PDS" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                                    <rect key="frame" x="20" y="39" width="335" height="206"/>
+                                                    <rect key="frame" x="20" y="39.5" width="335" height="205.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
@@ -941,7 +941,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFA-tK-pGA">
                                         <rect key="frame" x="0.0" y="239.5" width="375" height="140.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_catigoury" translatesAutoresizingMaskIntoConstraints="NO" id="94N-9m-lUB">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_catigoury-1" translatesAutoresizingMaskIntoConstraints="NO" id="94N-9m-lUB">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="140.5"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9x6-p8-qKS">
@@ -1627,10 +1627,11 @@
         <image name="adv_hot_" width="375" height="157"/>
         <image name="adv_new_" width="375" height="157"/>
         <image name="bg_catigoury" width="225" height="225"/>
+        <image name="bg_catigoury-1" width="711" height="964"/>
         <image name="btn_add" width="659" height="84"/>
         <image name="ic_back" width="33" height="57"/>
         <image name="ic_cart_unactive_" width="21" height="18"/>
-        <image name="ic_fav_active_items" width="69" height="64"/>
+        <image name="ic_fav_active_items" width="61" height="56"/>
         <image name="ic_fav_unactive_" width="22" height="20"/>
         <image name="ic_home_active_" width="21" height="20"/>
         <image name="ic_mark" width="37" height="28"/>
@@ -1640,7 +1641,7 @@
         <image name="ic_rate_half_active" width="41" height="40"/>
         <image name="ic_rate_unactive" width="41" height="40"/>
         <image name="ic_search_unactive_" width="19" height="19"/>
-        <image name="ic_share" width="49" height="53"/>
+        <image name="ic_share" width="248" height="248"/>
         <image name="pic_items" width="325" height="435"/>
         <image name="switch-keyboard-language" width="128" height="128"/>
         <image name="tab_nevegation_" width="375" height="46"/>
