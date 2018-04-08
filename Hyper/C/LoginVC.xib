@@ -292,7 +292,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg" width="1440" height="2560"/>
+        <image name="bg" width="1242" height="2208"/>
         <image name="btn_facebook_" width="199" height="25"/>
         <image name="btn_google_" width="199" height="25"/>
         <image name="btn_login_" width="199" height="25"/>
