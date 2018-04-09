@@ -22,9 +22,22 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
         }
     }
     var maxPageNum : Int = 20
-    var catID : Int?
-    var brandID : Int?
+    var catID : Int? {
+        didSet {
+            guard let id = catID else { return }
+            Constant.filterMainObject[FilterTypes.categories] = id
+            print(id)
+        }
+    }
+    var brandID : Int?{
+        didSet {
+            guard let id = brandID else { return }
+            Constant.filterMainObject[FilterTypes.brands] = id
+            print(id)
+        }
+    }
     var subCatID : Int?
+    
     private let cellID = "ProductCell"
     var fullData = ProductFull_Data() {
         didSet {
@@ -71,6 +84,7 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
             numberOfItemsLbl?.text = "\(data.count) Item"
         }
         // Do any additional setup after loading the view.
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         self.delegate = self
@@ -83,6 +97,9 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
         setupLoadMore()
     }
     
+    deinit {
+        Constant.filterMainObject.removeAll()
+    }
 //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(animated)
 //        fetchCdData()
@@ -271,6 +288,7 @@ extension ProductsListVC : SearchControllerProtocol {
     
     
     func fetchData(data: ProductFull_Data?, catData: Categories_Specefications_Data?) {
+        
         guard let dataaa = data else {
             guard let dataa = catData else { return }
             let sb = self.storyboard ?? UIStoryboard(name: "Main", bundle: nil)
@@ -278,7 +296,9 @@ extension ProductsListVC : SearchControllerProtocol {
             vc.mainData = dataa
             vc.title = dataa.cat_name
             self.navigationController?.pushViewController(vc, animated: true)
-            return }
+            return
+        }
+        
         self.fullData = dataaa
         self.data = dataaa.productList
         self.collectionView.reloadData()

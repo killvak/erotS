@@ -24,11 +24,11 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource,UI
     @IBOutlet weak var filterViewBottomCons: NSLayoutConstraint!
     //MARK : Vars
     weak var delegate : FilterProtocol?
-     var filterData = Filter_Data()
-      var filterParameters : [String:Any] = [:]
-
-
-     override init(frame: CGRect) {
+    var filterData = Filter_Data()
+    var filterParameters : [String:Any] = [:]
+    
+    
+    override init(frame: CGRect) {
         super.init(frame: frame)
         commonUnit()
     }
@@ -38,7 +38,7 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource,UI
         commonUnit()
     }
     
-  
+    
     var panGest: UIPanGestureRecognizer!
     
     private func commonUnit() {
@@ -50,9 +50,9 @@ class FilterCustomeView: UIView , UITableViewDelegate , UITableViewDataSource,UI
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 46
-//        tableView.register(UINib(nibName: "FilterMainCell", bundle: nil), forCellReuseIdentifier: "FilterMainCell")
-registerCEll()
-          panGest = UIPanGestureRecognizer(target: self, action: #selector(draggingFilterView(_:)))
+        //        tableView.register(UINib(nibName: "FilterMainCell", bundle: nil), forCellReuseIdentifier: "FilterMainCell")
+        registerCEll()
+        panGest = UIPanGestureRecognizer(target: self, action: #selector(draggingFilterView(_:)))
         panGest.delegate = self
         self.filterView.addGestureRecognizer(panGest)
         
@@ -62,8 +62,8 @@ registerCEll()
     func resetAll() {
         for (i,_) in filterData.listOf.enumerated() {
             let index = IndexPath(row: i , section: 0)
-        guard let cell = tableView.cellForRow(at: index) as? FilterMainCell else { return }
-        
+            guard let cell = tableView.cellForRow(at: index) as? FilterMainCell else { return }
+            
             cell.resetAll()
         }
         FilterViewController.filterParameters = [:]
@@ -71,71 +71,71 @@ registerCEll()
         
     }
     
-   @objc func draggingFilterView(_ gestureRecognizer : UIPanGestureRecognizer) {
-   
-     if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
-
-        let translation = gestureRecognizer.translation(in: self)
-        // note: 'view' is optional and need to be unwrapped
-
-        let y = gestureRecognizer.view!.frame.origin.y
-        let maxY = UIScreen.main.bounds.height * 0.5
-
-//         guard y >= maxY else {
-//            UIView.animate(withDuration: 0.4, animations: {
-//               self.filterView.center.y = UIScreen.main.bounds.maxY * 2
-//                self.layoutIfNeeded()
-//            }) { (_) in
-//                self.delegate?.dismissFilterView()
-//            }
-//
-//            return
-//
-//        }
-        let y2 = gestureRecognizer.view!.frame.origin.y
-
-        let shit = self.bounds.height * 0.55
-        guard y2 <=  shit  else {
-//            UIView.animate(withDuration: 0.4, animations: {
-//                self.filterView.center.y = UIScreen.main.bounds.maxY * 2
-//                self.layoutIfNeeded()
-//            }) { (_) in
-//            print("gestureRecognizer.view!.center.y \(y ) \n maxY : \(maxY) y2:\(y2) shit: \(shit) ")
-//
-////            print("⎲ Removed")
+    @objc func draggingFilterView(_ gestureRecognizer : UIPanGestureRecognizer) {
+        
+        if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
+            
+            let translation = gestureRecognizer.translation(in: self)
+            // note: 'view' is optional and need to be unwrapped
+            
+            let y = gestureRecognizer.view!.frame.origin.y
+            let maxY = UIScreen.main.bounds.height * 0.5
+            
+            //         guard y >= maxY else {
+            //            UIView.animate(withDuration: 0.4, animations: {
+            //               self.filterView.center.y = UIScreen.main.bounds.maxY * 2
+            //                self.layoutIfNeeded()
+            //            }) { (_) in
+            //                self.delegate?.dismissFilterView()
+            //            }
+            //
+            //            return
+            //
+            //        }
+            let y2 = gestureRecognizer.view!.frame.origin.y
+            
+            let shit = self.bounds.height * 0.55
+            guard y2 <=  shit  else {
+                //            UIView.animate(withDuration: 0.4, animations: {
+                //                self.filterView.center.y = UIScreen.main.bounds.maxY * 2
+                //                self.layoutIfNeeded()
+                //            }) { (_) in
+                //            print("gestureRecognizer.view!.center.y \(y ) \n maxY : \(maxY) y2:\(y2) shit: \(shit) ")
+                //
+                ////            print("⎲ Removed")
                 self.dismissFilterView()
-//            }
-            return
+                //            }
+                return
+            }
+            let x1 = self.filterView.bounds.origin.y
+            let x2 =  self.filterView.bounds.maxY
+            let x3 = x1 - x2
+            //        print("🤪self.frame.maxY \(x1)\n 😇self.filterView..frame.maxY \(x2) \n  🤩distance\(x3)")
+            gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x , y: gestureRecognizer.view!.center.y + translation.y)
+            
+            gestureRecognizer.setTranslation(CGPoint.zero, in: self)
         }
-         let x1 = self.filterView.bounds.origin.y
-        let x2 =  self.filterView.bounds.maxY
-        let x3 = x1 - x2
-//        print("🤪self.frame.maxY \(x1)\n 😇self.filterView..frame.maxY \(x2) \n  🤩distance\(x3)")
-         gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x , y: gestureRecognizer.view!.center.y + translation.y)
-
-        gestureRecognizer.setTranslation(CGPoint.zero, in: self)
-     }
-    
-    if gestureRecognizer.state == .ended{
-        let y2 = gestureRecognizer.view!.frame.origin.y
         
-        let shit = self.bounds.height * 0.55
-        guard y2 <=  shit  else {
-//            print("⎖⍹✐")
-//            print(" y2:\(y2) shit: \(shit) ")
-   self.dismissFilterView()
-             return
+        if gestureRecognizer.state == .ended{
+            let y2 = gestureRecognizer.view!.frame.origin.y
+            
+            let shit = self.bounds.height * 0.55
+            guard y2 <=  shit  else {
+                //            print("⎖⍹✐")
+                //            print(" y2:\(y2) shit: \(shit) ")
+                self.dismissFilterView()
+                return
+            }
+            let h = self.bounds.height - self.filterView.bounds.height
+            let sss = self.bounds.height * 0.54
+            let point = CGPoint(x: gestureRecognizer.view!.center.x , y: sss)
+            self.filterView.center = point
+            //        print("⚠︎  ♾")
+            //        print(" sss:\(sss)   ")
+            
+            
         }
-        let h = self.bounds.height - self.filterView.bounds.height
-        let sss = self.bounds.height * 0.54
-        let point = CGPoint(x: gestureRecognizer.view!.center.x , y: sss)
-        self.filterView.center = point
-//        print("⚠︎  ♾")
-//        print(" sss:\(sss)   ")
-
-        
-    }
-//    print("------------------------------")
+        //    print("------------------------------")
     }
     @IBAction func clearAllDataHandler(_ sender: UIButton) {
         
@@ -143,8 +143,8 @@ registerCEll()
     }
     
     @IBAction func dismissHandler(_ sender: UIButton) {
-       
-       dismissFilterView()
+        
+        dismissFilterView()
     }
     
     func dismissFilterView() {
@@ -153,15 +153,15 @@ registerCEll()
             self.alpha = 0
             self.layoutIfNeeded()
         }) { (_) in
-             self.delegate?.dismissFilterView()
+            self.delegate?.dismissFilterView()
             self.alpha = 1
         }
     }
     
     @IBAction func applyFilterHandler(_ sender: UIButton) {
-//        self.delegate?.applyFilterHandler(parm: FilterCustomeView.filterParameters)
+        //        self.delegate?.applyFilterHandler(parm: FilterCustomeView.filterParameters)
         
-      
+        
         self.delegate?.applyFilterHandler()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -169,24 +169,24 @@ registerCEll()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
- 
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "FilterMainCell", for: indexPath) as! FilterMainCell
-////        let data = filterData.listOf[indexPath.row]
-//        cell.filterCustomeV = self
-//        cell.setupContainerView(viewType: filterData,indexPath.row)
+        
+        //            let cell = tableView.dequeueReusableCell(withIdentifier: "FilterMainCell", for: indexPath) as! FilterMainCell
+        ////        let data = filterData.listOf[indexPath.row]
+        //        cell.filterCustomeV = self
+        //        cell.setupContainerView(viewType: filterData,indexPath.row)
         var cell : FilterMainCell!
         switch indexPath.row {
         case 0:
-          return   createEmailCell(indexPath: indexPath)
+            return   createEmailCell(indexPath: indexPath)
         case 1:
-           return createEmailCell1(indexPath: indexPath)
+            return createEmailCell1(indexPath: indexPath)
         case 2:
-           return createEmailCell2(indexPath: indexPath)
+            return createEmailCell2(indexPath: indexPath)
         default:
             break
         }
         cell.filterCustomeV = self
-            return cell
+        return cell
         
     }
     func createEmailCell(indexPath: IndexPath) -> FilterMainCell {
@@ -215,33 +215,33 @@ registerCEll()
         tableView.register(UINib(nibName: "FilterMainCell", bundle: nil), forCellReuseIdentifier: "1")
         tableView.register(UINib(nibName: "FilterMainCell", bundle: nil), forCellReuseIdentifier: "2")
         tableView.register(UINib(nibName: "FilterMainCell", bundle: nil), forCellReuseIdentifier: "3")
-
+        
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil 
     }
- 
+    
 }
 
 extension FilterCustomeView {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 1
-  
-            guard let cell = tableView.cellForRow(at: indexPath) as? FilterMainCell else { return }
-            cell.selecteds()
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? FilterMainCell else { return }
+        cell.selecteds()
         if self.filterData.listOf[indexPath.row] == .price , cell.dropDownimg.image == #imageLiteral(resourceName: "ic_arrow_up_") {
             self.panGest.isEnabled = false
         }else if self.filterData.listOf[indexPath.row] == .price {
             self.panGest.isEnabled = true
-
+            
         }
-            // 4
-            tableView.beginUpdates()
-            tableView.endUpdates()
-            
-            // 5
-            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-            
-     
+        // 4
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
+        // 5
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        
+        
     }
 }

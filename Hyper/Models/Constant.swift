@@ -19,6 +19,9 @@ class Constant {
     
     static let shared = Constant()
     
+    static var filterMainObject : [FilterTypes:Any] = [:]
+    static var filterMainObjectTag : FilterTypes  = .brands
+
     static var catBrand = [CatBrand_Data]()
     static var recentSearch = [RecentSearchHistory]()
     static let parameters = API.Parameters.shared

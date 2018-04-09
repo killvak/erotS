@@ -69,6 +69,19 @@ extension FilterViewController : FilterProtocol  {
         guard  FilterViewController.filterParameters.count >= 1 else {
             dismissFilterView()
             return }
+        let dict = Constant.filterMainObject
+        print( dict)
+        if !dict.isEmpty {
+            for (key,value) in dict {
+                if  let arr = FilterViewController.filterParameters[key.getFilterName()] as? [Int] , let id = value as? Int {
+                    var array = arr
+                    FilterViewController.filterParameters[key.getFilterName().lowercased()] = array.append(id)
+                }else {
+                    FilterViewController.filterParameters[key.getFilterName().lowercased()] = [value]
+                }
+            }
+        }
+        print( FilterViewController.filterParameters)
            self.getSearchFilterData(parms: FilterViewController.filterParameters, page: 1, completed: { [unowned self](rData) in
         
             self.delegate?.fetchData(data: rData)
