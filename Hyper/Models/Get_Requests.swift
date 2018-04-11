@@ -83,7 +83,7 @@ class Get_Requests : Connection {
         
          Connection.performGet(urlString: self.get_Brands_By_ID(brandID: brandID, page: page), success: { (jData) in
             
-            
+//            print(jData)
             let productFull_Data =  self.getProductData(jData: jData)
             productFull_Data._count = jData["count"].int
             completion(productFull_Data)

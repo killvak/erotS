@@ -14,7 +14,7 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     
     @IBOutlet weak var filterContainerView: UIViewX!
     //MARK: Vars
-    var pageNum = 2 {
+    var pageNum = 1 {
         didSet {
             if pageNum == 1 {
                 canLoadMore = true
@@ -57,6 +57,9 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     var data : [Product_Data] = [] {
         didSet {
             //            [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+            if let count = fullData._count , data.count == count {
+                self.canLoadMore = false 
+            }
             
         }
     }
@@ -363,6 +366,7 @@ extension ProductsListVC {
             self.setupData(data: rData)
         }) { (err ) in
             self.loadMoreFailed()
+            self.pageNum -= 1
         }
     }
     
@@ -373,6 +377,7 @@ extension ProductsListVC {
             
             self.setupData(data: rData)
          }) { (err ) in
+            self.pageNum -= 1
             self.loadMoreFailed()
         }
     }
@@ -383,6 +388,7 @@ extension ProductsListVC {
             self.setupData(data: rData)
          }) { (err ) in
             self.loadMoreFailed()
+            self.pageNum -= 1
         }
     }
     
@@ -410,11 +416,11 @@ extension ProductsListVC {
         }else  if let data = data as? Categories_Specefications_Data {
             pData = data.productsData
         }
-        if pData.count == 0 {
-            self.canLoadMore = false
-        }else {
-            self.canLoadMore = true
-        }
+//        if pData.count == 0 {
+//            self.canLoadMore = false
+//        }else {
+//            self.canLoadMore = true
+//        }
         DispatchQueue.main.async {
  
             self.data.append(contentsOf: pData)
