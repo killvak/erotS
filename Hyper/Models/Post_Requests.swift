@@ -177,6 +177,9 @@ class  Post_Requests : Connection {
     private func postSearchUrl(page:Int) ->String {
         return main_url + "General/search?Page=\(page)"
     }
+    private func  user_addresses_Url() ->String {
+        return main_url + "Address/get_user_addresses"
+    }
     private func setupSearchParameters(query : String?,min_price : Int? ,max_price : Int?,cats : [Int]?,brands : [Int]?,colors:[Int]?) -> Parameters{
         var parameters : Parameters = [:]
         if let q = query   {

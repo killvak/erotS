@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class SelectedBrandVC: UIViewController {
+class SelectedCategory_VC: UIViewController {
     
     //MARK: Vars
     let cellID = "ProductCell"
@@ -22,6 +23,10 @@ class SelectedBrandVC: UIViewController {
 
     var  cat_Data = [Cat_Brand_Data]()
     var top_products = [Product_Data]()
+    var favCDItems :  [FavCD] = []
+    var favItemsIDs : [Int] = []
+    var favRequest : NSFetchRequest<FavCD>?
+
     //MARK: OutLets
 
     @IBOutlet weak var tableView: UITableView!
@@ -38,10 +43,39 @@ class SelectedBrandVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchCdData()
     }
+    
+    func fetchCdData() {
+        
+        
+        favRequest  = FavCD.fetchRequest()
+        guard let fData = favRequest else {
+            print("🦊🦊🦊🦊🦊")
+            return
+        }
+        
+        do {
+            
+            let recnt = try CoreDataClass.context.fetch(fData)
+            self.favCDItems = recnt
+            print(recnt.count)
+            self.favItemsIDs = []
+            for x in recnt {
+                print(x.id)
+                self.favItemsIDs.append( Int(x.id))
+                //                re.append(x)
+            }
+            self.collectionView.reloadData()
+        } catch {
+            
+        }
+    }
+    
+
     
 
     @IBAction func moreTopItemsHandler(_ sender: UIButton) {
@@ -68,7 +102,7 @@ class SelectedBrandVC: UIViewController {
 }
 
 
-extension SelectedBrandVC : UITableViewDelegate, UITableViewDataSource {
+extension SelectedCategory_VC : UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,6 +117,7 @@ extension SelectedBrandVC : UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.textColor = Constant.FontColorGray
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
+        
         return cell
         
     }
@@ -122,7 +157,7 @@ extension SelectedBrandVC : UITableViewDelegate, UITableViewDataSource {
     
     
 }
-extension SelectedBrandVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+extension SelectedCategory_VC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return top_products.count
@@ -133,6 +168,19 @@ extension SelectedBrandVC : UICollectionViewDelegate , UICollectionViewDataSourc
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ProductCell
         cell.configCell(data: top_products[indexPath.row])
         cell.backgroundColor = .clear
+        
+        cell.moreBtn.tag = indexPath.row
+        cell.moreBtn.addTarget(self , action: #selector(showBtmMenu(_:)), for: .touchUpInside)
+        cell.favBtn.setImage(nil, for: .normal)
+        cell.favBtn.tag = indexPath.row
+        cell.favBtn.addTarget(self, action: #selector(addToFav(_:)), for: .touchUpInside)
+        
+        if  self.favItemsIDs.contains(top_products[indexPath.row].id) {
+            cell.favBtn.setImage(#imageLiteral(resourceName: "ic_fav_active_items"), for: .normal)
+        }else {
+            cell.favBtn.setImage(#imageLiteral(resourceName: "ic_fav_unactive_"), for: .normal)
+        }
+
         return cell
     }
     
@@ -151,6 +199,35 @@ extension SelectedBrandVC : UICollectionViewDelegate , UICollectionViewDataSourc
         return CGSize(width: width, height: height)
     }
     
+    
+    
+    @objc func addToFav(_ sender : UIButton) {
+        if let data = CoreDataClass.someEntityExists(id: top_products[sender.tag].id) {
+            
+            if  CoreDataClass.deleteFavItem(searchData: data) {
+                if let index = favItemsIDs.index(of: self.top_products[sender.tag].id) {
+                    favItemsIDs.remove(at: index)
+                }
+                sender.setImage(#imageLiteral(resourceName: "ic_fav_unactive_"), for: .normal)
+                
+                CoreDataClass.saveContext()
+            }else {
+                
+            }
+        }else {
+            
+            let favCD = FavCD(context: CoreDataClass.context)
+            favCD.id = Int16(top_products[sender.tag].id)
+            self.favItemsIDs.append(top_products[sender.tag].id)
+            CoreDataClass.saveContext()
+            sender.setImage(#imageLiteral(resourceName: "ic_fav_active_items"), for: .normal)
+            
+        }
+        //        self.collectionView.reloadData()
+    }
+    @objc func showBtmMenu(_ sender : UIButton) {
+        showMoreMenu(data: top_products[sender.tag], isBrand: false)
+    }
     
     
     

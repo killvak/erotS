@@ -157,3 +157,81 @@ class Promotions_Data {
     
 }
 
+
+class Address_Model {
+    
+    private var _area_name : String!
+    private var _location_type : String!
+    private var _landmark : String!
+
+    private var _floor_num : Int!
+    private var _building_num : Int!
+    
+    private var _phone_id : String!
+    private var _street_name : String!
+    private var _latitude : Int!
+    private var _preferred_time : String!
+    private var _address_id : String!
+    private var _city_name : String!
+    private var _mobile : String!
+    
+    private var _longitude : Int!
+    private var _notes : String!
+    private var _landline : String!
+    private var _country_name : String!
+
+    private var _apartment_num : Int!
+    private var _user_id : String!
+ 
+    var area_name : String {return _area_name }
+    var location_type : String {return _location_type }
+    var landmark : String {return _landmark }
+    var floor_num : Int {return _floor_num }
+    var building_num : Int {return _building_num }
+    var phone_id : String {return _phone_id }
+    var street_name : String {return _street_name }
+    var latitude : Int {return _latitude }
+    var preferred_time : String {return _preferred_time }
+    var address_id: String {return _address_id }
+    var city_name : String {return _city_name }
+    var mobile : String {return _mobile }
+    var longitude : Int {return _longitude }
+    var notes : String {return _notes }
+    var landline : String {return _landline }
+    var country_name : String {return _country_name }
+    var apartment_num : Int {return _apartment_num }
+    var user_id : String {return _user_id }
+
+    init(_ jsonData : JSON) {
+        self._area_name = jsonData[Constant.parameters.area_name].stringValue
+        self._location_type = jsonData[Constant.parameters.location_type].stringValue
+        self._landmark = jsonData[Constant.parameters.landmark].stringValue
+        self._floor_num = jsonData[Constant.parameters.floor_num].intValue
+        self._building_num = jsonData[Constant.parameters.building_num].intValue
+        self._phone_id = jsonData[Constant.parameters.phone_id].stringValue
+        self._street_name = jsonData[Constant.parameters.street_name].stringValue
+        self._latitude = jsonData[Constant.parameters.latitude].intValue
+        self._preferred_time = jsonData[Constant.parameters.preferred_time].stringValue
+        self._address_id = jsonData[Constant.parameters.address_id].stringValue
+        self._city_name = jsonData[Constant.parameters.city_name].stringValue
+        self._mobile = jsonData[Constant.parameters.mobile].stringValue
+        self._longitude = jsonData[Constant.parameters.longitude].intValue
+        self._notes = jsonData[Constant.parameters.notes].stringValue
+        self._landline = jsonData[Constant.parameters.landline].stringValue
+        self._country_name = jsonData[Constant.parameters.country_name].stringValue
+        self._apartment_num = jsonData[Constant.parameters.apartment_num].intValue
+        self._user_id = jsonData[Constant.parameters.user_id].stringValue
+
+ 
+ 
+ 
+        
+    }
+    
+    
+}
+
+
+
+
+

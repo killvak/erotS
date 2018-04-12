@@ -95,13 +95,14 @@ extension UIViewController {
     
     
     
-    func showMoreMenu(data : Product_Data) {
+    func showMoreMenu(data : Product_Data,isBrand:Bool) {
         
         let actionController = YoutubeActionController()
         
         actionController.addAction(Action(ActionData(title: L0A.Add_To_Cart.stringValue(), image: UIImage(named: "ic_cart_unactive_")!), style: .default, handler: { action in
             if let tabItems = self.tabBarController?.tabBar.items as NSArray!
             {
+                
                 // In this case we want to modify the badge number of the third tab:
                 let tabItem = tabItems[4] as! UITabBarItem
                 tabItem.badgeValue = "1"
@@ -109,14 +110,22 @@ extension UIViewController {
             }
 
         }))
+        if isBrand {
         actionController.addAction(Action(ActionData(title: L0A.Visit_Category.stringValue(), image: UIImage(named: "yt-add-to-playlist-icon")!), style: .default, handler: { action in
             
-            self.tabBarController?.selectedIndex = 1
+//            self.tabBarController?.selectedIndex = 1
+            self.navCategoryToProductsList(catID: data.id_main_category, pageNum: 1, pageTitle: data.category)
+
         }))
+        }
+        if !isBrand {
         actionController.addAction(Action(ActionData(title: L0A.Visit_Brand.stringValue(), image: UIImage(named: "yt-add-to-playlist-icon")!), style: .default, handler: { action in
-            let vc = BrandsVC()
-            self.navigationController?.pushViewController(vc, animated: true)
+//            let vc = BrandsVC()
+            let brandID = data.id_manufacturer
+//            self.navigationController?.pushViewController(vc, animated: true)
+            self.navBrandToProductsList(brandID: brandID, pageNum: 1, pageTitle:  data.manufacturer)
         }))
+        }
         actionController.addAction(Action(ActionData(title: L0A.Share.stringValue(), image: UIImage(named: "yt-share-icon")!), style: .default, handler: { action in
             
                let shareText = data.name
@@ -148,7 +157,7 @@ extension UIViewController {
             return
         }
         let sb = self.storyboard ?? UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "SelectedBrandVC") as! SelectedBrandVC
+        let vc = sb.instantiateViewController(withIdentifier: "SelectedBrandVC") as! SelectedCategory_VC
         vc.mainData = dataa
         vc.title = dataa.cat_name
         self.navigationController?.pushViewController(vc, animated: true)

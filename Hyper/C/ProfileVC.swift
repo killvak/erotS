@@ -130,8 +130,11 @@ class ProfileVC: FilterViewController , UICollectionViewDelegate , UICollectionV
             self.present(vc, animated: true, completion: nil    )
             
         case L0A.Address_Book.stringValue():
-            break
             
+            let vc = AddressBookVC()
+            
+                      self.navigationController?.pushViewController(vc, animated: true)
+
         case L0A.Rate_US.stringValue():
             rateApp( completion: { (booll) in
                 print(booll)

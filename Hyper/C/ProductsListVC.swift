@@ -108,7 +108,7 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
 //        fetchCdData()
 //
 //    }
-//
+//C
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchCdData()
@@ -234,7 +234,7 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
 //        self.collectionView.reloadData()
     }
     @objc func showBtmMenu(_ sender : UIButton) {
-        showMoreMenu(data: data[sender.tag])
+        showMoreMenu(data: data[sender.tag], isBrand: true)
     }
     
     
@@ -295,7 +295,7 @@ extension ProductsListVC : SearchControllerProtocol {
         guard let dataaa = data else {
             guard let dataa = catData else { return }
             let sb = self.storyboard ?? UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "SelectedBrandVC") as! SelectedBrandVC
+            let vc = sb.instantiateViewController(withIdentifier: "SelectedBrandVC") as! SelectedCategory_VC
             vc.mainData = dataa
             vc.title = dataa.cat_name
             self.navigationController?.pushViewController(vc, animated: true)

@@ -1,20 +1,15 @@
 //
-//  AddressCell.swift
+//  MyCartCell.swift
 //  Hyper
 //
-//  Created by Killva on 3/26/18.
+//  Created by Killva on 4/11/18.
 //  Copyright © 2018 admin. All rights reserved.
 //
 
 import UIKit
 
-class AddressCell: UITableViewCell {
+class MyCartCell: UITableViewCell {
 
-    @IBOutlet weak var favBtn: UIImageView!
-    @IBOutlet weak var userNameLbl: UILabel!
-    @IBOutlet weak var addressLbl: UILabel!
-    @IBOutlet weak var phoneNumberLbl: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

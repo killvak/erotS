@@ -97,7 +97,16 @@ class ItemsDetailsVC: UIViewController {
     }
     
     @objc func showBtmMenu(_ sender : UIButton) {
-        showMoreMenu(data: productData)
+//        showMoreMenu(data: productData)
+        let shareText = productData.name
+        var parm :[Any] = [shareText]
+        if let url = URL(string : productData.main_image )
+        {
+            parm.append(url)
+        }
+        
+        let vc = UIActivityViewController(activityItems: parm, applicationActivities: [])
+        self.present(vc, animated: true)
     }
     func fetchCdData() {
         

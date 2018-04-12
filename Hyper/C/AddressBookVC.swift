@@ -19,6 +19,7 @@ class AddressBookVC: UIViewController , UITableViewDelegate , UITableViewDataSou
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 132
         self.setupNav()
         tableView.register(UINib.init(nibName: "AddressCell", bundle: nil), forCellReuseIdentifier: "AddressCell")
        
@@ -31,9 +32,15 @@ class AddressBookVC: UIViewController , UITableViewDelegate , UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell", for: indexPath) as! AddressCell
+        
+        
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(ad.getUserID())
+    }
 
     /*
     // MARK: - Navigation
