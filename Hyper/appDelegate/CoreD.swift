@@ -91,9 +91,21 @@ class CoreDataClass {
         }
         
     }
-    
-    static func someEntityExists(id: Int)  -> FavCD? {
-        var favRequest : NSFetchRequest<FavCD>  = FavCD.fetchRequest()
+    static func deleteCartItem(searchData : CartCD) -> Bool {
+        
+        context.delete(searchData)
+        
+        do {
+            try context.save()
+            return true
+            
+        } catch {
+            return false
+        }
+        
+    }
+    static func someEntityExistsInFavCD(id: Int)  -> FavCD? {
+        let favRequest : NSFetchRequest<FavCD>  = FavCD.fetchRequest()
  
         
         do {
@@ -114,6 +126,30 @@ class CoreDataClass {
             return nil
         }
         return nil 
+    }
+    
+    static func someEntityExistsInCartCD(id: Int)  -> CartCD? {
+        let favRequest : NSFetchRequest<CartCD>  = CartCD.fetchRequest()
+        
+        
+        do {
+            
+            let recnt = try CoreDataClass.context.fetch(favRequest)
+            
+            
+            
+            print(recnt.count)
+            for x in recnt {
+                print(x.id)
+                if x.id == id {
+                    return x
+                }
+                //                re.append(x)
+            }
+        } catch {
+            return nil
+        }
+        return nil
     }
     
     static func cleanRecentSearchData() -> Bool {

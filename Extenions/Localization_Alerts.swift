@@ -35,7 +35,7 @@ enum GetAlertsLocalize {
     case My_Review
      case Installment
     case Sign_out
-    
+        case remove_From_Cart
     
     ///
     case Searching_for_Runner
@@ -161,7 +161,8 @@ enum GetAlertsLocalize {
 
         case .related_Item:
             return  L102Language.currentAppleLanguage() == "ar" ? "منتجات ذات صله": "Related Items"
-
+        case .remove_From_Cart:
+            return  L102Language.currentAppleLanguage() == "ar" ? "إزاله من العربة": "Remove from Cart"
         case .Item:
             return  L102Language.currentAppleLanguage() == "ar" ? "المنتج": "Item"
 

@@ -11,7 +11,11 @@ import UIKit
 class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var proceedToCheckoutBtn: UIButton!
+    @IBOutlet weak var totalPriceLbl: UILabel!
     
+    var cartCdIDs : [Int] = []
+    var data : [Product_Data] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +24,42 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 163
-        self.setupNav()
+
         tableView.register(UINib.init(nibName: "MyCartCell", bundle: nil), forCellReuseIdentifier: "MyCartCell")
-        
+      
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+          getData()
+    }
+    
+    func getData() {
+        cartCdIDs = self.fetchCdCartData()
+        let parm = [ "ids" : cartCdIDs ]
+        ad.isLoading()
+        Post_Requests().getListOfItems_Request(parms: parm, success: { (rData ) in
+            
+            DispatchQueue.main.async {
+                self.data = rData
+                self.tableView.reloadData()
+                var price = 0
+                for x in rData {
+                    
+                    price += x.price
+                 }
+                self.totalPriceLbl.text = "\(price)"
+                ad.killLoading()
+                
+            }
+        }) { (err ) in
+            self.showApiErrorSms(err: err)
+        }
+    
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,8 +72,15 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(ad.getUserID())
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "OrderSummaryVC") as! OrderSummaryVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func proceedToCheckoutBtnHandler(_ sender: UIButton) {
+        
+        
+        
+    }
     /*
      // MARK: - Navigation
      

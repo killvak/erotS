@@ -53,7 +53,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKZ-MB-SCN">
-                                            <rect key="frame" x="121" y="24" width="78" height="24.5"/>
+                                            <rect key="frame" x="121.5" y="24" width="78" height="24.5"/>
                                             <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="21"/>
                                             <color key="textColor" red="0.98423117400000004" green="0.98452013729999999" blue="0.97602945569999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -397,7 +397,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg" width="1242" height="2208"/>
+        <image name="bg" width="1440" height="2560"/>
         <image name="btn_radio_active_" width="7" height="7"/>
         <image name="btn_radio_unactive_" width="7" height="6"/>
         <image name="check_box_unactive_" width="11" height="11"/>

@@ -57,7 +57,7 @@
                                                 <rect key="frame" x="254" y="3" width="16" height="28"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Tb-Al-q8B">
-                                                <rect key="frame" x="273" y="14" width="41" height="12"/>
+                                                <rect key="frame" x="273" y="13.5" width="41" height="13"/>
                                                 <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="11"/>
                                                 <color key="textColor" red="0.81287127729999997" green="0.1119586006" blue="0.038258239630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -87,7 +87,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toshiba« is the tToshiba« is the best Toshiba« is the best4" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Hg-S6-b21">
-                                        <rect key="frame" x="7" y="4" width="308" height="28"/>
+                                        <rect key="frame" x="7" y="4" width="308" height="30.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="750" constant="20" id="OcM-ei-8iX"/>
                                         </constraints>
@@ -96,16 +96,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wMC-mC-fHv">
-                                        <rect key="frame" x="7" y="39" width="308" height="18.5"/>
+                                        <rect key="frame" x="7" y="41.5" width="308" height="18.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.000 EGP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnG-7I-bWz">
-                                                <rect key="frame" x="0.0" y="0.0" width="131" height="18.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="18.5"/>
                                                 <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="14"/>
                                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.000 EGP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcs-nQ-5aB">
-                                                <rect key="frame" x="146" y="0.0" width="162" height="18.5"/>
+                                                <rect key="frame" x="155" y="0.0" width="153" height="18.5"/>
                                                 <fontDescription key="fontDescription" name="GESSTwoBold-Bold" family="GE SS Two" pointSize="14"/>
                                                 <color key="textColor" red="0.84313725490000002" green="0.031372549020000001" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -116,16 +116,16 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Q5-VG-N86">
-                                        <rect key="frame" x="7" y="66" width="308" height="48.5"/>
+                                        <rect key="frame" x="7" y="68.5" width="308" height="46"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXi-aI-kQe">
-                                                <rect key="frame" x="0.0" y="0.0" width="52.5" height="48.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="53" height="46"/>
                                                 <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="14"/>
                                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="a3p-oA-mUR">
-                                                <rect key="frame" x="82.5" y="10" width="126" height="30"/>
+                                                <rect key="frame" x="83" y="8.5" width="126" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edt-R6-Lre">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -217,7 +217,7 @@
     </objects>
     <resources>
         <image name="ic_fav_active_" width="15" height="15"/>
-        <image name="ic_fav_active_items" width="61" height="56"/>
+        <image name="ic_fav_active_items" width="69" height="64"/>
         <image name="pic_items" width="325" height="435"/>
     </resources>
 </document>

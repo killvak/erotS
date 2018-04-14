@@ -157,7 +157,7 @@ class Promotions_Data {
     
 }
 
-
+//MARK: AddressDetails
 class Address_Model {
     
     private var _area_name : String!
@@ -183,6 +183,15 @@ class Address_Model {
     private var _apartment_num : Int!
     private var _user_id : String!
  
+   private  var _userData : Profile_Details_M!
+    private  var _phoneData : Phone_Model!
+    
+    
+    var phoneData : Phone_Model {return _phoneData }
+    
+    var userData : Profile_Details_M {return _userData }
+
+    
     var area_name : String {return _area_name }
     var location_type : String {return _location_type }
     var landmark : String {return _landmark }
@@ -202,6 +211,9 @@ class Address_Model {
     var apartment_num : Int {return _apartment_num }
     var user_id : String {return _user_id }
 
+    var fullAddress : String {
+        return "\( building_num) \( street_name)/\( city_name)"
+    }
     init(_ jsonData : JSON) {
         self._area_name = jsonData[Constant.parameters.area_name].stringValue
         self._location_type = jsonData[Constant.parameters.location_type].stringValue
@@ -221,17 +233,65 @@ class Address_Model {
         self._country_name = jsonData[Constant.parameters.country_name].stringValue
         self._apartment_num = jsonData[Constant.parameters.apartment_num].intValue
         self._user_id = jsonData[Constant.parameters.user_id].stringValue
+        self._userData = Profile_Details_M(jsonData["user"] )
+        self._phoneData = Phone_Model(jsonData["phone"] )
+        
+//        print(jsonData["user"])
+//         
+//        print(jsonData["phone"])
 
- 
- 
  
         
     }
     
+  
     
 }
 
 
 
+
+
+class Phone_Model {
+    
+    private var _active : Int!
+    private var _date_add : String!
+    private var _date_upd : String!
+    private var _id : Int!
+    private var _id_user : Int!
+
+    private var _landline : String!
+    private var _mobile : String!
+ 
+    
+    var active  : Bool {
+        return  _active == 1 ?  false :   true
+    }
+    var mobile : String {return _mobile}
+    var date_add : String {return _date_add}
+    var date_upd : String {return _date_upd}
+    
+    var landline : String {
+        return  _landline
+    }
+   
+    var  id : Int {return _id}
+    var   id_user : Int {return _id_user}
+    
+    init(_ jsonData : JSON) {
+        self._active = jsonData[Constant.parameters.active].intValue
+         self._date_add = jsonData[Constant.parameters.date_add].stringValue
+        self._date_upd = jsonData[Constant.parameters.date_upd].stringValue
+        self._landline = jsonData[Constant.parameters.landline].stringValue
+ 
+        self._id = jsonData[Constant.parameters.id].intValue
+        self._mobile = jsonData[Constant.parameters.mobile].stringValue
+        self._id_user = jsonData["id_user"].intValue
+        
+        
+    }
+    
+    
+}
 
 

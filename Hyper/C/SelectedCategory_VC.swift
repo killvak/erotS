@@ -26,6 +26,7 @@ class SelectedCategory_VC: UIViewController {
     var favCDItems :  [FavCD] = []
     var favItemsIDs : [Int] = []
     var favRequest : NSFetchRequest<FavCD>?
+    var cartItemsIDs : [Int]?
 
     //MARK: OutLets
 
@@ -40,6 +41,7 @@ class SelectedCategory_VC: UIViewController {
         self.setupNav()
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
 
+        self.cartItemsIDs = self.fetchCdCartData()
         // Do any additional setup after loading the view.
     }
 
@@ -75,7 +77,7 @@ class SelectedCategory_VC: UIViewController {
         }
     }
     
-
+    
     
 
     @IBAction func moreTopItemsHandler(_ sender: UIButton) {
@@ -202,7 +204,7 @@ extension SelectedCategory_VC : UICollectionViewDelegate , UICollectionViewDataS
     
     
     @objc func addToFav(_ sender : UIButton) {
-        if let data = CoreDataClass.someEntityExists(id: top_products[sender.tag].id) {
+        if let data = CoreDataClass.someEntityExistsInFavCD(id: top_products[sender.tag].id) {
             
             if  CoreDataClass.deleteFavItem(searchData: data) {
                 if let index = favItemsIDs.index(of: self.top_products[sender.tag].id) {
@@ -225,8 +227,14 @@ extension SelectedCategory_VC : UICollectionViewDelegate , UICollectionViewDataS
         }
         //        self.collectionView.reloadData()
     }
+    
+    
     @objc func showBtmMenu(_ sender : UIButton) {
-        showMoreMenu(data: top_products[sender.tag], isBrand: false)
+        showMoreMenuWithCD(data: top_products[sender.tag], isBrand: false,cartCD : cartItemsIDs) { (ids) in
+            self.cartItemsIDs = ids
+            ad.killLoading()
+        }
+ 
     }
     
     

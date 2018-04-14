@@ -70,6 +70,7 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     var favItemsIDs : [Int] = []
     var favRequest : NSFetchRequest<FavCD>?
 
+    var cartCdIDs : [Int]?  
     //MARK: OutLets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var numberOfItemsLbl: UILabel!
@@ -112,6 +113,8 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchCdData()
+        cartCdIDs = self.fetchCdCartData()
+
     }
     
     func fetchCdData() {
@@ -210,7 +213,7 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
     }
     
     @objc func addToFav(_ sender : UIButton) {
-        if let data = CoreDataClass.someEntityExists(id: data[sender.tag].id) {
+        if let data = CoreDataClass.someEntityExistsInFavCD(id: data[sender.tag].id) {
 
             if  CoreDataClass.deleteFavItem(searchData: data) {
                 if let index = favItemsIDs.index(of: self.data[sender.tag].id) {
@@ -234,7 +237,15 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
 //        self.collectionView.reloadData()
     }
     @objc func showBtmMenu(_ sender : UIButton) {
-        showMoreMenu(data: data[sender.tag], isBrand: true)
+        print(cartCdIDs)
+//        showMoreMenu(data: data[sender.tag], isBrand: true,cartCD : cartCdIDs)
+
+        showMoreMenuWithCD(data: data[sender.tag], isBrand: true, cartCD: cartCdIDs) { (ids) in
+            self.cartCdIDs = ids
+            ad.killLoading()
+        }
+//        cartCdIDs = self.fetchCdCartData()
+
     }
     
     
