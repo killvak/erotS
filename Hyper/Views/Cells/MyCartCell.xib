@@ -125,7 +125,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="a3p-oA-mUR">
-                                                <rect key="frame" x="83" y="8.5" width="126" height="30"/>
+                                                <rect key="frame" x="83" y="9" width="126" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edt-R6-Lre">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -212,6 +212,14 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="favBtn" destination="sWE-6K-61q" id="NTV-oy-sVs"/>
+                <outlet property="price1Lbl" destination="XnG-7I-bWz" id="Aa1-R3-acy"/>
+                <outlet property="price2Lbl" destination="Rcs-nQ-5aB" id="jfj-GJ-J7r"/>
+                <outlet property="productImg" destination="ueZ-Fg-79V" id="Dgj-N9-NVP"/>
+                <outlet property="removeBtn" destination="oGr-H5-YgM" id="FxK-1w-Jjb"/>
+                <outlet property="titleLbl" destination="2Hg-S6-b21" id="TrV-Lx-MUZ"/>
+            </connections>
             <point key="canvasLocation" x="83" y="111.5"/>
         </tableViewCell>
     </objects>

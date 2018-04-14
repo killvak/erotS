@@ -64,8 +64,9 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCartCell", for: indexPath) as! MyCartCell
-        
-        
+    
+        cell.configCell(data:data[indexPath.row])
+
         return cell
     }
     

@@ -321,5 +321,15 @@ extension Get_Requests {
     private func getNewItems(page:Int) ->String {
         return main_url + "General/get_new_items?Page=\(page)"
     }
+    
+    private func get_User_Order(orderID : Int ) -> String{
+        return main_url + "Order/get_order_by_id?OrderID=\(orderID)"
+    }
+    private func get_User_Orders_List() -> String{
+        return main_url + "Order/get_user_orders?UserID=\(ad.getUserID())"
+    }
+    private func cancel_User_Order(orderID : Int ) -> String{
+        return main_url + "Order/cancel_order?OrderID=\(orderID)"
+    }
 }
 

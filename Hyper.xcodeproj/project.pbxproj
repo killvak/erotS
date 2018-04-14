@@ -89,6 +89,8 @@
 		F300A322205C621D00C430F9 /* CoreD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300A321205C621D00C430F9 /* CoreD.swift */; };
 		F3363FBD2081094300DD699B /* OrderSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3363FBC2081094300DD699B /* OrderSummaryVC.swift */; };
 		F3363FBF20810A0C00DD699B /* OrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3363FBE20810A0C00DD699B /* OrderSummaryCell.swift */; };
+		F340C7762081AFCD00073311 /* EditAddAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340C7742081AFCD00073311 /* EditAddAddressVC.swift */; };
+		F340C7772081AFCD00073311 /* EditAddAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F340C7752081AFCD00073311 /* EditAddAddressVC.xib */; };
 		F350F4C42072D102004BAB5D /* Hyper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F350F4C22072D102004BAB5D /* Hyper.xcdatamodeld */; };
 		F35CE30820745E720072A527 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CE30620745E720072A527 /* EditProfileVC.swift */; };
 		F35CE30920745E720072A527 /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35CE30720745E720072A527 /* EditProfileVC.xib */; };
@@ -209,6 +211,8 @@
 		F300A321205C621D00C430F9 /* CoreD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreD.swift; sourceTree = "<group>"; };
 		F3363FBC2081094300DD699B /* OrderSummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryVC.swift; sourceTree = "<group>"; };
 		F3363FBE20810A0C00DD699B /* OrderSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryCell.swift; sourceTree = "<group>"; };
+		F340C7742081AFCD00073311 /* EditAddAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddAddressVC.swift; sourceTree = "<group>"; };
+		F340C7752081AFCD00073311 /* EditAddAddressVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditAddAddressVC.xib; sourceTree = "<group>"; };
 		F350F4C32072D102004BAB5D /* Hyper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hyper.xcdatamodel; sourceTree = "<group>"; };
 		F35CE30620745E720072A527 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		F35CE30720745E720072A527 /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 				F3363FBE20810A0C00DD699B /* OrderSummaryCell.swift */,
 				F35CE30A20746B190072A527 /* RegisterVC.swift */,
 				F35CE30B20746B190072A527 /* RegisterVC.xib */,
+				F340C7742081AFCD00073311 /* EditAddAddressVC.swift */,
+				F340C7752081AFCD00073311 /* EditAddAddressVC.xib */,
 				F35CE30620745E720072A527 /* EditProfileVC.swift */,
 				F35CE30720745E720072A527 /* EditProfileVC.xib */,
 				F3812FC4206AC5A900D8AA04 /* AddressBookVC.swift */,
@@ -679,6 +685,7 @@
 				84678B5220444F570051AE03 /* GOTHICBI.TTF in Resources */,
 				84C2ECBF205447440024CE6F /* 002-new.png in Resources */,
 				843160F6205194140067B4E4 /* FilterPriceView.xib in Resources */,
+				F340C7772081AFCD00073311 /* EditAddAddressVC.xib in Resources */,
 				843160E8205172EF0067B4E4 /* CategoryTableCell.xib in Resources */,
 				84678B5620444F570051AE03 /* GE_SS_Two_Bold.otf in Resources */,
 				F3812FC7206AC5A900D8AA04 /* AddressBookVC.xib in Resources */,
@@ -837,6 +844,7 @@
 				8431474C2050963B00AE045D /* Localization_Alerts.swift in Sources */,
 				F300A322205C621D00C430F9 /* CoreD.swift in Sources */,
 				8431474D2050963B00AE045D /* LoclizationExConstant.swift in Sources */,
+				F340C7762081AFCD00073311 /* EditAddAddressVC.swift in Sources */,
 				843160F4205193FD0067B4E4 /* FilterPriceView.swift in Sources */,
 				F35CE30C20746B190072A527 /* RegisterVC.swift in Sources */,
 				843160D02051480F0067B4E4 /* ProfileVC.swift in Sources */,
