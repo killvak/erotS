@@ -157,6 +157,7 @@ class LoginVC: UIViewController, GIDSignInDelegate,GIDSignInUIDelegate {
             DispatchQueue.main.async {
                 ad.saveUserLogginData(email: rData.email , photoUrl:nil, uid: rData.id, name: rData.fullName)
                 ad.reload()
+                ad.killLoading()
 
             }
         }) { (err ) in
@@ -194,7 +195,8 @@ class LoginVC: UIViewController, GIDSignInDelegate,GIDSignInUIDelegate {
     }
     @IBAction func signupHandler(_ sender: UIButton) {
 //        let vc = UINavigationController.init(rootViewController:  RegistrationVC())
-//        self.present(vc, animated: true, completion: nil)
+        let vc = RegisterVC()
+        self.present(vc, animated: true, completion: nil)
     }
     @IBAction func googleHandler(_ sender: UIButton) {
         

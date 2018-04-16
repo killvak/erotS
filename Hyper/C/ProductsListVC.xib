@@ -115,13 +115,13 @@
                     <rect key="frame" x="0.0" y="56" width="375" height="64"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27,000 itemes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ida-hH-jmL">
-                            <rect key="frame" x="8" y="11" width="73.5" height="15"/>
+                            <rect key="frame" x="8" y="11" width="88.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="GESSTwoLight-Light" family="GE SS Two" pointSize="14"/>
                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Category &gt; Sub Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxT-ov-bx7">
-                            <rect key="frame" x="8" y="34" width="188.5" height="15"/>
+                            <rect key="frame" x="8" y="35.5" width="194.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="GESSTwoLight-Light" family="GE SS Two" pointSize="14"/>
                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>

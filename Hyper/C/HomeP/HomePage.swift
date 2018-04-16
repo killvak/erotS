@@ -28,7 +28,7 @@ class HomePage: UIViewController {
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
             self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
-        }
+         }
     }
     @IBOutlet weak var hotProductsImgV: UIImageView!
     @IBOutlet weak var newArrivalsImgV: UIImageView!
@@ -311,11 +311,13 @@ extension HomePage : FSPagerViewDataSource , FSPagerViewDelegate  {
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int)
     {
+        let data = self.promotions[index]
         
+        self.getItemDetails(id: data.id)
     }
     
-    func pagerView(_ pagerView: FSPagerView, shouldHighlightItemAt index: Int) -> Bool {
-        return false
-    }
+//    func pagerView(_ pagerView: FSPagerView, shouldHighlightItemAt index: Int) -> Bool {
+//        return false
+//    }
     
 }

@@ -211,6 +211,65 @@ extension String {
             return false
         }
     }
+    var ispriceValue : Bool {
+        
+        let characterset = CharacterSet(charactersIn: "1234567890٠١٢٣٤٥٦٧٨٩")
+        if self.rangeOfCharacter(from: characterset.inverted) != nil {
+            //            print("string contains special characters")
+            return false
+        }else {
+            return true
+        }
+    }
+    //let pattern = "^(009665|9665|\\+9665|05|5)?(5|0|3|6|4|9|1|8|7)([0-9]{7})$"
+    //    func validate(value: String) -> Bool {
+    //        let PHONE_REGEX = "^(009665|9665|\\+9665|05|5)?(5|0|3|6|4|9|1|8|7)([0-9]{7})$"
+    //        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+    //        let result =  phoneTest.evaluate(with: value)
+    //        return result
+    //    }
+    
+    var validPhoneNumber : Bool  {
+        //        print("that is the phone : \(self)")
+        let PHONE_REGEX = "^(009665|9665|\\+9665|05|5)?(5|0|3|6|4|9|1|8|7)([0-9]{7})$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+        let result =  phoneTest.evaluate(with: self)
+        //        print("that is the phone result : \(result)")
+        return result
+        
+    }
+    /*
+     انا دخلت
+     0 5 0 1 4 7 2 5 8 1
+     0511853257
+     0 5 1 1 2 3 4 5 6 7
+     مدخلشى
+     */
+    var isBlank: Bool {
+        get {
+            let trimmed = trimmingCharacters(in: CharacterSet.whitespaces)
+            return trimmed.isEmpty
+        }
+    }
+    //To check text field or String is blank or not
+    var isBlankOrLessThan3chr: Bool {
+        get {
+            let trimmed = trimmingCharacters(in: CharacterSet.whitespaces)
+            guard trimmed.isEmpty , self.characters.count <= 4 else {
+                
+                return false
+            }
+            return trimmed.isEmpty
+        }
+    }
+    func isBlankOrLessThan(_ num : Int) -> Bool{
+        let trimmed = trimmingCharacters(in: CharacterSet.whitespaces)
+        guard trimmed.isEmpty , self.characters.count <= num else {
+            
+            return false
+        }
+        return trimmed.isEmpty
+    }
     
     
     

@@ -126,7 +126,8 @@ class ProfileVC: FilterViewController , UICollectionViewDelegate , UICollectionV
         case L0A.My_Order.stringValue():
             self.tabBarController?.selectedIndex = 4
         case L0A.Edit.stringValue():
-            break
+            let vc = EditProfileVC()
+            self.present(vc, animated: true, completion: nil    )
             
         case L0A.Address_Book.stringValue():
             break
