@@ -19,6 +19,9 @@ class Constant {
     
     static let shared = Constant()
     
+    static var filterMainObject : [FilterTypes:Any] = [:]
+    static var filterMainObjectTag : FilterTypes  = .brands
+
     static var catBrand = [CatBrand_Data]()
     static var recentSearch = [RecentSearchHistory]()
     static let parameters = API.Parameters.shared
@@ -142,8 +145,23 @@ class API {
         let last_name =   "last_name"
         let latitude = "latitude"
         let longitude =  "longitude"
-        
-        
+        let area_name = "area_name"
+        let location_type = "location_type"
+        let landmark = "landmark"
+        let floor_num = "floor_num"
+        let building_num = "building_num"
+        let phone_id = "phone_id"
+        let street_name = "street_name"
+        let preferred_time = "preferred_time"
+        let address_id = "address_id"
+        let city_name = "city_name"
+        let mobile = "mobile"
+         let notes = "notes"
+        let landline = "landline"
+        let country_name = "country_name"
+        let apartment_num = "apartment_num"
+        let user_id = "user_id"
+ 
         
         private override init() {}
         

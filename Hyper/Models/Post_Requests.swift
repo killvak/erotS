@@ -149,6 +149,69 @@ class  Post_Requests : Connection {
         }
     }
     
+    func getAddress_Request (success : @escaping ([Address_Model])->(),failed:@escaping (String?)->()) {
+        
+        
+        Connection.performPost(urlString: getUserAddressUrl(), extraHeaders: nil, postData: [:], success: { (jData ) in
+//            print(jData)
+            var data : [Address_Model] = []
+            for x in jData["addresses"] {
+                data.append(Address_Model(x.1))
+            }
+            success(data)
+        }) { (err ) in
+            failed(err?.localizedDescription)
+        }
+        
+        
+        
+    }
+    func getListOfItems_Request (ids : [Int] ,success : @escaping ([Product_Data])->(),failed:@escaping (String?)->()) {
+        
+        print(ids)
+        let parms  : Parameters = [
+            
+            "ids" : ids
+        ]
+            print(parms)
+
+        print(getitemsByIdList_URL())
+
+//        Connection.performPost(urlString: getitemsByIdList_URL(), extraHeaders: nil, postData: parms, success: { (jData ) in
+//                        print(jData)
+//            var data : [Product_Data] = []
+//            for x in jData["products"] {
+//                data.append(Product_Data(x.1))
+//            }
+//            success(data)
+//        }) { (err ) in
+//            failed(err?.localizedDescription)
+//        }
+        
+        Alamofire.request(getitemsByIdList_URL(), method: .post, parameters: parms,encoding: JSONEncoding.default, headers: Constant.headers).responseJSON {
+            response in
+            switch response.result {
+            case .success:
+                //                                print(response)
+                guard let value = response.value else {
+                    failed(response.error?.localizedDescription)
+                    return
+                }
+                print(value)
+                let jData = JSON(value)
+                 var data : [Product_Data] = []
+                            for x in jData["products"] {
+                                data.append(Product_Data(x.1))
+                            }
+                            success(data)
+                  break
+            case .failure(let error):
+                failed(response.error?.localizedDescription)
+                print(error)
+            }
+        }
+        
+    }
     //    func postSearch(query : String?,min_price : Int? ,max_price : Int?,cats : [Int]?,brands : [Int]?,colors:[Int]?,page : Int,completion:@escaping ( [CatBrand_Data] ) -> (),failure failed: @escaping (String?)->() ){
     //         let parameters : Parameters = setupSearchParameters(query: query, min_price: min_price, max_price: max_price, cats: cats, brands: brands , colors: colors)
     //        print(parameters)
@@ -177,6 +240,14 @@ class  Post_Requests : Connection {
     private func postSearchUrl(page:Int) ->String {
         return main_url + "General/search?Page=\(page)"
     }
+    private func getitemsByIdList_URL() ->String {
+        return main_url + "Eslam/fav_cart"
+    }
+    private func getUserAddressUrl() ->String {
+        let id = ad.getUserID()
+        return main_url + "Address/get_user_addresses?UserID=\(id)"
+    }
+ 
     private func setupSearchParameters(query : String?,min_price : Int? ,max_price : Int?,cats : [Int]?,brands : [Int]?,colors:[Int]?) -> Parameters{
         var parameters : Parameters = [:]
         if let q = query   {

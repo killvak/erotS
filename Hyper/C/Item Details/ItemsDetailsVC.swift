@@ -48,7 +48,7 @@ class ItemsDetailsVC: UIViewController {
     @IBOutlet weak var specBtn: UIButton!
     @IBOutlet weak var descBtn: UIButton!
     @IBOutlet weak var reviewsBtn: UIButton!
-    @IBOutlet weak var addToCartBtn: UIButton!
+    @IBOutlet weak var seeAllReviews: UIButton!
     @IBOutlet weak var moreReviewsBTnHeight: NSLayoutConstraint!
     @IBOutlet weak var similarItemsCollectionView: UICollectionView!
     @IBOutlet weak var underLineSelectionView: UIView!
@@ -61,7 +61,9 @@ class ItemsDetailsVC: UIViewController {
     var btnSelected = false
     var underLineBtnSelection : NSLayoutConstraint?
     var alamofireSource : [AlamofireSource] = []
-
+    var cartItemsIDs : [Int] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,7 +90,12 @@ class ItemsDetailsVC: UIViewController {
         favBtn.setImage(nil, for: .normal)
          favBtn.addTarget(self, action: #selector(addToFav(_:)), for: .touchUpInside)
         
-    
+        self.cartItemsIDs = self.fetchCdCartData()
+        if  let _ = cartItemsIDs.index(of:  productData.id)  {
+        self.addTOCartBtn.setTitle(L0A.remove_From_Cart.stringValue(), for: .normal)
+    } else {
+    self.addTOCartBtn.setTitle(L0A.Add_To_Cart.stringValue(), for: .normal)
+    }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,7 +104,16 @@ class ItemsDetailsVC: UIViewController {
     }
     
     @objc func showBtmMenu(_ sender : UIButton) {
-        showMoreMenu(data: productData)
+//        showMoreMenu(data: productData)
+        let shareText = productData.name
+        var parm :[Any] = [shareText]
+        if let url = URL(string : productData.main_image )
+        {
+            parm.append(url)
+        }
+        
+        let vc = UIActivityViewController(activityItems: parm, applicationActivities: [])
+        self.present(vc, animated: true)
     }
     func fetchCdData() {
         
@@ -127,7 +143,7 @@ class ItemsDetailsVC: UIViewController {
         }
     }
     @objc func addToFav(_ sender : UIButton) {
-        if let data = CoreDataClass.someEntityExists(id: productData.id) {
+        if let data = CoreDataClass.someEntityExistsInFavCD(id: productData.id) {
             
             if  CoreDataClass.deleteFavItem(searchData: data) {
                 if let index = favItemsIDs.index(of: productData.id) {
@@ -286,6 +302,13 @@ class ItemsDetailsVC: UIViewController {
         
     }
     @IBAction func addToCartHandler(_ sender: UIButton) {
+//        self.saveCartCDWithEscaping(id: productData.id, ids: &cartItemsIDs)
+        
+        self.saveCartCDWithEscapingHandler(id: productData.id, ids: &cartItemsIDs, saved: {
+            self.addTOCartBtn.setTitle(L0A.remove_From_Cart.stringValue(), for: .normal)
+        }) {
+            self.addTOCartBtn.setTitle(L0A.Add_To_Cart.stringValue(), for: .normal)
+        }
     }
     @IBAction func moreReviewsBtnHandler(_ sender: UIButton) {
     }

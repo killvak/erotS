@@ -14,7 +14,7 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     
     @IBOutlet weak var filterContainerView: UIViewX!
     //MARK: Vars
-    var pageNum = 2 {
+    var pageNum = 1 {
         didSet {
             if pageNum == 1 {
                 canLoadMore = true
@@ -22,9 +22,22 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
         }
     }
     var maxPageNum : Int = 20
-    var catID : Int?
-    var brandID : Int?
+    var catID : Int? {
+        didSet {
+            guard let id = catID else { return }
+            Constant.filterMainObject[FilterTypes.categories] = id
+            print(id)
+        }
+    }
+    var brandID : Int?{
+        didSet {
+            guard let id = brandID else { return }
+            Constant.filterMainObject[FilterTypes.brands] = id
+            print(id)
+        }
+    }
     var subCatID : Int?
+    
     private let cellID = "ProductCell"
     var fullData = ProductFull_Data() {
         didSet {
@@ -44,6 +57,9 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     var data : [Product_Data] = [] {
         didSet {
             //            [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+            if let count = fullData._count , data.count == count {
+                self.canLoadMore = false 
+            }
             
         }
     }
@@ -54,6 +70,7 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
     var favItemsIDs : [Int] = []
     var favRequest : NSFetchRequest<FavCD>?
 
+    var cartCdIDs : [Int]?  
     //MARK: OutLets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var numberOfItemsLbl: UILabel!
@@ -71,6 +88,7 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
             numberOfItemsLbl?.text = "\(data.count) Item"
         }
         // Do any additional setup after loading the view.
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         self.delegate = self
@@ -83,15 +101,20 @@ class ProductsListVC: FilterViewController , UITextFieldDelegate {
         setupLoadMore()
     }
     
+    deinit {
+        Constant.filterMainObject.removeAll()
+    }
 //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(animated)
 //        fetchCdData()
 //
 //    }
-//
+//C
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchCdData()
+        cartCdIDs = self.fetchCdCartData()
+
     }
     
     func fetchCdData() {
@@ -190,7 +213,7 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
     }
     
     @objc func addToFav(_ sender : UIButton) {
-        if let data = CoreDataClass.someEntityExists(id: data[sender.tag].id) {
+        if let data = CoreDataClass.someEntityExistsInFavCD(id: data[sender.tag].id) {
 
             if  CoreDataClass.deleteFavItem(searchData: data) {
                 if let index = favItemsIDs.index(of: self.data[sender.tag].id) {
@@ -214,7 +237,15 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
 //        self.collectionView.reloadData()
     }
     @objc func showBtmMenu(_ sender : UIButton) {
-        showMoreMenu(data: data[sender.tag])
+        print(cartCdIDs)
+//        showMoreMenu(data: data[sender.tag], isBrand: true,cartCD : cartCdIDs)
+
+        showMoreMenuWithCD(data: data[sender.tag], isBrand: true, cartCD: cartCdIDs) { (ids) in
+            self.cartCdIDs = ids
+            ad.killLoading()
+        }
+//        cartCdIDs = self.fetchCdCartData()
+
     }
     
     
@@ -271,14 +302,17 @@ extension ProductsListVC : SearchControllerProtocol {
     
     
     func fetchData(data: ProductFull_Data?, catData: Categories_Specefications_Data?) {
+        
         guard let dataaa = data else {
             guard let dataa = catData else { return }
             let sb = self.storyboard ?? UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "SelectedBrandVC") as! SelectedBrandVC
+            let vc = sb.instantiateViewController(withIdentifier: "SelectedBrandVC") as! SelectedCategory_VC
             vc.mainData = dataa
             vc.title = dataa.cat_name
             self.navigationController?.pushViewController(vc, animated: true)
-            return }
+            return
+        }
+        
         self.fullData = dataaa
         self.data = dataaa.productList
         self.collectionView.reloadData()
@@ -343,6 +377,7 @@ extension ProductsListVC {
             self.setupData(data: rData)
         }) { (err ) in
             self.loadMoreFailed()
+            self.pageNum -= 1
         }
     }
     
@@ -353,6 +388,7 @@ extension ProductsListVC {
             
             self.setupData(data: rData)
          }) { (err ) in
+            self.pageNum -= 1
             self.loadMoreFailed()
         }
     }
@@ -363,6 +399,7 @@ extension ProductsListVC {
             self.setupData(data: rData)
          }) { (err ) in
             self.loadMoreFailed()
+            self.pageNum -= 1
         }
     }
     
@@ -390,11 +427,11 @@ extension ProductsListVC {
         }else  if let data = data as? Categories_Specefications_Data {
             pData = data.productsData
         }
-        if pData.count == 0 {
-            self.canLoadMore = false
-        }else {
-            self.canLoadMore = true
-        }
+//        if pData.count == 0 {
+//            self.canLoadMore = false
+//        }else {
+//            self.canLoadMore = true
+//        }
         DispatchQueue.main.async {
  
             self.data.append(contentsOf: pData)

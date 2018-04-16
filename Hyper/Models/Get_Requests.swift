@@ -83,7 +83,7 @@ class Get_Requests : Connection {
         
          Connection.performGet(urlString: self.get_Brands_By_ID(brandID: brandID, page: page), success: { (jData) in
             
-            
+//            print(jData)
             let productFull_Data =  self.getProductData(jData: jData)
             productFull_Data._count = jData["count"].int
             completion(productFull_Data)
@@ -320,6 +320,16 @@ extension Get_Requests {
     }
     private func getNewItems(page:Int) ->String {
         return main_url + "General/get_new_items?Page=\(page)"
+    }
+    
+    private func get_User_Order(orderID : Int ) -> String{
+        return main_url + "Order/get_order_by_id?OrderID=\(orderID)"
+    }
+    private func get_User_Orders_List() -> String{
+        return main_url + "Order/get_user_orders?UserID=\(ad.getUserID())"
+    }
+    private func cancel_User_Order(orderID : Int ) -> String{
+        return main_url + "Order/cancel_order?OrderID=\(orderID)"
     }
 }
 

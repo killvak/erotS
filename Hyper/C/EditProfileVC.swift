@@ -23,7 +23,6 @@ class EditProfileVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setupNav(withTitle: L0A.Edit.stringValue())
     }
 
     override func didReceiveMemoryWarning() {

@@ -48,6 +48,7 @@ updateData()
          gertSearchData()
         self.hotProductsImgV.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hotItemsHandler)))
         self.newArrivalsImgV.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(newItemsHandler)))
+        showCartCountOnTapBar(count :self.fetchCdCartData().count)
 
     }
     

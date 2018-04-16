@@ -238,6 +238,7 @@ extension String {
         return result
         
     }
+    
     /*
      انا دخلت
      0 5 0 1 4 7 2 5 8 1

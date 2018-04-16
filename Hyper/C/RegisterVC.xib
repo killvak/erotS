@@ -53,7 +53,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKZ-MB-SCN">
-                                            <rect key="frame" x="121" y="24" width="78" height="24.5"/>
+                                            <rect key="frame" x="121" y="24" width="78.5" height="22.5"/>
                                             <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="21"/>
                                             <color key="textColor" red="0.98423117400000004" green="0.98452013729999999" blue="0.97602945569999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -234,29 +234,29 @@
                                     <rect key="frame" x="20" y="443" width="280" height="88"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iut-q6-hMN">
-                                            <rect key="frame" x="0.0" y="0.0" width="56.5" height="20"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="57" height="18.5"/>
                                             <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="17"/>
                                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_radio_active_" translatesAutoresizingMaskIntoConstraints="NO" id="9Fh-sn-9dq">
-                                            <rect key="frame" x="8" y="25.5" width="8" height="8"/>
+                                            <rect key="frame" x="8" y="24" width="8" height="8"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="9Fh-sn-9dq" secondAttribute="height" multiplier="1:1" id="JAS-VW-6Tc"/>
                                                 <constraint firstAttribute="height" constant="8" id="OtY-2P-Tzf"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPs-70-Jud">
-                                            <rect key="frame" x="24" y="18.5" width="26.5" height="22"/>
+                                            <rect key="frame" x="24" y="17" width="26.5" height="22"/>
                                             <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="12"/>
                                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_radio_unactive_" translatesAutoresizingMaskIntoConstraints="NO" id="f1T-1j-Vvx">
-                                            <rect key="frame" x="8" y="46.5" width="8" height="8"/>
+                                            <rect key="frame" x="8" y="45" width="8" height="8"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJd-Ei-SgJ">
-                                            <rect key="frame" x="24" y="41.5" width="39.5" height="18.5"/>
+                                            <rect key="frame" x="24" y="40" width="40.5" height="18.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18.5" id="plQ-Ki-VRW"/>
                                             </constraints>
@@ -265,7 +265,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3d-zo-mAF">
-                                            <rect key="frame" x="8" y="18.5" width="264" height="22"/>
+                                            <rect key="frame" x="8" y="17" width="264" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="VqX-Bi-wzb"/>
                                             </constraints>
@@ -274,7 +274,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cY-b9-hT9">
-                                            <rect key="frame" x="8" y="39.5" width="264" height="22"/>
+                                            <rect key="frame" x="8" y="38" width="264" height="22"/>
                                             <connections>
                                                 <action selector="femaleGenderHandler:" destination="-1" eventType="touchUpInside" id="fZa-IZ-e1Q"/>
                                             </connections>
@@ -401,7 +401,7 @@
         <image name="btn_radio_active_" width="7" height="7"/>
         <image name="btn_radio_unactive_" width="7" height="6"/>
         <image name="check_box_unactive_" width="11" height="11"/>
-        <image name="ic_close_" width="15" height="14"/>
+        <image name="ic_close_" width="15" height="16"/>
         <image name="logo" width="369" height="292"/>
     </resources>
 </document>

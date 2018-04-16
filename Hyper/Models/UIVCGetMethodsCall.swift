@@ -71,7 +71,7 @@ extension UIViewController {
             
             DispatchQueue.main.async {
                 let sb = self.storyboard ?? UIStoryboard(name: "Main", bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: "SelectedBrandVC") as! SelectedBrandVC
+                let vc = sb.instantiateViewController(withIdentifier: "SelectedBrandVC") as! SelectedCategory_VC
                 vc.mainData = rData
                 vc.title = pageTitle
                  self.navigationController?.pushViewController(vc, animated: true)

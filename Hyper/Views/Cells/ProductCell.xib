@@ -139,7 +139,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Pqz-4y-0UN" firstAttribute="leading" secondItem="453-FP-9Gk" secondAttribute="leading" id="2nj-Ne-7gf"/>
                             <constraint firstItem="HGe-gM-VXY" firstAttribute="top" secondItem="453-FP-9Gk" secondAttribute="top" constant="7" id="7iz-NF-QLF"/>
@@ -166,6 +166,7 @@
                     </view>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="453-FP-9Gk" secondAttribute="trailing" constant="6" id="6YC-U6-Rx7"/>
                 <constraint firstItem="453-FP-9Gk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="HO2-n9-kDL"/>
@@ -193,7 +194,7 @@
     </objects>
     <resources>
         <image name="002-new.png" width="64" height="64"/>
-        <image name="ic_fav_active_items" width="69" height="64"/>
+        <image name="ic_fav_active_items" width="61" height="56"/>
         <image name="ic_more" width="65" height="18"/>
         <image name="pic_items" width="325" height="435"/>
     </resources>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4EN-05-dwF">
-                    <rect key="frame" x="0.0" y="48" width="375" height="619"/>
+                    <rect key="frame" x="4" y="48" width="367" height="570"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="scrollIndicatorInsets" minX="20" minY="20" maxX="20" maxY="20"/>
                 </tableView>
@@ -33,19 +34,35 @@
                         <constraint firstAttribute="height" constant="48" id="QWm-LJ-DUC"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqM-Qk-V4q">
+                    <rect key="frame" x="327" y="572" width="36" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="bqM-Qk-V4q" secondAttribute="height" multiplier="18:19" id="nai-mT-Vwt"/>
+                    </constraints>
+                    <state key="normal" image="ic_btn_add_"/>
+                    <connections>
+                        <action selector="addNewAddressBtnHandler:" destination="-1" eventType="touchUpInside" id="dbI-Av-9bn"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="gUn-oA-36H" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7v5-ja-fh6"/>
-                <constraint firstItem="4EN-05-dwF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="M4X-nn-8zW"/>
+                <constraint firstAttribute="trailing" secondItem="bqM-Qk-V4q" secondAttribute="trailing" constant="12" id="8EA-IX-6ny"/>
+                <constraint firstItem="bqM-Qk-V4q" firstAttribute="top" secondItem="4EN-05-dwF" secondAttribute="bottom" constant="-46" id="Dz6-mF-9O2"/>
+                <constraint firstItem="4EN-05-dwF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="4" id="M4X-nn-8zW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gUn-oA-36H" secondAttribute="trailing" id="MOa-fC-KNw"/>
                 <constraint firstItem="4EN-05-dwF" firstAttribute="top" secondItem="gUn-oA-36H" secondAttribute="bottom" id="MX0-79-8Gj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="4EN-05-dwF" secondAttribute="bottom" id="g1Y-DX-anr"/>
                 <constraint firstItem="gUn-oA-36H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ge6-g7-etG"/>
-                <constraint firstAttribute="trailing" secondItem="4EN-05-dwF" secondAttribute="trailing" id="v4y-6W-ZIO"/>
+                <constraint firstAttribute="trailing" secondItem="4EN-05-dwF" secondAttribute="trailing" constant="4" id="v4y-6W-ZIO"/>
             </constraints>
+            <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_btn_add_" width="36" height="38"/>
+    </resources>
 </document>
