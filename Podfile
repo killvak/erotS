@@ -29,5 +29,6 @@ pod 'ImageSlideshow', '~> 1.5'
  pod 'Firebase/Core'
     pod 'Google/SignIn'
 pod 'Google/Analytics'
+  pod 'UnderLineTextField', '~> 2.0'
 
 end
