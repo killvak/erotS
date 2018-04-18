@@ -152,10 +152,11 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print(ad.getUserID())
 //        let vc = self.storyboard?.instantiateViewController(withIdentifier: "OrderSummaryVC") as! OrderSummaryVC
-//        self.navigationController?.pushViewController(vc, animated: true)
-        let data = self.data[indexPath.row]
-        
-        self.getItemDetails(id: data.id)
+        let vc = EditAddAddressVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+//        let data = self.data[indexPath.row]
+//
+//        self.getItemDetails(id: data.id)
 
     }
     

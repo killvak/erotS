@@ -873,7 +873,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1097,7 +1097,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "182"
             endingLineNumber = "182"
-            landmarkName = "getListOfItems_Request(parms:success:failed:)"
+            landmarkName = "getListOfItems_Request(ids:success:failed:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1113,7 +1113,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
             endingLineNumber = "175"
-            landmarkName = "getListOfItems_Request(parms:success:failed:)"
+            landmarkName = "getListOfItems_Request(ids:success:failed:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1129,7 +1129,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "171"
             endingLineNumber = "171"
-            landmarkName = "getListOfItems_Request(parms:success:failed:)"
+            landmarkName = "getListOfItems_Request(ids:success:failed:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

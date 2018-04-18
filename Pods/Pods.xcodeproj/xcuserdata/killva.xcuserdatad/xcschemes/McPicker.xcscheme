@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '369C26E0019831DFC30E7122499AB269'
-               BlueprintName = 'CDAlertView'
+               BlueprintIdentifier = '64FB6E81E491C0A1F61455E3D4588BE5'
+               BlueprintName = 'McPicker'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'CDAlertView.framework'>
+               BuildableName = 'McPicker.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

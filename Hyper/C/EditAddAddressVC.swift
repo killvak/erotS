@@ -7,19 +7,27 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
+import McPicker
 
 class EditAddAddressVC: UIViewController {
-
+    @IBOutlet weak var firstNameTF: SkyFloatingLabelTextField!
+    @IBOutlet weak var lastNameTF: SkyFloatingLabelTextField!
+    
+    @IBOutlet weak var countryTF: SkyFloatingLabelTextField!
+    @IBOutlet weak var cityTF: SkyFloatingLabelTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        McPicker.show(data: [["Kevin", "Lauren", "Kibby", "Stella"]]) {  [weak self] (selections: [Int : String]) -> Void in
+            if let name = selections[0] {
+                self?.cityTF.text = name
+            }
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+ 
     
 
     /*
