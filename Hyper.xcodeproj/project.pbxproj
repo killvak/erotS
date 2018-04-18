@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03F547733988F27D7D55E3B6 /* Pods_Hyper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E7E6E014D8C7E11D800CC1 /* Pods_Hyper.framework */; };
+		8419AAD62087400E001DC185 /* CitiesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419AAD52087400E001DC185 /* CitiesList.swift */; };
 		842563C420456D3800CE0BF7 /* ItemsDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842563C320456D3800CE0BF7 /* ItemsDetailsVC.swift */; };
 		842563C72045700700CE0BF7 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842563C52045700700CE0BF7 /* ReviewCell.swift */; };
 		842563C82045700700CE0BF7 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842563C62045700700CE0BF7 /* ReviewCell.xib */; };
@@ -36,6 +37,12 @@
 		842E0931204400170047505B /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E092F204400170047505B /* ProductCell.swift */; };
 		842E0932204400170047505B /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842E0930204400170047505B /* ProductCell.xib */; };
 		842F29B92063B946007E527B /* SliderSho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F29B82063B946007E527B /* SliderSho.swift */; };
+		842F8CAF2086616000E3E66A /* MyOrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F8CAD2086616000E3E66A /* MyOrdersVC.swift */; };
+		842F8CB02086616000E3E66A /* MyOrdersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842F8CAE2086616000E3E66A /* MyOrdersVC.xib */; };
+		842F8CB32086619800E3E66A /* MyOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F8CB12086619800E3E66A /* MyOrderCell.swift */; };
+		842F8CB42086619800E3E66A /* MyOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842F8CB22086619800E3E66A /* MyOrderCell.xib */; };
+		842F8CB8208664A500E3E66A /* MyOrderDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F8CB6208664A500E3E66A /* MyOrderDetailsVC.swift */; };
+		842F8CB9208664A500E3E66A /* MyOrderDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842F8CB7208664A500E3E66A /* MyOrderDetailsVC.xib */; };
 		84314749205024F900AE045D /* MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84314748205024F900AE045D /* MyExtensions.swift */; };
 		8431474C2050963B00AE045D /* Localization_Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431474A2050963B00AE045D /* Localization_Alerts.swift */; };
 		8431474D2050963B00AE045D /* LoclizationExConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431474B2050963B00AE045D /* LoclizationExConstant.swift */; };
@@ -124,6 +131,7 @@
 /* Begin PBXFileReference section */
 		1022414A04DBE6FA3A322585 /* Pods-Hyper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hyper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hyper/Pods-Hyper.release.xcconfig"; sourceTree = "<group>"; };
 		2B5E53C6C65B2E941A32D718 /* Pods-Hyper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hyper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hyper/Pods-Hyper.debug.xcconfig"; sourceTree = "<group>"; };
+		8419AAD52087400E001DC185 /* CitiesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesList.swift; sourceTree = "<group>"; };
 		842563C320456D3800CE0BF7 /* ItemsDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsDetailsVC.swift; sourceTree = "<group>"; };
 		842563C52045700700CE0BF7 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		842563C62045700700CE0BF7 /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
@@ -157,6 +165,12 @@
 		842E092F204400170047505B /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		842E0930204400170047505B /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		842F29B82063B946007E527B /* SliderSho.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderSho.swift; sourceTree = "<group>"; };
+		842F8CAD2086616000E3E66A /* MyOrdersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersVC.swift; sourceTree = "<group>"; };
+		842F8CAE2086616000E3E66A /* MyOrdersVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrdersVC.xib; sourceTree = "<group>"; };
+		842F8CB12086619800E3E66A /* MyOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderCell.swift; sourceTree = "<group>"; };
+		842F8CB22086619800E3E66A /* MyOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrderCell.xib; sourceTree = "<group>"; };
+		842F8CB6208664A500E3E66A /* MyOrderDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailsVC.swift; sourceTree = "<group>"; };
+		842F8CB7208664A500E3E66A /* MyOrderDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrderDetailsVC.xib; sourceTree = "<group>"; };
 		84314748205024F900AE045D /* MyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
 		8431474A2050963B00AE045D /* Localization_Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization_Alerts.swift; sourceTree = "<group>"; };
 		8431474B2050963B00AE045D /* LoclizationExConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoclizationExConstant.swift; sourceTree = "<group>"; };
@@ -313,6 +327,7 @@
 		842563D6204571F700CE0BF7 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				842F8CB52086619C00E3E66A /* My_Orders */,
 				F3363FBC2081094300DD699B /* OrderSummaryVC.swift */,
 				F3EB0873207EEE740094A11F /* MyCartVC.swift */,
 				F3363FBE20810A0C00DD699B /* OrderSummaryCell.swift */,
@@ -420,6 +435,19 @@
 				842E09242043FF280047505B /* UISliderX.swift */,
 			);
 			path = DesignableX;
+			sourceTree = "<group>";
+		};
+		842F8CB52086619C00E3E66A /* My_Orders */ = {
+			isa = PBXGroup;
+			children = (
+				842F8CAD2086616000E3E66A /* MyOrdersVC.swift */,
+				842F8CAE2086616000E3E66A /* MyOrdersVC.xib */,
+				842F8CB12086619800E3E66A /* MyOrderCell.swift */,
+				842F8CB22086619800E3E66A /* MyOrderCell.xib */,
+				842F8CB6208664A500E3E66A /* MyOrderDetailsVC.swift */,
+				842F8CB7208664A500E3E66A /* MyOrderDetailsVC.xib */,
+			);
+			path = My_Orders;
 			sourceTree = "<group>";
 		};
 		843160E9205178390067B4E4 /* FilterV */ = {
@@ -550,14 +578,15 @@
 		84E6D662204EB53200D5AD3B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84E6D663204EC65C00D5AD3B /* Get_Requests.swift */,
+				846BF65A206105BE00915DEC /* Post_Requests.swift */,
+				8419AAD52087400E001DC185 /* CitiesList.swift */,
 				F3812FC2206AC2D500D8AA04 /* AlamofireSource.swift */,
 				F350F4C22072D102004BAB5D /* Hyper.xcdatamodeld */,
 				F300A32E205C7CC600C430F9 /* CD */,
 				842563D920458BBF00CE0BF7 /* Constant.swift */,
 				84E6D669204ED43F00D5AD3B /* Messages.swift */,
 				84E6D667204ED2B100D5AD3B /* Connection.swift */,
-				84E6D663204EC65C00D5AD3B /* Get_Requests.swift */,
-				846BF65A206105BE00915DEC /* Post_Requests.swift */,
 				84E6D66B204EF09D00D5AD3B /* Models_Vars_Trees */,
 				843160FB2051BA250067B4E4 /* FIlter_Model.swift */,
 				84C2ECC620558F3F0024CE6F /* UIVCGetMethodsCall.swift */,
@@ -662,6 +691,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842F8CB9208664A500E3E66A /* MyOrderDetailsVC.xib in Resources */,
+				842F8CB42086619800E3E66A /* MyOrderCell.xib in Resources */,
 				849952FD206BF13300ED0152 /* LoginVC.xib in Resources */,
 				842E08FF2043FC590047505B /* LaunchScreen.storyboard in Resources */,
 				F36493FB2072F2F8009AD46B /* SearchVCCoreData in Resources */,
@@ -681,6 +712,7 @@
 				848C0AB6205FF8D500C31929 /* ColorsSelectorCell.xib in Resources */,
 				8456D0182045BA0200CD8C4E /* SimilarItemsCell.xib in Resources */,
 				843160F8205196820067B4E4 /* FilterTableView.xib in Resources */,
+				842F8CB02086616000E3E66A /* MyOrdersVC.xib in Resources */,
 				84678B5820444F570051AE03 /* GE_SS_Two_Medium.otf in Resources */,
 				84678B5220444F570051AE03 /* GOTHICBI.TTF in Resources */,
 				84C2ECBF205447440024CE6F /* 002-new.png in Resources */,
@@ -812,7 +844,9 @@
 				843160E7205172EF0067B4E4 /* CategoryTableCell.swift in Sources */,
 				84C2ECC3205575270024CE6F /* OrderDetailsVC.swift in Sources */,
 				842563C72045700700CE0BF7 /* ReviewCell.swift in Sources */,
+				842F8CB32086619800E3E66A /* MyOrderCell.swift in Sources */,
 				F35CE30820745E720072A527 /* EditProfileVC.swift in Sources */,
+				8419AAD62087400E001DC185 /* CitiesList.swift in Sources */,
 				842E08F72043FC590047505B /* HomePage.swift in Sources */,
 				F3D14E692044CD7C008162B1 /* BrandsCell.swift in Sources */,
 				F3EB0871207EE9EC0094A11F /* MyCartCell.swift in Sources */,
@@ -840,6 +874,7 @@
 				F3812FC3206AC2D500D8AA04 /* AlamofireSource.swift in Sources */,
 				842E092C2043FF280047505B /* UIViewX.swift in Sources */,
 				842F29B92063B946007E527B /* SliderSho.swift in Sources */,
+				842F8CB8208664A500E3E66A /* MyOrderDetailsVC.swift in Sources */,
 				846B690620470A370039F037 /* NavigationBarView.swift in Sources */,
 				8431474C2050963B00AE045D /* Localization_Alerts.swift in Sources */,
 				F300A322205C621D00C430F9 /* CoreD.swift in Sources */,
@@ -858,6 +893,7 @@
 				F3363FBD2081094300DD699B /* OrderSummaryVC.swift in Sources */,
 				842E09162043FE440047505B /* MirroringViewController.swift in Sources */,
 				846BF65B206105BE00915DEC /* Post_Requests.swift in Sources */,
+				842F8CAF2086616000E3E66A /* MyOrdersVC.swift in Sources */,
 				842E092E2043FF280047505B /* UISliderX.swift in Sources */,
 				842E092B2043FF280047505B /* UIImageViewX.swift in Sources */,
 				843160D2205148F80067B4E4 /* FilterCustomeView.swift in Sources */,

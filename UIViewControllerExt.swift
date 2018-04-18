@@ -393,6 +393,35 @@ extension UIViewController {
        showCartCountOnTapBar(count : ids.count)
     }
     
+    func saveCartCDWithEscapingHandler(id : Int, ids:   [Int]  , saved : @escaping ([Int])->  ()  , deleted : @escaping ([Int])->  ()  ) {
+        var ids = ids
+        if let data = CoreDataClass.someEntityExistsInCartCD(id: id) {
+            
+            if  CoreDataClass.deleteCartItem(searchData: data) {
+                if let index = ids.index(of:  id) {
+                    ids.remove(at:index)
+                }
+                //                sender.setImage(#imageLiteral(resourceName: "ic_fav_unactive_"), for: .normal)
+                deleted(ids)
+                
+                CoreDataClass.saveContext()
+            }else {
+                
+            }
+        }else {
+            
+            let favCD = CartCD(context: CoreDataClass.context)
+            favCD.id = Int16( id)
+            CoreDataClass.saveContext()
+            //            sender.setImage(#imageLiteral(resourceName: "ic_fav_active_items"), for: .normal)
+            ids.append(id)
+            saved(ids)
+            //            print(fetchCdCartData())
+            
+        }
+        showCartCountOnTapBar(count : ids.count)
+    }
+    
     func showCartCountOnTapBar(count : Int) {
         if let tabItems = self.tabBarController?.tabBar.items as NSArray!
         {

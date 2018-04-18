@@ -270,11 +270,43 @@ class Get_Requests : Connection {
             failed(err?.localizedDescription)
         }
     }
+    
+    
+    func get_Profi2e_Details(  OrderID: Int, completion:@escaping (  ) -> (),failure failed: @escaping (String?)->() ){
+        
+        let url = get_OrderByID(OrderID :OrderID )
+        
+        
+        Connection.performGet(urlString: url, success: { (jData) in
+            //
+            //            let relatedPrs = jData["user"]
+            //            let y = Profile_Details_M(relatedPrs)
+            //
+            completion()
+            
+        }) { (err) in
+            
+            
+            failed(err?.localizedDescription)
+        }
+    }
+    
+    
 }
 
 
 
 extension Get_Requests {
+    
+    private func get_OrderByID(OrderID : Int) -> String {
+        return main_url + "Order/get_order_by_id?OrderID=\(OrderID)"
+    }
+    
+    private func get_H2omePage() -> String {
+        return main_url +  "General/home_page"
+    }
+    
+    
     private func get_itemDetails(product_ID : Int) -> String {
         return main_url + "General/get_item_details_by_id?ProductId=\(product_ID)"
     }

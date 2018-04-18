@@ -11,6 +11,9 @@ import UIKit
 class OrderSummaryVC: UIViewController   , UITableViewDelegate , UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var addressLbl: UILabel!
+    @IBOutlet weak var phoneNumLbl: UILabel!
     
     
     override func viewDidLoad() {

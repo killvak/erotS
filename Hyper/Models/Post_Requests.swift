@@ -212,6 +212,27 @@ class  Post_Requests : Connection {
         }
         
     }
+    
+    
+    func makeOrder_Request (parms : Parameters ,success : @escaping ()->(),failed:@escaping (String?)->()) {
+        
+        print(parms)
+        print(make_order_Url())
+        
+        Connection.performPost(urlString: getitemsByIdList_URL(), extraHeaders: nil, postData: parms, success: { (jData ) in
+            print(jData)
+            //            var data : [Product_Data] = []
+            //            for x in jData["products"] {
+            //                data.append(Product_Data(x.1))
+            //            }
+            success( )
+        }) { (err ) in
+            failed(err?.localizedDescription)
+        }
+        
+        
+        
+    }
     //    func postSearch(query : String?,min_price : Int? ,max_price : Int?,cats : [Int]?,brands : [Int]?,colors:[Int]?,page : Int,completion:@escaping ( [CatBrand_Data] ) -> (),failure failed: @escaping (String?)->() ){
     //         let parameters : Parameters = setupSearchParameters(query: query, min_price: min_price, max_price: max_price, cats: cats, brands: brands , colors: colors)
     //        print(parameters)
@@ -246,6 +267,14 @@ class  Post_Requests : Connection {
     private func getUserAddressUrl() ->String {
         let id = ad.getUserID()
         return main_url + "Address/get_user_addresses?UserID=\(id)"
+    }
+    
+    private func make_order_Url( ) -> String {
+        return main_url + "Order/make_order"
+    }
+    
+    private func get_H2omePage() -> String {
+        return main_url +  "General/home_page"
     }
  
     private func setupSearchParameters(query : String?,min_price : Int? ,max_price : Int?,cats : [Int]?,brands : [Int]?,colors:[Int]?) -> Parameters{
