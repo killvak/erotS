@@ -50,6 +50,7 @@ enum Cities  : Int {
     case Suez
     case Zakazik
     
+ 
     func stringValue() -> String {
         switch self {
         case  .Tanta:  return  isAr() ? "طنطا": "Tanta"
