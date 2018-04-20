@@ -29,7 +29,7 @@ class Constant {
     static let main_url = "http://hyper-testing.herokuapp.com/api/"
     static var gotCatSearch = false
     static var gotBrandSearch = false
-   static var headers:[String:String] = ["Authorization":"627562626c6520617069206b6579","Content-Type" :"application/json" ]
+   static var headers:[String:String] = ["Authorization":"627562626c6520617069206b6579" ]
      private init() {    }
     
     static  func saveData(data : CatBrand_Data) {
@@ -161,7 +161,7 @@ class API {
         let country_name = "country_name"
         let apartment_num = "apartment_num"
         let user_id = "user_id"
- 
+ let UD_favAddID = "favAddID"
         
         private override init() {}
         

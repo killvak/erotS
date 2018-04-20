@@ -9,16 +9,37 @@
 import UIKit
 
 class OrderSummaryCell: UITableViewCell {
+    
+    @IBOutlet weak var productTitleLbl: UILabel!
+     @IBOutlet weak var productImg: UIImageView!
+    @IBOutlet weak var price1Lbl: UILabel!
+    @IBOutlet weak var price2Lbl: UILabel!
+    @IBOutlet weak var quantity: UILabel!
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        price2Lbl.alpha = 0
+        price1Lbl.textColor = Constant.BloodyRed
+ 
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func configCell(data:Product_Data) {
+         productImg.setupApiImage(imagePath:  data.main_image)
+        productTitleLbl.text = data.name
+        
+        if data.on_sale {
+            price1Lbl.strikeIt(text: data.wholesale_price)
+            price2Lbl.alpha = 1
+            price2Lbl.text = data.reduction_price
+ 
+        }else {
+            price1Lbl.text = "\(data.price) L.E"
+        }
+       
+        
+        
     }
-
+    
 }

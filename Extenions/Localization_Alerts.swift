@@ -147,10 +147,25 @@ enum GetAlertsLocalize {
     case VehicleID_Is_Required
     case Hot_Products
     case New_Arrivals
-    
+    case invalid_Mobile_Number
+    case City_Fields_is_Required
+    case Area_Fields_is_Required
+    case Street_Fields_is_Required
+    case Location_Fields_is_Required
+
     func stringValue() -> String {
         switch self {
         //Hyper
+        case .Location_Fields_is_Required:
+            return  L102Language.currentAppleLanguage() == "ar" ? "حقل نوع المكان مطلوب": "Location Type Field is Requried"
+        case .Street_Fields_is_Required:
+            return  L102Language.currentAppleLanguage() == "ar" ? "حقل الشارع مطلوب": "Street Field is Requried"
+        case .invalid_Mobile_Number:
+            return  L102Language.currentAppleLanguage() == "ar" ? "رقم الجوال غير صحيح": "invalid Mobile Number"
+        case .City_Fields_is_Required:
+            return  L102Language.currentAppleLanguage() == "ar" ? "حقل المدينة مطلوب": "City Field is Requried"
+        case .Area_Fields_is_Required:
+            return  L102Language.currentAppleLanguage() == "ar" ? "حقل المنطقة مطلوب": "Area Field is Requried"
         case .Hot_Products:
             return  L102Language.currentAppleLanguage() == "ar" ? "المنتجات الأكثر شعبيه": "Hot Products"
         case .New_Arrivals:

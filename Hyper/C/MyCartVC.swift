@@ -18,9 +18,15 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
     var cartCdIDs : [Int] = []
     var data : [Product_Data] = []
     var favCDItems :  [FavCD] = []
+    var cartData : [CartCD] = []
     var favItemsIDs : [Int] = []
     var favRequest : NSFetchRequest<FavCD>?
-    
+    var totalPrice = 0 {
+        didSet{
+            self.totalPriceLbl.text = "\(self.totalPrice)"
+        }
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,16 +41,22 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
+       self.totalPrice = 0 
         fetchCdData()
-        cartCdIDs = self.fetchCdCartData()
- getData()
+       fetchCartData()
+        getData()
     }
-    
+    func fetchCartData() {
+        let cdData = fetchCdCartFullData()
+        cartCdIDs = cdData.1
+        cartData = cdData.0
+        tableView.reloadData()
+    }
     func fetchCdData() {
         
         
         favRequest  = FavCD.fetchRequest()
+    
         guard let fData = favRequest else {
             print("🦊🦊🦊🦊🦊")
             return
@@ -58,6 +70,7 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
             self.favItemsIDs = []
             for x in recnt {
                 print(x.id)
+            
                 self.favItemsIDs.append( Int(x.id))
                 //                re.append(x)
             }
@@ -80,12 +93,18 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
             DispatchQueue.main.async {
                 self.data = rData
                 self.tableView.reloadData()
-                var price = 0
-                for x in rData {
+                for (i,x) in rData.enumerated() {
                     
-                    price += x.price
+                    
+                    if self.cartData[i].id == x.id {
+                         let price2  = x.price * Int(self.cartData[i].quantity)
+                        self.totalPrice += price2
+                    }else {
+                        self.totalPrice += x.price
+                    }
                  }
-                self.totalPriceLbl.text = "\(price)"
+                
+                self.totalPriceLbl.text = "\(self.totalPrice)"
                 ad.killLoading()
                 
             }
@@ -95,15 +114,20 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
     
     }
     
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCartCell", for: indexPath) as! MyCartCell
-    
+        if cartData[indexPath.row].id == data[indexPath.row].id {
+            data[indexPath.row].newQuantity = Int(cartData[indexPath.row].quantity)
+            cell.quantityLbl.text = "\(cartData[indexPath.row].quantity)"
+        }
         cell.configCell(data:data[indexPath.row])
-
+      
+        cell.mycartVC = self
         cell.removeBtn.tag = indexPath.row
         cell.favBtn.tag = indexPath.row
         cell.removeBtn.addTarget(self, action: #selector(removeItemFromCart(_:)), for: .touchUpInside)
@@ -163,7 +187,31 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
     @IBAction func proceedToCheckoutBtnHandler(_ sender: UIButton) {
         
         
-        
+        var items  : [ Any] = []
+        for x in data {
+            print(x.id , x.quantity)
+            let parm = [
+                "item_quantity": x.quantity,
+                "item_id": x.id
+            ]
+            items.append(parm)
+        }
+        let parms : [String : Any ]  = [
+            "user_id": "\(ad.getUserID())",
+            "address_id": "9",
+            "items": items
+        ]
+        print(parms)
+//        Post_Requests().makeCart_Order_Request(parms: parms, success: {
+//            DispatchQueue.main.async {
+                let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderSummaryVC") as! OrderSummaryVC
+        vc.data = data
+        vc.parms = parms
+                self.navigationController?.pushViewController(vc, animated: true)
+//            }
+//        }) { (err ) in
+//            self.showApiErrorSms(err: err )
+//        }
     }
     /*
      // MARK: - Navigation

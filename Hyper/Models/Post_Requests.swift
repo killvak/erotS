@@ -219,19 +219,134 @@ class  Post_Requests : Connection {
         print(parms)
         print(make_order_Url())
         
-        Connection.performPost(urlString: getitemsByIdList_URL(), extraHeaders: nil, postData: parms, success: { (jData ) in
-            print(jData)
-            //            var data : [Product_Data] = []
-            //            for x in jData["products"] {
-            //                data.append(Product_Data(x.1))
-            //            }
-            success( )
-        }) { (err ) in
-            failed(err?.localizedDescription)
+//        Connection.performPost(urlString: getitemsByIdList_URL(), extraHeaders: nil, postData: parms, success: { (jData ) in
+//            print(jData)
+//            //            var data : [Product_Data] = []
+//            //            for x in jData["products"] {
+//            //                data.append(Product_Data(x.1))
+//            //            }
+//            success( )
+//        }) { (err ) in
+//            failed(err?.localizedDescription)
+//        }
+        Alamofire.request(getitemsByIdList_URL(), method: .post, parameters: parms,encoding: JSONEncoding.default, headers: Constant.headers).responseJSON {
+            response in
+            switch response.result {
+            case .success:
+                //                                print(response)
+                guard let value = response.value else {
+                    failed(response.error?.localizedDescription)
+                    return
+                }
+                print(value)
+                let jData = JSON(value)
+                var data : [Product_Data] = []
+                
+                success( )
+                break
+            case .failure(let error):
+                failed(response.error?.localizedDescription)
+                print(response.error?.localizedDescription)
+            }
         }
+
+     }
+    
+    func addAddress_Request (parms : Parameters ,success : @escaping ()->(),failed:@escaping (String?)->()) {
         
+        print(parms)
+        print(make_order_Url())
+//
+//        Connection.performPost(urlString: add_edit_user_address_URL(), extraHeaders: nil, postData: parms, success: { (jData ) in
+//            print(jData)
+//            //            var data : [Product_Data] = []
+//            //            for x in jData["products"] {
+//            //                data.append(Product_Data(x.1))
+//            //            }
+//
+//            success( )
+//        }) { (err ) in
+//            failed(err?.localizedDescription)
+//        }//
         
+        Alamofire.request(add_edit_user_address_URL(), method: .post, parameters: parms,encoding: JSONEncoding.default, headers: Constant.headers).responseJSON {
+            response in
+            switch response.result {
+            case .success:
+                //                                print(response)
+                guard let value = response.value else {
+                    failed(response.error?.localizedDescription)
+                    return
+                }
+                print(value)
+                let jData = JSON(value)
+                var data : [Product_Data] = []
+
+                success( )
+                break
+            case .failure(let error):
+                failed(response.error?.localizedDescription)
+                print(response.error?.localizedDescription)
+            }
+        }
+    }
+    
+    func makeCart_Order_Request (parms : Parameters ,success : @escaping ()->(),failed:@escaping (String?)->()) {
         
+        print(parms)
+        print(make_order_Url())
+ 
+        
+                Alamofire.request(make_order_URL(), method: .post, parameters: parms,encoding: JSONEncoding.default, headers: Constant.headers).responseJSON {
+                    response in
+                    switch response.result {
+                    case .success:
+                        //                                print(response)
+                        guard let value = response.value else {
+                            failed(response.error?.localizedDescription)
+                            return
+                        }
+                        print(value)
+                        let jData = JSON(value)
+                        var data : [Product_Data] = []
+        
+                        success( )
+                        break
+                    case .failure(let error):
+                        failed(response.error?.localizedDescription)
+                        print(response.error?.localizedDescription)
+                    }
+                }
+    }
+    
+    func user_addresse_by_id_Request(addressID:Int,parms : Parameters ,success : @escaping (Address_Model)->(),failed:@escaping (String?)->()) {
+        
+        print(parms)
+        let url = get_user_addresse_by_id_URL(addressID: addressID)
+        print(url)
+
+      
+        
+        Alamofire.request(make_order_URL(), method: .post, parameters: parms,encoding: JSONEncoding.default, headers: Constant.headers).responseJSON {
+            response in
+            switch response.result {
+            case .success:
+                //                                print(response)
+                guard let value = response.value else {
+                    failed(response.error?.localizedDescription)
+                    return
+                }
+                print(value)
+                let jData = JSON(value)
+                let data = Address_Model(jData["address"])
+                
+                success(data)
+                break
+            case .failure(let error):
+                failed(response.error?.localizedDescription)
+                print(response.error?.localizedDescription)
+            }
+        }
     }
     //    func postSearch(query : String?,min_price : Int? ,max_price : Int?,cats : [Int]?,brands : [Int]?,colors:[Int]?,page : Int,completion:@escaping ( [CatBrand_Data] ) -> (),failure failed: @escaping (String?)->() ){
     //         let parameters : Parameters = setupSearchParameters(query: query, min_price: min_price, max_price: max_price, cats: cats, brands: brands , colors: colors)
@@ -258,11 +373,20 @@ class  Post_Requests : Connection {
     //        }
     //
     //    }
+    private func get_user_addresse_by_id_URL(addressID:Int) ->String {
+        return main_url + "Address/get_user_addresse_by_id?AddressID=\(addressID)"
+    }
+    private func add_edit_user_address_URL() ->String {
+        return main_url + "Address/add_edit_user_address"
+    }
     private func postSearchUrl(page:Int) ->String {
         return main_url + "General/search?Page=\(page)"
     }
     private func getitemsByIdList_URL() ->String {
         return main_url + "Eslam/fav_cart"
+    }
+    private func make_order_URL() ->String {
+        return main_url + "Order/make_order"
     }
     private func getUserAddressUrl() ->String {
         let id = ad.getUserID()

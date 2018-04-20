@@ -65,6 +65,7 @@ PODS:
   - NVActivityIndicatorView (4.1.1):
     - NVActivityIndicatorView/Presenter (= 4.1.1)
   - NVActivityIndicatorView/Presenter (4.1.1)
+  - Presentr (1.3)
   - RangeSeekSlider (1.7.0)
   - SkyFloatingLabelTextField (3.4.1)
   - SwiftyJSON (4.0.0)
@@ -89,6 +90,7 @@ DEPENDENCIES:
   - ImageSlideshow (~> 1.5)
   - IQKeyboardManagerSwift
   - NVActivityIndicatorView
+  - Presentr
   - RangeSeekSlider
   - SkyFloatingLabelTextField (~> 3.0)
   - SwiftyJSON
@@ -119,6 +121,7 @@ SPEC CHECKSUMS:
   ImageSlideshow: ae3de479b8c70dc751142d21573f5a28dbb97d4d
   IQKeyboardManagerSwift: 2e7dc7f98c111458c1ea2b373f893e8cf95e2b97
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
+  Presentr: 3f0825a42cb32ecd8fc6b6d0b0de87d7d0b42482
   RangeSeekSlider: 0386c5a9aa5ebcb2fa5238e8a627280cf46c7c0a
   SkyFloatingLabelTextField: 8085f20f57f74a00cfcae58099299faa1a971035
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
@@ -127,6 +130,6 @@ SPEC CHECKSUMS:
   UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
   XLActionController: 007868251c0eed70d649d06c1625259b73b3a600
 
-PODFILE CHECKSUM: 80175aab386b9220acd5ad7ef34f29b50a3381ef
+PODFILE CHECKSUM: f3719bc0b89e3ee42f7560b72db7ad27dc599096
 
 COCOAPODS: 1.3.1

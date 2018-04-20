@@ -66,14 +66,14 @@ class AddressBookVC: UIViewController , UITableViewDelegate , UITableViewDataSou
     }
     
     @objc func addToFav(_ sender : UIButton) {
- print(UserDefaults.standard.value(forKey: "favAddID") )
+ print(UserDefaults.standard.value(forKey: Constant.parameters.UD_favAddID) )
         print(sender.tag)
-        if  UserDefaults.standard.value(forKey: "favAddID") == nil {
-            UserDefaults.standard.setValue(sender.tag , forKey: "favAddID")
+        if  UserDefaults.standard.value(forKey: Constant.parameters.UD_favAddID) == nil {
+            UserDefaults.standard.setValue(sender.tag , forKey: Constant.parameters.UD_favAddID)
             self.tableView.reloadData()
 
-        }else  if   let favaddre = UserDefaults.standard.value(forKey: "favAddID") as? Int , favaddre != sender.tag   {
-            UserDefaults.standard.setValue(sender.tag , forKey: "favAddID")
+        }else  if   let favaddre = UserDefaults.standard.value(forKey: Constant.parameters.UD_favAddID) as? Int , favaddre != sender.tag   {
+            UserDefaults.standard.setValue(sender.tag , forKey: Constant.parameters.UD_favAddID)
             self.tableView.reloadData()
         }else {
             UserDefaults.standard.setValue(nil , forKey: "favAddID")

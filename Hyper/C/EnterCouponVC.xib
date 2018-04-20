@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GE_SS_Two_Medium.otf">
+            <string>GESSTwoMedium-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnterCouponVC" customModule="Hyper" customModuleProvider="target">
+            <connections>
+                <outlet property="typeCouponTxtF" destination="j2r-ns-TsH" id="MUd-KX-jhw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="310" height="194"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dC3-au-1u3">
+                    <rect key="frame" x="0.0" y="0.0" width="310" height="194"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Coupon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZb-FF-jvK">
+                            <rect key="frame" x="106" y="15" width="99" height="19"/>
+                            <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="16"/>
+                            <color key="textColor" red="0.4979824424" green="0.49807190899999998" blue="0.4979767799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSE-fI-O8M" customClass="UIButtonX" customModule="Hyper" customModuleProvider="target">
+                            <rect key="frame" x="266" y="6" width="36" height="36"/>
+                            <color key="backgroundColor" red="0.84313725490000002" green="0.031372549020000001" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="36" id="To3-Jc-8o7"/>
+                                <constraint firstAttribute="width" secondItem="QSE-fI-O8M" secondAttribute="height" multiplier="1:1" id="bBa-dl-9Jh"/>
+                            </constraints>
+                            <state key="normal" title="X">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="popIn" value="NO"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="animate" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="cancelBtnHandler:" destination="-1" eventType="touchUpInside" id="oeK-Dg-x0X"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j2r-ns-TsH" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                            <rect key="frame" x="20" y="62" width="270" height="39"/>
+                            <color key="tintColor" red="0.91498976949999999" green="0.3476445675" blue="0.37298086289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                    <color key="value" red="0.48624873159999998" green="0.48191767930000001" blue="0.50671494009999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                    <color key="value" red="0.91498976949999999" green="0.3476445675" blue="0.37298086289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
+                                    <color key="value" red="0.91498976949999999" green="0.3476445675" blue="0.37298086289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                    <color key="value" red="0.48624873159999998" green="0.48191767930000001" blue="0.50671494009999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                    <color key="value" red="0.71364659070000003" green="0.71377098559999996" blue="0.71363878250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Type Coupon Here"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Type Coupon Here"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                    <color key="value" red="0.48624873159999998" green="0.48191767930000001" blue="0.50671494009999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                    <color key="value" red="0.48624873159999998" green="0.48191767930000001" blue="0.50671494009999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                    <color key="value" red="0.48624873159999998" green="0.48191767930000001" blue="0.50671494009999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRN-TK-ZHl" customClass="UIButtonX" customModule="Hyper" customModuleProvider="target">
+                            <rect key="frame" x="35" y="144" width="240" height="36"/>
+                            <color key="backgroundColor" red="0.84313725490000002" green="0.031372549020000001" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="ulH-ee-UTG"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="17"/>
+                            <state key="normal" title="Apply">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="popIn" value="NO"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="7"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="animate" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="applyBtnHandler:" destination="-1" eventType="touchUpInside" id="tdw-Oj-zS9"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="QSE-fI-O8M" firstAttribute="top" secondItem="hxa-c8-I5Z" secondAttribute="top" constant="6" id="5Xv-nV-gDc"/>
+                        <constraint firstItem="hxa-c8-I5Z" firstAttribute="bottom" secondItem="cRN-TK-ZHl" secondAttribute="bottom" constant="14" id="5ta-ET-Qif"/>
+                        <constraint firstItem="j2r-ns-TsH" firstAttribute="leading" secondItem="hxa-c8-I5Z" secondAttribute="leading" constant="20" id="7Xf-5Z-1uA"/>
+                        <constraint firstItem="hxa-c8-I5Z" firstAttribute="trailing" secondItem="QSE-fI-O8M" secondAttribute="trailing" constant="8" id="9U3-Ul-GCy"/>
+                        <constraint firstItem="j2r-ns-TsH" firstAttribute="top" secondItem="QSE-fI-O8M" secondAttribute="bottom" constant="20" id="BSM-zu-on6"/>
+                        <constraint firstItem="hxa-c8-I5Z" firstAttribute="trailing" secondItem="j2r-ns-TsH" secondAttribute="trailing" constant="20" id="KYA-6Q-xjg"/>
+                        <constraint firstItem="j2r-ns-TsH" firstAttribute="centerX" secondItem="BZb-FF-jvK" secondAttribute="centerX" id="OCd-lD-YYQ"/>
+                        <constraint firstItem="cRN-TK-ZHl" firstAttribute="leading" secondItem="hxa-c8-I5Z" secondAttribute="leading" constant="35" id="PeM-9x-uF4"/>
+                        <constraint firstItem="BZb-FF-jvK" firstAttribute="centerX" secondItem="hxa-c8-I5Z" secondAttribute="centerX" id="Yf0-wP-O5R"/>
+                        <constraint firstItem="BZb-FF-jvK" firstAttribute="top" secondItem="hxa-c8-I5Z" secondAttribute="top" constant="15" id="hSG-NJ-3D3"/>
+                        <constraint firstItem="hxa-c8-I5Z" firstAttribute="trailing" secondItem="cRN-TK-ZHl" secondAttribute="trailing" constant="35" id="jIf-EI-lBF"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="hxa-c8-I5Z"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="dC3-au-1u3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5xY-mC-lsm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dC3-au-1u3" secondAttribute="bottom" id="LtR-E9-y7H"/>
+                <constraint firstItem="dC3-au-1u3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RYp-LA-7mI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dC3-au-1u3" secondAttribute="trailing" id="pQA-N9-AbN"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="34" y="53"/>
+        </view>
+    </objects>
+</document>

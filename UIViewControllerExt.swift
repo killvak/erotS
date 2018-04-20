@@ -232,6 +232,16 @@ extension UIViewController {
     }
     
     
+    func showCustomeApiErrorSms(err : String) {
+        print(err )
+        DispatchQueue.main.async {
+            self.view.showSimpleAlert(L0A.Warning.stringValue(), err, .error)
+            ad.killLoading()
+        }
+    }
+    
+    
+    
     func navigatieToItemList(data: ProductFull_Data,pageTitleMap :String ) {
         
         let vc = ProductsListVC(nibName: "ProductsListVC", bundle: nil)
@@ -250,7 +260,36 @@ extension UIViewController {
         self.present(vc, animated: true, completion: nil    )
     }
     
-    
+    func fetchCdCartFullData() -> ([CartCD],[Int] ) {
+        
+        var cartCDItems :  [CartCD] = []
+        var cartItemsIDs : [Int] = []
+        var cartRequest : NSFetchRequest<CartCD>?
+        cartRequest  = CartCD.fetchRequest()
+        guard let fData = cartRequest else {
+            print("🦊🦊🦊🦊🦊")
+            return (cartCDItems,cartItemsIDs)
+        }
+        
+        do {
+            
+            let recnt = try CoreDataClass.context.fetch(fData)
+            cartCDItems = recnt
+            print(recnt.count)
+            //
+            for x in recnt {
+                print(x.id)
+                print(x.quantity)
+                cartItemsIDs.append( Int(x.id))
+                //                re.append(x)
+            }
+            return  (cartCDItems,cartItemsIDs)
+            //            collectionView.reloadData()
+        } catch {    }
+        
+        return (cartCDItems,cartItemsIDs)
+        
+    }
     
     func fetchCdCartData() -> [Int] {
         
@@ -271,6 +310,7 @@ extension UIViewController {
 //
             for x in recnt {
                 print(x.id)
+                print(x.quantity)
                 cartItemsIDs.append( Int(x.id))
                 //                re.append(x)
             }
@@ -328,8 +368,10 @@ extension UIViewController {
             }
         }else {
             
-            let favCD = CartCD(context: CoreDataClass.context)
-            favCD.id = Int16( id)
+            let cartCD = CartCD(context: CoreDataClass.context)
+            cartCD.id = Int16( id)
+            cartCD.quantity = Int16( 1)
+
              CoreDataClass.saveContext()
 //            sender.setImage(#imageLiteral(resourceName: "ic_fav_active_items"), for: .normal)
             print(fetchCdCartData())
@@ -353,8 +395,10 @@ extension UIViewController {
             }
         }else {
             
-            let favCD = CartCD(context: CoreDataClass.context)
-            favCD.id = Int16( id)
+            let cartCD = CartCD(context: CoreDataClass.context)
+            cartCD.id = Int16( id)
+            cartCD.quantity = Int16( 1)
+
             CoreDataClass.saveContext()
             //            sender.setImage(#imageLiteral(resourceName: "ic_fav_active_items"), for: .normal)
             ids.append(id)
@@ -381,8 +425,10 @@ extension UIViewController {
             }
         }else {
             
-            let favCD = CartCD(context: CoreDataClass.context)
-            favCD.id = Int16( id)
+            let cartCD = CartCD(context: CoreDataClass.context)
+            cartCD.id = Int16( id)
+            cartCD.quantity = Int16( 1)
+
             CoreDataClass.saveContext()
             //            sender.setImage(#imageLiteral(resourceName: "ic_fav_active_items"), for: .normal)
             ids.append(id)

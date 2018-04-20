@@ -80,7 +80,7 @@ class Connection: NSObject {
     
     class public func performGet(urlString:String,success:@escaping ConnectionSuccess,failure:@escaping ConnectionFailed)
     {
-        var headers:[String:String] = ["Authorization":"627562626c6520617069206b6579"]
+        let headers:[String:String] = ["Authorization":"627562626c6520617069206b6579"]
         let escapedString = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         Alamofire.request(escapedString, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).validate(statusCode: 200 ..< 501).responseJSON { (response) in
             handleResponse(response: response, success: success, failure: failure)
@@ -102,13 +102,14 @@ class Connection: NSObject {
     //post
     class public func performPost(urlString:String,extraHeaders:[String:String]?,postData:[String:Any],success:@escaping ConnectionSuccess,failure:@escaping ConnectionFailed)
     {
-        var headers:[String:String] = ["Authorization":"627562626c6520617069206b6579"]
-        headers["Content-Type"]  = "application/json"
-        if let dic = extraHeaders {
-            for item in dic{
-                headers[item.key] = item.value
-            }
-        }
+        let headers:[String:String] = ["Authorization":"627562626c6520617069206b6579"]
+//        headers["Content-Type"]  = "application/json"
+//        if let dic = extraHeaders {
+//            for item in dic{
+//                headers[item.key] = item.value
+//            }
+//        }
+        print(headers)
         
         Alamofire.request(urlString, method: .post, parameters: postData, encoding: URLEncoding.default, headers: headers).validate(statusCode: 200 ..< 501)
             .responseJSON { response in

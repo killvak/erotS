@@ -203,13 +203,14 @@ class Address_Model {
     var preferred_time : String {return _preferred_time }
     var address_id: Int {return _address_id }
     var city_name : String {return _city_name }
-    var mobile : String {return _mobile }
+    var mobile : String {return  _phoneData.mobile }
     var longitude : Int {return _longitude }
     var notes : String {return _notes }
-    var landline : String {return _landline }
+    var landline : String {return _phoneData.landline }
     var country_name : String {return _country_name }
     var apartment_num : Int {return _apartment_num }
     var user_id : String {return _user_id }
+    var ultiPhone : String {return _mobile == "" ? _phoneData.landline : _phoneData.mobile }
 
     var fullAddress : String {
         return "\( building_num) \( street_name)/\( city_name)"
@@ -226,7 +227,7 @@ class Address_Model {
         self._preferred_time = jsonData[Constant.parameters.preferred_time].stringValue
         self._address_id = jsonData[Constant.parameters.id].int
         self._city_name = jsonData[Constant.parameters.city_name].stringValue
-        self._mobile = jsonData[Constant.parameters.mobile].stringValue
+//        self._mobile = jsonData[Constant.parameters.mobile].stringValue
         self._longitude = jsonData[Constant.parameters.longitude].intValue
         self._notes = jsonData[Constant.parameters.notes].stringValue
         self._landline = jsonData[Constant.parameters.landline].stringValue

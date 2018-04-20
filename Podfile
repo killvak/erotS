@@ -30,5 +30,6 @@ pod 'ImageSlideshow', '~> 1.5'
     pod "Google/Analytics"
     pod 'Firebase/Core'
     pod 'SkyFloatingLabelTextField', '~> 3.0'
- 
+    pod 'Presentr'
+
 end

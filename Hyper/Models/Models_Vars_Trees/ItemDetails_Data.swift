@@ -195,6 +195,14 @@ class Product_Data {
     
     var  price : Int {return _price}
     var  quantity : Int {return _quantity}
+    var  newQuantity : Int {
+        set {
+            _quantity = newValue
+        }
+        get {
+        return _quantity}
+    }
+
     var  rate : Int {return _rate}
     var  reduction_percent : Int {return _reduction_percent}
     
