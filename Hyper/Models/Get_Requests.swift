@@ -292,6 +292,29 @@ class Get_Requests : Connection {
     }
     
     
+    func get_User_Orders_List_Request( completion:@escaping ( [OrderDetails_Model] ) -> (),failure failed: @escaping (String?)->() ){
+        
+        let url = get_User_Orders_List_URL()
+        
+        
+        Connection.performGet(urlString: url, success: { (jData) in
+            //
+            //            let relatedPrs = jData["user"]
+            //            let y = Profile_Details_M(relatedPrs)
+            //
+            var data : [OrderDetails_Model] = []
+            for x in jData["orders"] {
+                data.append(OrderDetails_Model(x.1))
+             }
+             completion(data)
+ 
+        }) { (err) in
+            
+            
+            failed(err?.localizedDescription)
+        }
+    }
+    
 }
 
 
@@ -357,7 +380,7 @@ extension Get_Requests {
     private func get_User_Order(orderID : Int ) -> String{
         return main_url + "Order/get_order_by_id?OrderID=\(orderID)"
     }
-    private func get_User_Orders_List() -> String{
+    private func get_User_Orders_List_URL() -> String{
         return main_url + "Order/get_user_orders?UserID=\(ad.getUserID())"
     }
     private func cancel_User_Order(orderID : Int ) -> String{

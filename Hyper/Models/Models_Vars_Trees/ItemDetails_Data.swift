@@ -483,7 +483,7 @@ class Profile_Details_M {
     var latitude : String {return _latitude }
     var longitude : String {return _longitude }
 
-    var fullName : String { return "\(_first_name) \(_last_name)"}
+    var fullName : String { return "\(first_name) \(last_name)"}
     var image : String {
         return  Constant.images_Url +   _image
     }
@@ -505,6 +505,153 @@ class Profile_Details_M {
         self._id = jsonData[Constant.parameters.id].intValue
          self._image = jsonData[Constant.parameters.image_url].stringValue
         
+        
+    }
+    
+    
+}
+
+
+
+class OrderDetails_Model {
+    
+    private var _active : Int!
+    private var _current_stateID : Int!
+    
+    private var _date_add : String!
+    private var _date_upd : String!
+    
+    private var _name : String!
+    private var _name_ar : String!
+    private var _id : Int!
+    private var _phone : String!
+    private var _id_user : Int!
+    private var _address : Address_Model?
+    private var _cartProduct : [Order_Cart_DetailsModel] = []
+    var active  : Bool {
+        return  _active == 1 ?  false :   true
+    }
+    var current_state : OrderStatusType {
+        switch _current_stateID {
+        case 0:
+            return   OrderStatusType.in_Processing
+       case 1:
+           return   OrderStatusType.Confirmed
+        case 2:
+           return   OrderStatusType.Shipped
+        case 3:
+            return  OrderStatusType.Delivered
+        default:
+           return   OrderStatusType.in_Processing
+
+        }
+     }
+    var date_add : String {return _date_add}
+    var date_upd : String {return _date_upd}
+    
+    var name : String {
+        return  L102Language.currentAppleLanguage() != "ar" ?   _name :  _name_ar
+    }
+    var phone : String {
+        return  _phone
+    }
+    var cartProduct : [Order_Cart_DetailsModel] {
+        
+        return _cartProduct
+    }
+    var  id : Int {return _id}
+    var  id_user : Int {return _id_user}
+    var address : Address_Model? {
+        return _address
+    }
+    
+    init(_ jsonData : JSON) {
+        self._active = jsonData[Constant.parameters.active].intValue
+        self._current_stateID = jsonData["current_state"]["id"].intValue
+        self._date_add = jsonData[Constant.parameters.date_add].stringValue
+        self._date_upd = jsonData[Constant.parameters.date_upd].stringValue
+        self._name = jsonData[Constant.parameters.name].stringValue
+        self._name_ar = jsonData[Constant.parameters.name_ar].stringValue
+        
+        self._id = jsonData[Constant.parameters.id].intValue
+        self._phone = jsonData["phone"].stringValue
+        self._id_user = jsonData["id_user"].intValue
+        
+        self._address = Address_Model(jsonData["address"])
+        
+        for x in jsonData["cart"] {
+            _cartProduct.append(Order_Cart_DetailsModel(x.1))
+        }
+    }
+    
+    
+}
+
+
+
+class Order_Cart_DetailsModel {
+    private var _active : Int!
+    private var _date_add : String!
+    private var _date_upd : String!
+    private var _id : Int!
+    private var _id_Order : Int!
+    private var _id_product : Int!
+    private var _id_user : Int!
+    private var _image : String!
+    private var _product_name : String!
+    private var _product_name_ar : String!
+    private var _quantity : Int!
+    private var _product_on_sale : Int!
+    private var _product_reduction_price : Int!
+    private var _product_wholesale_price : Int!
+    private var _product_reduction_percent : Double!
+
+    
+     var name : String {
+        return  L102Language.currentAppleLanguage() != "ar" ?   _product_name :  _product_name_ar
+    }
+    var active  : Bool {
+        return  _active == 1
+    }
+    var product_reduction_percent :Double { return _product_reduction_percent}
+
+    var product_reduction_price :Int { return _product_reduction_price}
+    var product_wholesale_price :Int { return _product_wholesale_price}
+
+    var orderID :Int { return _id_Order}
+    var productID :Int { return _id_product}
+    var oneSale :Bool { return _product_on_sale == 0 ? false : true }
+
+     var date_add : String {return _date_add }
+    var date_upd : String {return _date_upd }
+    var  id : Int {return _id }
+    var  userID : Int {return _id_user }
+
+    var  quantity : Int {return _quantity }
+
+    
+     var image : String {
+        return  Constant.images_Url +   _image
+    }
+    init(_ jsonData : JSON) {
+        self._active = jsonData[Constant.parameters.active].intValue
+        self._id_Order = jsonData["id_order"].intValue
+        self._id_product = jsonData["id_product"].intValue
+        self._id_user = jsonData["id_user"].intValue
+
+        
+        self._product_name = jsonData["product_name"].stringValue
+        self._product_name_ar = jsonData["product_name_ar"].stringValue
+        self._quantity = jsonData["quantity"].intValue
+         self._date_add = jsonData[Constant.parameters.date_add].stringValue
+        self._date_upd = jsonData[Constant.parameters.date_upd].stringValue
+        self._id = jsonData[Constant.parameters.id].intValue
+        self._image = jsonData["product_image"].stringValue
+        self._product_on_sale = jsonData["product_on_sale"].intValue
+        self._product_wholesale_price = jsonData["product_wholesale_price"].intValue
+        self._product_reduction_price = jsonData["product_reduction_price"].intValue
+        self._product_reduction_percent = jsonData["product_reduction_percent"].doubleValue
+
         
     }
     

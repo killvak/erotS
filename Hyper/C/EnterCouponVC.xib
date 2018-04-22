@@ -31,7 +31,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="310" height="194"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Coupon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZb-FF-jvK">
-                            <rect key="frame" x="106" y="15" width="99" height="19"/>
+                            <rect key="frame" x="106" y="15" width="99" height="17.5"/>
                             <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="16"/>
                             <color key="textColor" red="0.4979824424" green="0.49807190899999998" blue="0.4979767799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>

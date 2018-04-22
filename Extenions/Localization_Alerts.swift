@@ -36,7 +36,12 @@ enum GetAlertsLocalize {
      case Installment
     case Sign_out
         case remove_From_Cart
-    
+    case in_Processing
+    case shipped
+    case delivered
+    case canceled
+    case confirmed
+    case shipmment_Num
     ///
     case Searching_for_Runner
     case Your_Order_has_been_Pickedup
@@ -156,6 +161,21 @@ enum GetAlertsLocalize {
     func stringValue() -> String {
         switch self {
         //Hyper
+        case .shipmment_Num:
+            return  L102Language.currentAppleLanguage() == "ar" ? "رقم الشحنة : ": "Shippment Num : "
+
+        case .confirmed:
+            return  L102Language.currentAppleLanguage() == "ar" ? "مأكد": "Confirmed"
+
+        case .in_Processing:
+            return  L102Language.currentAppleLanguage() == "ar" ? "قيد التنفيذ": "in Processing"
+        case .shipped:
+            return  L102Language.currentAppleLanguage() == "ar" ? "قيد التوصبل": "Shipped"
+        case .delivered:
+            return  L102Language.currentAppleLanguage() == "ar" ? "مُسلم": "Delivered"
+        case .canceled:
+            return  L102Language.currentAppleLanguage() == "ar" ? "ملغى": "Canceled"
+
         case .Location_Fields_is_Required:
             return  L102Language.currentAppleLanguage() == "ar" ? "حقل نوع المكان مطلوب": "Location Type Field is Requried"
         case .Street_Fields_is_Required:

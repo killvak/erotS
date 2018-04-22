@@ -8,11 +8,22 @@
 
 import UIKit
 
+protocol AddressBookVCProtocol : class  {
+    
+    func fetchaddress(data : Address_Model)
+    
+}
+
+
 class AddressBookVC: UIViewController , UITableViewDelegate , UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
 
     var data : [Address_Model] = [] 
+    
+    var isPickingAddress = false
+    weak var delegate : AddressBookVCProtocol?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +34,17 @@ class AddressBookVC: UIViewController , UITableViewDelegate , UITableViewDataSou
         tableView.rowHeight = 132
         self.setupNav()
         tableView.register(UINib.init(nibName: "AddressCell", bundle: nil), forCellReuseIdentifier: "AddressCell")
-       ad.isLoading()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getData()
+    }
+
+    
+    func getData() {
+        ad.isLoading()
         Post_Requests().getAddress_Request(success: { (rData) in
             DispatchQueue.main.async {
                 self.data = rData
@@ -35,10 +56,11 @@ class AddressBookVC: UIViewController , UITableViewDelegate , UITableViewDataSou
             self.showApiErrorSms(err: err)
         }
     }
-
     @IBAction func addNewAddressBtnHandler(_ sender: UIButton) {
         
-        
+        let vc = EditAddAddressVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,7 +106,18 @@ class AddressBookVC: UIViewController , UITableViewDelegate , UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard isPickingAddress else {
+            
+            let vc = EditAddAddressVC()
+            vc.addressData = self.data[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        
         print(ad.getUserID())
+        
+        delegate?.fetchaddress(data: data[indexPath.row])
+        self.navigationController?.popViewController(animated: true)
     }
 
     /*

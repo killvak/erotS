@@ -280,7 +280,7 @@ class  Post_Requests : Connection {
                 }
                 print(value)
                 let jData = JSON(value)
-                var data : [Product_Data] = []
+                var data = Address_Model(jData)
 
                 success( )
                 break

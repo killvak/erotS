@@ -155,8 +155,12 @@ class Connection: NSObject {
     {
         switch response.result {
         case .success(let value):
-            let ss = value as! [String:Any]
-            print(ss["error"])
+            guard let ss = value as?  [String:Any] else {
+                let errorTemp = NSError(domain:"", code:401, userInfo:[:] as? [String : Any])
+                failure(errorTemp)
+                 return
+            }
+             print(ss["error"])
             let json = JSON(value)
             if let error = json["error"].string , error == "invalid_token"
             {

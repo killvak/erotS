@@ -55,7 +55,7 @@ class EditAddAddressVC: UIViewController  {
     var lat : Double = 0
     var lng : Double = 0
     var areas : [District] = []
-    
+    var addressData : Address_Model?
     @IBAction func backBtnhandler(_ sender: UIButton) {
         self.dismissPushedView()
     }
@@ -79,10 +79,30 @@ class EditAddAddressVC: UIViewController  {
         mapView.delegate = self
 currentLocationButtonAction()
         //        let currentLocationButton = UIBarButtonItem(title: "Current Location", style: UIBarButtonItemStyle.plain, target: self, action: #selector(currentLocationButtonAction(_:)))
-
+ setupAddress()
     }
 
- 
+    func setupAddress() {
+        if let add = addressData {
+            
+            self.firstNameTF.text = add.userData.first_name
+            self.lastNameTF.text = add.userData.last_name
+            self.countryTF.text = add.country_name
+            self.cityTF.text = add.city_name
+            self.areaTF.text = add.area_name
+            self.streetTF.text = add.street_name
+            self.buldingNumTF.text = "\(add.building_num)"
+            self.floorNumTF.text = "\(add.floor_num)"
+            self.apartmentNumTF.text = "\(add.apartment_num)"
+            self.nearetLandMarkTF.text = add.landmark
+            self.locationTypeTF.text = add.location_type
+            self.preferedTimeDelTF.text = add.preferred_time
+            self.mobileNumTF.text = add.mobile
+            self.landLineNumTF.text = add.landline
+            self.shippingNotesTF.text = add.notes
+            
+        }
+    }
     
     @IBAction func saveDataBtnHandler(_ sender: UIButton) {
         
@@ -142,22 +162,28 @@ currentLocationButtonAction()
         "country_name": self.countryTF.text ?? "",
         "notes": self.shippingNotesTF.text ?? "",
         "user_id": ad.getUserID(),
-        "address_id": "9",
         "longitude": self.lng,
         "building_num": 0,
-        "phone_id": "string",
         "area_name": self.areaTF.text ?? "",
-        "mobile": self.mobileNumTF.text ?? ""
+        "mobile": self.mobileNumTF.text ?? "",
+
 
         ]
+        print(addressData?.address_id)
+        if let add = addressData , add.address_id != 0  {
+            parm["address_id"] = add.address_id
+         }
+       
+        
         if let apartN = self.apartmentNumTF.text , !apartN.isBlankOrLessThan(1) , let apartNum = Int(apartN) {
             parm["apartment_num"] = apartNum
          }
         
      
         Post_Requests().addAddress_Request(parms: parm, success: {
-            
-            
+            DispatchQueue.main.async {
+//                self.navigationController?.popViewController(animated: true)
+             }
         }) { (err ) in
             self.showApiErrorSms(err: err )
         }

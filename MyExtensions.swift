@@ -104,6 +104,12 @@ extension UIColor {
     public class  var darkGreen : UIColor {
         return UIColor(rgb: 0x4DAD50)
     }
+    public class  var weirdOrange : UIColor {
+        return UIColor(rgb: 0xFCAF1B)
+    }
+    public class  var defaultPurple : UIColor {
+        return UIColor(rgb: 0x754891)
+    }
 }
 extension UIScrollView {
     

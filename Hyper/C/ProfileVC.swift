@@ -124,7 +124,9 @@ class ProfileVC: FilterViewController , UICollectionViewDelegate , UICollectionV
         let dataa = imgDict[indexPath.row].0
         switch dataa  {
         case L0A.My_Order.stringValue():
-            self.tabBarController?.selectedIndex = 4
+//            self.tabBarController?.selectedIndex = 4
+           
+            self.goToMyOrders()
         case L0A.Edit.stringValue():
             let vc = EditProfileVC()
             self.present(vc, animated: true, completion: nil    )
@@ -159,6 +161,20 @@ class ProfileVC: FilterViewController , UICollectionViewDelegate , UICollectionV
         }
     }
     
+    
+    func goToMyOrders() {
+        
+        Get_Requests().get_User_Orders_List_Request(completion: { (rData ) in
+            
+            DispatchQueue.main.async {
+                let vc = MyOrdersVC()
+                vc.fullData = rData
+                self.navigationController?.pushViewController(vc, animated: true )
+            }
+        }) { (err ) in
+            self.showApiErrorSms(err: err)
+        }
+    }
     
     func share() {
         let shareText = "Hyper Techno"

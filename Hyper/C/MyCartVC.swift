@@ -14,9 +14,14 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var proceedToCheckoutBtn: UIButton!
     @IBOutlet weak var totalPriceLbl: UILabel!
+    @IBOutlet weak var cartEmptyLbl: UILabel!
     
     var cartCdIDs : [Int] = []
-    var data : [Product_Data] = []
+    var data : [Product_Data] = [] {
+        didSet {
+            self.cartEmptyLbl?.alpha = data.count >= 1 ? 0 : 1 
+        }
+    }
     var favCDItems :  [FavCD] = []
     var cartData : [CartCD] = []
     var favItemsIDs : [Int] = []
@@ -130,6 +135,11 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
         cell.mycartVC = self
         cell.removeBtn.tag = indexPath.row
         cell.favBtn.tag = indexPath.row
+        if  self.favItemsIDs.contains(data[indexPath.row].id) {
+            cell.favBtn.setImage(#imageLiteral(resourceName: "ic_fav_active_items"), for: .normal)
+        }else {
+            cell.favBtn.setImage(#imageLiteral(resourceName: "ic_fav_unactive_"), for: .normal)
+        }
         cell.removeBtn.addTarget(self, action: #selector(removeItemFromCart(_:)), for: .touchUpInside)
         cell.favBtn.addTarget(self, action: #selector(addItemToFav(_:)), for: .touchUpInside)
         return cell

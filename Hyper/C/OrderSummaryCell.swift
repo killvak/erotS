@@ -26,8 +26,10 @@ class OrderSummaryCell: UITableViewCell {
     }
     
     func configCell(data:Product_Data) {
+        
          productImg.setupApiImage(imagePath:  data.main_image)
         productTitleLbl.text = data.name
+        quantity.text = "\(data.quantity)"
         
         if data.on_sale {
             price1Lbl.strikeIt(text: data.wholesale_price)

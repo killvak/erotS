@@ -11,7 +11,7 @@ import SkyFloatingLabelTextField
 
 protocol  EnterCouponVCProtocol : class  {
     
-    func applyFilter()
+    func applyFilter(codeNum : String)
 
 }
 
@@ -32,8 +32,13 @@ class EnterCouponVC: UIViewController {
     
     @IBAction func applyBtnHandler(_ sender: UIButtonX) {
         
-        
-        delegate?.applyFilter()
+        guard let code = typeCouponTxtF.text , code.isBlankOrLessThan(4) else
+        {
+            self.showCustomeApiErrorSms(err: L0A.RequiredـField.stringValue())
+        return
+    }
+        delegate?.applyFilter(codeNum: code)
+        self.dismiss(animated: true, completion: nil)
         
     }
     

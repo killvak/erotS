@@ -251,11 +251,9 @@ extension ProductsListVC : UICollectionViewDelegate , UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let vc = EditAddAddressVC()
-        self.navigationController?.pushViewController(vc, animated: true)
-//        let data = self.data[indexPath.row]
-//
-//        self.getItemDetails(id: data.id)
+         let data = self.data[indexPath.row]
+
+        self.getItemDetails(id: data.id)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize

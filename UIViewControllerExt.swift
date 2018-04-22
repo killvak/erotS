@@ -409,6 +409,37 @@ extension UIViewController {
     }
     
     
+    func deletellCartData(success : @escaping ()->(),failed :  @escaping ()->()) {
+        
+         var favItemsIDs : [Int] = []
+        var favRequest : NSFetchRequest<CartCD>?
+        favRequest  = CartCD.fetchRequest()
+        guard let fData = favRequest else {
+            print("🦊🦊🦊🦊🦊")
+            failed()
+            return
+        }
+        
+        do {
+            
+            let recnt = try CoreDataClass.context.fetch(fData)
+
+            print(recnt.count)
+            
+            for x in recnt {
+
+                
+            if  CoreDataClass.deleteCartItem(searchData: x) {
+                 //                sender.setImage(#imageLiteral(resourceName: "ic_fav_unactive_"), for: .normal)
+                
+                CoreDataClass.saveContext()
+            }
+             }
+            success()
+            //            collectionView.reloadData()
+        } catch {failed() }
+        
+     }
     func saveCartCDWithEscapingHandler(id : Int, ids: inout   [Int]  , saved : @escaping ()->  ()  , deleted : @escaping ()->  ()  ) {
         if let data = CoreDataClass.someEntityExistsInCartCD(id: id) {
             
