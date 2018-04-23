@@ -116,9 +116,11 @@ class  Post_Requests : Connection {
         }
     }
     
-    func social_Login(postType:URLS_Post_Enum ,parms : Parameters ,completion:@escaping ( Profile_Details_M ) -> (),failure failed: @escaping (String?)->() ) {
+    func social_Login(postType:Connection.URLS_Post_Enum ,parms : Parameters ,completion:@escaping ( Profile_Details_M ) -> (),failure failed: @escaping (String?)->() ) {
         //http://45.55.134.13/api/v1/places/1/8/20
-        //        print("URL: is getPlacesList URL : \(url) location is  \(ad.currentLocation)")
+                print("URL: is getPlacesList URL : \(postType.stringValue()) ")
+        print("URL: is getPlacesList URL : \(parms) ")
+
         //        print("lat is \(ad.latitude) lon is \(ad.longitude)")
          Alamofire.request(postType.stringValue(), method: .post, parameters: parms,encoding: JSONEncoding.default, headers: Constant.headers).responseJSON {
             response in

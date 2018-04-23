@@ -196,7 +196,11 @@ class MyCartVC: UIViewController  , UITableViewDelegate , UITableViewDataSource 
     
     @IBAction func proceedToCheckoutBtnHandler(_ sender: UIButton) {
         
-        
+        guard ad.isUserLoggedIn() else {
+            let vc = LoginVC()
+            self.present(vc, animated: true, completion: nil)
+            return
+        }
         var items  : [ Any] = []
         for x in data {
             print(x.id , x.quantity)
