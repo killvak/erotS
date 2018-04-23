@@ -66,7 +66,7 @@ class ItemsDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(productData.colors)
         underLineBtnSelection = self.underLineSelectionView.centerXAnchor.constraint(equalTo: self.specBtn.centerXAnchor, constant: 0    )
         underLineBtnSelection?.isActive = true
         

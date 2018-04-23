@@ -306,6 +306,7 @@ class Colors_Data {
     var code : String {
 //        _code.removeFirst()
         print(_code)
+//        UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
         return _code
      }
     
